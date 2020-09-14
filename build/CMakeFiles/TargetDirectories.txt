@@ -1,0 +1,3 @@
+/Users/hlysig/Desktop/ObjectCube/build/CMakeFiles/rebuild_cache.dir
+/Users/hlysig/Desktop/ObjectCube/build/CMakeFiles/edit_cache.dir
+/Users/hlysig/Desktop/ObjectCube/build/CMakeFiles/ObjectCube.dir
