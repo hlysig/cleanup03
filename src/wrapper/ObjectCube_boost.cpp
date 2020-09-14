@@ -262,7 +262,7 @@ struct map_item
 
 //End of STL Container wrapping code
 
-BOOST_PYTHON_MODULE(ObjectCubePython)
+BOOST_PYTHON_MODULE(wrapper)
 {
 
 	//==================================================================================================================================================

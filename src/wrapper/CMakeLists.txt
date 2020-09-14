@@ -41,6 +41,7 @@ set(CMAKE_FIND_LIBRARY_SUFFIXES ".a;.so;.dylib")
 
 ADD_LIBRARY(wrapper SHARED ${Files_CPP})
 TARGET_LINK_LIBRARIES(wrapper -lpqxx -ldl -lpq ${Boost_LIBRARIES} ${Python_LIBRARIES} -lboost_python38-mt core)
+set_target_properties(wrapper PROPERTIES PREFIX "")
 
 #target_link_libraries (helloDemo LINK_PUBLIC Hello)
 
