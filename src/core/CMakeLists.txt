@@ -2,10 +2,13 @@
 ADD_DEFINITIONS( -DOC_POSTGRESQL )
 SET(CMAKE_OSX_ARCHITECTURES x86_64)
 
-SET (CMAKE_CXX_STANDARD 17)
+SET (CMAKE_CXX_STANDARD 11)
 
 find_library(PQXX_LIB pqxx)
 find_library(PQ_LIB pq)
+find_package (Python3 COMPONENTS Interpreter Development)
+
+MESSAGE(${Python3_INCLUDE_DIRS})
 
 if(NOT PQXX_LIB)
   message(FATAL_ERROR "pqxx library not found")
@@ -15,9 +18,9 @@ if(NOT PQ_LIB)
   message(FATAL_ERROR "pg library not found")
 endif()
 
-set(PQXX /usr/local/include/pqxx)
-include_directories("/usr/local/include")
-link_directories("/usr/local/lib")
+#set(PQXX /usr/local/include/pqxx)
+#include_directories("/usr/local/include")
+#link_directories("/usr/local/lib")
 
 #file(MAKE_DIRECTORY /usr/local/ObjectCube )
 #file(MAKE_DIRECTORY /usr/local/ObjectCube/plugin )

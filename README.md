@@ -1,3 +1,14 @@
+
+## Build
+
+```
+mkdir build; cd $_
+cmake ../
+make
+```
+
+
+
 ## Setup on mac
 
 ```
