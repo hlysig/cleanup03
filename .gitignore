@@ -1,6 +1,9 @@
+*.pyc
 .DS_Store
 .cproject
 .monetdb
 .project
+.venv
 .vscode
+__pycache__
 build/

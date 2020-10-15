@@ -18,4 +18,3 @@ ADD_LIBRARY(wrapper SHARED ${Files_CPP})
 
 TARGET_LINK_LIBRARIES(wrapper -ldl -lpython3.8 -lboost_regex -lboost_python38 core)
 set_target_properties(wrapper PROPERTIES PREFIX "")
-
