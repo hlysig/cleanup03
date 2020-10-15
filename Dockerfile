@@ -10,6 +10,8 @@ RUN apt-get install -y cmake \
     libpqxx-dev \
     libpq-dev \
     python3 \
+    python3-venv \
+    python3-dev \
     libboost-all-dev
 
 ADD src src
@@ -20,5 +22,4 @@ RUN make objectcube
 RUN make api
 
 EXPOSE 5000
-
 CMD src/api/bin/run.sh
