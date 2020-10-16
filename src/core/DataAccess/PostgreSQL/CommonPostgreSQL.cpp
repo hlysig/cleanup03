@@ -31,7 +31,7 @@ bool CommonPostgreSQL::connected_ = false;
 
 CommonPostgreSQL::CommonPostgreSQL()
 {
-	host_ = "127.0.0.1";
+	host_ = "db";
 	port_ = "5432";
 	database_ = "RGB10000";
 	user_ =  "object";
@@ -138,9 +138,7 @@ void CommonPostgreSQL::connectToDb_()
 	{
 		stringstream sstream;
 		sstream << "dbname = " << database_ << " user = " << user_ << " password =  " << password_ << " hostaddr = " << host_ << " port = " << port_;
-		string connectionString = sstream.str();
-		//connection_ = new connection(connectionString);
-		connection_ = new pqxx::connection("dbname = objectcube user = object password = object hostaddr = 127.0.0.1 port = 5432");
+		connection_ = new pqxx::connection("dbname = objectcube user = object password = object host = db port = 5432");
 		trans_ = new pqxx::nontransaction(*connection_);
 		
 		connected_ = true;	

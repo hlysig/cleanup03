@@ -1,22 +1,20 @@
-import sys
-sys.path.insert(0, "../../../build/src/wrapper/")
-
-import wrapper
 from flask import Flask, jsonify
-
-hub = wrapper.Hub.getHub()
+from oc import OC
 
 app = Flask(__name__)
 
 
+
+
 @app.route("/tagsets")
 def get_tagsets():
+    oc = OC()
     res = list(map(lambda x: {
         "id": x.id,
         "name": x.name,
         "type": x.typeAsString(),
         "type_id": x.typeId,
-    }, [t for t in hub.getTagSets()]))
+    }, [t for t in oc.get_hub().getTagSets()]))
     return jsonify(res)
 
 if __name__ == "__main__":
