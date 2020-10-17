@@ -138,7 +138,7 @@ void CommonPostgreSQL::connectToDb_()
 	{
 		stringstream sstream;
 		sstream << "dbname = " << database_ << " user = " << user_ << " password =  " << password_ << " hostaddr = " << host_ << " port = " << port_;
-		connection_ = new pqxx::connection("dbname = objectcube user = object password = object host = db port = 5432");
+		connection_ = new pqxx::connection("dbname = objectcube user = object password = object host = ocdb port = 5432");
 		trans_ = new pqxx::nontransaction(*connection_);
 		
 		connected_ = true;	

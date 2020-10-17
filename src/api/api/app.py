@@ -4,8 +4,6 @@ from oc import OC
 app = Flask(__name__)
 
 
-
-
 @app.route("/tagsets")
 def get_tagsets():
     oc = OC()
@@ -16,6 +14,7 @@ def get_tagsets():
         "type_id": x.typeId,
     }, [t for t in oc.get_hub().getTagSets()]))
     return jsonify(res)
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
