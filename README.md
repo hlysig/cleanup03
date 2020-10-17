@@ -10,7 +10,9 @@ make compose
 make compose-up
 ```
 
-This starts two containers, with objectcube and PostgreSQL. ObjectCube api is exposed on port 5000 and PostgreSQL on port 5432.
+Two containers will be started, one with objectcube (core, wrapper and web API)
+and another with PostgreSQL. Web API is exposed on port 5000 and PostgreSQL on
+port 5432.
 
 
 ## Local development setup
