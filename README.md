@@ -25,7 +25,7 @@ development.
 ```
 apt update && apt upgrade
 
-apt install -y cmake \
+sudo apt install -y cmake \
   build-essential \
   libpqxx-dev \
   libpq-dev \
