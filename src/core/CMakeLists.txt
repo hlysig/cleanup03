@@ -1,13 +1,22 @@
 ADD_DEFINITIONS( -DOC_POSTGRESQL )
 SET(CMAKE_OSX_ARCHITECTURES x86_64)
 
-SET (CMAKE_CXX_STANDARD 11)
+if (APPLE)
+    SET (CMAKE_CXX_STANDARD 17)
+else()
+    SET (CMAKE_CXX_STANDARD 11)
+endif()
 
 find_library(PQXX_LIB pqxx)
 find_library(PQ_LIB pq)
 find_package (Python3 COMPONENTS Interpreter Development)
 
 MESSAGE(${Python3_INCLUDE_DIRS})
+
+if (APPLE)
+    include_directories("/usr/local/include" ${Python3_INCLUDE_DIRS})
+    link_directories("/usr/local/lib") 
+endif()
 
 if(NOT PQXX_LIB)
   message(FATAL_ERROR "pqxx library not found")
