@@ -1,5 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.16.3)
 project(objectcube)
 #set(CMAKE_VERBOSE_MAKEFILE ON)
-add_subdirectory (src/core)
-add_subdirectory (src/wrapper)
+#add_subdirectory (src/core)
+#add_subdirectory (src/wrapper)
+add_subdirectory (src/core/server)

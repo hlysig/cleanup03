@@ -1,0 +1,23 @@
+
+syntax = "proto3";
+
+package OC;
+
+message Tag {
+	int64 id = 1;
+	int64 tagSetId = 2;
+	int64 typeId = 3;
+	string name = 4;
+}
+
+message GetTagRequest {
+	int64 id = 1;
+}
+
+message GetTagResponse {
+	Tag tag = 1;
+}
+
+service OCService {
+	rpc getTag(GetTagRequest) returns (GetTagResponse) {};
+}
