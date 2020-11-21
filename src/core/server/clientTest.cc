@@ -17,36 +17,34 @@ public:
 
   // Assembles the client's payload, sends it and presents the response back
   // from the server.
-  std::string GetTag(const int id) {
+  OC::GetTagResponse *GetTag(const int id) {
     // Data we are sending to the server.
     OC::GetTagRequest request;
     request.set_id(id);
 
     // Container for the data we expect from the server.
-    OC::GetTagResponse reply;
+    OC::GetTagResponse *reply = new OC::GetTagResponse();
 
     // Context for the client. It could be used to convey extra information to
     // the server and/or tweak certain RPC behaviors.
     ClientContext context;
 
     // The actual RPC.
-    Status status = stub_->getTag(&context, request, &reply);
+    Status status = stub_->getTag(&context, request, reply);
 
     // Act upon its status.
     if (status.ok()) {
-      return reply.tag().name();
+      return reply;
     } else {
       std::cout << status.error_code() << ": " << status.error_message()
                 << std::endl;
-      return "RPC failed";
+      exit(0);
     }
   }
 
 private:
   std::unique_ptr<OCService::Stub> stub_;
 };
-
-
 
 int main(int argc, char** argv) {
   // Instantiate the client. It requires a channel, out of which the actual RPCs
@@ -76,9 +74,11 @@ int main(int argc, char** argv) {
   }
   OCTestClient tester(grpc::CreateChannel(
       target_str, grpc::InsecureChannelCredentials()));
-  int id = 1;
-  std::string reply = tester.GetTag(id);
-  std::cout << "Tester received: " << reply << std::endl;
+  int id = 34;
+  OC::GetTagResponse *reply = tester.GetTag(id);
+  std::cout << "Tester received: "
+	    << reply->tag().id() << ", " << reply->tag().name()
+	    << std::endl;
 
   return 0;
 }

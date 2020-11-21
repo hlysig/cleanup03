@@ -21,7 +21,7 @@ public:
 		GetTagResponse* reply) override {
     //Tag *tag = this->hub.getTag(request->id);
     ObjectCube::Tag *tag = new ObjectCube::Tag(request->id(), 2, 3, "Hello!");
-    reply = convert::TagToProto(tag);
+    reply->set_allocated_tag(convert::TagToProto(tag));
     return Status::OK;
   }
 };

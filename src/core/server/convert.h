@@ -1,6 +1,6 @@
 #include <string>
-
-#include "../proto/OC.pb.h"
+#include <grpcpp/grpcpp.h>
+#include "OC.pb.h"
 
 using namespace std;
 
@@ -24,12 +24,18 @@ namespace ObjectCube
       typeId = _typeId;
       name = _name;
     }
+
+    void print() {
+      std::cout << "Tag("
+		<< id << ", " << tagSetId << ", " << typeId << ", " << name
+		<< ");" << std::endl;
+    }
   };
 }
 
 class convert {
 
 public:
-  static OC::GetTagResponse *TagToProto(ObjectCube::Tag *t);
+  static OC::Tag *TagToProto(ObjectCube::Tag *t);
 
 };
