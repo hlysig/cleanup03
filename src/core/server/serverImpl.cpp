@@ -1,19 +1,26 @@
+#include <grpcpp/grpcpp.h>
+#include <grpcpp/health_check_service_interface.h>
+#include <grpcpp/ext/proto_server_reflection_plugin.h>
+
 #include "../proto/OC.pb.h"
 #include "../proto/OC.grpc.pb.h"
 #include "convert.h"
 
-using namespace grpc;
 using namespace OC;
+using namespace grpc;
 
-class OCServiceImpl final : public OC::OCService {
+class OCServiceImpl final : public OCService::Service
+{
+public:
   //Hub *hub;
   //OCServiceImpl(Hub *_hub) { hub = _hub; }
+  OCServiceImpl() {};
   
   Status getTag(ServerContext* context,
 		const GetTagRequest* request,
 		GetTagResponse* reply) override {
     //Tag *tag = this->hub.getTag(request->id);
-    Tag *tag = new Tag(request->id(), 2, 3, "Hello!");
+    ObjectCube::Tag *tag = new ObjectCube::Tag(request->id(), 2, 3, "Hello!");
     reply = convert::TagToProto(tag);
     return Status::OK;
   }
