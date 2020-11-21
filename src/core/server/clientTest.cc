@@ -2,38 +2,51 @@
 #include <memory>
 #include <string>
 
+#include <grpcpp/grpcpp.h>
+#include "OC.grpc.pb.h"
+
+using grpc::Channel;
+using grpc::ClientContext;
+using grpc::Status;
+using OC::OCService;
+
 class OCTestClient {
 public:
   OCTestClient(std::shared_ptr<Channel> channel)
-      : stub_(Service::NewStub(channel)) {}
+    : stub_(OCService::NewStub(channel)) {}
 
   // Assembles the client's payload, sends it and presents the response back
   // from the server.
   std::string GetTag(const int id) {
     // Data we are sending to the server.
-    GetTagRequest request;
+    OC::GetTagRequest request;
     request.set_id(id);
 
     // Container for the data we expect from the server.
-    GetTagResponse reply;
+    OC::GetTagResponse reply;
 
     // Context for the client. It could be used to convey extra information to
     // the server and/or tweak certain RPC behaviors.
     ClientContext context;
 
     // The actual RPC.
-    Status status = stub_->GetTag(&context, request, &reply);
+    Status status = stub_->getTag(&context, request, &reply);
 
     // Act upon its status.
     if (status.ok()) {
-      return reply.name();
+      return reply.tag().name();
     } else {
       std::cout << status.error_code() << ": " << status.error_message()
                 << std::endl;
       return "RPC failed";
     }
   }
+
+private:
+  std::unique_ptr<OCService::Stub> stub_;
 };
+
+
 
 int main(int argc, char** argv) {
   // Instantiate the client. It requires a channel, out of which the actual RPCs

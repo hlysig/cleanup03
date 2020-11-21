@@ -3,7 +3,7 @@ GRPC_CPP_PLUGIN = grpc_cpp_plugin
 GRPC_CPP_PLUGIN_PATH ?= `which $(GRPC_CPP_PLUGIN)`
 
 PROTOS_PATH = .
-OUT_PATH = ../core/proto
+OUT_PATH = ../core/server
 
 OUTS = $(OUT_PATH)/OC.pb.cc 
 
