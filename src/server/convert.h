@@ -1,9 +1,13 @@
 #include <string>
 #include <grpcpp/grpcpp.h>
 #include "OC.pb.h"
+#include "../core/Hub.h"
+#include "../core/LayerShared/TagCommon.h"
+#include "../core/Tag/Tag.h"
 
 using namespace std;
 
+/*
 namespace ObjectCube
 {
   class Tag {
@@ -32,10 +36,11 @@ namespace ObjectCube
     }
   };
 }
+*/
 
 class convert {
 
 public:
-  static OC::Tag *TagToProto(ObjectCube::Tag *t);
+  static OC::Tag *TagToProto(const ObjectCube::Tag *t);
 
 };

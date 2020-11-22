@@ -77,7 +77,7 @@ int main(int argc, char** argv) {
   int id = 34;
   OC::GetTagResponse *reply = tester.GetTag(id);
   std::cout << "Tester received: "
-	    << reply->tag().id() << ", " << reply->tag().name()
+	    << reply->tag().id() << ", " << reply->tag().tagsetid()
 	    << std::endl;
 
   return 0;

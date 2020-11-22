@@ -2,9 +2,12 @@
 #include <grpcpp/health_check_service_interface.h>
 #include <grpcpp/ext/proto_server_reflection_plugin.h>
 
-#include "../proto/OC.pb.h"
-#include "../proto/OC.grpc.pb.h"
+#include "OC.pb.h"
+#include "OC.grpc.pb.h"
 #include "convert.h"
+
+#include "../core/Hub.h"
+
 
 using namespace OC;
 using namespace grpc;
@@ -12,15 +15,14 @@ using namespace grpc;
 class OCServiceImpl final : public OCService::Service
 {
 public:
-  //Hub *hub;
-  //OCServiceImpl(Hub *_hub) { hub = _hub; }
-  OCServiceImpl() {};
+  ObjectCube::Hub *hub;
+  OCServiceImpl(ObjectCube::Hub *_hub) { hub = _hub; }
   
   Status getTag(ServerContext* context,
 		const GetTagRequest* request,
 		GetTagResponse* reply) override {
     //Tag *tag = this->hub.getTag(request->id);
-    ObjectCube::Tag *tag = new ObjectCube::Tag(request->id(), 2, 3, "Hello!");
+    const ObjectCube::Tag *tag = hub->getTag(request->id());
     reply->set_allocated_tag(convert::TagToProto(tag));
     return Status::OK;
   }
@@ -29,7 +31,8 @@ public:
 
 void RunServer() {
   std::string server_address("0.0.0.0:26026");
-  OCServiceImpl service;
+  ObjectCube::Hub *hub = ObjectCube::Hub::getHub();
+  OCServiceImpl service(hub);
 
   grpc::EnableDefaultHealthCheckService(true);
   grpc::reflection::InitProtoReflectionServerBuilderPlugin();

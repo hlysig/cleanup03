@@ -46,7 +46,7 @@ set(_GRPC_GRPCPP gRPC::grpc++)
 find_program(_GRPC_CPP_PLUGIN_EXECUTABLE grpc_cpp_plugin)
 
 # Proto file
-get_filename_component(hw_proto "../../proto/OC.proto" ABSOLUTE)
+get_filename_component(hw_proto "../proto/OC.proto" ABSOLUTE)
 get_filename_component(hw_proto_path "${hw_proto}" PATH)
 
 # Generated sources
@@ -68,6 +68,7 @@ add_custom_command(
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
 FILE(GLOB FILES_cc convert.cc)
+SET(_CORE ../core/cmake/build/libcore)
 
 # Targets serverImpl clientTest
 foreach(_target clientTest serverImpl)
@@ -77,7 +78,8 @@ foreach(_target clientTest serverImpl)
   target_link_libraries(${_target}
     ${_REFLECTION}
     ${_GRPC_GRPCPP}
-    ${_PROTOBUF_LIBPROTOBUF})
+    ${_PROTOBUF_LIBPROTOBUF}
+    ${_CORE})
 endforeach()
 
 
