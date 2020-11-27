@@ -10,7 +10,7 @@ database-docker:
 	docker build -t ocdb -f database/Dockerfile ./database
 
 start-database-docker: database-docker
-	docker run -d -p 5432:5432 ocdb:latest
+	docker run -d -p 5433:5432 ocdb:latest
 
 compose:
 	docker-compose build

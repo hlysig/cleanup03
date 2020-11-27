@@ -11,6 +11,6 @@ OC::Tag *convert::TagToProto(const ObjectCube::Tag *t)
   reply->set_id(t->getId());
   reply->set_tagsetid(t->getTagSetId());
   reply->set_typeid_(t->getTypeId());
-  //reply->set_name(t->getName());
+  //std::cout << "Tag name: " << t->getName() << std::endl;
   return reply;
 }

@@ -18,8 +18,7 @@
 # that automatically builds all the dependencies before building helloworld.
 
 cmake_minimum_required(VERSION 3.5.1)
-
-project(OC-gRPC C CXX)
+project(MADS-gRPC C CXX)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fvisibility=default")
 SET(CMAKE_OSX_ARCHITECTURES x86_64)
@@ -68,13 +67,19 @@ add_custom_command(
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
 FILE(GLOB FILES_cc convert.cc)
-SET(_CORE ../core/cmake/build/libcore)
+get_filename_component(hw_core "../../lib/libcore.dylib" ABSOLUTE)
+get_filename_component(hw_core_path "${hw_core}" PATH)
+SET(_CORE core)
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/../../../../bin)
 
 # Targets serverImpl clientTest
 foreach(_target clientTest serverImpl)
   add_executable(${_target} "${_target}.cc"
     ${hw_proto_srcs}
     ${hw_grpc_srcs} ${FILES_cc})
+  target_link_directories(${_target} PUBLIC
+    ${hw_core_path})
   target_link_libraries(${_target}
     ${_REFLECTION}
     ${_GRPC_GRPCPP}
