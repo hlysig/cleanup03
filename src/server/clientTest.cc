@@ -74,7 +74,7 @@ int main(int argc, char** argv) {
   }
   OCTestClient tester(grpc::CreateChannel(
       target_str, grpc::InsecureChannelCredentials()));
-  int id = 34;
+  int id = 1;
   OC::GetTagResponse *reply = tester.GetTag(id);
   std::cout << "Tester received: "
 	    << reply->tag().id() << ", " << reply->tag().tagsetid()

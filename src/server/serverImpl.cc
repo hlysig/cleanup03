@@ -30,7 +30,7 @@ public:
 
 
 void RunServer() {
-  std::string server_address("0.0.0.0:26026");
+  std::string server_address("localhost:26026");
   ObjectCube::Hub *hub = ObjectCube::Hub::getHub();
   OCServiceImpl service(hub);
 
