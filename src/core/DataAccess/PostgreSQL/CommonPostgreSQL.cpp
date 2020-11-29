@@ -2,16 +2,18 @@
 * Snorri G�slason - 2018
 */
 
+
 #ifdef OC_POSTGRESQL
 
 #include "CommonPostgreSQL.h"
 
-#include <sstream>
 #include <memory>
 #include <iomanip>
 #include <stdio.h>
-#include <string.h>
-#include <iostream> //for debug
+#include <string>
+#include <iostream>
+#include <cstdlib>
+#include <iostream>
 
 #include "../../LayerShared/Exception.h"
 #include "../../LayerShared/Parameters.h"
@@ -19,6 +21,13 @@
 
 using namespace ObjectCube;
 using namespace std;
+
+#define OC_DB "MADS_DB"
+#define OC_USER "MADS_USER"
+#define OC_PASS "MADS_PASS"
+#define OC_HOST "MADS_HOST"
+#define OC_PORT "MADS_PORT"
+
 
 //____________________________________________________________________________________________________________________________________________________________________________________
 
@@ -31,11 +40,6 @@ bool CommonPostgreSQL::connected_ = false;
 
 CommonPostgreSQL::CommonPostgreSQL()
 {
-	host_ = "db";
-	port_ = "5433";
-	database_ = "RGB10000";
-	user_ =  "object";
-	password_ = "object";
 }
 
 
@@ -134,15 +138,25 @@ int CommonPostgreSQL::getMaxValue( const string& table, const string& column )
 
 void CommonPostgreSQL::connectToDb_()
 {
-	if( !connected_ )
-	{
-		stringstream sstream;
-		sstream << "dbname = " << database_ << " user = " << user_ << " password =  " << password_ << " hostaddr = " << host_ << " port = " << port_;
-		connection_ = new pqxx::connection("dbname = objectcube user = object password = object host = 127.0.0.1 port = 5433");
-		trans_ = new pqxx::nontransaction(*connection_);
-		
-		connected_ = true;	
-	}
+  if( !connected_ ) {
+    host_ = std::getenv(OC_HOST);
+    port_ = std::getenv(OC_PORT);
+    user_ = std::getenv(OC_USER);
+    password_ = std::getenv(OC_PASS);
+    database_ = std::getenv(OC_DB);
+
+    string conn =
+      " dbname = " + database_ +
+      " user = " + user_ +
+      " password = " + password_ +
+      " host = " + host_ +
+      " port = " + port_;
+    std::cout << "Connection string: " << conn << std::endl;
+    connection_ = new pqxx::connection(conn);
+    trans_ = new pqxx::nontransaction(*connection_);
+    
+    connected_ = true;	
+  }
 }
 
 
