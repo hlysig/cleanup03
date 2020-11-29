@@ -26,6 +26,21 @@ public:
     reply->set_allocated_tag(convert::TagToProto(tag));
     return Status::OK;
   }
+
+  Status reConnectDB(ServerContext *context,
+		     const Empty* request,
+		     Empty *reply) override {
+    delete(hub);
+    hub = ObjectCube::Hub::getHub();
+    return Status::OK;
+  }
+
+  Status stopService(ServerContext *context,
+		     const Empty* request,
+		     Empty *reply) override {
+    std::cout << "Server halted" << std::endl;
+    exit(0);
+  }
 };
 
 

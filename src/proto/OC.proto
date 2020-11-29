@@ -49,6 +49,12 @@ message GetTagResponse {
 	Tag tag = 1;
 }
 
+message Empty {
+}
+
 service OCService {
 	rpc getTag(GetTagRequest) returns (GetTagResponse) {};
+
+	rpc reConnectDB(Empty) returns (Empty) {};
+	rpc stopService(Empty) returns (Empty) {};
 }

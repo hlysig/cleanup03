@@ -15,8 +15,7 @@ public:
   OCTestClient(std::shared_ptr<Channel> channel)
     : stub_(OCService::NewStub(channel)) {}
 
-  // Assembles the client's payload, sends it and presents the response back
-  // from the server.
+  // Assembles the client's payload, sends it and presents the response back from the server.
   OC::GetTagResponse *GetTag(const int id) {
     // Data we are sending to the server.
     OC::GetTagRequest request;
@@ -42,7 +41,50 @@ public:
     }
   }
 
-private:
+  // Assembles the client's payload, sends it and presents the response back from the server.
+  void ReConnectDB() {
+    // Data we are sending to the server.
+    OC::Empty request;
+
+    // Container for the data we expect from the server.
+    OC::Empty *reply = new OC::Empty();
+
+    // Context for the client. It could be used to convey extra information to
+    // the server and/or tweak certain RPC behaviors.
+    ClientContext context;
+
+    // The actual RPC.
+    Status status = stub_->reConnectDB(&context, request, reply);
+
+      // Act upon its status.
+    if (status.ok()) {
+      return;
+    } else {
+      std::cout << status.error_code() << ": " << status.error_message() << std::endl;
+      exit(0);
+    }
+  }
+
+  // Assembles the client's payload, sends it and presents the response back from the server.
+  void StopService() {
+    // Data we are sending to the server.
+    OC::Empty request;
+
+    // Container for the data we expect from the server.
+    OC::Empty *reply = new OC::Empty();
+
+    // Context for the client. It could be used to convey extra information to
+    // the server and/or tweak certain RPC behaviors.
+    ClientContext context;
+
+    // The actual RPC.
+    Status status = stub_->stopService(&context, request, reply);
+
+    // Should get an error back, we can ignore it
+    return;
+  }
+  
+  private:
   std::unique_ptr<OCService::Stub> stub_;
 };
 
@@ -52,33 +94,38 @@ int main(int argc, char** argv) {
   // the argument "--target=" which is the only expected argument.
   // We indicate that the channel isn't authenticated (use of
   // InsecureChannelCredentials()).
-  std::string target_str;
-  std::string arg_str("--target");
-  if (argc > 1) {
-    std::string arg_val = argv[1];
-    size_t start_pos = arg_val.find(arg_str);
-    if (start_pos != std::string::npos) {
-      start_pos += arg_str.size();
-      if (arg_val[start_pos] == '=') {
-        target_str = arg_val.substr(start_pos + 1);
-      } else {
-        std::cout << "The only correct argument syntax is --target=" << std::endl;
-        return 0;
-      }
-    } else {
-      std::cout << "The only acceptable argument is --target=" << std::endl;
-      return 0;
-    }
-  } else {
-    target_str = "localhost:26026";
-  }
+  std::string target_str = "localhost:26026";
   OCTestClient tester(grpc::CreateChannel(
       target_str, grpc::InsecureChannelCredentials()));
-  int id = 1;
-  OC::GetTagResponse *reply = tester.GetTag(id);
-  std::cout << "Tester received: "
-	    << reply->tag().id() << ", " << reply->tag().tagsetid()
-	    << std::endl;
+
+  std::string input;
+  while (std::cin >> input) {
+    if (input == "tag") {
+      int id;
+      std::cin >> id;
+      OC::GetTagResponse *reply = tester.GetTag(id);
+      std::cout << "Received: "
+		<< reply->tag().id() << ", " << reply->tag().tagsetid()
+		<< std::endl;
+    } else if (input == "tagset") {
+      //      int id;
+      //      cin >> id;
+      //      OC::GetTagSetResponse *reply = tester.GetTagSet(id);
+      //      std::cout << "Received: "
+      //		<< reply->tagSet().id() << ", " << reply->tagSet().tagsetid()
+      //		<< std::endl;
+      std::cout << "Not yet implemented" << std::endl;
+    } else if (input == "reconnect") {
+      tester.ReConnectDB();
+    } else if (input == "stop") {
+      tester.StopService();
+      return 0;
+    } else if (input == "exit") {
+      return 0;
+    } else {
+      std::cout << "Unknown command: " << input << std::endl;
+    }
+  }
 
   return 0;
 }
