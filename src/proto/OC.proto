@@ -55,6 +55,7 @@ message Empty {
 service OCService {
 	rpc getTag(GetTagRequest) returns (GetTagResponse) {};
 
+	// Future functionality
 	rpc reConnectDB(Empty) returns (Empty) {};
 	rpc stopService(Empty) returns (Empty) {};
 }

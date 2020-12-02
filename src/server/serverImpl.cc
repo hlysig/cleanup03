@@ -30,8 +30,7 @@ public:
   Status reConnectDB(ServerContext *context,
 		     const Empty* request,
 		     Empty *reply) override {
-    delete(hub);
-    hub = ObjectCube::Hub::getHub();
+    std::cout << "Server reset (not implemented)" << std::endl;
     return Status::OK;
   }
 
@@ -42,7 +41,6 @@ public:
     exit(0);
   }
 };
-
 
 void RunServer() {
   std::string server_address("localhost:26026");
