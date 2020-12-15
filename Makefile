@@ -1,14 +1,19 @@
 .DEFAULT_GOAL := default
 
-update-proto:
-	./scripts/update-proto.sh
+bootstrap-api:
+	./scripts/boostrap-api.sh
 
-default: update-proto
+update-proto-core:
+	./scripts/update-core-proto.sh
+
+update-api-proto: bootstrap-api
+	./scripts/update-api-proto.sh
+
+core: update-proto-core
 	mkdir -p build
 	cd build; cmake ..; make
 
-api:
-	cd src/api; make bootstrap
+api: update-api-proto
 
 database-docker:
 	docker build -t ocdb -f database/Dockerfile ./database
