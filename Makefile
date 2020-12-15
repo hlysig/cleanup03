@@ -1,7 +1,11 @@
-objectcube:
+.DEFAULT_GOAL := default
+
+update-proto:
+	./scripts/update-proto.sh
+
+default: update-proto
 	mkdir -p build
 	cd build; cmake ..; make
-	cp build/src/wrapper/wrapper.dylib build/src/wrapper/wrapper.so 2>/dev/null || :
 
 api:
 	cd src/api; make bootstrap

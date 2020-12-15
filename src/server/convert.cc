@@ -1,6 +1,6 @@
 #include <string>
 
-#include "cmake/build/OC.pb.h"
+#include "../proto/OC.pb.h"
 #include "convert.h"
 
 using namespace std;

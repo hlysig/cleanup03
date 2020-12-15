@@ -20,6 +20,11 @@ port 5432.
 This section describe setup instructions for dependencies for local
 development.
 
+## osx
+
+brew install libpqxx
+brew install libpq
+
 ## Ubuntu Linux
 
 ```
