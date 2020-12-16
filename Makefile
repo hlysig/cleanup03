@@ -28,6 +28,6 @@ compose: base-docker-image
 	docker-compose build
 
 compose-up:
-	docker-compose --env-file scripts/env up
+	docker-compose --env-file scripts/dockerenv up
 
 all: objectcube api database-docker

@@ -20,12 +20,4 @@ services:
       - "26026:26026"
     links:
       - ocdb
-  api:
-    network_mode: bridge
-    build:
-      context: .
-      dockerfile: Dockerfile_api
-    ports:
-      - "5000:5000"
-    links:
-      - core
+
