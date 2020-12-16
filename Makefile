@@ -15,16 +15,19 @@ core: update-proto-core
 
 api: update-api-proto
 
+base-docker-image:
+	docker build -t grpc_base -f Dockerfile_base .
+
 database-docker:
 	docker build -t ocdb -f database/Dockerfile ./database
 
 start-database-docker: database-docker
 	docker run -d -p 5433:5432 ocdb:latest
 
-compose:
+compose: base-docker-image
 	docker-compose build
 
 compose-up:
-	docker-compose up
+	docker-compose --env-file scripts/env up
 
 all: objectcube api database-docker

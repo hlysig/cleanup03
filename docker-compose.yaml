@@ -10,12 +10,22 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5432:5432"
+  core:
+    network_mode: bridge
+    hostname: core
+    build:
+      context: .
+      dockerfile: Dockerfile_core
+    ports:
+      - "26026:26026"
+    links:
+      - ocdb
   api:
     network_mode: bridge
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_api
     ports:
       - "5000:5000"
     links:
-      - ocdb
+      - core
