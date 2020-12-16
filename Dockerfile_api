@@ -7,7 +7,7 @@ ADD scripts scripts
 ADD CMakeLists.txt CMakeLists.txt
 ADD Makefile Makefile
 
-#RUN make api
-#
-#EXPOSE 5000
-#CMD ["scripts/start-api.sh"]
+RUN make api
+
+EXPOSE 5000
+CMD ["scripts/start-api.sh"]
