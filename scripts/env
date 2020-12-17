@@ -1,5 +1,0 @@
-MADS_DB=objectcube
-MADS_USER=object
-MADS_PASS=object
-MADS_HOST=127.0.0.1
-MADS_PORT=5433
