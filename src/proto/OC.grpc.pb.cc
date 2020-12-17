@@ -40,19 +40,19 @@ OCService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   {}
 
 ::grpc::Status OCService::Stub::getTag(::grpc::ClientContext* context, const ::OC::GetTagRequest& request, ::OC::GetTagResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTag_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::OC::GetTagRequest, ::OC::GetTagResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_getTag_, context, request, response);
 }
 
 void OCService::Stub::experimental_async::getTag(::grpc::ClientContext* context, const ::OC::GetTagRequest* request, ::OC::GetTagResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getTag_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::OC::GetTagRequest, ::OC::GetTagResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTag_, context, request, response, std::move(f));
 }
 
 void OCService::Stub::experimental_async::getTag(::grpc::ClientContext* context, const ::OC::GetTagRequest* request, ::OC::GetTagResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getTag_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTag_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::OC::GetTagResponse>* OCService::Stub::PrepareAsyncgetTagRaw(::grpc::ClientContext* context, const ::OC::GetTagRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::OC::GetTagResponse>::Create(channel_.get(), cq, rpcmethod_getTag_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::OC::GetTagResponse, ::OC::GetTagRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_getTag_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::OC::GetTagResponse>* OCService::Stub::AsyncgetTagRaw(::grpc::ClientContext* context, const ::OC::GetTagRequest& request, ::grpc::CompletionQueue* cq) {
@@ -63,19 +63,19 @@ void OCService::Stub::experimental_async::getTag(::grpc::ClientContext* context,
 }
 
 ::grpc::Status OCService::Stub::reConnectDB(::grpc::ClientContext* context, const ::OC::Empty& request, ::OC::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_reConnectDB_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::OC::Empty, ::OC::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_reConnectDB_, context, request, response);
 }
 
 void OCService::Stub::experimental_async::reConnectDB(::grpc::ClientContext* context, const ::OC::Empty* request, ::OC::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_reConnectDB_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::OC::Empty, ::OC::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_reConnectDB_, context, request, response, std::move(f));
 }
 
 void OCService::Stub::experimental_async::reConnectDB(::grpc::ClientContext* context, const ::OC::Empty* request, ::OC::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_reConnectDB_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_reConnectDB_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::OC::Empty>* OCService::Stub::PrepareAsyncreConnectDBRaw(::grpc::ClientContext* context, const ::OC::Empty& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::OC::Empty>::Create(channel_.get(), cq, rpcmethod_reConnectDB_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::OC::Empty, ::OC::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_reConnectDB_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::OC::Empty>* OCService::Stub::AsyncreConnectDBRaw(::grpc::ClientContext* context, const ::OC::Empty& request, ::grpc::CompletionQueue* cq) {
@@ -86,19 +86,19 @@ void OCService::Stub::experimental_async::reConnectDB(::grpc::ClientContext* con
 }
 
 ::grpc::Status OCService::Stub::stopService(::grpc::ClientContext* context, const ::OC::Empty& request, ::OC::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_stopService_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::OC::Empty, ::OC::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_stopService_, context, request, response);
 }
 
 void OCService::Stub::experimental_async::stopService(::grpc::ClientContext* context, const ::OC::Empty* request, ::OC::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_stopService_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::OC::Empty, ::OC::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_stopService_, context, request, response, std::move(f));
 }
 
 void OCService::Stub::experimental_async::stopService(::grpc::ClientContext* context, const ::OC::Empty* request, ::OC::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_stopService_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_stopService_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::OC::Empty>* OCService::Stub::PrepareAsyncstopServiceRaw(::grpc::ClientContext* context, const ::OC::Empty& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::OC::Empty>::Create(channel_.get(), cq, rpcmethod_stopService_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::OC::Empty, ::OC::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_stopService_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::OC::Empty>* OCService::Stub::AsyncstopServiceRaw(::grpc::ClientContext* context, const ::OC::Empty& request, ::grpc::CompletionQueue* cq) {
@@ -112,7 +112,7 @@ OCService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       OCService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::GetTagRequest, ::OC::GetTagResponse>(
+      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::GetTagRequest, ::OC::GetTagResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](OCService::Service* service,
              ::grpc::ServerContext* ctx,
              const ::OC::GetTagRequest* req,
@@ -122,7 +122,7 @@ OCService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       OCService_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::Empty, ::OC::Empty>(
+      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::Empty, ::OC::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](OCService::Service* service,
              ::grpc::ServerContext* ctx,
              const ::OC::Empty* req,
@@ -132,7 +132,7 @@ OCService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       OCService_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::Empty, ::OC::Empty>(
+      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::Empty, ::OC::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](OCService::Service* service,
              ::grpc::ServerContext* ctx,
              const ::OC::Empty* req,

@@ -6,7 +6,7 @@ import json
 from google.protobuf.json_format import MessageToJson
 
 
-class ObjectCubeClient:
+class MADSClient:
     def __init__(self, grpc_host='core', grpc_port=26026):
         self.grpc_channel = grpc.insecure_channel('localhost:26026')
         self.grpc_stub = OC_pb2_grpc.OCServiceStub(self.grpc_channel)

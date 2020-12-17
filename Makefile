@@ -1,28 +1,35 @@
-.DEFAULT_GOAL := default
+.DEFAULT_GOAL := all
 
-bootstrap-api:
-	./scripts/boostrap-api.sh
-
-update-proto-core:
+core:
 	./scripts/update-core-proto.sh
-
-update-api-proto: bootstrap-api
-	./scripts/update-api-proto.sh
-
-core: update-proto-core
 	mkdir -p build
 	cd build; cmake ..; make
 
-api: update-api-proto
+api:
+	./scripts/boostrap-api.sh
+	./scripts/update-api-proto.sh
 
-base-docker-image:
-	docker build -t grpc_base -f Dockerfile_base .
+clean:
+	rm -rf build
+	rm -rf src/api/.venv
 
-database-docker:
+start-api: api
+	src/api/.venv/bin/python src/api/api/wsgi.py
+
+base-build-image:
+	docker build -t hlysig/mads-grpc-builder:version1.0 -f Dockerfile_base .
+
+push-build-image:
+	docker push hlysig/mads-grpc-builder:version1.0
+
+database-image:
 	docker build -t ocdb -f database/Dockerfile ./database
 
-start-database-docker: database-docker
+start-database: database-image
 	docker run -d -p 5433:5432 ocdb:latest
+
+start-api: api
+	src/api/.venv/bin/python src/api/api/wsgi.py
 
 compose: base-docker-image
 	docker-compose build
@@ -30,4 +37,4 @@ compose: base-docker-image
 compose-up:
 	docker-compose --env-file scripts/dockerenv up
 
-all: objectcube api database-docker
+all: core api
