@@ -28,13 +28,4 @@ database-image:
 start-database: database-image
 	docker run -d -p 5433:5432 ocdb:latest
 
-start-api: api
-	src/api/.venv/bin/python src/api/api/wsgi.py
-
-compose: base-docker-image
-	docker-compose build
-
-compose-up:
-	docker-compose --env-file scripts/dockerenv up
-
 all: core api

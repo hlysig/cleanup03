@@ -8,7 +8,7 @@ from google.protobuf.json_format import MessageToJson
 
 class MADSClient:
     def __init__(self, grpc_host='core', grpc_port=26026):
-        self.grpc_channel = grpc.insecure_channel('localhost:26026')
+        self.grpc_channel = grpc.insecure_channel('127.0.0.1:26026')
         self.grpc_stub = OC_pb2_grpc.OCServiceStub(self.grpc_channel)
 
     def get_tag(self, tag_id):
