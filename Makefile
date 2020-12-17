@@ -17,7 +17,7 @@ start-api: api
 	src/api/.venv/bin/python src/api/api/wsgi.py
 
 base-build-image:
-	docker build -t hlysig/mads-grpc-builder:version1.0 -f Dockerfile_base .
+	docker build -t hlysig/mads-grpc-builder:version1.0 -f containers/Dockerfile_base .
 
 push-build-image:
 	docker push hlysig/mads-grpc-builder:version1.0

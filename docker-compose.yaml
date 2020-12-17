@@ -21,7 +21,7 @@ services:
       - MADS_PORT=5432
     build:
       context: .
-      dockerfile: Dockerfile_core
+      dockerfile: containers/Dockerfile_core
     ports:
       - "26026:26026"
     links:
