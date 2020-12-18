@@ -1,21 +1,35 @@
-objectcube:
-	mkdir -p build
-	cd build; cmake ..; make
-	cp build/src/wrapper/wrapper.dylib build/src/wrapper/wrapper.so 2>/dev/null || :
+.DEFAULT_GOAL := all
 
 api:
-	cd src/api; make bootstrap
+	./scripts/boostrap-api.sh
 
-database-docker:
+update-proto-api: api
+	./scripts/update-api-proto.sh
+
+start-api: api
+	src/api/.venv/bin/python src/api/api/wsgi.py
+
+core:
+	mkdir -p build
+	cd build; cmake ..; make
+
+update-proto-core:
+	./scripts/update-core-proto.sh
+
+base-build-image:
+	docker build -t hlysig/mads-grpc-builder:version1.0 -f containers/Dockerfile_base .
+
+push-build-image:
+	docker push hlysig/mads-grpc-builder:version1.0
+
+database-image:
 	docker build -t ocdb -f database/Dockerfile ./database
 
-start-database-docker: database-docker
-	docker run -d -p 5432:5432 ocdb:latest
+start-database: database-image
+	docker run -d -p 5433:5432 ocdb:latest
 
-compose:
-	docker-compose build
+all: core api
 
-compose-up:
-	docker-compose up
-
-all: objectcube api database-docker
+clean:
+	rm -rf build
+	rm -rf src/api/.venv

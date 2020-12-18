@@ -1,0 +1,13 @@
+FROM hlysig/mads-grpc-builder:version1.0
+
+WORKDIR /objectcube
+
+ADD src src
+ADD scripts scripts
+ADD CMakeLists.txt CMakeLists.txt
+ADD Makefile Makefile
+RUN make core
+
+EXPOSE 26026
+
+CMD ["build/bin/server"]

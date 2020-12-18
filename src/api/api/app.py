@@ -1,19 +1,30 @@
 from flask import Flask, jsonify
-from oc import OC
+from client import MADSClient
 
 app = Flask(__name__)
+client = MADSClient()
 
 
-@app.route("/tagsets")
+@app.route('/tagset')
 def get_tagsets():
-    oc = OC()
-    res = list(map(lambda x: {
-        "id": x.id,
-        "name": x.name,
-        "type": x.typeAsString(),
-        "type_id": x.typeId,
-    }, [t for t in oc.get_hub().getTagSets()]))
-    return jsonify(res)
+    resp = client.get_tagsets()
+    return jsonify(resp)
+
+@app.route('/tagset/<int:tagset_id>')
+def get_tagset(tagset_id):
+    resp = client.get_tagset(tagset_id)
+    return jsonify(resp)
+
+@app.route('/tag')
+def get_tags():
+    resp = client.get_tags()
+    return jsonify(resp)
+
+@app.route('/tag/<int:tag_id>')
+def get_tag(tag_id):
+    resp = client.get_tag(tag_id)
+    return jsonify(resp)
+
 
 
 if __name__ == "__main__":

@@ -1,48 +1,58 @@
-# objectcube
+# MADS
+...
 
-## Setup
+## Project dependencies
+To build MADS you need to install the following libraries and tools.
 
-- Install Docker (https://www.docker.com/get-started)
-- Install Docker Compose (https://docs.docker.com/compose/install/)
+- [cmake](https://cmake.org/)
+- [libpq](https://github.com/postgres/postgres/tree/master/src/interfaces/libpq)
+- [libpqxx](https://github.com/jtv/libpqxx)
+- [python3](https://www.python.org/)
+- [gRPC](https://grpc.io/docs/languages/cpp/quickstart/)
 
-```
-make compose
-make compose-up
-```
-
-Two containers will be started, one with objectcube (core, wrapper and web API)
-and another with PostgreSQL. Web API is exposed on port 5000 and PostgreSQL on
-port 5432.
-
-
-## Local development setup
-
-This section describe setup instructions for dependencies for local
-development.
-
-## Ubuntu Linux
+### Install instructions for Ubuntu Linux
 
 ```
-apt update && apt upgrade
-
-sudo apt install -y cmake \
+apt-get install -y cmake \
   build-essential \
   libpqxx-dev \
   libpq-dev \
   python3 \
   python3-venv \
   python3-dev \
-  libboost-all-dev
+  cmake \
+  autoconf \
+  libtool \
+  pkg-config
 ```
 
-Setup virtual Environment for API
+For gRPC we refer to the [official
+documentation](https://grpc.io/docs/languages/cpp/quickstart/) for installing
+libgrpc and protoc.
+
+
+### Install instructions for OSX
 
 ```
-make api
+brew install autoconf \
+  automake \
+  libtool \
+  pkg-config \
+  libpq \
+  libpqxx \
+  zlib \
+  pyenv
 ```
 
-Build objectcube and objectcube Python wrapper.
+There are many ways to obtain Python, but here we use pyenv. Use approach that
+suites you the best.
 
 ```
-make objectcube
+pyenv install 3.8.5
+pyenv global 3.8.5
 ```
+
+For gRPC we refer to the [official
+documentation](https://grpc.io/docs/languages/cpp/quickstart/) for installing
+libgrpc and protoc.
+

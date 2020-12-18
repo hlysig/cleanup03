@@ -1,8 +1,8 @@
 version: "2"
 services:
-  ocdb:
+  madsdb:
     network_mode: bridge
-    hostname: ob-db
+    hostname: madsdb
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
     build:
@@ -10,12 +10,20 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5432:5432"
-  api:
+  madscore:
     network_mode: bridge
+    hostname: madscore
+    environment:
+      - MADS_DB=objectcube
+      - MADS_USER=object
+      - MADS_PASS=object
+      - MADS_HOST=madsdb
+      - MADS_PORT=5432
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: containers/Dockerfile_core
     ports:
-      - "5000:5000"
+      - "26026:26026"
     links:
-      - ocdb
+      - madsdb
+
