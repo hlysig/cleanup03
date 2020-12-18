@@ -1,20 +1,20 @@
 .DEFAULT_GOAL := all
 
-core:
-	./scripts/update-core-proto.sh
-	mkdir -p build
-	cd build; cmake ..; make
-
 api:
 	./scripts/boostrap-api.sh
-	./scripts/update-api-proto.sh
 
-clean:
-	rm -rf build
-	rm -rf src/api/.venv
+update-proto-api: api
+	./scripts/update-api-proto.sh
 
 start-api: api
 	src/api/.venv/bin/python src/api/api/wsgi.py
+
+core:
+	mkdir -p build
+	cd build; cmake ..; make
+
+update-proto-core:
+	./scripts/update-core-proto.sh
 
 base-build-image:
 	docker build -t hlysig/mads-grpc-builder:version1.0 -f containers/Dockerfile_base .
@@ -29,3 +29,7 @@ start-database: database-image
 	docker run -d -p 5433:5432 ocdb:latest
 
 all: core api
+
+clean:
+	rm -rf build
+	rm -rf src/api/.venv

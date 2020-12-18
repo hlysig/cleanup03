@@ -1,46 +1,33 @@
+#ifndef MADS_GRPC_CONVERT
+#define MADS_GRPC_CONVERT
+
 #include <string>
 #include <grpcpp/grpcpp.h>
 #include "OC.pb.h"
-#include "../core/Hub.h"
-#include "../core/LayerShared/TagCommon.h"
 #include "../core/Tag/Tag.h"
+#include "../core/TagSet/TagSet.h"
 
 using namespace std;
 
-/*
-namespace ObjectCube
-{
-  class Tag {
-  public:
-    int id;
-    int tagSetId;
-    int typeId;
-    string name;
-    
-    int getId() { return id; }
-    int getTagSetId() { return tagSetId; }
-    int getTypeId() { return typeId; }
-    string getName() { return name; }
 
-    Tag(int _id, int _tagSetId, int _typeId, string _name) {
-      id = _id;
-      tagSetId = _tagSetId;
-      typeId = _typeId;
-      name = _name;
-    }
-
-    void print() {
-      std::cout << "Tag("
-		<< id << ", " << tagSetId << ", " << typeId << ", " << name
-		<< ");" << std::endl;
-    }
-  };
-}
-*/
-
-class convert {
+// Interface class for conversion between protobuf and OC service
+class Converter {
+public:
+  virtual ~Converter() {};
 
 public:
-  static OC::Tag *TagToProto(const ObjectCube::Tag *t);
-
+  virtual OC::TagSet *TagSetToProto(const ObjectCube::TagSet *in, OC::TagSet *out = NULL) = 0;
+  virtual OC::Tag *TagToProto(const ObjectCube::Tag *in, OC::Tag *out = NULL) = 0;
 };
+
+
+// Implentation class for conversion between protobuf and OC service
+class MADS_gRPC_converter : public Converter {
+  ~MADS_gRPC_converter() {};
+
+public:
+  OC::TagSet *TagSetToProto(const ObjectCube::TagSet *in, OC::TagSet *out = NULL);
+  OC::Tag *TagToProto(const ObjectCube::Tag *in, OC::Tag *out = NULL);
+};
+
+#endif

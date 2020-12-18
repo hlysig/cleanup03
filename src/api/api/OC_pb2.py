@@ -19,24 +19,52 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x08OC.proto\x12\x02OC\"!\n\x11\x41lphanumericalTag\x12\x0c\n\x04name\x18\x01 \x01(\t\"3\n\x07\x44\x61teTag\x12\x0c\n\x04year\x18\x01 \x01(\r\x12\r\n\x05month\x18\x02 \x01(\r\x12\x0b\n\x03\x64\x61y\x18\x03 \x01(\r\"P\n\x07TimeTag\x12\r\n\x05hours\x18\x01 \x01(\r\x12\x0f\n\x07minutes\x18\x02 \x01(\r\x12\x0f\n\x07seconds\x18\x03 \x01(\r\x12\x14\n\x0cmilliseconds\x18\x04 \x01(\r\"\x1e\n\x0cNumericalTag\x12\x0e\n\x06number\x18\x01 \x01(\x03\"\x16\n\x06RGBTag\x12\x0c\n\x04name\x18\x01 \x01(\t\"\xdf\x01\n\x03Tag\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x10\n\x08tagSetId\x18\x02 \x01(\x03\x12\x0e\n\x06typeId\x18\x03 \x01(\x03\x12&\n\x05\x61lpha\x18\x04 \x01(\x0b\x32\x15.OC.AlphanumericalTagH\x00\x12\x1b\n\x04\x64\x61te\x18\x05 \x01(\x0b\x32\x0b.OC.DateTagH\x00\x12\x1b\n\x04time\x18\x06 \x01(\x0b\x32\x0b.OC.TimeTagH\x00\x12\"\n\x06number\x18\x07 \x01(\x0b\x32\x10.OC.NumericalTagH\x00\x12\x19\n\x03RGB\x18\x08 \x01(\x0b\x32\n.OC.RGBTagH\x00\x42\t\n\x07payload\"\x1b\n\rGetTagRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"&\n\x0eGetTagResponse\x12\x14\n\x03tag\x18\x01 \x01(\x0b\x32\x07.OC.Tag\"\x07\n\x05\x45mpty2\x8c\x01\n\tOCService\x12\x31\n\x06getTag\x12\x11.OC.GetTagRequest\x1a\x12.OC.GetTagResponse\"\x00\x12%\n\x0breConnectDB\x12\t.OC.Empty\x1a\t.OC.Empty\"\x00\x12%\n\x0bstopService\x12\t.OC.Empty\x1a\t.OC.Empty\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x08OC.proto\x12\x02OC\"Y\n\x06TagSet\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0e\n\x06typeId\x18\x04 \x01(\x03\x12\x10\n\x08\x61\x63\x63\x65ssId\x18\x05 \x01(\x03\"\x1e\n\x10GetTagSetRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"/\n\x11GetTagSetResponse\x12\x1a\n\x06tagset\x18\x01 \x01(\x0b\x32\n.OC.TagSet\"\x13\n\x11GetTagSetsRequest\"1\n\x12GetTagSetsResponse\x12\x1b\n\x07tagsets\x18\x01 \x03(\x0b\x32\n.OC.TagSet\"E\n\x10PutTagSetRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0e\n\x06typeId\x18\x03 \x01(\t\"/\n\x11PutTagSetResponse\x12\x1a\n\x06tagset\x18\x01 \x01(\x0b\x32\n.OC.TagSet\"A\n\x03Tag\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x10\n\x08tagSetId\x18\x02 \x01(\x03\x12\x0e\n\x06typeId\x18\x03 \x01(\x03\x12\x0c\n\x04name\x18\x04 \x01(\t\"\x1b\n\rGetTagRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"&\n\x0eGetTagResponse\x12\x14\n\x03tag\x18\x01 \x01(\x0b\x32\x07.OC.Tag\"\x10\n\x0eGetTagsRequest\"(\n\x0fGetTagsResponse\x12\x15\n\x04tags\x18\x01 \x03(\x0b\x32\x07.OC.Tag\"/\n\rPutTagRequest\x12\x10\n\x08tagSetId\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\"&\n\x0ePutTagResponse\x12\x14\n\x03tag\x18\x01 \x01(\x0b\x32\x07.OC.Tag\"\x07\n\x05\x45mpty2\xf0\x02\n\tOCService\x12=\n\ngetTagSets\x12\x15.OC.GetTagSetsRequest\x1a\x16.OC.GetTagSetsResponse\"\x00\x12:\n\tgetTagSet\x12\x14.OC.GetTagSetRequest\x1a\x15.OC.GetTagSetResponse\"\x00\x12\x34\n\x07getTags\x12\x12.OC.GetTagsRequest\x1a\x13.OC.GetTagsResponse\"\x00\x12\x31\n\x06getTag\x12\x11.OC.GetTagRequest\x1a\x12.OC.GetTagResponse\"\x00\x12\x31\n\x06putTag\x12\x11.OC.PutTagRequest\x1a\x12.OC.PutTagResponse\"\x00\x12%\n\x0breConnectDB\x12\t.OC.Empty\x1a\t.OC.Empty\"\x00\x12%\n\x0bstopService\x12\t.OC.Empty\x1a\t.OC.Empty\"\x00\x62\x06proto3'
 )
 
 
 
 
-_ALPHANUMERICALTAG = _descriptor.Descriptor(
-  name='AlphanumericalTag',
-  full_name='OC.AlphanumericalTag',
+_TAGSET = _descriptor.Descriptor(
+  name='TagSet',
+  full_name='OC.TagSet',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='OC.AlphanumericalTag.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
+      name='id', full_name='OC.TagSet.id', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='OC.TagSet.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='description', full_name='OC.TagSet.description', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='typeId', full_name='OC.TagSet.typeId', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='accessId', full_name='OC.TagSet.accessId', index=4,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -53,119 +81,20 @@ _ALPHANUMERICALTAG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=16,
-  serialized_end=49,
+  serialized_end=105,
 )
 
 
-_DATETAG = _descriptor.Descriptor(
-  name='DateTag',
-  full_name='OC.DateTag',
+_GETTAGSETREQUEST = _descriptor.Descriptor(
+  name='GetTagSetRequest',
+  full_name='OC.GetTagSetRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='year', full_name='OC.DateTag.year', index=0,
-      number=1, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='month', full_name='OC.DateTag.month', index=1,
-      number=2, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='day', full_name='OC.DateTag.day', index=2,
-      number=3, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=51,
-  serialized_end=102,
-)
-
-
-_TIMETAG = _descriptor.Descriptor(
-  name='TimeTag',
-  full_name='OC.TimeTag',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='hours', full_name='OC.TimeTag.hours', index=0,
-      number=1, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='minutes', full_name='OC.TimeTag.minutes', index=1,
-      number=2, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='seconds', full_name='OC.TimeTag.seconds', index=2,
-      number=3, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='milliseconds', full_name='OC.TimeTag.milliseconds', index=3,
-      number=4, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=104,
-  serialized_end=184,
-)
-
-
-_NUMERICALTAG = _descriptor.Descriptor(
-  name='NumericalTag',
-  full_name='OC.NumericalTag',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='number', full_name='OC.NumericalTag.number', index=0,
+      name='id', full_name='OC.GetTagSetRequest.id', index=0,
       number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -183,22 +112,125 @@ _NUMERICALTAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=186,
-  serialized_end=216,
+  serialized_start=107,
+  serialized_end=137,
 )
 
 
-_RGBTAG = _descriptor.Descriptor(
-  name='RGBTag',
-  full_name='OC.RGBTag',
+_GETTAGSETRESPONSE = _descriptor.Descriptor(
+  name='GetTagSetResponse',
+  full_name='OC.GetTagSetResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='OC.RGBTag.name', index=0,
+      name='tagset', full_name='OC.GetTagSetResponse.tagset', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=139,
+  serialized_end=186,
+)
+
+
+_GETTAGSETSREQUEST = _descriptor.Descriptor(
+  name='GetTagSetsRequest',
+  full_name='OC.GetTagSetsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=188,
+  serialized_end=207,
+)
+
+
+_GETTAGSETSRESPONSE = _descriptor.Descriptor(
+  name='GetTagSetsResponse',
+  full_name='OC.GetTagSetsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tagsets', full_name='OC.GetTagSetsResponse.tagsets', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=209,
+  serialized_end=258,
+)
+
+
+_PUTTAGSETREQUEST = _descriptor.Descriptor(
+  name='PutTagSetRequest',
+  full_name='OC.PutTagSetRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='OC.PutTagSetRequest.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='description', full_name='OC.PutTagSetRequest.description', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='typeId', full_name='OC.PutTagSetRequest.typeId', index=2,
+      number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -215,8 +247,40 @@ _RGBTAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=218,
-  serialized_end=240,
+  serialized_start=260,
+  serialized_end=329,
+)
+
+
+_PUTTAGSETRESPONSE = _descriptor.Descriptor(
+  name='PutTagSetResponse',
+  full_name='OC.PutTagSetResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tagset', full_name='OC.PutTagSetResponse.tagset', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=331,
+  serialized_end=378,
 )
 
 
@@ -250,37 +314,9 @@ _TAG = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='alpha', full_name='OC.Tag.alpha', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='date', full_name='OC.Tag.date', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='time', full_name='OC.Tag.time', index=5,
-      number=6, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='number', full_name='OC.Tag.number', index=6,
-      number=7, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='RGB', full_name='OC.Tag.RGB', index=7,
-      number=8, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='name', full_name='OC.Tag.name', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -295,14 +331,9 @@ _TAG = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
-    _descriptor.OneofDescriptor(
-      name='payload', full_name='OC.Tag.payload',
-      index=0, containing_type=None,
-      create_key=_descriptor._internal_create_key,
-    fields=[]),
   ],
-  serialized_start=243,
-  serialized_end=466,
+  serialized_start=380,
+  serialized_end=445,
 )
 
 
@@ -333,8 +364,8 @@ _GETTAGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=468,
-  serialized_end=495,
+  serialized_start=447,
+  serialized_end=474,
 )
 
 
@@ -365,8 +396,136 @@ _GETTAGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=497,
-  serialized_end=535,
+  serialized_start=476,
+  serialized_end=514,
+)
+
+
+_GETTAGSREQUEST = _descriptor.Descriptor(
+  name='GetTagsRequest',
+  full_name='OC.GetTagsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=516,
+  serialized_end=532,
+)
+
+
+_GETTAGSRESPONSE = _descriptor.Descriptor(
+  name='GetTagsResponse',
+  full_name='OC.GetTagsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tags', full_name='OC.GetTagsResponse.tags', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=534,
+  serialized_end=574,
+)
+
+
+_PUTTAGREQUEST = _descriptor.Descriptor(
+  name='PutTagRequest',
+  full_name='OC.PutTagRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tagSetId', full_name='OC.PutTagRequest.tagSetId', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='OC.PutTagRequest.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=576,
+  serialized_end=623,
+)
+
+
+_PUTTAGRESPONSE = _descriptor.Descriptor(
+  name='PutTagResponse',
+  full_name='OC.PutTagResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tag', full_name='OC.PutTagResponse.tag', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=625,
+  serialized_end=663,
 )
 
 
@@ -390,76 +549,81 @@ _EMPTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=537,
-  serialized_end=544,
+  serialized_start=665,
+  serialized_end=672,
 )
 
-_TAG.fields_by_name['alpha'].message_type = _ALPHANUMERICALTAG
-_TAG.fields_by_name['date'].message_type = _DATETAG
-_TAG.fields_by_name['time'].message_type = _TIMETAG
-_TAG.fields_by_name['number'].message_type = _NUMERICALTAG
-_TAG.fields_by_name['RGB'].message_type = _RGBTAG
-_TAG.oneofs_by_name['payload'].fields.append(
-  _TAG.fields_by_name['alpha'])
-_TAG.fields_by_name['alpha'].containing_oneof = _TAG.oneofs_by_name['payload']
-_TAG.oneofs_by_name['payload'].fields.append(
-  _TAG.fields_by_name['date'])
-_TAG.fields_by_name['date'].containing_oneof = _TAG.oneofs_by_name['payload']
-_TAG.oneofs_by_name['payload'].fields.append(
-  _TAG.fields_by_name['time'])
-_TAG.fields_by_name['time'].containing_oneof = _TAG.oneofs_by_name['payload']
-_TAG.oneofs_by_name['payload'].fields.append(
-  _TAG.fields_by_name['number'])
-_TAG.fields_by_name['number'].containing_oneof = _TAG.oneofs_by_name['payload']
-_TAG.oneofs_by_name['payload'].fields.append(
-  _TAG.fields_by_name['RGB'])
-_TAG.fields_by_name['RGB'].containing_oneof = _TAG.oneofs_by_name['payload']
+_GETTAGSETRESPONSE.fields_by_name['tagset'].message_type = _TAGSET
+_GETTAGSETSRESPONSE.fields_by_name['tagsets'].message_type = _TAGSET
+_PUTTAGSETRESPONSE.fields_by_name['tagset'].message_type = _TAGSET
 _GETTAGRESPONSE.fields_by_name['tag'].message_type = _TAG
-DESCRIPTOR.message_types_by_name['AlphanumericalTag'] = _ALPHANUMERICALTAG
-DESCRIPTOR.message_types_by_name['DateTag'] = _DATETAG
-DESCRIPTOR.message_types_by_name['TimeTag'] = _TIMETAG
-DESCRIPTOR.message_types_by_name['NumericalTag'] = _NUMERICALTAG
-DESCRIPTOR.message_types_by_name['RGBTag'] = _RGBTAG
+_GETTAGSRESPONSE.fields_by_name['tags'].message_type = _TAG
+_PUTTAGRESPONSE.fields_by_name['tag'].message_type = _TAG
+DESCRIPTOR.message_types_by_name['TagSet'] = _TAGSET
+DESCRIPTOR.message_types_by_name['GetTagSetRequest'] = _GETTAGSETREQUEST
+DESCRIPTOR.message_types_by_name['GetTagSetResponse'] = _GETTAGSETRESPONSE
+DESCRIPTOR.message_types_by_name['GetTagSetsRequest'] = _GETTAGSETSREQUEST
+DESCRIPTOR.message_types_by_name['GetTagSetsResponse'] = _GETTAGSETSRESPONSE
+DESCRIPTOR.message_types_by_name['PutTagSetRequest'] = _PUTTAGSETREQUEST
+DESCRIPTOR.message_types_by_name['PutTagSetResponse'] = _PUTTAGSETRESPONSE
 DESCRIPTOR.message_types_by_name['Tag'] = _TAG
 DESCRIPTOR.message_types_by_name['GetTagRequest'] = _GETTAGREQUEST
 DESCRIPTOR.message_types_by_name['GetTagResponse'] = _GETTAGRESPONSE
+DESCRIPTOR.message_types_by_name['GetTagsRequest'] = _GETTAGSREQUEST
+DESCRIPTOR.message_types_by_name['GetTagsResponse'] = _GETTAGSRESPONSE
+DESCRIPTOR.message_types_by_name['PutTagRequest'] = _PUTTAGREQUEST
+DESCRIPTOR.message_types_by_name['PutTagResponse'] = _PUTTAGRESPONSE
 DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-AlphanumericalTag = _reflection.GeneratedProtocolMessageType('AlphanumericalTag', (_message.Message,), {
-  'DESCRIPTOR' : _ALPHANUMERICALTAG,
+TagSet = _reflection.GeneratedProtocolMessageType('TagSet', (_message.Message,), {
+  'DESCRIPTOR' : _TAGSET,
   '__module__' : 'OC_pb2'
-  # @@protoc_insertion_point(class_scope:OC.AlphanumericalTag)
+  # @@protoc_insertion_point(class_scope:OC.TagSet)
   })
-_sym_db.RegisterMessage(AlphanumericalTag)
+_sym_db.RegisterMessage(TagSet)
 
-DateTag = _reflection.GeneratedProtocolMessageType('DateTag', (_message.Message,), {
-  'DESCRIPTOR' : _DATETAG,
+GetTagSetRequest = _reflection.GeneratedProtocolMessageType('GetTagSetRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGSETREQUEST,
   '__module__' : 'OC_pb2'
-  # @@protoc_insertion_point(class_scope:OC.DateTag)
+  # @@protoc_insertion_point(class_scope:OC.GetTagSetRequest)
   })
-_sym_db.RegisterMessage(DateTag)
+_sym_db.RegisterMessage(GetTagSetRequest)
 
-TimeTag = _reflection.GeneratedProtocolMessageType('TimeTag', (_message.Message,), {
-  'DESCRIPTOR' : _TIMETAG,
+GetTagSetResponse = _reflection.GeneratedProtocolMessageType('GetTagSetResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGSETRESPONSE,
   '__module__' : 'OC_pb2'
-  # @@protoc_insertion_point(class_scope:OC.TimeTag)
+  # @@protoc_insertion_point(class_scope:OC.GetTagSetResponse)
   })
-_sym_db.RegisterMessage(TimeTag)
+_sym_db.RegisterMessage(GetTagSetResponse)
 
-NumericalTag = _reflection.GeneratedProtocolMessageType('NumericalTag', (_message.Message,), {
-  'DESCRIPTOR' : _NUMERICALTAG,
+GetTagSetsRequest = _reflection.GeneratedProtocolMessageType('GetTagSetsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGSETSREQUEST,
   '__module__' : 'OC_pb2'
-  # @@protoc_insertion_point(class_scope:OC.NumericalTag)
+  # @@protoc_insertion_point(class_scope:OC.GetTagSetsRequest)
   })
-_sym_db.RegisterMessage(NumericalTag)
+_sym_db.RegisterMessage(GetTagSetsRequest)
 
-RGBTag = _reflection.GeneratedProtocolMessageType('RGBTag', (_message.Message,), {
-  'DESCRIPTOR' : _RGBTAG,
+GetTagSetsResponse = _reflection.GeneratedProtocolMessageType('GetTagSetsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGSETSRESPONSE,
   '__module__' : 'OC_pb2'
-  # @@protoc_insertion_point(class_scope:OC.RGBTag)
+  # @@protoc_insertion_point(class_scope:OC.GetTagSetsResponse)
   })
-_sym_db.RegisterMessage(RGBTag)
+_sym_db.RegisterMessage(GetTagSetsResponse)
+
+PutTagSetRequest = _reflection.GeneratedProtocolMessageType('PutTagSetRequest', (_message.Message,), {
+  'DESCRIPTOR' : _PUTTAGSETREQUEST,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.PutTagSetRequest)
+  })
+_sym_db.RegisterMessage(PutTagSetRequest)
+
+PutTagSetResponse = _reflection.GeneratedProtocolMessageType('PutTagSetResponse', (_message.Message,), {
+  'DESCRIPTOR' : _PUTTAGSETRESPONSE,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.PutTagSetResponse)
+  })
+_sym_db.RegisterMessage(PutTagSetResponse)
 
 Tag = _reflection.GeneratedProtocolMessageType('Tag', (_message.Message,), {
   'DESCRIPTOR' : _TAG,
@@ -482,6 +646,34 @@ GetTagResponse = _reflection.GeneratedProtocolMessageType('GetTagResponse', (_me
   })
 _sym_db.RegisterMessage(GetTagResponse)
 
+GetTagsRequest = _reflection.GeneratedProtocolMessageType('GetTagsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGSREQUEST,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.GetTagsRequest)
+  })
+_sym_db.RegisterMessage(GetTagsRequest)
+
+GetTagsResponse = _reflection.GeneratedProtocolMessageType('GetTagsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGSRESPONSE,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.GetTagsResponse)
+  })
+_sym_db.RegisterMessage(GetTagsResponse)
+
+PutTagRequest = _reflection.GeneratedProtocolMessageType('PutTagRequest', (_message.Message,), {
+  'DESCRIPTOR' : _PUTTAGREQUEST,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.PutTagRequest)
+  })
+_sym_db.RegisterMessage(PutTagRequest)
+
+PutTagResponse = _reflection.GeneratedProtocolMessageType('PutTagResponse', (_message.Message,), {
+  'DESCRIPTOR' : _PUTTAGRESPONSE,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.PutTagResponse)
+  })
+_sym_db.RegisterMessage(PutTagResponse)
+
 Empty = _reflection.GeneratedProtocolMessageType('Empty', (_message.Message,), {
   'DESCRIPTOR' : _EMPTY,
   '__module__' : 'OC_pb2'
@@ -498,13 +690,43 @@ _OCSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=547,
-  serialized_end=687,
+  serialized_start=675,
+  serialized_end=1043,
   methods=[
+  _descriptor.MethodDescriptor(
+    name='getTagSets',
+    full_name='OC.OCService.getTagSets',
+    index=0,
+    containing_service=None,
+    input_type=_GETTAGSETSREQUEST,
+    output_type=_GETTAGSETSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getTagSet',
+    full_name='OC.OCService.getTagSet',
+    index=1,
+    containing_service=None,
+    input_type=_GETTAGSETREQUEST,
+    output_type=_GETTAGSETRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getTags',
+    full_name='OC.OCService.getTags',
+    index=2,
+    containing_service=None,
+    input_type=_GETTAGSREQUEST,
+    output_type=_GETTAGSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
   _descriptor.MethodDescriptor(
     name='getTag',
     full_name='OC.OCService.getTag',
-    index=0,
+    index=3,
     containing_service=None,
     input_type=_GETTAGREQUEST,
     output_type=_GETTAGRESPONSE,
@@ -512,9 +734,19 @@ _OCSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='putTag',
+    full_name='OC.OCService.putTag',
+    index=4,
+    containing_service=None,
+    input_type=_PUTTAGREQUEST,
+    output_type=_PUTTAGRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='reConnectDB',
     full_name='OC.OCService.reConnectDB',
-    index=1,
+    index=5,
     containing_service=None,
     input_type=_EMPTY,
     output_type=_EMPTY,
@@ -524,7 +756,7 @@ _OCSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='stopService',
     full_name='OC.OCService.stopService',
-    index=2,
+    index=6,
     containing_service=None,
     input_type=_EMPTY,
     output_type=_EMPTY,

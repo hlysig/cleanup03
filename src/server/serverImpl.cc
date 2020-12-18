@@ -14,16 +14,60 @@ using namespace grpc;
 
 class OCServiceImpl final : public OCService::Service
 {
-public:
+private:
   ObjectCube::Hub *hub;
-  OCServiceImpl(ObjectCube::Hub *_hub) { hub = _hub; }
-  
+  Converter *converter;
+
+public:
+  OCServiceImpl(ObjectCube::Hub *_hub, Converter *_converter) {
+    hub = _hub;
+    converter = _converter;
+  }
+
+  Status getTagSets(ServerContext* context,
+                    const GetTagSetsRequest* request,
+                    GetTagSetsResponse* reply) override {
+    const vector<ObjectCube::TagSet *>tagsets = hub->getTagSets();
+    for (auto tagset = tagsets.begin(); tagset != tagsets.end(); ++tagset) {
+      OC::TagSet* protoTagSet = reply->add_tagsets();
+      converter->TagSetToProto(*tagset, protoTagSet);
+    }
+    return Status::OK;
+  }
+
+  Status getTagSet(ServerContext* context,
+                   const GetTagSetRequest* request,
+                   GetTagSetResponse* reply) override {
+    const ObjectCube::TagSet *tagset = hub->getTagSet(request->id());
+    reply->set_allocated_tagset(converter->TagSetToProto(tagset));
+    return Status::OK;
+  }
+
+  Status getTags(ServerContext* context,
+                 const GetTagsRequest* request,
+                 GetTagsResponse* reply) override {
+    const vector<ObjectCube::Tag *>tags = hub->getAllTags();
+    for (auto tag = tags.begin(); tag != tags.end(); ++tag) {
+      OC::Tag* protoTag = reply->add_tags();
+      converter->TagToProto(*tag, protoTag);
+    }
+    return Status::OK;
+  }
+
   Status getTag(ServerContext* context,
-		const GetTagRequest* request,
-		GetTagResponse* reply) override {
-    //Tag *tag = this->hub.getTag(request->id);
+                const GetTagRequest* request,
+                GetTagResponse* reply) override {
     const ObjectCube::Tag *tag = hub->getTag(request->id());
-    reply->set_allocated_tag(convert::TagToProto(tag));
+    reply->set_allocated_tag(converter->TagToProto(tag));
+    return Status::OK;
+  }
+
+  Status putTag(ServerContext* context,
+                const PutTagRequest* request,
+                PutTagResponse* reply) override {
+    ObjectCube::TagSet *tagSet = hub->getTagSet(request->tagsetid());
+    const ObjectCube::Tag *tag = tagSet->fetchOrAddTag(request->name());
+    reply->set_allocated_tag(converter->TagToProto(tag));
     return Status::OK;
   }
 
@@ -45,7 +89,8 @@ public:
 void RunServer() {
   std::string server_address("0.0.0.0:26026");
   ObjectCube::Hub *hub = ObjectCube::Hub::getHub();
-  OCServiceImpl service(hub);
+  MADS_gRPC_converter *converter = new MADS_gRPC_converter();
+  OCServiceImpl service(hub, converter);
 
   grpc::EnableDefaultHealthCheckService(true);
   grpc::reflection::InitProtoReflectionServerBuilderPlugin();

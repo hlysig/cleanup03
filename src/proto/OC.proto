@@ -3,42 +3,44 @@ syntax = "proto3";
 
 package OC;
 
-message AlphanumericalTag {
-	string name = 1;
+message TagSet {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  int64 typeId = 4;
+  int64 accessId = 5;
 }
 
-message DateTag {
-	uint32 year = 1;
-	uint32 month = 2;
-	uint32 day = 3;
+message GetTagSetRequest {
+  int64 id = 1;
 }
 
-message TimeTag {
-	uint32 hours = 1;
-	uint32 minutes = 2;
-	uint32 seconds = 3;
-	uint32 milliseconds = 4;
+message GetTagSetResponse {
+  TagSet tagset = 1;
 }
 
-message NumericalTag {
-	int64 number = 1;
+message GetTagSetsRequest {
 }
 
-message RGBTag {
-	string name = 1;
+message GetTagSetsResponse {
+  repeated TagSet tagsets = 1;
+}
+
+message PutTagSetRequest {
+  string name = 1;
+  string description = 2;
+  string typeId = 3;
+}
+
+message PutTagSetResponse {
+  TagSet tagset = 1;
 }
 
 message Tag {
 	int64 id = 1;
 	int64 tagSetId = 2;
 	int64 typeId = 3;
-	oneof payload {
-	      AlphanumericalTag alpha = 4;
-	      DateTag date = 5;
-	      TimeTag time = 6;
-	      NumericalTag number = 7;
-	      RGBTag RGB = 8;
-	}
+  string name = 4;
 }
 
 message GetTagRequest {
@@ -49,11 +51,32 @@ message GetTagResponse {
 	Tag tag = 1;
 }
 
+message GetTagsRequest {
+}
+
+message GetTagsResponse {
+	repeated Tag tags = 1;
+}
+
+message PutTagRequest {
+  int64 tagSetId = 1;
+  string name = 2;
+}
+
+message PutTagResponse {
+  Tag tag = 1;
+}
+
 message Empty {
 }
 
 service OCService {
+  rpc getTagSets(GetTagSetsRequest) returns (GetTagSetsResponse) {};
+	rpc getTagSet(GetTagSetRequest) returns (GetTagSetResponse) {};
+
+  rpc getTags(GetTagsRequest) returns (GetTagsResponse) {};
 	rpc getTag(GetTagRequest) returns (GetTagResponse) {};
+	rpc putTag(PutTagRequest) returns (PutTagResponse) {};
 
 	// Future functionality
 	rpc reConnectDB(Empty) returns (Empty) {};
