@@ -32,32 +32,24 @@ libgrpc and protoc.
 
 ## Install instructions for macOS
 
-This section contain instructions on how to setup local development environment
-for contributing and building MADS on Apple macOS. The following steps were
-  performed on Apple macOS 11.1 (Big Sur). Before you follow the instructions
-  you must setup and update [Homebrew](https://brew.sh/) and the Xcode command
-  line tools on your system.
-To successfully build MAST we must set up the following tools and libraries.
+This section contains instructions on how to setup local development
+environment for building MADS on Apple macOS. The following steps were tested
+on Apple macOS 11.1 (Big Sur). Before following these instructions you must
+setup and update [Homebrew](https://brew.sh/) and the Xcode command line tools
+on your system.
 
-- [Python 3](https://www.python.org/)
-- [zlib](https://zlib.net/)
-- [libpq](https://postgrespro.com/docs/postgresql/10/libpq)
-- [libpqxx](https://github.com/jtv/libpqxx)
-- [CMake](https://github.com/jtv/libpqxx)
-- [gRPC](https://grpc.io/)
+### Python3
 
-
-## Python3
-
-In this tutorial we install Python3 with a tool named
+One of the best ways to install Python is by using a tool named
 [pyenv](https://github.com/pyenv/pyenv). With pyenv we can easily install
-multiple versions of Python and change between them with ease.
+multiple versions of Python and change between them with ease without polluting
+our system.
 
 	brew install zlib pyenv
 
 To successfully compile we must use zlib from Brew instead of the one provided
 by Xcode. This is known bug in macOS 11.1. Export the following variables in
-the shell that before invoking pyenv.
+the shell before invoking pyenv.
 
 	export LDFLAGS="-L/usr/local/opt/zlib/lib"
 	export CPPFLAGS="-I/usr/local/opt/zlib/include"
@@ -69,7 +61,7 @@ Next we install Python 3.8.6 with pyenv.
 	pyenv global 3.8.6
 
 
-Then add the following lines to your bashrc or zshrc. This command loads the
+Add the following lines to your bashrc or zshrc. This command loads the
 globally set Python version to your path.
 
 	if command -v pyenv 1>/dev/null 2>&1; then
@@ -102,9 +94,6 @@ Next we need to instal gRPC.
 	export MY_INSTALL_DIR=$HOME/.local
 	mkdir -p $MY_INSTALL_DIR
 	
-	// Add the following to your path
-	export PATH="$PATH:$MY_INSTALL_DIR/bin"
-	
 	brew install autoconf automake libtool pkg-config cmake
 	
 	mkdir ~/repos; cd $_;
@@ -115,9 +104,18 @@ Next we need to instal gRPC.
 	mkdir -p cmake/build; cd $_
 
 	cmake -DgRPC_INSTALL=ON -DgRPC_BUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR ../..
-	$ make -j
-	$ make install
-	$ popd
+	make -j
+	make install
+
+Add `MY_INSTALL_DIR` to your path by adding the following lines to your bashrc or zshrc.
+
+        export MY_INSTALL_DIR=$HOME/.local
+	export PATH="$PATH:$MY_INSTALL_DIR/bin"
+
+Verify that `protoc` is on path and can be executed.
+
+        ➜  ~ protoc --version
+        libprotoc 3.13.0
 		
 ## docker
 
@@ -144,4 +142,12 @@ We can also start core (MADS gRPC server) with Docker.
 	docker-compose up
 
 Two ports are exposed, 26026 for gRPC server and 5432 for PostgreSQL.
+
+To build MADS Python API run the following make target.
+
+        make api
+
+The api can then be started with make target named `start-api`.
+
+        make start-api
 
