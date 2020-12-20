@@ -7,9 +7,11 @@
 #include "convert.h"
 
 #include "../core/Hub.h"
-
+#include "../core/LayerShared/Parameters.h"
+#include "../core/LayerShared/DebugInfo.h"
 
 using namespace OC;
+using namespace ObjectCube;
 using namespace grpc;
 
 class OCServiceImpl final : public OCService::Service
@@ -22,6 +24,36 @@ public:
   OCServiceImpl(ObjectCube::Hub *_hub, Converter *_converter) {
     hub = _hub;
     converter = _converter;
+  }
+
+  Status getObject(ServerContext* context,
+                   const GetObjectRequest* request,
+                   GetObjectResponse* reply) override {
+    try {
+      const ObjectCube::Object object = ObjectCube::Object::fetch(request->id());
+      reply->set_allocated_object(converter->ObjectToProto(&object));
+      return Status::OK;
+    }
+    catch (...) {
+      DebugInfo::getDebugInfo()->output( "OCServiceImpl", "getObject",
+                                         "Error retrieving object id = " + std::to_string(request->id()));
+      std::string msg("Invalid Object identifier");
+      return Status(StatusCode::INVALID_ARGUMENT, msg);
+    }
+  }
+
+  Status putObject(ServerContext* context,
+                   const PutObjectRequest* request,
+                   PutObjectResponse* reply) override {
+    ObjectCube::Object object;
+    object.setName(request->name());
+    object.setThumbnail(request->thumbnail());
+    object.setFileType(request->filetype());
+    hub->addObject(object);
+
+    DebugInfo::getDebugInfo()->output( "OCServiceImpl", "putObject",  std::to_string(object.getId()) );
+    reply->set_allocated_object(converter->ObjectToProto(&object));
+    return Status::OK;
   }
 
   Status getTagSets(ServerContext* context,
@@ -91,6 +123,8 @@ void RunServer() {
   ObjectCube::Hub *hub = ObjectCube::Hub::getHub();
   MADS_gRPC_converter *converter = new MADS_gRPC_converter();
   OCServiceImpl service(hub, converter);
+
+  ObjectCube::Parameters::getParameters() -> add("outputDebugInfo", "1");
 
   grpc::EnableDefaultHealthCheckService(true);
   grpc::reflection::InitProtoReflectionServerBuilderPlugin();

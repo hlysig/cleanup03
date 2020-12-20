@@ -3,6 +3,42 @@ syntax = "proto3";
 
 package OC;
 
+// Object
+
+message Object {
+  int64 id = 1;
+  string name = 2;
+  string thumbnail = 3;
+  string fileType = 4;
+}
+
+message GetObjectsRequest {
+};
+
+message GetObjectsResponse {
+  repeated Object objects = 1;
+}
+
+message GetObjectRequest {
+  int64 id = 1;
+}
+
+message GetObjectResponse {
+  Object object = 1;
+}
+
+message PutObjectRequest {
+  string name = 1;
+  string thumbnail = 2;
+  string fileType = 3;
+}
+
+message PutObjectResponse {
+  Object object = 1;
+}
+
+// TagSet
+
 message TagSet {
   int64 id = 1;
   string name = 2;
@@ -11,19 +47,19 @@ message TagSet {
   int64 accessId = 5;
 }
 
+message GetTagSetsRequest {
+}
+
+message GetTagSetsResponse {
+  repeated TagSet tagsets = 1;
+}
+
 message GetTagSetRequest {
   int64 id = 1;
 }
 
 message GetTagSetResponse {
   TagSet tagset = 1;
-}
-
-message GetTagSetsRequest {
-}
-
-message GetTagSetsResponse {
-  repeated TagSet tagsets = 1;
 }
 
 message PutTagSetRequest {
@@ -36,11 +72,20 @@ message PutTagSetResponse {
   TagSet tagset = 1;
 }
 
+// Tag
+
 message Tag {
 	int64 id = 1;
 	int64 tagSetId = 2;
 	int64 typeId = 3;
   string name = 4;
+}
+
+message GetTagsRequest {
+}
+
+message GetTagsResponse {
+	repeated Tag tags = 1;
 }
 
 message GetTagRequest {
@@ -49,13 +94,6 @@ message GetTagRequest {
 
 message GetTagResponse {
 	Tag tag = 1;
-}
-
-message GetTagsRequest {
-}
-
-message GetTagsResponse {
-	repeated Tag tags = 1;
 }
 
 message PutTagRequest {
@@ -67,18 +105,31 @@ message PutTagResponse {
   Tag tag = 1;
 }
 
+// Empty (for control RPC calls)
+
 message Empty {
 }
 
+// Service
+
 service OCService {
+
+  // Object
+  rpc getObjects(GetObjectsRequest) returns (GetObjectsResponse) {};
+	rpc getObject(GetObjectRequest) returns (GetObjectResponse) {};
+	rpc putObject(PutObjectRequest) returns (PutObjectResponse) {};
+
+  // TagSet
   rpc getTagSets(GetTagSetsRequest) returns (GetTagSetsResponse) {};
 	rpc getTagSet(GetTagSetRequest) returns (GetTagSetResponse) {};
+	rpc putTagSet(PutTagSetRequest) returns (PutTagSetResponse) {};
 
+  // Tag
   rpc getTags(GetTagsRequest) returns (GetTagsResponse) {};
 	rpc getTag(GetTagRequest) returns (GetTagResponse) {};
 	rpc putTag(PutTagRequest) returns (PutTagResponse) {};
 
-	// Future functionality
+	// Control RPC calls
 	rpc reConnectDB(Empty) returns (Empty) {};
 	rpc stopService(Empty) returns (Empty) {};
 }

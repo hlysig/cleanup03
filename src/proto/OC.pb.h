@@ -47,7 +47,7 @@ struct TableStruct_OC_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[15]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[22]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -58,6 +58,18 @@ namespace OC {
 class Empty;
 class EmptyDefaultTypeInternal;
 extern EmptyDefaultTypeInternal _Empty_default_instance_;
+class GetObjectRequest;
+class GetObjectRequestDefaultTypeInternal;
+extern GetObjectRequestDefaultTypeInternal _GetObjectRequest_default_instance_;
+class GetObjectResponse;
+class GetObjectResponseDefaultTypeInternal;
+extern GetObjectResponseDefaultTypeInternal _GetObjectResponse_default_instance_;
+class GetObjectsRequest;
+class GetObjectsRequestDefaultTypeInternal;
+extern GetObjectsRequestDefaultTypeInternal _GetObjectsRequest_default_instance_;
+class GetObjectsResponse;
+class GetObjectsResponseDefaultTypeInternal;
+extern GetObjectsResponseDefaultTypeInternal _GetObjectsResponse_default_instance_;
 class GetTagRequest;
 class GetTagRequestDefaultTypeInternal;
 extern GetTagRequestDefaultTypeInternal _GetTagRequest_default_instance_;
@@ -82,6 +94,15 @@ extern GetTagsRequestDefaultTypeInternal _GetTagsRequest_default_instance_;
 class GetTagsResponse;
 class GetTagsResponseDefaultTypeInternal;
 extern GetTagsResponseDefaultTypeInternal _GetTagsResponse_default_instance_;
+class Object;
+class ObjectDefaultTypeInternal;
+extern ObjectDefaultTypeInternal _Object_default_instance_;
+class PutObjectRequest;
+class PutObjectRequestDefaultTypeInternal;
+extern PutObjectRequestDefaultTypeInternal _PutObjectRequest_default_instance_;
+class PutObjectResponse;
+class PutObjectResponseDefaultTypeInternal;
+extern PutObjectResponseDefaultTypeInternal _PutObjectResponse_default_instance_;
 class PutTagRequest;
 class PutTagRequestDefaultTypeInternal;
 extern PutTagRequestDefaultTypeInternal _PutTagRequest_default_instance_;
@@ -103,6 +124,10 @@ extern TagSetDefaultTypeInternal _TagSet_default_instance_;
 }  // namespace OC
 PROTOBUF_NAMESPACE_OPEN
 template<> ::OC::Empty* Arena::CreateMaybeMessage<::OC::Empty>(Arena*);
+template<> ::OC::GetObjectRequest* Arena::CreateMaybeMessage<::OC::GetObjectRequest>(Arena*);
+template<> ::OC::GetObjectResponse* Arena::CreateMaybeMessage<::OC::GetObjectResponse>(Arena*);
+template<> ::OC::GetObjectsRequest* Arena::CreateMaybeMessage<::OC::GetObjectsRequest>(Arena*);
+template<> ::OC::GetObjectsResponse* Arena::CreateMaybeMessage<::OC::GetObjectsResponse>(Arena*);
 template<> ::OC::GetTagRequest* Arena::CreateMaybeMessage<::OC::GetTagRequest>(Arena*);
 template<> ::OC::GetTagResponse* Arena::CreateMaybeMessage<::OC::GetTagResponse>(Arena*);
 template<> ::OC::GetTagSetRequest* Arena::CreateMaybeMessage<::OC::GetTagSetRequest>(Arena*);
@@ -111,6 +136,9 @@ template<> ::OC::GetTagSetsRequest* Arena::CreateMaybeMessage<::OC::GetTagSetsRe
 template<> ::OC::GetTagSetsResponse* Arena::CreateMaybeMessage<::OC::GetTagSetsResponse>(Arena*);
 template<> ::OC::GetTagsRequest* Arena::CreateMaybeMessage<::OC::GetTagsRequest>(Arena*);
 template<> ::OC::GetTagsResponse* Arena::CreateMaybeMessage<::OC::GetTagsResponse>(Arena*);
+template<> ::OC::Object* Arena::CreateMaybeMessage<::OC::Object>(Arena*);
+template<> ::OC::PutObjectRequest* Arena::CreateMaybeMessage<::OC::PutObjectRequest>(Arena*);
+template<> ::OC::PutObjectResponse* Arena::CreateMaybeMessage<::OC::PutObjectResponse>(Arena*);
 template<> ::OC::PutTagRequest* Arena::CreateMaybeMessage<::OC::PutTagRequest>(Arena*);
 template<> ::OC::PutTagResponse* Arena::CreateMaybeMessage<::OC::PutTagResponse>(Arena*);
 template<> ::OC::PutTagSetRequest* Arena::CreateMaybeMessage<::OC::PutTagSetRequest>(Arena*);
@@ -121,6 +149,1076 @@ PROTOBUF_NAMESPACE_CLOSE
 namespace OC {
 
 // ===================================================================
+
+class Object PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.Object) */ {
+ public:
+  inline Object() : Object(nullptr) {}
+  virtual ~Object();
+
+  Object(const Object& from);
+  Object(Object&& from) noexcept
+    : Object() {
+    *this = ::std::move(from);
+  }
+
+  inline Object& operator=(const Object& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Object& operator=(Object&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Object& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Object* internal_default_instance() {
+    return reinterpret_cast<const Object*>(
+               &_Object_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(Object& a, Object& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Object* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Object* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Object* New() const final {
+    return CreateMaybeMessage<Object>(nullptr);
+  }
+
+  Object* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Object>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Object& from);
+  void MergeFrom(const Object& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Object* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "OC.Object";
+  }
+  protected:
+  explicit Object(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
+    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 2,
+    kThumbnailFieldNumber = 3,
+    kFileTypeFieldNumber = 4,
+    kIdFieldNumber = 1,
+  };
+  // string name = 2;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // string thumbnail = 3;
+  void clear_thumbnail();
+  const std::string& thumbnail() const;
+  void set_thumbnail(const std::string& value);
+  void set_thumbnail(std::string&& value);
+  void set_thumbnail(const char* value);
+  void set_thumbnail(const char* value, size_t size);
+  std::string* mutable_thumbnail();
+  std::string* release_thumbnail();
+  void set_allocated_thumbnail(std::string* thumbnail);
+  private:
+  const std::string& _internal_thumbnail() const;
+  void _internal_set_thumbnail(const std::string& value);
+  std::string* _internal_mutable_thumbnail();
+  public:
+
+  // string fileType = 4;
+  void clear_filetype();
+  const std::string& filetype() const;
+  void set_filetype(const std::string& value);
+  void set_filetype(std::string&& value);
+  void set_filetype(const char* value);
+  void set_filetype(const char* value, size_t size);
+  std::string* mutable_filetype();
+  std::string* release_filetype();
+  void set_allocated_filetype(std::string* filetype);
+  private:
+  const std::string& _internal_filetype() const;
+  void _internal_set_filetype(const std::string& value);
+  std::string* _internal_mutable_filetype();
+  public:
+
+  // int64 id = 1;
+  void clear_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 id() const;
+  void set_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_id() const;
+  void _internal_set_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:OC.Object)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr thumbnail_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filetype_;
+  ::PROTOBUF_NAMESPACE_ID::int64 id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_OC_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetObjectsRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetObjectsRequest) */ {
+ public:
+  inline GetObjectsRequest() : GetObjectsRequest(nullptr) {}
+  virtual ~GetObjectsRequest();
+
+  GetObjectsRequest(const GetObjectsRequest& from);
+  GetObjectsRequest(GetObjectsRequest&& from) noexcept
+    : GetObjectsRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GetObjectsRequest& operator=(const GetObjectsRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetObjectsRequest& operator=(GetObjectsRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GetObjectsRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetObjectsRequest* internal_default_instance() {
+    return reinterpret_cast<const GetObjectsRequest*>(
+               &_GetObjectsRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(GetObjectsRequest& a, GetObjectsRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetObjectsRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetObjectsRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetObjectsRequest* New() const final {
+    return CreateMaybeMessage<GetObjectsRequest>(nullptr);
+  }
+
+  GetObjectsRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GetObjectsRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GetObjectsRequest& from);
+  void MergeFrom(const GetObjectsRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetObjectsRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "OC.GetObjectsRequest";
+  }
+  protected:
+  explicit GetObjectsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
+    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:OC.GetObjectsRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_OC_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetObjectsResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetObjectsResponse) */ {
+ public:
+  inline GetObjectsResponse() : GetObjectsResponse(nullptr) {}
+  virtual ~GetObjectsResponse();
+
+  GetObjectsResponse(const GetObjectsResponse& from);
+  GetObjectsResponse(GetObjectsResponse&& from) noexcept
+    : GetObjectsResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline GetObjectsResponse& operator=(const GetObjectsResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetObjectsResponse& operator=(GetObjectsResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GetObjectsResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetObjectsResponse* internal_default_instance() {
+    return reinterpret_cast<const GetObjectsResponse*>(
+               &_GetObjectsResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(GetObjectsResponse& a, GetObjectsResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetObjectsResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetObjectsResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetObjectsResponse* New() const final {
+    return CreateMaybeMessage<GetObjectsResponse>(nullptr);
+  }
+
+  GetObjectsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GetObjectsResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GetObjectsResponse& from);
+  void MergeFrom(const GetObjectsResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetObjectsResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "OC.GetObjectsResponse";
+  }
+  protected:
+  explicit GetObjectsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
+    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kObjectsFieldNumber = 1,
+  };
+  // repeated .OC.Object objects = 1;
+  int objects_size() const;
+  private:
+  int _internal_objects_size() const;
+  public:
+  void clear_objects();
+  ::OC::Object* mutable_objects(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Object >*
+      mutable_objects();
+  private:
+  const ::OC::Object& _internal_objects(int index) const;
+  ::OC::Object* _internal_add_objects();
+  public:
+  const ::OC::Object& objects(int index) const;
+  ::OC::Object* add_objects();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Object >&
+      objects() const;
+
+  // @@protoc_insertion_point(class_scope:OC.GetObjectsResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Object > objects_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_OC_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetObjectRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetObjectRequest) */ {
+ public:
+  inline GetObjectRequest() : GetObjectRequest(nullptr) {}
+  virtual ~GetObjectRequest();
+
+  GetObjectRequest(const GetObjectRequest& from);
+  GetObjectRequest(GetObjectRequest&& from) noexcept
+    : GetObjectRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GetObjectRequest& operator=(const GetObjectRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetObjectRequest& operator=(GetObjectRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GetObjectRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetObjectRequest* internal_default_instance() {
+    return reinterpret_cast<const GetObjectRequest*>(
+               &_GetObjectRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(GetObjectRequest& a, GetObjectRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetObjectRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetObjectRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetObjectRequest* New() const final {
+    return CreateMaybeMessage<GetObjectRequest>(nullptr);
+  }
+
+  GetObjectRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GetObjectRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GetObjectRequest& from);
+  void MergeFrom(const GetObjectRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetObjectRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "OC.GetObjectRequest";
+  }
+  protected:
+  explicit GetObjectRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
+    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+  };
+  // int64 id = 1;
+  void clear_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 id() const;
+  void set_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_id() const;
+  void _internal_set_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:OC.GetObjectRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int64 id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_OC_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetObjectResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetObjectResponse) */ {
+ public:
+  inline GetObjectResponse() : GetObjectResponse(nullptr) {}
+  virtual ~GetObjectResponse();
+
+  GetObjectResponse(const GetObjectResponse& from);
+  GetObjectResponse(GetObjectResponse&& from) noexcept
+    : GetObjectResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline GetObjectResponse& operator=(const GetObjectResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetObjectResponse& operator=(GetObjectResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GetObjectResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetObjectResponse* internal_default_instance() {
+    return reinterpret_cast<const GetObjectResponse*>(
+               &_GetObjectResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(GetObjectResponse& a, GetObjectResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetObjectResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetObjectResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetObjectResponse* New() const final {
+    return CreateMaybeMessage<GetObjectResponse>(nullptr);
+  }
+
+  GetObjectResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GetObjectResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GetObjectResponse& from);
+  void MergeFrom(const GetObjectResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetObjectResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "OC.GetObjectResponse";
+  }
+  protected:
+  explicit GetObjectResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
+    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kObjectFieldNumber = 1,
+  };
+  // .OC.Object object = 1;
+  bool has_object() const;
+  private:
+  bool _internal_has_object() const;
+  public:
+  void clear_object();
+  const ::OC::Object& object() const;
+  ::OC::Object* release_object();
+  ::OC::Object* mutable_object();
+  void set_allocated_object(::OC::Object* object);
+  private:
+  const ::OC::Object& _internal_object() const;
+  ::OC::Object* _internal_mutable_object();
+  public:
+  void unsafe_arena_set_allocated_object(
+      ::OC::Object* object);
+  ::OC::Object* unsafe_arena_release_object();
+
+  // @@protoc_insertion_point(class_scope:OC.GetObjectResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::OC::Object* object_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_OC_2eproto;
+};
+// -------------------------------------------------------------------
+
+class PutObjectRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.PutObjectRequest) */ {
+ public:
+  inline PutObjectRequest() : PutObjectRequest(nullptr) {}
+  virtual ~PutObjectRequest();
+
+  PutObjectRequest(const PutObjectRequest& from);
+  PutObjectRequest(PutObjectRequest&& from) noexcept
+    : PutObjectRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline PutObjectRequest& operator=(const PutObjectRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PutObjectRequest& operator=(PutObjectRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const PutObjectRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const PutObjectRequest* internal_default_instance() {
+    return reinterpret_cast<const PutObjectRequest*>(
+               &_PutObjectRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(PutObjectRequest& a, PutObjectRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PutObjectRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PutObjectRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline PutObjectRequest* New() const final {
+    return CreateMaybeMessage<PutObjectRequest>(nullptr);
+  }
+
+  PutObjectRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<PutObjectRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const PutObjectRequest& from);
+  void MergeFrom(const PutObjectRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PutObjectRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "OC.PutObjectRequest";
+  }
+  protected:
+  explicit PutObjectRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
+    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 2,
+    kThumbnailFieldNumber = 3,
+    kFileTypeFieldNumber = 4,
+  };
+  // string name = 2;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // string thumbnail = 3;
+  void clear_thumbnail();
+  const std::string& thumbnail() const;
+  void set_thumbnail(const std::string& value);
+  void set_thumbnail(std::string&& value);
+  void set_thumbnail(const char* value);
+  void set_thumbnail(const char* value, size_t size);
+  std::string* mutable_thumbnail();
+  std::string* release_thumbnail();
+  void set_allocated_thumbnail(std::string* thumbnail);
+  private:
+  const std::string& _internal_thumbnail() const;
+  void _internal_set_thumbnail(const std::string& value);
+  std::string* _internal_mutable_thumbnail();
+  public:
+
+  // string fileType = 4;
+  void clear_filetype();
+  const std::string& filetype() const;
+  void set_filetype(const std::string& value);
+  void set_filetype(std::string&& value);
+  void set_filetype(const char* value);
+  void set_filetype(const char* value, size_t size);
+  std::string* mutable_filetype();
+  std::string* release_filetype();
+  void set_allocated_filetype(std::string* filetype);
+  private:
+  const std::string& _internal_filetype() const;
+  void _internal_set_filetype(const std::string& value);
+  std::string* _internal_mutable_filetype();
+  public:
+
+  // @@protoc_insertion_point(class_scope:OC.PutObjectRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr thumbnail_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filetype_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_OC_2eproto;
+};
+// -------------------------------------------------------------------
+
+class PutObjectResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.PutObjectResponse) */ {
+ public:
+  inline PutObjectResponse() : PutObjectResponse(nullptr) {}
+  virtual ~PutObjectResponse();
+
+  PutObjectResponse(const PutObjectResponse& from);
+  PutObjectResponse(PutObjectResponse&& from) noexcept
+    : PutObjectResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline PutObjectResponse& operator=(const PutObjectResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PutObjectResponse& operator=(PutObjectResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const PutObjectResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const PutObjectResponse* internal_default_instance() {
+    return reinterpret_cast<const PutObjectResponse*>(
+               &_PutObjectResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(PutObjectResponse& a, PutObjectResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PutObjectResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PutObjectResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline PutObjectResponse* New() const final {
+    return CreateMaybeMessage<PutObjectResponse>(nullptr);
+  }
+
+  PutObjectResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<PutObjectResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const PutObjectResponse& from);
+  void MergeFrom(const PutObjectResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PutObjectResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "OC.PutObjectResponse";
+  }
+  protected:
+  explicit PutObjectResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
+    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kObjectFieldNumber = 1,
+  };
+  // .OC.Object object = 1;
+  bool has_object() const;
+  private:
+  bool _internal_has_object() const;
+  public:
+  void clear_object();
+  const ::OC::Object& object() const;
+  ::OC::Object* release_object();
+  ::OC::Object* mutable_object();
+  void set_allocated_object(::OC::Object* object);
+  private:
+  const ::OC::Object& _internal_object() const;
+  ::OC::Object* _internal_mutable_object();
+  public:
+  void unsafe_arena_set_allocated_object(
+      ::OC::Object* object);
+  ::OC::Object* unsafe_arena_release_object();
+
+  // @@protoc_insertion_point(class_scope:OC.PutObjectResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::OC::Object* object_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_OC_2eproto;
+};
+// -------------------------------------------------------------------
 
 class TagSet PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.TagSet) */ {
@@ -164,7 +1262,7 @@ class TagSet PROTOBUF_FINAL :
                &_TagSet_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    7;
 
   friend void swap(TagSet& a, TagSet& b) {
     a.Swap(&b);
@@ -317,6 +1415,276 @@ class TagSet PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class GetTagSetsRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetTagSetsRequest) */ {
+ public:
+  inline GetTagSetsRequest() : GetTagSetsRequest(nullptr) {}
+  virtual ~GetTagSetsRequest();
+
+  GetTagSetsRequest(const GetTagSetsRequest& from);
+  GetTagSetsRequest(GetTagSetsRequest&& from) noexcept
+    : GetTagSetsRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GetTagSetsRequest& operator=(const GetTagSetsRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetTagSetsRequest& operator=(GetTagSetsRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GetTagSetsRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetTagSetsRequest* internal_default_instance() {
+    return reinterpret_cast<const GetTagSetsRequest*>(
+               &_GetTagSetsRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(GetTagSetsRequest& a, GetTagSetsRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetTagSetsRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetTagSetsRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetTagSetsRequest* New() const final {
+    return CreateMaybeMessage<GetTagSetsRequest>(nullptr);
+  }
+
+  GetTagSetsRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GetTagSetsRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GetTagSetsRequest& from);
+  void MergeFrom(const GetTagSetsRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetTagSetsRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "OC.GetTagSetsRequest";
+  }
+  protected:
+  explicit GetTagSetsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
+    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:OC.GetTagSetsRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_OC_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetTagSetsResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetTagSetsResponse) */ {
+ public:
+  inline GetTagSetsResponse() : GetTagSetsResponse(nullptr) {}
+  virtual ~GetTagSetsResponse();
+
+  GetTagSetsResponse(const GetTagSetsResponse& from);
+  GetTagSetsResponse(GetTagSetsResponse&& from) noexcept
+    : GetTagSetsResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline GetTagSetsResponse& operator=(const GetTagSetsResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetTagSetsResponse& operator=(GetTagSetsResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GetTagSetsResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetTagSetsResponse* internal_default_instance() {
+    return reinterpret_cast<const GetTagSetsResponse*>(
+               &_GetTagSetsResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(GetTagSetsResponse& a, GetTagSetsResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetTagSetsResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetTagSetsResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetTagSetsResponse* New() const final {
+    return CreateMaybeMessage<GetTagSetsResponse>(nullptr);
+  }
+
+  GetTagSetsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GetTagSetsResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GetTagSetsResponse& from);
+  void MergeFrom(const GetTagSetsResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetTagSetsResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "OC.GetTagSetsResponse";
+  }
+  protected:
+  explicit GetTagSetsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
+    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTagsetsFieldNumber = 1,
+  };
+  // repeated .OC.TagSet tagsets = 1;
+  int tagsets_size() const;
+  private:
+  int _internal_tagsets_size() const;
+  public:
+  void clear_tagsets();
+  ::OC::TagSet* mutable_tagsets(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::TagSet >*
+      mutable_tagsets();
+  private:
+  const ::OC::TagSet& _internal_tagsets(int index) const;
+  ::OC::TagSet* _internal_add_tagsets();
+  public:
+  const ::OC::TagSet& tagsets(int index) const;
+  ::OC::TagSet* add_tagsets();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::TagSet >&
+      tagsets() const;
+
+  // @@protoc_insertion_point(class_scope:OC.GetTagSetsResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::TagSet > tagsets_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_OC_2eproto;
+};
+// -------------------------------------------------------------------
+
 class GetTagSetRequest PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetTagSetRequest) */ {
  public:
@@ -359,7 +1727,7 @@ class GetTagSetRequest PROTOBUF_FINAL :
                &_GetTagSetRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    10;
 
   friend void swap(GetTagSetRequest& a, GetTagSetRequest& b) {
     a.Swap(&b);
@@ -496,7 +1864,7 @@ class GetTagSetResponse PROTOBUF_FINAL :
                &_GetTagSetResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    11;
 
   friend void swap(GetTagSetResponse& a, GetTagSetResponse& b) {
     a.Swap(&b);
@@ -600,276 +1968,6 @@ class GetTagSetResponse PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class GetTagSetsRequest PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetTagSetsRequest) */ {
- public:
-  inline GetTagSetsRequest() : GetTagSetsRequest(nullptr) {}
-  virtual ~GetTagSetsRequest();
-
-  GetTagSetsRequest(const GetTagSetsRequest& from);
-  GetTagSetsRequest(GetTagSetsRequest&& from) noexcept
-    : GetTagSetsRequest() {
-    *this = ::std::move(from);
-  }
-
-  inline GetTagSetsRequest& operator=(const GetTagSetsRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GetTagSetsRequest& operator=(GetTagSetsRequest&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GetTagSetsRequest& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GetTagSetsRequest* internal_default_instance() {
-    return reinterpret_cast<const GetTagSetsRequest*>(
-               &_GetTagSetsRequest_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    3;
-
-  friend void swap(GetTagSetsRequest& a, GetTagSetsRequest& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GetTagSetsRequest* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(GetTagSetsRequest* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GetTagSetsRequest* New() const final {
-    return CreateMaybeMessage<GetTagSetsRequest>(nullptr);
-  }
-
-  GetTagSetsRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GetTagSetsRequest>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GetTagSetsRequest& from);
-  void MergeFrom(const GetTagSetsRequest& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GetTagSetsRequest* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "OC.GetTagSetsRequest";
-  }
-  protected:
-  explicit GetTagSetsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
-    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:OC.GetTagSetsRequest)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_OC_2eproto;
-};
-// -------------------------------------------------------------------
-
-class GetTagSetsResponse PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetTagSetsResponse) */ {
- public:
-  inline GetTagSetsResponse() : GetTagSetsResponse(nullptr) {}
-  virtual ~GetTagSetsResponse();
-
-  GetTagSetsResponse(const GetTagSetsResponse& from);
-  GetTagSetsResponse(GetTagSetsResponse&& from) noexcept
-    : GetTagSetsResponse() {
-    *this = ::std::move(from);
-  }
-
-  inline GetTagSetsResponse& operator=(const GetTagSetsResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GetTagSetsResponse& operator=(GetTagSetsResponse&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GetTagSetsResponse& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GetTagSetsResponse* internal_default_instance() {
-    return reinterpret_cast<const GetTagSetsResponse*>(
-               &_GetTagSetsResponse_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    4;
-
-  friend void swap(GetTagSetsResponse& a, GetTagSetsResponse& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GetTagSetsResponse* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(GetTagSetsResponse* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GetTagSetsResponse* New() const final {
-    return CreateMaybeMessage<GetTagSetsResponse>(nullptr);
-  }
-
-  GetTagSetsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GetTagSetsResponse>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GetTagSetsResponse& from);
-  void MergeFrom(const GetTagSetsResponse& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GetTagSetsResponse* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "OC.GetTagSetsResponse";
-  }
-  protected:
-  explicit GetTagSetsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
-    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kTagsetsFieldNumber = 1,
-  };
-  // repeated .OC.TagSet tagsets = 1;
-  int tagsets_size() const;
-  private:
-  int _internal_tagsets_size() const;
-  public:
-  void clear_tagsets();
-  ::OC::TagSet* mutable_tagsets(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::TagSet >*
-      mutable_tagsets();
-  private:
-  const ::OC::TagSet& _internal_tagsets(int index) const;
-  ::OC::TagSet* _internal_add_tagsets();
-  public:
-  const ::OC::TagSet& tagsets(int index) const;
-  ::OC::TagSet* add_tagsets();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::TagSet >&
-      tagsets() const;
-
-  // @@protoc_insertion_point(class_scope:OC.GetTagSetsResponse)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::TagSet > tagsets_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_OC_2eproto;
-};
-// -------------------------------------------------------------------
-
 class PutTagSetRequest PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.PutTagSetRequest) */ {
  public:
@@ -912,7 +2010,7 @@ class PutTagSetRequest PROTOBUF_FINAL :
                &_PutTagSetRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    12;
 
   friend void swap(PutTagSetRequest& a, PutTagSetRequest& b) {
     a.Swap(&b);
@@ -1092,7 +2190,7 @@ class PutTagSetResponse PROTOBUF_FINAL :
                &_PutTagSetResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    13;
 
   friend void swap(PutTagSetResponse& a, PutTagSetResponse& b) {
     a.Swap(&b);
@@ -1238,7 +2336,7 @@ class Tag PROTOBUF_FINAL :
                &_Tag_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    14;
 
   friend void swap(Tag& a, Tag& b) {
     a.Swap(&b);
@@ -1373,6 +2471,276 @@ class Tag PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class GetTagsRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetTagsRequest) */ {
+ public:
+  inline GetTagsRequest() : GetTagsRequest(nullptr) {}
+  virtual ~GetTagsRequest();
+
+  GetTagsRequest(const GetTagsRequest& from);
+  GetTagsRequest(GetTagsRequest&& from) noexcept
+    : GetTagsRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GetTagsRequest& operator=(const GetTagsRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetTagsRequest& operator=(GetTagsRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GetTagsRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetTagsRequest* internal_default_instance() {
+    return reinterpret_cast<const GetTagsRequest*>(
+               &_GetTagsRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(GetTagsRequest& a, GetTagsRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetTagsRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetTagsRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetTagsRequest* New() const final {
+    return CreateMaybeMessage<GetTagsRequest>(nullptr);
+  }
+
+  GetTagsRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GetTagsRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GetTagsRequest& from);
+  void MergeFrom(const GetTagsRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetTagsRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "OC.GetTagsRequest";
+  }
+  protected:
+  explicit GetTagsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
+    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:OC.GetTagsRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_OC_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetTagsResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetTagsResponse) */ {
+ public:
+  inline GetTagsResponse() : GetTagsResponse(nullptr) {}
+  virtual ~GetTagsResponse();
+
+  GetTagsResponse(const GetTagsResponse& from);
+  GetTagsResponse(GetTagsResponse&& from) noexcept
+    : GetTagsResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline GetTagsResponse& operator=(const GetTagsResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetTagsResponse& operator=(GetTagsResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GetTagsResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetTagsResponse* internal_default_instance() {
+    return reinterpret_cast<const GetTagsResponse*>(
+               &_GetTagsResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(GetTagsResponse& a, GetTagsResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetTagsResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetTagsResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetTagsResponse* New() const final {
+    return CreateMaybeMessage<GetTagsResponse>(nullptr);
+  }
+
+  GetTagsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GetTagsResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GetTagsResponse& from);
+  void MergeFrom(const GetTagsResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetTagsResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "OC.GetTagsResponse";
+  }
+  protected:
+  explicit GetTagsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
+    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTagsFieldNumber = 1,
+  };
+  // repeated .OC.Tag tags = 1;
+  int tags_size() const;
+  private:
+  int _internal_tags_size() const;
+  public:
+  void clear_tags();
+  ::OC::Tag* mutable_tags(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Tag >*
+      mutable_tags();
+  private:
+  const ::OC::Tag& _internal_tags(int index) const;
+  ::OC::Tag* _internal_add_tags();
+  public:
+  const ::OC::Tag& tags(int index) const;
+  ::OC::Tag* add_tags();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Tag >&
+      tags() const;
+
+  // @@protoc_insertion_point(class_scope:OC.GetTagsResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Tag > tags_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_OC_2eproto;
+};
+// -------------------------------------------------------------------
+
 class GetTagRequest PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetTagRequest) */ {
  public:
@@ -1415,7 +2783,7 @@ class GetTagRequest PROTOBUF_FINAL :
                &_GetTagRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    17;
 
   friend void swap(GetTagRequest& a, GetTagRequest& b) {
     a.Swap(&b);
@@ -1552,7 +2920,7 @@ class GetTagResponse PROTOBUF_FINAL :
                &_GetTagResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    18;
 
   friend void swap(GetTagResponse& a, GetTagResponse& b) {
     a.Swap(&b);
@@ -1656,276 +3024,6 @@ class GetTagResponse PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class GetTagsRequest PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetTagsRequest) */ {
- public:
-  inline GetTagsRequest() : GetTagsRequest(nullptr) {}
-  virtual ~GetTagsRequest();
-
-  GetTagsRequest(const GetTagsRequest& from);
-  GetTagsRequest(GetTagsRequest&& from) noexcept
-    : GetTagsRequest() {
-    *this = ::std::move(from);
-  }
-
-  inline GetTagsRequest& operator=(const GetTagsRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GetTagsRequest& operator=(GetTagsRequest&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GetTagsRequest& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GetTagsRequest* internal_default_instance() {
-    return reinterpret_cast<const GetTagsRequest*>(
-               &_GetTagsRequest_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    10;
-
-  friend void swap(GetTagsRequest& a, GetTagsRequest& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GetTagsRequest* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(GetTagsRequest* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GetTagsRequest* New() const final {
-    return CreateMaybeMessage<GetTagsRequest>(nullptr);
-  }
-
-  GetTagsRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GetTagsRequest>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GetTagsRequest& from);
-  void MergeFrom(const GetTagsRequest& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GetTagsRequest* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "OC.GetTagsRequest";
-  }
-  protected:
-  explicit GetTagsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
-    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:OC.GetTagsRequest)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_OC_2eproto;
-};
-// -------------------------------------------------------------------
-
-class GetTagsResponse PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.GetTagsResponse) */ {
- public:
-  inline GetTagsResponse() : GetTagsResponse(nullptr) {}
-  virtual ~GetTagsResponse();
-
-  GetTagsResponse(const GetTagsResponse& from);
-  GetTagsResponse(GetTagsResponse&& from) noexcept
-    : GetTagsResponse() {
-    *this = ::std::move(from);
-  }
-
-  inline GetTagsResponse& operator=(const GetTagsResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GetTagsResponse& operator=(GetTagsResponse&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GetTagsResponse& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GetTagsResponse* internal_default_instance() {
-    return reinterpret_cast<const GetTagsResponse*>(
-               &_GetTagsResponse_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    11;
-
-  friend void swap(GetTagsResponse& a, GetTagsResponse& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GetTagsResponse* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(GetTagsResponse* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GetTagsResponse* New() const final {
-    return CreateMaybeMessage<GetTagsResponse>(nullptr);
-  }
-
-  GetTagsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GetTagsResponse>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GetTagsResponse& from);
-  void MergeFrom(const GetTagsResponse& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GetTagsResponse* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "OC.GetTagsResponse";
-  }
-  protected:
-  explicit GetTagsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_OC_2eproto);
-    return ::descriptor_table_OC_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kTagsFieldNumber = 1,
-  };
-  // repeated .OC.Tag tags = 1;
-  int tags_size() const;
-  private:
-  int _internal_tags_size() const;
-  public:
-  void clear_tags();
-  ::OC::Tag* mutable_tags(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Tag >*
-      mutable_tags();
-  private:
-  const ::OC::Tag& _internal_tags(int index) const;
-  ::OC::Tag* _internal_add_tags();
-  public:
-  const ::OC::Tag& tags(int index) const;
-  ::OC::Tag* add_tags();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Tag >&
-      tags() const;
-
-  // @@protoc_insertion_point(class_scope:OC.GetTagsResponse)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Tag > tags_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_OC_2eproto;
-};
-// -------------------------------------------------------------------
-
 class PutTagRequest PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:OC.PutTagRequest) */ {
  public:
@@ -1968,7 +3066,7 @@ class PutTagRequest PROTOBUF_FINAL :
                &_PutTagRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    19;
 
   friend void swap(PutTagRequest& a, PutTagRequest& b) {
     a.Swap(&b);
@@ -2123,7 +3221,7 @@ class PutTagResponse PROTOBUF_FINAL :
                &_PutTagResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    20;
 
   friend void swap(PutTagResponse& a, PutTagResponse& b) {
     a.Swap(&b);
@@ -2269,7 +3367,7 @@ class Empty PROTOBUF_FINAL :
                &_Empty_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    21;
 
   friend void swap(Empty& a, Empty& b) {
     a.Swap(&b);
@@ -2358,6 +3456,651 @@ class Empty PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// Object
+
+// int64 id = 1;
+inline void Object::clear_id() {
+  id_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 Object::_internal_id() const {
+  return id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 Object::id() const {
+  // @@protoc_insertion_point(field_get:OC.Object.id)
+  return _internal_id();
+}
+inline void Object::_internal_set_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  id_ = value;
+}
+inline void Object::set_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:OC.Object.id)
+}
+
+// string name = 2;
+inline void Object::clear_name() {
+  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Object::name() const {
+  // @@protoc_insertion_point(field_get:OC.Object.name)
+  return _internal_name();
+}
+inline void Object::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:OC.Object.name)
+}
+inline std::string* Object::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:OC.Object.name)
+  return _internal_mutable_name();
+}
+inline const std::string& Object::_internal_name() const {
+  return name_.Get();
+}
+inline void Object::_internal_set_name(const std::string& value) {
+  
+  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Object::set_name(std::string&& value) {
+  
+  name_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:OC.Object.name)
+}
+inline void Object::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:OC.Object.name)
+}
+inline void Object::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:OC.Object.name)
+}
+inline std::string* Object::_internal_mutable_name() {
+  
+  return name_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Object::release_name() {
+  // @@protoc_insertion_point(field_release:OC.Object.name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Object::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:OC.Object.name)
+}
+
+// string thumbnail = 3;
+inline void Object::clear_thumbnail() {
+  thumbnail_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Object::thumbnail() const {
+  // @@protoc_insertion_point(field_get:OC.Object.thumbnail)
+  return _internal_thumbnail();
+}
+inline void Object::set_thumbnail(const std::string& value) {
+  _internal_set_thumbnail(value);
+  // @@protoc_insertion_point(field_set:OC.Object.thumbnail)
+}
+inline std::string* Object::mutable_thumbnail() {
+  // @@protoc_insertion_point(field_mutable:OC.Object.thumbnail)
+  return _internal_mutable_thumbnail();
+}
+inline const std::string& Object::_internal_thumbnail() const {
+  return thumbnail_.Get();
+}
+inline void Object::_internal_set_thumbnail(const std::string& value) {
+  
+  thumbnail_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Object::set_thumbnail(std::string&& value) {
+  
+  thumbnail_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:OC.Object.thumbnail)
+}
+inline void Object::set_thumbnail(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  thumbnail_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:OC.Object.thumbnail)
+}
+inline void Object::set_thumbnail(const char* value,
+    size_t size) {
+  
+  thumbnail_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:OC.Object.thumbnail)
+}
+inline std::string* Object::_internal_mutable_thumbnail() {
+  
+  return thumbnail_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Object::release_thumbnail() {
+  // @@protoc_insertion_point(field_release:OC.Object.thumbnail)
+  return thumbnail_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Object::set_allocated_thumbnail(std::string* thumbnail) {
+  if (thumbnail != nullptr) {
+    
+  } else {
+    
+  }
+  thumbnail_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), thumbnail,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:OC.Object.thumbnail)
+}
+
+// string fileType = 4;
+inline void Object::clear_filetype() {
+  filetype_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Object::filetype() const {
+  // @@protoc_insertion_point(field_get:OC.Object.fileType)
+  return _internal_filetype();
+}
+inline void Object::set_filetype(const std::string& value) {
+  _internal_set_filetype(value);
+  // @@protoc_insertion_point(field_set:OC.Object.fileType)
+}
+inline std::string* Object::mutable_filetype() {
+  // @@protoc_insertion_point(field_mutable:OC.Object.fileType)
+  return _internal_mutable_filetype();
+}
+inline const std::string& Object::_internal_filetype() const {
+  return filetype_.Get();
+}
+inline void Object::_internal_set_filetype(const std::string& value) {
+  
+  filetype_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Object::set_filetype(std::string&& value) {
+  
+  filetype_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:OC.Object.fileType)
+}
+inline void Object::set_filetype(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  filetype_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:OC.Object.fileType)
+}
+inline void Object::set_filetype(const char* value,
+    size_t size) {
+  
+  filetype_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:OC.Object.fileType)
+}
+inline std::string* Object::_internal_mutable_filetype() {
+  
+  return filetype_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Object::release_filetype() {
+  // @@protoc_insertion_point(field_release:OC.Object.fileType)
+  return filetype_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Object::set_allocated_filetype(std::string* filetype) {
+  if (filetype != nullptr) {
+    
+  } else {
+    
+  }
+  filetype_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), filetype,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:OC.Object.fileType)
+}
+
+// -------------------------------------------------------------------
+
+// GetObjectsRequest
+
+// -------------------------------------------------------------------
+
+// GetObjectsResponse
+
+// repeated .OC.Object objects = 1;
+inline int GetObjectsResponse::_internal_objects_size() const {
+  return objects_.size();
+}
+inline int GetObjectsResponse::objects_size() const {
+  return _internal_objects_size();
+}
+inline void GetObjectsResponse::clear_objects() {
+  objects_.Clear();
+}
+inline ::OC::Object* GetObjectsResponse::mutable_objects(int index) {
+  // @@protoc_insertion_point(field_mutable:OC.GetObjectsResponse.objects)
+  return objects_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Object >*
+GetObjectsResponse::mutable_objects() {
+  // @@protoc_insertion_point(field_mutable_list:OC.GetObjectsResponse.objects)
+  return &objects_;
+}
+inline const ::OC::Object& GetObjectsResponse::_internal_objects(int index) const {
+  return objects_.Get(index);
+}
+inline const ::OC::Object& GetObjectsResponse::objects(int index) const {
+  // @@protoc_insertion_point(field_get:OC.GetObjectsResponse.objects)
+  return _internal_objects(index);
+}
+inline ::OC::Object* GetObjectsResponse::_internal_add_objects() {
+  return objects_.Add();
+}
+inline ::OC::Object* GetObjectsResponse::add_objects() {
+  // @@protoc_insertion_point(field_add:OC.GetObjectsResponse.objects)
+  return _internal_add_objects();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Object >&
+GetObjectsResponse::objects() const {
+  // @@protoc_insertion_point(field_list:OC.GetObjectsResponse.objects)
+  return objects_;
+}
+
+// -------------------------------------------------------------------
+
+// GetObjectRequest
+
+// int64 id = 1;
+inline void GetObjectRequest::clear_id() {
+  id_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 GetObjectRequest::_internal_id() const {
+  return id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 GetObjectRequest::id() const {
+  // @@protoc_insertion_point(field_get:OC.GetObjectRequest.id)
+  return _internal_id();
+}
+inline void GetObjectRequest::_internal_set_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  id_ = value;
+}
+inline void GetObjectRequest::set_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:OC.GetObjectRequest.id)
+}
+
+// -------------------------------------------------------------------
+
+// GetObjectResponse
+
+// .OC.Object object = 1;
+inline bool GetObjectResponse::_internal_has_object() const {
+  return this != internal_default_instance() && object_ != nullptr;
+}
+inline bool GetObjectResponse::has_object() const {
+  return _internal_has_object();
+}
+inline void GetObjectResponse::clear_object() {
+  if (GetArena() == nullptr && object_ != nullptr) {
+    delete object_;
+  }
+  object_ = nullptr;
+}
+inline const ::OC::Object& GetObjectResponse::_internal_object() const {
+  const ::OC::Object* p = object_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::OC::Object*>(
+      &::OC::_Object_default_instance_);
+}
+inline const ::OC::Object& GetObjectResponse::object() const {
+  // @@protoc_insertion_point(field_get:OC.GetObjectResponse.object)
+  return _internal_object();
+}
+inline void GetObjectResponse::unsafe_arena_set_allocated_object(
+    ::OC::Object* object) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
+  }
+  object_ = object;
+  if (object) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:OC.GetObjectResponse.object)
+}
+inline ::OC::Object* GetObjectResponse::release_object() {
+  
+  ::OC::Object* temp = object_;
+  object_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::OC::Object* GetObjectResponse::unsafe_arena_release_object() {
+  // @@protoc_insertion_point(field_release:OC.GetObjectResponse.object)
+  
+  ::OC::Object* temp = object_;
+  object_ = nullptr;
+  return temp;
+}
+inline ::OC::Object* GetObjectResponse::_internal_mutable_object() {
+  
+  if (object_ == nullptr) {
+    auto* p = CreateMaybeMessage<::OC::Object>(GetArena());
+    object_ = p;
+  }
+  return object_;
+}
+inline ::OC::Object* GetObjectResponse::mutable_object() {
+  // @@protoc_insertion_point(field_mutable:OC.GetObjectResponse.object)
+  return _internal_mutable_object();
+}
+inline void GetObjectResponse::set_allocated_object(::OC::Object* object) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete object_;
+  }
+  if (object) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(object);
+    if (message_arena != submessage_arena) {
+      object = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, object, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  object_ = object;
+  // @@protoc_insertion_point(field_set_allocated:OC.GetObjectResponse.object)
+}
+
+// -------------------------------------------------------------------
+
+// PutObjectRequest
+
+// string name = 2;
+inline void PutObjectRequest::clear_name() {
+  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& PutObjectRequest::name() const {
+  // @@protoc_insertion_point(field_get:OC.PutObjectRequest.name)
+  return _internal_name();
+}
+inline void PutObjectRequest::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:OC.PutObjectRequest.name)
+}
+inline std::string* PutObjectRequest::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:OC.PutObjectRequest.name)
+  return _internal_mutable_name();
+}
+inline const std::string& PutObjectRequest::_internal_name() const {
+  return name_.Get();
+}
+inline void PutObjectRequest::_internal_set_name(const std::string& value) {
+  
+  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void PutObjectRequest::set_name(std::string&& value) {
+  
+  name_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:OC.PutObjectRequest.name)
+}
+inline void PutObjectRequest::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:OC.PutObjectRequest.name)
+}
+inline void PutObjectRequest::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:OC.PutObjectRequest.name)
+}
+inline std::string* PutObjectRequest::_internal_mutable_name() {
+  
+  return name_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* PutObjectRequest::release_name() {
+  // @@protoc_insertion_point(field_release:OC.PutObjectRequest.name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void PutObjectRequest::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:OC.PutObjectRequest.name)
+}
+
+// string thumbnail = 3;
+inline void PutObjectRequest::clear_thumbnail() {
+  thumbnail_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& PutObjectRequest::thumbnail() const {
+  // @@protoc_insertion_point(field_get:OC.PutObjectRequest.thumbnail)
+  return _internal_thumbnail();
+}
+inline void PutObjectRequest::set_thumbnail(const std::string& value) {
+  _internal_set_thumbnail(value);
+  // @@protoc_insertion_point(field_set:OC.PutObjectRequest.thumbnail)
+}
+inline std::string* PutObjectRequest::mutable_thumbnail() {
+  // @@protoc_insertion_point(field_mutable:OC.PutObjectRequest.thumbnail)
+  return _internal_mutable_thumbnail();
+}
+inline const std::string& PutObjectRequest::_internal_thumbnail() const {
+  return thumbnail_.Get();
+}
+inline void PutObjectRequest::_internal_set_thumbnail(const std::string& value) {
+  
+  thumbnail_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void PutObjectRequest::set_thumbnail(std::string&& value) {
+  
+  thumbnail_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:OC.PutObjectRequest.thumbnail)
+}
+inline void PutObjectRequest::set_thumbnail(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  thumbnail_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:OC.PutObjectRequest.thumbnail)
+}
+inline void PutObjectRequest::set_thumbnail(const char* value,
+    size_t size) {
+  
+  thumbnail_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:OC.PutObjectRequest.thumbnail)
+}
+inline std::string* PutObjectRequest::_internal_mutable_thumbnail() {
+  
+  return thumbnail_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* PutObjectRequest::release_thumbnail() {
+  // @@protoc_insertion_point(field_release:OC.PutObjectRequest.thumbnail)
+  return thumbnail_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void PutObjectRequest::set_allocated_thumbnail(std::string* thumbnail) {
+  if (thumbnail != nullptr) {
+    
+  } else {
+    
+  }
+  thumbnail_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), thumbnail,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:OC.PutObjectRequest.thumbnail)
+}
+
+// string fileType = 4;
+inline void PutObjectRequest::clear_filetype() {
+  filetype_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& PutObjectRequest::filetype() const {
+  // @@protoc_insertion_point(field_get:OC.PutObjectRequest.fileType)
+  return _internal_filetype();
+}
+inline void PutObjectRequest::set_filetype(const std::string& value) {
+  _internal_set_filetype(value);
+  // @@protoc_insertion_point(field_set:OC.PutObjectRequest.fileType)
+}
+inline std::string* PutObjectRequest::mutable_filetype() {
+  // @@protoc_insertion_point(field_mutable:OC.PutObjectRequest.fileType)
+  return _internal_mutable_filetype();
+}
+inline const std::string& PutObjectRequest::_internal_filetype() const {
+  return filetype_.Get();
+}
+inline void PutObjectRequest::_internal_set_filetype(const std::string& value) {
+  
+  filetype_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void PutObjectRequest::set_filetype(std::string&& value) {
+  
+  filetype_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:OC.PutObjectRequest.fileType)
+}
+inline void PutObjectRequest::set_filetype(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  filetype_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:OC.PutObjectRequest.fileType)
+}
+inline void PutObjectRequest::set_filetype(const char* value,
+    size_t size) {
+  
+  filetype_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:OC.PutObjectRequest.fileType)
+}
+inline std::string* PutObjectRequest::_internal_mutable_filetype() {
+  
+  return filetype_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* PutObjectRequest::release_filetype() {
+  // @@protoc_insertion_point(field_release:OC.PutObjectRequest.fileType)
+  return filetype_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void PutObjectRequest::set_allocated_filetype(std::string* filetype) {
+  if (filetype != nullptr) {
+    
+  } else {
+    
+  }
+  filetype_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), filetype,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:OC.PutObjectRequest.fileType)
+}
+
+// -------------------------------------------------------------------
+
+// PutObjectResponse
+
+// .OC.Object object = 1;
+inline bool PutObjectResponse::_internal_has_object() const {
+  return this != internal_default_instance() && object_ != nullptr;
+}
+inline bool PutObjectResponse::has_object() const {
+  return _internal_has_object();
+}
+inline void PutObjectResponse::clear_object() {
+  if (GetArena() == nullptr && object_ != nullptr) {
+    delete object_;
+  }
+  object_ = nullptr;
+}
+inline const ::OC::Object& PutObjectResponse::_internal_object() const {
+  const ::OC::Object* p = object_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::OC::Object*>(
+      &::OC::_Object_default_instance_);
+}
+inline const ::OC::Object& PutObjectResponse::object() const {
+  // @@protoc_insertion_point(field_get:OC.PutObjectResponse.object)
+  return _internal_object();
+}
+inline void PutObjectResponse::unsafe_arena_set_allocated_object(
+    ::OC::Object* object) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
+  }
+  object_ = object;
+  if (object) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:OC.PutObjectResponse.object)
+}
+inline ::OC::Object* PutObjectResponse::release_object() {
+  
+  ::OC::Object* temp = object_;
+  object_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::OC::Object* PutObjectResponse::unsafe_arena_release_object() {
+  // @@protoc_insertion_point(field_release:OC.PutObjectResponse.object)
+  
+  ::OC::Object* temp = object_;
+  object_ = nullptr;
+  return temp;
+}
+inline ::OC::Object* PutObjectResponse::_internal_mutable_object() {
+  
+  if (object_ == nullptr) {
+    auto* p = CreateMaybeMessage<::OC::Object>(GetArena());
+    object_ = p;
+  }
+  return object_;
+}
+inline ::OC::Object* PutObjectResponse::mutable_object() {
+  // @@protoc_insertion_point(field_mutable:OC.PutObjectResponse.object)
+  return _internal_mutable_object();
+}
+inline void PutObjectResponse::set_allocated_object(::OC::Object* object) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete object_;
+  }
+  if (object) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(object);
+    if (message_arena != submessage_arena) {
+      object = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, object, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  object_ = object;
+  // @@protoc_insertion_point(field_set_allocated:OC.PutObjectResponse.object)
+}
+
+// -------------------------------------------------------------------
+
 // TagSet
 
 // int64 id = 1;
@@ -2546,6 +4289,53 @@ inline void TagSet::set_accessid(::PROTOBUF_NAMESPACE_ID::int64 value) {
 
 // -------------------------------------------------------------------
 
+// GetTagSetsRequest
+
+// -------------------------------------------------------------------
+
+// GetTagSetsResponse
+
+// repeated .OC.TagSet tagsets = 1;
+inline int GetTagSetsResponse::_internal_tagsets_size() const {
+  return tagsets_.size();
+}
+inline int GetTagSetsResponse::tagsets_size() const {
+  return _internal_tagsets_size();
+}
+inline void GetTagSetsResponse::clear_tagsets() {
+  tagsets_.Clear();
+}
+inline ::OC::TagSet* GetTagSetsResponse::mutable_tagsets(int index) {
+  // @@protoc_insertion_point(field_mutable:OC.GetTagSetsResponse.tagsets)
+  return tagsets_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::TagSet >*
+GetTagSetsResponse::mutable_tagsets() {
+  // @@protoc_insertion_point(field_mutable_list:OC.GetTagSetsResponse.tagsets)
+  return &tagsets_;
+}
+inline const ::OC::TagSet& GetTagSetsResponse::_internal_tagsets(int index) const {
+  return tagsets_.Get(index);
+}
+inline const ::OC::TagSet& GetTagSetsResponse::tagsets(int index) const {
+  // @@protoc_insertion_point(field_get:OC.GetTagSetsResponse.tagsets)
+  return _internal_tagsets(index);
+}
+inline ::OC::TagSet* GetTagSetsResponse::_internal_add_tagsets() {
+  return tagsets_.Add();
+}
+inline ::OC::TagSet* GetTagSetsResponse::add_tagsets() {
+  // @@protoc_insertion_point(field_add:OC.GetTagSetsResponse.tagsets)
+  return _internal_add_tagsets();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::TagSet >&
+GetTagSetsResponse::tagsets() const {
+  // @@protoc_insertion_point(field_list:OC.GetTagSetsResponse.tagsets)
+  return tagsets_;
+}
+
+// -------------------------------------------------------------------
+
 // GetTagSetRequest
 
 // int64 id = 1;
@@ -2653,53 +4443,6 @@ inline void GetTagSetResponse::set_allocated_tagset(::OC::TagSet* tagset) {
   }
   tagset_ = tagset;
   // @@protoc_insertion_point(field_set_allocated:OC.GetTagSetResponse.tagset)
-}
-
-// -------------------------------------------------------------------
-
-// GetTagSetsRequest
-
-// -------------------------------------------------------------------
-
-// GetTagSetsResponse
-
-// repeated .OC.TagSet tagsets = 1;
-inline int GetTagSetsResponse::_internal_tagsets_size() const {
-  return tagsets_.size();
-}
-inline int GetTagSetsResponse::tagsets_size() const {
-  return _internal_tagsets_size();
-}
-inline void GetTagSetsResponse::clear_tagsets() {
-  tagsets_.Clear();
-}
-inline ::OC::TagSet* GetTagSetsResponse::mutable_tagsets(int index) {
-  // @@protoc_insertion_point(field_mutable:OC.GetTagSetsResponse.tagsets)
-  return tagsets_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::TagSet >*
-GetTagSetsResponse::mutable_tagsets() {
-  // @@protoc_insertion_point(field_mutable_list:OC.GetTagSetsResponse.tagsets)
-  return &tagsets_;
-}
-inline const ::OC::TagSet& GetTagSetsResponse::_internal_tagsets(int index) const {
-  return tagsets_.Get(index);
-}
-inline const ::OC::TagSet& GetTagSetsResponse::tagsets(int index) const {
-  // @@protoc_insertion_point(field_get:OC.GetTagSetsResponse.tagsets)
-  return _internal_tagsets(index);
-}
-inline ::OC::TagSet* GetTagSetsResponse::_internal_add_tagsets() {
-  return tagsets_.Add();
-}
-inline ::OC::TagSet* GetTagSetsResponse::add_tagsets() {
-  // @@protoc_insertion_point(field_add:OC.GetTagSetsResponse.tagsets)
-  return _internal_add_tagsets();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::TagSet >&
-GetTagSetsResponse::tagsets() const {
-  // @@protoc_insertion_point(field_list:OC.GetTagSetsResponse.tagsets)
-  return tagsets_;
 }
 
 // -------------------------------------------------------------------
@@ -3107,6 +4850,53 @@ inline void Tag::set_allocated_name(std::string* name) {
 
 // -------------------------------------------------------------------
 
+// GetTagsRequest
+
+// -------------------------------------------------------------------
+
+// GetTagsResponse
+
+// repeated .OC.Tag tags = 1;
+inline int GetTagsResponse::_internal_tags_size() const {
+  return tags_.size();
+}
+inline int GetTagsResponse::tags_size() const {
+  return _internal_tags_size();
+}
+inline void GetTagsResponse::clear_tags() {
+  tags_.Clear();
+}
+inline ::OC::Tag* GetTagsResponse::mutable_tags(int index) {
+  // @@protoc_insertion_point(field_mutable:OC.GetTagsResponse.tags)
+  return tags_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Tag >*
+GetTagsResponse::mutable_tags() {
+  // @@protoc_insertion_point(field_mutable_list:OC.GetTagsResponse.tags)
+  return &tags_;
+}
+inline const ::OC::Tag& GetTagsResponse::_internal_tags(int index) const {
+  return tags_.Get(index);
+}
+inline const ::OC::Tag& GetTagsResponse::tags(int index) const {
+  // @@protoc_insertion_point(field_get:OC.GetTagsResponse.tags)
+  return _internal_tags(index);
+}
+inline ::OC::Tag* GetTagsResponse::_internal_add_tags() {
+  return tags_.Add();
+}
+inline ::OC::Tag* GetTagsResponse::add_tags() {
+  // @@protoc_insertion_point(field_add:OC.GetTagsResponse.tags)
+  return _internal_add_tags();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Tag >&
+GetTagsResponse::tags() const {
+  // @@protoc_insertion_point(field_list:OC.GetTagsResponse.tags)
+  return tags_;
+}
+
+// -------------------------------------------------------------------
+
 // GetTagRequest
 
 // int64 id = 1;
@@ -3214,53 +5004,6 @@ inline void GetTagResponse::set_allocated_tag(::OC::Tag* tag) {
   }
   tag_ = tag;
   // @@protoc_insertion_point(field_set_allocated:OC.GetTagResponse.tag)
-}
-
-// -------------------------------------------------------------------
-
-// GetTagsRequest
-
-// -------------------------------------------------------------------
-
-// GetTagsResponse
-
-// repeated .OC.Tag tags = 1;
-inline int GetTagsResponse::_internal_tags_size() const {
-  return tags_.size();
-}
-inline int GetTagsResponse::tags_size() const {
-  return _internal_tags_size();
-}
-inline void GetTagsResponse::clear_tags() {
-  tags_.Clear();
-}
-inline ::OC::Tag* GetTagsResponse::mutable_tags(int index) {
-  // @@protoc_insertion_point(field_mutable:OC.GetTagsResponse.tags)
-  return tags_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Tag >*
-GetTagsResponse::mutable_tags() {
-  // @@protoc_insertion_point(field_mutable_list:OC.GetTagsResponse.tags)
-  return &tags_;
-}
-inline const ::OC::Tag& GetTagsResponse::_internal_tags(int index) const {
-  return tags_.Get(index);
-}
-inline const ::OC::Tag& GetTagsResponse::tags(int index) const {
-  // @@protoc_insertion_point(field_get:OC.GetTagsResponse.tags)
-  return _internal_tags(index);
-}
-inline ::OC::Tag* GetTagsResponse::_internal_add_tags() {
-  return tags_.Add();
-}
-inline ::OC::Tag* GetTagsResponse::add_tags() {
-  // @@protoc_insertion_point(field_add:OC.GetTagsResponse.tags)
-  return _internal_add_tags();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::OC::Tag >&
-GetTagsResponse::tags() const {
-  // @@protoc_insertion_point(field_list:OC.GetTagsResponse.tags)
-  return tags_;
 }
 
 // -------------------------------------------------------------------
@@ -3443,6 +5186,20 @@ inline void PutTagResponse::set_allocated_tag(::OC::Tag* tag) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

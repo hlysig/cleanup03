@@ -104,6 +104,42 @@ public:
           std::cout << "Received: "
                     << reply->tag().id() << ", " << reply->tag().tagsetid()
                     << std::endl;
+      } else if (input == "object") {
+        int id;
+        std::cin >> id;
+
+        OC::GetObjectRequest request;
+        request.set_id(id);
+
+        OC::GetObjectResponse *reply = new OC::GetObjectResponse();
+        ClientContext context;
+        status = stub_->getObject(&context, request, reply);
+
+        if (status.ok())
+          std::cout << "Received Object: "
+                    << reply->object().id() << ", "
+                    << reply->object().name() << ", "
+                    << reply->object().thumbnail() << ", "
+                    << reply->object().filetype() <<  std::endl;
+      } else if (input == "newobject") {
+        std::string name;
+        std::cin >> name;
+
+        OC::PutObjectRequest request;
+        request.set_name(name);
+        request.set_thumbnail("thumbnail");
+        request.set_filetype("filetype");
+
+        OC::PutObjectResponse *reply = new OC::PutObjectResponse();
+        ClientContext context;
+        status = stub_->putObject(&context, request, reply);
+
+        if (status.ok())
+          std::cout << "Received Object: "
+                    << reply->object().id() << ", "
+                    << reply->object().name() << ", "
+                    << reply->object().thumbnail() << ", "
+                    << reply->object().filetype() <<  std::endl;
       } else if (input == "reconnect") {
         std::cout << "Not yet implemented" << std::endl;
       } else if (input == "stop") {

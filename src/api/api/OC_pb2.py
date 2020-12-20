@@ -19,10 +19,262 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x08OC.proto\x12\x02OC\"Y\n\x06TagSet\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0e\n\x06typeId\x18\x04 \x01(\x03\x12\x10\n\x08\x61\x63\x63\x65ssId\x18\x05 \x01(\x03\"\x1e\n\x10GetTagSetRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"/\n\x11GetTagSetResponse\x12\x1a\n\x06tagset\x18\x01 \x01(\x0b\x32\n.OC.TagSet\"\x13\n\x11GetTagSetsRequest\"1\n\x12GetTagSetsResponse\x12\x1b\n\x07tagsets\x18\x01 \x03(\x0b\x32\n.OC.TagSet\"E\n\x10PutTagSetRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0e\n\x06typeId\x18\x03 \x01(\t\"/\n\x11PutTagSetResponse\x12\x1a\n\x06tagset\x18\x01 \x01(\x0b\x32\n.OC.TagSet\"A\n\x03Tag\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x10\n\x08tagSetId\x18\x02 \x01(\x03\x12\x0e\n\x06typeId\x18\x03 \x01(\x03\x12\x0c\n\x04name\x18\x04 \x01(\t\"\x1b\n\rGetTagRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"&\n\x0eGetTagResponse\x12\x14\n\x03tag\x18\x01 \x01(\x0b\x32\x07.OC.Tag\"\x10\n\x0eGetTagsRequest\"(\n\x0fGetTagsResponse\x12\x15\n\x04tags\x18\x01 \x03(\x0b\x32\x07.OC.Tag\"/\n\rPutTagRequest\x12\x10\n\x08tagSetId\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\"&\n\x0ePutTagResponse\x12\x14\n\x03tag\x18\x01 \x01(\x0b\x32\x07.OC.Tag\"\x07\n\x05\x45mpty2\xf0\x02\n\tOCService\x12=\n\ngetTagSets\x12\x15.OC.GetTagSetsRequest\x1a\x16.OC.GetTagSetsResponse\"\x00\x12:\n\tgetTagSet\x12\x14.OC.GetTagSetRequest\x1a\x15.OC.GetTagSetResponse\"\x00\x12\x34\n\x07getTags\x12\x12.OC.GetTagsRequest\x1a\x13.OC.GetTagsResponse\"\x00\x12\x31\n\x06getTag\x12\x11.OC.GetTagRequest\x1a\x12.OC.GetTagResponse\"\x00\x12\x31\n\x06putTag\x12\x11.OC.PutTagRequest\x1a\x12.OC.PutTagResponse\"\x00\x12%\n\x0breConnectDB\x12\t.OC.Empty\x1a\t.OC.Empty\"\x00\x12%\n\x0bstopService\x12\t.OC.Empty\x1a\t.OC.Empty\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x08OC.proto\x12\x02OC\"G\n\x06Object\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tthumbnail\x18\x03 \x01(\t\x12\x10\n\x08\x66ileType\x18\x04 \x01(\t\"\x13\n\x11GetObjectsRequest\"1\n\x12GetObjectsResponse\x12\x1b\n\x07objects\x18\x01 \x03(\x0b\x32\n.OC.Object\"\x1e\n\x10GetObjectRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"/\n\x11GetObjectResponse\x12\x1a\n\x06object\x18\x01 \x01(\x0b\x32\n.OC.Object\"E\n\x10PutObjectRequest\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tthumbnail\x18\x03 \x01(\t\x12\x10\n\x08\x66ileType\x18\x04 \x01(\t\"/\n\x11PutObjectResponse\x12\x1a\n\x06object\x18\x01 \x01(\x0b\x32\n.OC.Object\"Y\n\x06TagSet\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0e\n\x06typeId\x18\x04 \x01(\x03\x12\x10\n\x08\x61\x63\x63\x65ssId\x18\x05 \x01(\x03\"\x13\n\x11GetTagSetsRequest\"1\n\x12GetTagSetsResponse\x12\x1b\n\x07tagsets\x18\x01 \x03(\x0b\x32\n.OC.TagSet\"\x1e\n\x10GetTagSetRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"/\n\x11GetTagSetResponse\x12\x1a\n\x06tagset\x18\x01 \x01(\x0b\x32\n.OC.TagSet\"E\n\x10PutTagSetRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0e\n\x06typeId\x18\x03 \x01(\t\"/\n\x11PutTagSetResponse\x12\x1a\n\x06tagset\x18\x01 \x01(\x0b\x32\n.OC.TagSet\"A\n\x03Tag\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x10\n\x08tagSetId\x18\x02 \x01(\x03\x12\x0e\n\x06typeId\x18\x03 \x01(\x03\x12\x0c\n\x04name\x18\x04 \x01(\t\"\x10\n\x0eGetTagsRequest\"(\n\x0fGetTagsResponse\x12\x15\n\x04tags\x18\x01 \x03(\x0b\x32\x07.OC.Tag\"\x1b\n\rGetTagRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"&\n\x0eGetTagResponse\x12\x14\n\x03tag\x18\x01 \x01(\x0b\x32\x07.OC.Tag\"/\n\rPutTagRequest\x12\x10\n\x08tagSetId\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\"&\n\x0ePutTagResponse\x12\x14\n\x03tag\x18\x01 \x01(\x0b\x32\x07.OC.Tag\"\x07\n\x05\x45mpty2\xe3\x04\n\tOCService\x12=\n\ngetObjects\x12\x15.OC.GetObjectsRequest\x1a\x16.OC.GetObjectsResponse\"\x00\x12:\n\tgetObject\x12\x14.OC.GetObjectRequest\x1a\x15.OC.GetObjectResponse\"\x00\x12:\n\tputObject\x12\x14.OC.PutObjectRequest\x1a\x15.OC.PutObjectResponse\"\x00\x12=\n\ngetTagSets\x12\x15.OC.GetTagSetsRequest\x1a\x16.OC.GetTagSetsResponse\"\x00\x12:\n\tgetTagSet\x12\x14.OC.GetTagSetRequest\x1a\x15.OC.GetTagSetResponse\"\x00\x12:\n\tputTagSet\x12\x14.OC.PutTagSetRequest\x1a\x15.OC.PutTagSetResponse\"\x00\x12\x34\n\x07getTags\x12\x12.OC.GetTagsRequest\x1a\x13.OC.GetTagsResponse\"\x00\x12\x31\n\x06getTag\x12\x11.OC.GetTagRequest\x1a\x12.OC.GetTagResponse\"\x00\x12\x31\n\x06putTag\x12\x11.OC.PutTagRequest\x1a\x12.OC.PutTagResponse\"\x00\x12%\n\x0breConnectDB\x12\t.OC.Empty\x1a\t.OC.Empty\"\x00\x12%\n\x0bstopService\x12\t.OC.Empty\x1a\t.OC.Empty\"\x00\x62\x06proto3'
 )
 
 
+
+
+_OBJECT = _descriptor.Descriptor(
+  name='Object',
+  full_name='OC.Object',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='OC.Object.id', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='OC.Object.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='thumbnail', full_name='OC.Object.thumbnail', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='fileType', full_name='OC.Object.fileType', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=16,
+  serialized_end=87,
+)
+
+
+_GETOBJECTSREQUEST = _descriptor.Descriptor(
+  name='GetObjectsRequest',
+  full_name='OC.GetObjectsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=89,
+  serialized_end=108,
+)
+
+
+_GETOBJECTSRESPONSE = _descriptor.Descriptor(
+  name='GetObjectsResponse',
+  full_name='OC.GetObjectsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='objects', full_name='OC.GetObjectsResponse.objects', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=110,
+  serialized_end=159,
+)
+
+
+_GETOBJECTREQUEST = _descriptor.Descriptor(
+  name='GetObjectRequest',
+  full_name='OC.GetObjectRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='OC.GetObjectRequest.id', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=161,
+  serialized_end=191,
+)
+
+
+_GETOBJECTRESPONSE = _descriptor.Descriptor(
+  name='GetObjectResponse',
+  full_name='OC.GetObjectResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='object', full_name='OC.GetObjectResponse.object', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=193,
+  serialized_end=240,
+)
+
+
+_PUTOBJECTREQUEST = _descriptor.Descriptor(
+  name='PutObjectRequest',
+  full_name='OC.PutObjectRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='OC.PutObjectRequest.name', index=0,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='thumbnail', full_name='OC.PutObjectRequest.thumbnail', index=1,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='fileType', full_name='OC.PutObjectRequest.fileType', index=2,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=242,
+  serialized_end=311,
+)
+
+
+_PUTOBJECTRESPONSE = _descriptor.Descriptor(
+  name='PutObjectResponse',
+  full_name='OC.PutObjectResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='object', full_name='OC.PutObjectResponse.object', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=313,
+  serialized_end=360,
+)
 
 
 _TAGSET = _descriptor.Descriptor(
@@ -80,72 +332,8 @@ _TAGSET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=16,
-  serialized_end=105,
-)
-
-
-_GETTAGSETREQUEST = _descriptor.Descriptor(
-  name='GetTagSetRequest',
-  full_name='OC.GetTagSetRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='OC.GetTagSetRequest.id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=107,
-  serialized_end=137,
-)
-
-
-_GETTAGSETRESPONSE = _descriptor.Descriptor(
-  name='GetTagSetResponse',
-  full_name='OC.GetTagSetResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='tagset', full_name='OC.GetTagSetResponse.tagset', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=139,
-  serialized_end=186,
+  serialized_start=362,
+  serialized_end=451,
 )
 
 
@@ -169,8 +357,8 @@ _GETTAGSETSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=188,
-  serialized_end=207,
+  serialized_start=453,
+  serialized_end=472,
 )
 
 
@@ -201,8 +389,72 @@ _GETTAGSETSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=209,
-  serialized_end=258,
+  serialized_start=474,
+  serialized_end=523,
+)
+
+
+_GETTAGSETREQUEST = _descriptor.Descriptor(
+  name='GetTagSetRequest',
+  full_name='OC.GetTagSetRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='OC.GetTagSetRequest.id', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=525,
+  serialized_end=555,
+)
+
+
+_GETTAGSETRESPONSE = _descriptor.Descriptor(
+  name='GetTagSetResponse',
+  full_name='OC.GetTagSetResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tagset', full_name='OC.GetTagSetResponse.tagset', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=557,
+  serialized_end=604,
 )
 
 
@@ -247,8 +499,8 @@ _PUTTAGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=260,
-  serialized_end=329,
+  serialized_start=606,
+  serialized_end=675,
 )
 
 
@@ -279,8 +531,8 @@ _PUTTAGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=331,
-  serialized_end=378,
+  serialized_start=677,
+  serialized_end=724,
 )
 
 
@@ -332,72 +584,8 @@ _TAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=380,
-  serialized_end=445,
-)
-
-
-_GETTAGREQUEST = _descriptor.Descriptor(
-  name='GetTagRequest',
-  full_name='OC.GetTagRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='OC.GetTagRequest.id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=447,
-  serialized_end=474,
-)
-
-
-_GETTAGRESPONSE = _descriptor.Descriptor(
-  name='GetTagResponse',
-  full_name='OC.GetTagResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='tag', full_name='OC.GetTagResponse.tag', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=476,
-  serialized_end=514,
+  serialized_start=726,
+  serialized_end=791,
 )
 
 
@@ -421,8 +609,8 @@ _GETTAGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=516,
-  serialized_end=532,
+  serialized_start=793,
+  serialized_end=809,
 )
 
 
@@ -453,8 +641,72 @@ _GETTAGSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=534,
-  serialized_end=574,
+  serialized_start=811,
+  serialized_end=851,
+)
+
+
+_GETTAGREQUEST = _descriptor.Descriptor(
+  name='GetTagRequest',
+  full_name='OC.GetTagRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='OC.GetTagRequest.id', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=853,
+  serialized_end=880,
+)
+
+
+_GETTAGRESPONSE = _descriptor.Descriptor(
+  name='GetTagResponse',
+  full_name='OC.GetTagResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tag', full_name='OC.GetTagResponse.tag', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=882,
+  serialized_end=920,
 )
 
 
@@ -492,8 +744,8 @@ _PUTTAGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=576,
-  serialized_end=623,
+  serialized_start=922,
+  serialized_end=969,
 )
 
 
@@ -524,8 +776,8 @@ _PUTTAGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=625,
-  serialized_end=663,
+  serialized_start=971,
+  serialized_end=1009,
 )
 
 
@@ -549,32 +801,91 @@ _EMPTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=665,
-  serialized_end=672,
+  serialized_start=1011,
+  serialized_end=1018,
 )
 
-_GETTAGSETRESPONSE.fields_by_name['tagset'].message_type = _TAGSET
+_GETOBJECTSRESPONSE.fields_by_name['objects'].message_type = _OBJECT
+_GETOBJECTRESPONSE.fields_by_name['object'].message_type = _OBJECT
+_PUTOBJECTRESPONSE.fields_by_name['object'].message_type = _OBJECT
 _GETTAGSETSRESPONSE.fields_by_name['tagsets'].message_type = _TAGSET
+_GETTAGSETRESPONSE.fields_by_name['tagset'].message_type = _TAGSET
 _PUTTAGSETRESPONSE.fields_by_name['tagset'].message_type = _TAGSET
-_GETTAGRESPONSE.fields_by_name['tag'].message_type = _TAG
 _GETTAGSRESPONSE.fields_by_name['tags'].message_type = _TAG
+_GETTAGRESPONSE.fields_by_name['tag'].message_type = _TAG
 _PUTTAGRESPONSE.fields_by_name['tag'].message_type = _TAG
+DESCRIPTOR.message_types_by_name['Object'] = _OBJECT
+DESCRIPTOR.message_types_by_name['GetObjectsRequest'] = _GETOBJECTSREQUEST
+DESCRIPTOR.message_types_by_name['GetObjectsResponse'] = _GETOBJECTSRESPONSE
+DESCRIPTOR.message_types_by_name['GetObjectRequest'] = _GETOBJECTREQUEST
+DESCRIPTOR.message_types_by_name['GetObjectResponse'] = _GETOBJECTRESPONSE
+DESCRIPTOR.message_types_by_name['PutObjectRequest'] = _PUTOBJECTREQUEST
+DESCRIPTOR.message_types_by_name['PutObjectResponse'] = _PUTOBJECTRESPONSE
 DESCRIPTOR.message_types_by_name['TagSet'] = _TAGSET
-DESCRIPTOR.message_types_by_name['GetTagSetRequest'] = _GETTAGSETREQUEST
-DESCRIPTOR.message_types_by_name['GetTagSetResponse'] = _GETTAGSETRESPONSE
 DESCRIPTOR.message_types_by_name['GetTagSetsRequest'] = _GETTAGSETSREQUEST
 DESCRIPTOR.message_types_by_name['GetTagSetsResponse'] = _GETTAGSETSRESPONSE
+DESCRIPTOR.message_types_by_name['GetTagSetRequest'] = _GETTAGSETREQUEST
+DESCRIPTOR.message_types_by_name['GetTagSetResponse'] = _GETTAGSETRESPONSE
 DESCRIPTOR.message_types_by_name['PutTagSetRequest'] = _PUTTAGSETREQUEST
 DESCRIPTOR.message_types_by_name['PutTagSetResponse'] = _PUTTAGSETRESPONSE
 DESCRIPTOR.message_types_by_name['Tag'] = _TAG
-DESCRIPTOR.message_types_by_name['GetTagRequest'] = _GETTAGREQUEST
-DESCRIPTOR.message_types_by_name['GetTagResponse'] = _GETTAGRESPONSE
 DESCRIPTOR.message_types_by_name['GetTagsRequest'] = _GETTAGSREQUEST
 DESCRIPTOR.message_types_by_name['GetTagsResponse'] = _GETTAGSRESPONSE
+DESCRIPTOR.message_types_by_name['GetTagRequest'] = _GETTAGREQUEST
+DESCRIPTOR.message_types_by_name['GetTagResponse'] = _GETTAGRESPONSE
 DESCRIPTOR.message_types_by_name['PutTagRequest'] = _PUTTAGREQUEST
 DESCRIPTOR.message_types_by_name['PutTagResponse'] = _PUTTAGRESPONSE
 DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+Object = _reflection.GeneratedProtocolMessageType('Object', (_message.Message,), {
+  'DESCRIPTOR' : _OBJECT,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.Object)
+  })
+_sym_db.RegisterMessage(Object)
+
+GetObjectsRequest = _reflection.GeneratedProtocolMessageType('GetObjectsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETOBJECTSREQUEST,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.GetObjectsRequest)
+  })
+_sym_db.RegisterMessage(GetObjectsRequest)
+
+GetObjectsResponse = _reflection.GeneratedProtocolMessageType('GetObjectsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETOBJECTSRESPONSE,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.GetObjectsResponse)
+  })
+_sym_db.RegisterMessage(GetObjectsResponse)
+
+GetObjectRequest = _reflection.GeneratedProtocolMessageType('GetObjectRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETOBJECTREQUEST,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.GetObjectRequest)
+  })
+_sym_db.RegisterMessage(GetObjectRequest)
+
+GetObjectResponse = _reflection.GeneratedProtocolMessageType('GetObjectResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETOBJECTRESPONSE,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.GetObjectResponse)
+  })
+_sym_db.RegisterMessage(GetObjectResponse)
+
+PutObjectRequest = _reflection.GeneratedProtocolMessageType('PutObjectRequest', (_message.Message,), {
+  'DESCRIPTOR' : _PUTOBJECTREQUEST,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.PutObjectRequest)
+  })
+_sym_db.RegisterMessage(PutObjectRequest)
+
+PutObjectResponse = _reflection.GeneratedProtocolMessageType('PutObjectResponse', (_message.Message,), {
+  'DESCRIPTOR' : _PUTOBJECTRESPONSE,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.PutObjectResponse)
+  })
+_sym_db.RegisterMessage(PutObjectResponse)
 
 TagSet = _reflection.GeneratedProtocolMessageType('TagSet', (_message.Message,), {
   'DESCRIPTOR' : _TAGSET,
@@ -582,20 +893,6 @@ TagSet = _reflection.GeneratedProtocolMessageType('TagSet', (_message.Message,),
   # @@protoc_insertion_point(class_scope:OC.TagSet)
   })
 _sym_db.RegisterMessage(TagSet)
-
-GetTagSetRequest = _reflection.GeneratedProtocolMessageType('GetTagSetRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETTAGSETREQUEST,
-  '__module__' : 'OC_pb2'
-  # @@protoc_insertion_point(class_scope:OC.GetTagSetRequest)
-  })
-_sym_db.RegisterMessage(GetTagSetRequest)
-
-GetTagSetResponse = _reflection.GeneratedProtocolMessageType('GetTagSetResponse', (_message.Message,), {
-  'DESCRIPTOR' : _GETTAGSETRESPONSE,
-  '__module__' : 'OC_pb2'
-  # @@protoc_insertion_point(class_scope:OC.GetTagSetResponse)
-  })
-_sym_db.RegisterMessage(GetTagSetResponse)
 
 GetTagSetsRequest = _reflection.GeneratedProtocolMessageType('GetTagSetsRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETTAGSETSREQUEST,
@@ -610,6 +907,20 @@ GetTagSetsResponse = _reflection.GeneratedProtocolMessageType('GetTagSetsRespons
   # @@protoc_insertion_point(class_scope:OC.GetTagSetsResponse)
   })
 _sym_db.RegisterMessage(GetTagSetsResponse)
+
+GetTagSetRequest = _reflection.GeneratedProtocolMessageType('GetTagSetRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGSETREQUEST,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.GetTagSetRequest)
+  })
+_sym_db.RegisterMessage(GetTagSetRequest)
+
+GetTagSetResponse = _reflection.GeneratedProtocolMessageType('GetTagSetResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGSETRESPONSE,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.GetTagSetResponse)
+  })
+_sym_db.RegisterMessage(GetTagSetResponse)
 
 PutTagSetRequest = _reflection.GeneratedProtocolMessageType('PutTagSetRequest', (_message.Message,), {
   'DESCRIPTOR' : _PUTTAGSETREQUEST,
@@ -632,20 +943,6 @@ Tag = _reflection.GeneratedProtocolMessageType('Tag', (_message.Message,), {
   })
 _sym_db.RegisterMessage(Tag)
 
-GetTagRequest = _reflection.GeneratedProtocolMessageType('GetTagRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETTAGREQUEST,
-  '__module__' : 'OC_pb2'
-  # @@protoc_insertion_point(class_scope:OC.GetTagRequest)
-  })
-_sym_db.RegisterMessage(GetTagRequest)
-
-GetTagResponse = _reflection.GeneratedProtocolMessageType('GetTagResponse', (_message.Message,), {
-  'DESCRIPTOR' : _GETTAGRESPONSE,
-  '__module__' : 'OC_pb2'
-  # @@protoc_insertion_point(class_scope:OC.GetTagResponse)
-  })
-_sym_db.RegisterMessage(GetTagResponse)
-
 GetTagsRequest = _reflection.GeneratedProtocolMessageType('GetTagsRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETTAGSREQUEST,
   '__module__' : 'OC_pb2'
@@ -659,6 +956,20 @@ GetTagsResponse = _reflection.GeneratedProtocolMessageType('GetTagsResponse', (_
   # @@protoc_insertion_point(class_scope:OC.GetTagsResponse)
   })
 _sym_db.RegisterMessage(GetTagsResponse)
+
+GetTagRequest = _reflection.GeneratedProtocolMessageType('GetTagRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGREQUEST,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.GetTagRequest)
+  })
+_sym_db.RegisterMessage(GetTagRequest)
+
+GetTagResponse = _reflection.GeneratedProtocolMessageType('GetTagResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGRESPONSE,
+  '__module__' : 'OC_pb2'
+  # @@protoc_insertion_point(class_scope:OC.GetTagResponse)
+  })
+_sym_db.RegisterMessage(GetTagResponse)
 
 PutTagRequest = _reflection.GeneratedProtocolMessageType('PutTagRequest', (_message.Message,), {
   'DESCRIPTOR' : _PUTTAGREQUEST,
@@ -690,13 +1001,43 @@ _OCSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=675,
-  serialized_end=1043,
+  serialized_start=1021,
+  serialized_end=1632,
   methods=[
+  _descriptor.MethodDescriptor(
+    name='getObjects',
+    full_name='OC.OCService.getObjects',
+    index=0,
+    containing_service=None,
+    input_type=_GETOBJECTSREQUEST,
+    output_type=_GETOBJECTSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getObject',
+    full_name='OC.OCService.getObject',
+    index=1,
+    containing_service=None,
+    input_type=_GETOBJECTREQUEST,
+    output_type=_GETOBJECTRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='putObject',
+    full_name='OC.OCService.putObject',
+    index=2,
+    containing_service=None,
+    input_type=_PUTOBJECTREQUEST,
+    output_type=_PUTOBJECTRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
   _descriptor.MethodDescriptor(
     name='getTagSets',
     full_name='OC.OCService.getTagSets',
-    index=0,
+    index=3,
     containing_service=None,
     input_type=_GETTAGSETSREQUEST,
     output_type=_GETTAGSETSRESPONSE,
@@ -706,7 +1047,7 @@ _OCSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='getTagSet',
     full_name='OC.OCService.getTagSet',
-    index=1,
+    index=4,
     containing_service=None,
     input_type=_GETTAGSETREQUEST,
     output_type=_GETTAGSETRESPONSE,
@@ -714,9 +1055,19 @@ _OCSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='putTagSet',
+    full_name='OC.OCService.putTagSet',
+    index=5,
+    containing_service=None,
+    input_type=_PUTTAGSETREQUEST,
+    output_type=_PUTTAGSETRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='getTags',
     full_name='OC.OCService.getTags',
-    index=2,
+    index=6,
     containing_service=None,
     input_type=_GETTAGSREQUEST,
     output_type=_GETTAGSRESPONSE,
@@ -726,7 +1077,7 @@ _OCSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='getTag',
     full_name='OC.OCService.getTag',
-    index=3,
+    index=7,
     containing_service=None,
     input_type=_GETTAGREQUEST,
     output_type=_GETTAGRESPONSE,
@@ -736,7 +1087,7 @@ _OCSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='putTag',
     full_name='OC.OCService.putTag',
-    index=4,
+    index=8,
     containing_service=None,
     input_type=_PUTTAGREQUEST,
     output_type=_PUTTAGRESPONSE,
@@ -746,7 +1097,7 @@ _OCSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='reConnectDB',
     full_name='OC.OCService.reConnectDB',
-    index=5,
+    index=9,
     containing_service=None,
     input_type=_EMPTY,
     output_type=_EMPTY,
@@ -756,7 +1107,7 @@ _OCSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='stopService',
     full_name='OC.OCService.stopService',
-    index=6,
+    index=10,
     containing_service=None,
     input_type=_EMPTY,
     output_type=_EMPTY,

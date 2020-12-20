@@ -61,8 +61,8 @@ void DebugInfo::output( const string& originatingClass, const string& function, 
 	{
 		return;
 	}
-	
-	cerr << endl << originatingClass << "::" << function << ":\n" << info << endl;
+
+	cerr << originatingClass << "::" << function << ": " << info << endl;
 }
 //____________________________________________________________________________________________________________________________________________________________________________________
 
@@ -94,7 +94,7 @@ void DebugInfo::pushTimer( const string& originatingClass, const string& functio
 	{
 		return;
 	}
-	
+
 	timers_.push( DebugInfoTimer( originatingClass, function, info ) );
 }
 //____________________________________________________________________________________________________________________________________________________________________________________
@@ -105,26 +105,27 @@ void DebugInfo::popTimer()
 	{
 		return;
 	}
-	
+
 	DebugInfoTimer timer = timers_.top();
 	if( !debugOn_( timer.getClass(), timer.getFunction() ) )
 	{
 		return;
 	}
 	timers_.pop();
-	
+
 	string indentation;
 	for( int i = 0; i < timers_.size(); ++i )
 	{
 		indentation += "\t";
 	}
-	
+
 	double endTime = DebugInfoTimer::getCurrTimeInMilliseconds();
-	
-	cout	<< endl << indentation << timer.getClass() << "::" << timer.getFunction() 
-			<< ( timer.getInfo().length() > 0 ? " - " : "" )
-			<< timer.getInfo() << " (cpu seconds): " << (double)  ( clock() - timer.getTimer() ) / CLOCKS_PER_SEC
-	<< " (wall seconds): " << time( 0 ) - timer.getWallTimer() << " (wall milliseconds): " << endTime - timer.getMillisecondsStart();
+
+	cout << indentation << timer.getClass() << "::" << timer.getFunction() 
+       << ( timer.getInfo().length() > 0 ? " - " : "" )
+       << timer.getInfo() << " (cpu seconds): " << (double)  ( clock() - timer.getTimer() ) / CLOCKS_PER_SEC
+       << " (wall seconds): " << time( 0 ) - timer.getWallTimer() << " (wall milliseconds): " << endTime - timer.getMillisecondsStart()
+       << endl;;
 }
 //____________________________________________________________________________________________________________________________________________________________________________________
 
@@ -135,11 +136,11 @@ DebugInfo::DebugInfoTimer::DebugInfoTimer( const string& originatingClass, const
 	info_ = info;
 	timer_ = clock();
 	wallTimer_ = time( 0 );
-	
+
 	millisecondsStart_ = getCurrTimeInMilliseconds();
 }
 //____________________________________________________________________________________________________________________________________________________________________________________
-													
+
 double DebugInfo::DebugInfoTimer::getCurrTimeInMilliseconds()
 {
 	timeval timev;
@@ -161,7 +162,7 @@ int DebugInfo::getParameterValue_( const string& param )
 bool DebugInfo::debugOn_( const string& originatingClass, const string& function )
 {
 	turnCoutAndCerrOn();  //Should only affect direct cout/cerr in code, not DebugInfo output
-	
+
 	if( getParameterValue_( OUTPUT_DEBUG_INFO ) == 1 ) //Trace is on, check for exclusion
 	{
 		if( getParameterValue_( OUTPUT_CLASS_PREFIX + originatingClass ) == 0 )
@@ -193,11 +194,11 @@ void DebugInfo::turnCoutAndCerrOff()
 	{
 		return;
 	}
-	
+
 	nullstream_.reset( new ofstream( DebugInfo::NULL_OUTPUT.c_str() ) );
 	originalCerrBuffer_ = cerr.rdbuf( nullstream_->rdbuf() );
 	originalCoutBuffer_ = cout.rdbuf( nullstream_->rdbuf() );
-	
+
 	coutAndCerrOn_ = false;
 }
 //____________________________________________________________________________________________________________________________________________________________________________________
@@ -208,7 +209,7 @@ void DebugInfo::turnCoutAndCerrOn()
 	{
 		return;
 	}
-	
+
 	cerr.rdbuf( originalCerrBuffer_ ); 
 	cout.rdbuf( originalCoutBuffer_ );
 	nullstream_->close();	
@@ -216,35 +217,4 @@ void DebugInfo::turnCoutAndCerrOn()
 	coutAndCerrOn_ = true;
 }
 //____________________________________________________________________________________________________________________________________________________________________________________
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

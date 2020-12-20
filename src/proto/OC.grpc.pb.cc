@@ -22,8 +22,12 @@
 namespace OC {
 
 static const char* OCService_method_names[] = {
+  "/OC.OCService/getObjects",
+  "/OC.OCService/getObject",
+  "/OC.OCService/putObject",
   "/OC.OCService/getTagSets",
   "/OC.OCService/getTagSet",
+  "/OC.OCService/putTagSet",
   "/OC.OCService/getTags",
   "/OC.OCService/getTag",
   "/OC.OCService/putTag",
@@ -38,14 +42,87 @@ std::unique_ptr< OCService::Stub> OCService::NewStub(const std::shared_ptr< ::gr
 }
 
 OCService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_getTagSets_(OCService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_getTagSet_(OCService_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_getTags_(OCService_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_getTag_(OCService_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_putTag_(OCService_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_reConnectDB_(OCService_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_stopService_(OCService_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_getObjects_(OCService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getObject_(OCService_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_putObject_(OCService_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTagSets_(OCService_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTagSet_(OCService_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_putTagSet_(OCService_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTags_(OCService_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTag_(OCService_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_putTag_(OCService_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_reConnectDB_(OCService_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_stopService_(OCService_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
+
+::grpc::Status OCService::Stub::getObjects(::grpc::ClientContext* context, const ::OC::GetObjectsRequest& request, ::OC::GetObjectsResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getObjects_, context, request, response);
+}
+
+void OCService::Stub::experimental_async::getObjects(::grpc::ClientContext* context, const ::OC::GetObjectsRequest* request, ::OC::GetObjectsResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getObjects_, context, request, response, std::move(f));
+}
+
+void OCService::Stub::experimental_async::getObjects(::grpc::ClientContext* context, const ::OC::GetObjectsRequest* request, ::OC::GetObjectsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getObjects_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::GetObjectsResponse>* OCService::Stub::PrepareAsyncgetObjectsRaw(::grpc::ClientContext* context, const ::OC::GetObjectsRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::OC::GetObjectsResponse>::Create(channel_.get(), cq, rpcmethod_getObjects_, context, request, false);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::GetObjectsResponse>* OCService::Stub::AsyncgetObjectsRaw(::grpc::ClientContext* context, const ::OC::GetObjectsRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncgetObjectsRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status OCService::Stub::getObject(::grpc::ClientContext* context, const ::OC::GetObjectRequest& request, ::OC::GetObjectResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getObject_, context, request, response);
+}
+
+void OCService::Stub::experimental_async::getObject(::grpc::ClientContext* context, const ::OC::GetObjectRequest* request, ::OC::GetObjectResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getObject_, context, request, response, std::move(f));
+}
+
+void OCService::Stub::experimental_async::getObject(::grpc::ClientContext* context, const ::OC::GetObjectRequest* request, ::OC::GetObjectResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getObject_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::GetObjectResponse>* OCService::Stub::PrepareAsyncgetObjectRaw(::grpc::ClientContext* context, const ::OC::GetObjectRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::OC::GetObjectResponse>::Create(channel_.get(), cq, rpcmethod_getObject_, context, request, false);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::GetObjectResponse>* OCService::Stub::AsyncgetObjectRaw(::grpc::ClientContext* context, const ::OC::GetObjectRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncgetObjectRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status OCService::Stub::putObject(::grpc::ClientContext* context, const ::OC::PutObjectRequest& request, ::OC::PutObjectResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_putObject_, context, request, response);
+}
+
+void OCService::Stub::experimental_async::putObject(::grpc::ClientContext* context, const ::OC::PutObjectRequest* request, ::OC::PutObjectResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_putObject_, context, request, response, std::move(f));
+}
+
+void OCService::Stub::experimental_async::putObject(::grpc::ClientContext* context, const ::OC::PutObjectRequest* request, ::OC::PutObjectResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_putObject_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::PutObjectResponse>* OCService::Stub::PrepareAsyncputObjectRaw(::grpc::ClientContext* context, const ::OC::PutObjectRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::OC::PutObjectResponse>::Create(channel_.get(), cq, rpcmethod_putObject_, context, request, false);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::PutObjectResponse>* OCService::Stub::AsyncputObjectRaw(::grpc::ClientContext* context, const ::OC::PutObjectRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncputObjectRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
 
 ::grpc::Status OCService::Stub::getTagSets(::grpc::ClientContext* context, const ::OC::GetTagSetsRequest& request, ::OC::GetTagSetsResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTagSets_, context, request, response);
@@ -89,6 +166,29 @@ void OCService::Stub::experimental_async::getTagSet(::grpc::ClientContext* conte
 ::grpc::ClientAsyncResponseReader< ::OC::GetTagSetResponse>* OCService::Stub::AsyncgetTagSetRaw(::grpc::ClientContext* context, const ::OC::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncgetTagSetRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status OCService::Stub::putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_putTagSet_, context, request, response);
+}
+
+void OCService::Stub::experimental_async::putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_putTagSet_, context, request, response, std::move(f));
+}
+
+void OCService::Stub::experimental_async::putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_putTagSet_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::PrepareAsyncputTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::OC::PutTagSetResponse>::Create(channel_.get(), cq, rpcmethod_putTagSet_, context, request, false);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::AsyncputTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncputTagSetRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -212,6 +312,36 @@ OCService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       OCService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::GetObjectsRequest, ::OC::GetObjectsResponse>(
+          [](OCService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::OC::GetObjectsRequest* req,
+             ::OC::GetObjectsResponse* resp) {
+               return service->getObjects(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      OCService_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::GetObjectRequest, ::OC::GetObjectResponse>(
+          [](OCService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::OC::GetObjectRequest* req,
+             ::OC::GetObjectResponse* resp) {
+               return service->getObject(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      OCService_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::PutObjectRequest, ::OC::PutObjectResponse>(
+          [](OCService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::OC::PutObjectRequest* req,
+             ::OC::PutObjectResponse* resp) {
+               return service->putObject(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      OCService_method_names[3],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::GetTagSetsRequest, ::OC::GetTagSetsResponse>(
           [](OCService::Service* service,
              ::grpc::ServerContext* ctx,
@@ -220,7 +350,7 @@ OCService::Service::Service() {
                return service->getTagSets(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      OCService_method_names[1],
+      OCService_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::GetTagSetRequest, ::OC::GetTagSetResponse>(
           [](OCService::Service* service,
@@ -230,7 +360,17 @@ OCService::Service::Service() {
                return service->getTagSet(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      OCService_method_names[2],
+      OCService_method_names[5],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
+          [](OCService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::OC::PutTagSetRequest* req,
+             ::OC::PutTagSetResponse* resp) {
+               return service->putTagSet(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      OCService_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::GetTagsRequest, ::OC::GetTagsResponse>(
           [](OCService::Service* service,
@@ -240,7 +380,7 @@ OCService::Service::Service() {
                return service->getTags(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      OCService_method_names[3],
+      OCService_method_names[7],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::GetTagRequest, ::OC::GetTagResponse>(
           [](OCService::Service* service,
@@ -250,7 +390,7 @@ OCService::Service::Service() {
                return service->getTag(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      OCService_method_names[4],
+      OCService_method_names[8],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::PutTagRequest, ::OC::PutTagResponse>(
           [](OCService::Service* service,
@@ -260,7 +400,7 @@ OCService::Service::Service() {
                return service->putTag(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      OCService_method_names[5],
+      OCService_method_names[9],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::Empty, ::OC::Empty>(
           [](OCService::Service* service,
@@ -270,7 +410,7 @@ OCService::Service::Service() {
                return service->reConnectDB(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      OCService_method_names[6],
+      OCService_method_names[10],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::Empty, ::OC::Empty>(
           [](OCService::Service* service,
@@ -284,6 +424,27 @@ OCService::Service::Service() {
 OCService::Service::~Service() {
 }
 
+::grpc::Status OCService::Service::getObjects(::grpc::ServerContext* context, const ::OC::GetObjectsRequest* request, ::OC::GetObjectsResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status OCService::Service::getObject(::grpc::ServerContext* context, const ::OC::GetObjectRequest* request, ::OC::GetObjectResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status OCService::Service::putObject(::grpc::ServerContext* context, const ::OC::PutObjectRequest* request, ::OC::PutObjectResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
 ::grpc::Status OCService::Service::getTagSets(::grpc::ServerContext* context, const ::OC::GetTagSetsRequest* request, ::OC::GetTagSetsResponse* response) {
   (void) context;
   (void) request;
@@ -292,6 +453,13 @@ OCService::Service::~Service() {
 }
 
 ::grpc::Status OCService::Service::getTagSet(::grpc::ServerContext* context, const ::OC::GetTagSetRequest* request, ::OC::GetTagSetResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status OCService::Service::putTagSet(::grpc::ServerContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response) {
   (void) context;
   (void) request;
   (void) response;

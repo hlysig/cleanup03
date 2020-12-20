@@ -6,7 +6,9 @@ import OC_pb2 as OC__pb2
 
 
 class OCServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Service
+
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -14,6 +16,21 @@ class OCServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.getObjects = channel.unary_unary(
+                '/OC.OCService/getObjects',
+                request_serializer=OC__pb2.GetObjectsRequest.SerializeToString,
+                response_deserializer=OC__pb2.GetObjectsResponse.FromString,
+                )
+        self.getObject = channel.unary_unary(
+                '/OC.OCService/getObject',
+                request_serializer=OC__pb2.GetObjectRequest.SerializeToString,
+                response_deserializer=OC__pb2.GetObjectResponse.FromString,
+                )
+        self.putObject = channel.unary_unary(
+                '/OC.OCService/putObject',
+                request_serializer=OC__pb2.PutObjectRequest.SerializeToString,
+                response_deserializer=OC__pb2.PutObjectResponse.FromString,
+                )
         self.getTagSets = channel.unary_unary(
                 '/OC.OCService/getTagSets',
                 request_serializer=OC__pb2.GetTagSetsRequest.SerializeToString,
@@ -23,6 +40,11 @@ class OCServiceStub(object):
                 '/OC.OCService/getTagSet',
                 request_serializer=OC__pb2.GetTagSetRequest.SerializeToString,
                 response_deserializer=OC__pb2.GetTagSetResponse.FromString,
+                )
+        self.putTagSet = channel.unary_unary(
+                '/OC.OCService/putTagSet',
+                request_serializer=OC__pb2.PutTagSetRequest.SerializeToString,
+                response_deserializer=OC__pb2.PutTagSetResponse.FromString,
                 )
         self.getTags = channel.unary_unary(
                 '/OC.OCService/getTags',
@@ -52,10 +74,32 @@ class OCServiceStub(object):
 
 
 class OCServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Service
+
+    """
+
+    def getObjects(self, request, context):
+        """Object
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def getObject(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def putObject(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def getTagSets(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """TagSet
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -66,8 +110,15 @@ class OCServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def getTags(self, request, context):
+    def putTagSet(self, request, context):
         """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def getTags(self, request, context):
+        """Tag
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -85,7 +136,7 @@ class OCServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def reConnectDB(self, request, context):
-        """Future functionality
+        """Control RPC calls
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -100,6 +151,21 @@ class OCServiceServicer(object):
 
 def add_OCServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'getObjects': grpc.unary_unary_rpc_method_handler(
+                    servicer.getObjects,
+                    request_deserializer=OC__pb2.GetObjectsRequest.FromString,
+                    response_serializer=OC__pb2.GetObjectsResponse.SerializeToString,
+            ),
+            'getObject': grpc.unary_unary_rpc_method_handler(
+                    servicer.getObject,
+                    request_deserializer=OC__pb2.GetObjectRequest.FromString,
+                    response_serializer=OC__pb2.GetObjectResponse.SerializeToString,
+            ),
+            'putObject': grpc.unary_unary_rpc_method_handler(
+                    servicer.putObject,
+                    request_deserializer=OC__pb2.PutObjectRequest.FromString,
+                    response_serializer=OC__pb2.PutObjectResponse.SerializeToString,
+            ),
             'getTagSets': grpc.unary_unary_rpc_method_handler(
                     servicer.getTagSets,
                     request_deserializer=OC__pb2.GetTagSetsRequest.FromString,
@@ -109,6 +175,11 @@ def add_OCServiceServicer_to_server(servicer, server):
                     servicer.getTagSet,
                     request_deserializer=OC__pb2.GetTagSetRequest.FromString,
                     response_serializer=OC__pb2.GetTagSetResponse.SerializeToString,
+            ),
+            'putTagSet': grpc.unary_unary_rpc_method_handler(
+                    servicer.putTagSet,
+                    request_deserializer=OC__pb2.PutTagSetRequest.FromString,
+                    response_serializer=OC__pb2.PutTagSetResponse.SerializeToString,
             ),
             'getTags': grpc.unary_unary_rpc_method_handler(
                     servicer.getTags,
@@ -143,7 +214,60 @@ def add_OCServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class OCService(object):
-    """Missing associated documentation comment in .proto file."""
+    """Service
+
+    """
+
+    @staticmethod
+    def getObjects(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/OC.OCService/getObjects',
+            OC__pb2.GetObjectsRequest.SerializeToString,
+            OC__pb2.GetObjectsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def getObject(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/OC.OCService/getObject',
+            OC__pb2.GetObjectRequest.SerializeToString,
+            OC__pb2.GetObjectResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def putObject(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/OC.OCService/putObject',
+            OC__pb2.PutObjectRequest.SerializeToString,
+            OC__pb2.PutObjectResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def getTagSets(request,
@@ -176,6 +300,23 @@ class OCService(object):
         return grpc.experimental.unary_unary(request, target, '/OC.OCService/getTagSet',
             OC__pb2.GetTagSetRequest.SerializeToString,
             OC__pb2.GetTagSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def putTagSet(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/OC.OCService/putTagSet',
+            OC__pb2.PutTagSetRequest.SerializeToString,
+            OC__pb2.PutTagSetResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
