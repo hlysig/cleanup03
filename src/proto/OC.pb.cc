@@ -630,8 +630,8 @@ const char descriptor_table_protodef_OC_2eproto[] PROTOBUF_SECTION_VARIABLE(prot
   "tsResponse\022\033\n\007objects\030\001 \003(\0132\n.OC.Object\""
   "\036\n\020GetObjectRequest\022\n\n\002id\030\001 \001(\003\"/\n\021GetOb"
   "jectResponse\022\032\n\006object\030\001 \001(\0132\n.OC.Object"
-  "\"E\n\020PutObjectRequest\022\014\n\004name\030\002 \001(\t\022\021\n\tth"
-  "umbnail\030\003 \001(\t\022\020\n\010fileType\030\004 \001(\t\"/\n\021PutOb"
+  "\"E\n\020PutObjectRequest\022\014\n\004name\030\001 \001(\t\022\021\n\tth"
+  "umbnail\030\002 \001(\t\022\020\n\010fileType\030\003 \001(\t\"/\n\021PutOb"
   "jectResponse\022\032\n\006object\030\001 \001(\0132\n.OC.Object"
   "\"Y\n\006TagSet\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\023\n\013"
   "description\030\003 \001(\t\022\016\n\006typeId\030\004 \001(\003\022\020\n\010acc"
@@ -1886,27 +1886,27 @@ const char* PutObjectRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // string name = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+      // string name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "OC.PutObjectRequest.name"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string thumbnail = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+      // string thumbnail = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_thumbnail();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "OC.PutObjectRequest.thumbnail"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string fileType = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+      // string fileType = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_filetype();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "OC.PutObjectRequest.fileType"));
@@ -1941,34 +1941,34 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string name = 2;
+  // string name = 1;
   if (this->name().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "OC.PutObjectRequest.name");
     target = stream->WriteStringMaybeAliased(
-        2, this->_internal_name(), target);
+        1, this->_internal_name(), target);
   }
 
-  // string thumbnail = 3;
+  // string thumbnail = 2;
   if (this->thumbnail().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_thumbnail().data(), static_cast<int>(this->_internal_thumbnail().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "OC.PutObjectRequest.thumbnail");
     target = stream->WriteStringMaybeAliased(
-        3, this->_internal_thumbnail(), target);
+        2, this->_internal_thumbnail(), target);
   }
 
-  // string fileType = 4;
+  // string fileType = 3;
   if (this->filetype().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_filetype().data(), static_cast<int>(this->_internal_filetype().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "OC.PutObjectRequest.fileType");
     target = stream->WriteStringMaybeAliased(
-        4, this->_internal_filetype(), target);
+        3, this->_internal_filetype(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1987,21 +1987,21 @@ size_t PutObjectRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string name = 2;
+  // string name = 1;
   if (this->name().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
-  // string thumbnail = 3;
+  // string thumbnail = 2;
   if (this->thumbnail().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_thumbnail());
   }
 
-  // string fileType = 4;
+  // string fileType = 3;
   if (this->filetype().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(

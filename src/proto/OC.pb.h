@@ -1007,11 +1007,11 @@ class PutObjectRequest PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNameFieldNumber = 2,
-    kThumbnailFieldNumber = 3,
-    kFileTypeFieldNumber = 4,
+    kNameFieldNumber = 1,
+    kThumbnailFieldNumber = 2,
+    kFileTypeFieldNumber = 3,
   };
-  // string name = 2;
+  // string name = 1;
   void clear_name();
   const std::string& name() const;
   void set_name(const std::string& value);
@@ -1027,7 +1027,7 @@ class PutObjectRequest PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // string thumbnail = 3;
+  // string thumbnail = 2;
   void clear_thumbnail();
   const std::string& thumbnail() const;
   void set_thumbnail(const std::string& value);
@@ -1043,7 +1043,7 @@ class PutObjectRequest PROTOBUF_FINAL :
   std::string* _internal_mutable_thumbnail();
   public:
 
-  // string fileType = 4;
+  // string fileType = 3;
   void clear_filetype();
   const std::string& filetype() const;
   void set_filetype(const std::string& value);
@@ -3826,7 +3826,7 @@ inline void GetObjectResponse::set_allocated_object(::OC::Object* object) {
 
 // PutObjectRequest
 
-// string name = 2;
+// string name = 1;
 inline void PutObjectRequest::clear_name() {
   name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
@@ -3888,7 +3888,7 @@ inline void PutObjectRequest::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:OC.PutObjectRequest.name)
 }
 
-// string thumbnail = 3;
+// string thumbnail = 2;
 inline void PutObjectRequest::clear_thumbnail() {
   thumbnail_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
@@ -3950,7 +3950,7 @@ inline void PutObjectRequest::set_allocated_thumbnail(std::string* thumbnail) {
   // @@protoc_insertion_point(field_set_allocated:OC.PutObjectRequest.thumbnail)
 }
 
-// string fileType = 4;
+// string fileType = 3;
 inline void PutObjectRequest::clear_filetype() {
   filetype_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }

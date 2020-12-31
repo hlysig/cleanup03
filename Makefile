@@ -9,6 +9,12 @@ update-proto-api: api
 start-api: api
 	src/api/.venv/bin/python src/api/api/wsgi.py
 
+cli:
+	./scripts/boostrap-api.sh
+
+update-proto-cli:
+	./scripts/update-cli-proto.sh
+
 core:
 	mkdir -p build
 	cd build; cmake ..; make
