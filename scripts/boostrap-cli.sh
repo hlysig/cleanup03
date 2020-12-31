@@ -14,7 +14,7 @@ set -euo pipefail
 # when zlib issues have been resolved for OSX 11.1.
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-API_PROJECT_DIR="$SCRIPT_DIR/../src/cli"
+CLI_PROJECT_DIR="$SCRIPT_DIR/../src/cli"
 source "$SCRIPT_DIR/common.sh"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -27,9 +27,9 @@ function setup_venv {
       exit 1
     }
 
-  pushd "$API_PROJECT_DIR"
+  pushd "$CLI_PROJECT_DIR"
   if [ ! -d ".venv" ]; then
-    fmt_info "No virtualenv found in ${API_PROJECT_DIR} creating.."
+    fmt_info "No virtualenv found in ${CLI_PROJECT_DIR} creating.."
     python3 -m venv .venv
   fi
   fmt_info "Installing dependencies from requirements.txt for MADS api"
@@ -39,7 +39,7 @@ function setup_venv {
 }
 
 function main {
-  fmt_info "Bootstrapping MADS cli"
+  fmt_info "Bootstrapping MADS api"
   setup_venv
 }
 

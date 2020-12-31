@@ -1,4 +1,0 @@
-OC_pb2
-OC_pb2_grpc
-client
-mcli

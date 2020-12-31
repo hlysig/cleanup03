@@ -1,5 +1,4 @@
 import click
-from flask import jsonify
 from client import MADSClient
 import random
 

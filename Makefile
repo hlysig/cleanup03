@@ -10,7 +10,7 @@ start-api: api
 	src/api/.venv/bin/python src/api/api/wsgi.py
 
 cli:
-	./scripts/boostrap-api.sh
+	./scripts/boostrap-cli.sh
 
 update-proto-cli:
 	./scripts/update-cli-proto.sh
