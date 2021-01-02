@@ -1335,8 +1335,8 @@ class TagSet PROTOBUF_FINAL :
   enum : int {
     kNameFieldNumber = 2,
     kDescriptionFieldNumber = 3,
+    kTypeFieldNumber = 4,
     kIdFieldNumber = 1,
-    kTypeIdFieldNumber = 4,
     kAccessIdFieldNumber = 5,
   };
   // string name = 2;
@@ -1371,6 +1371,22 @@ class TagSet PROTOBUF_FINAL :
   std::string* _internal_mutable_description();
   public:
 
+  // string type = 4;
+  void clear_type();
+  const std::string& type() const;
+  void set_type(const std::string& value);
+  void set_type(std::string&& value);
+  void set_type(const char* value);
+  void set_type(const char* value, size_t size);
+  std::string* mutable_type();
+  std::string* release_type();
+  void set_allocated_type(std::string* type);
+  private:
+  const std::string& _internal_type() const;
+  void _internal_set_type(const std::string& value);
+  std::string* _internal_mutable_type();
+  public:
+
   // int64 id = 1;
   void clear_id();
   ::PROTOBUF_NAMESPACE_ID::int64 id() const;
@@ -1378,15 +1394,6 @@ class TagSet PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::int64 _internal_id() const;
   void _internal_set_id(::PROTOBUF_NAMESPACE_ID::int64 value);
-  public:
-
-  // int64 typeId = 4;
-  void clear_typeid_();
-  ::PROTOBUF_NAMESPACE_ID::int64 typeid_() const;
-  void set_typeid_(::PROTOBUF_NAMESPACE_ID::int64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int64 _internal_typeid_() const;
-  void _internal_set_typeid_(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
   // int64 accessId = 5;
@@ -1407,8 +1414,8 @@ class TagSet PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr description_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr type_;
   ::PROTOBUF_NAMESPACE_ID::int64 id_;
-  ::PROTOBUF_NAMESPACE_ID::int64 typeid__;
   ::PROTOBUF_NAMESPACE_ID::int64 accessid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_OC_2eproto;
@@ -2083,7 +2090,6 @@ class PutTagSetRequest PROTOBUF_FINAL :
   enum : int {
     kNameFieldNumber = 1,
     kDescriptionFieldNumber = 2,
-    kTypeIdFieldNumber = 3,
   };
   // string name = 1;
   void clear_name();
@@ -2117,22 +2123,6 @@ class PutTagSetRequest PROTOBUF_FINAL :
   std::string* _internal_mutable_description();
   public:
 
-  // string typeId = 3;
-  void clear_typeid_();
-  const std::string& typeid_() const;
-  void set_typeid_(const std::string& value);
-  void set_typeid_(std::string&& value);
-  void set_typeid_(const char* value);
-  void set_typeid_(const char* value, size_t size);
-  std::string* mutable_typeid_();
-  std::string* release_typeid_();
-  void set_allocated_typeid_(std::string* typeid_);
-  private:
-  const std::string& _internal_typeid_() const;
-  void _internal_set_typeid_(const std::string& value);
-  std::string* _internal_mutable_typeid_();
-  public:
-
   // @@protoc_insertion_point(class_scope:OC.PutTagSetRequest)
  private:
   class _Internal;
@@ -2142,7 +2132,6 @@ class PutTagSetRequest PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr description_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr typeid__;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_OC_2eproto;
 };
@@ -4247,24 +4236,66 @@ inline void TagSet::set_allocated_description(std::string* description) {
   // @@protoc_insertion_point(field_set_allocated:OC.TagSet.description)
 }
 
-// int64 typeId = 4;
-inline void TagSet::clear_typeid_() {
-  typeid__ = PROTOBUF_LONGLONG(0);
+// string type = 4;
+inline void TagSet::clear_type() {
+  type_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 TagSet::_internal_typeid_() const {
-  return typeid__;
+inline const std::string& TagSet::type() const {
+  // @@protoc_insertion_point(field_get:OC.TagSet.type)
+  return _internal_type();
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 TagSet::typeid_() const {
-  // @@protoc_insertion_point(field_get:OC.TagSet.typeId)
-  return _internal_typeid_();
+inline void TagSet::set_type(const std::string& value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:OC.TagSet.type)
 }
-inline void TagSet::_internal_set_typeid_(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline std::string* TagSet::mutable_type() {
+  // @@protoc_insertion_point(field_mutable:OC.TagSet.type)
+  return _internal_mutable_type();
+}
+inline const std::string& TagSet::_internal_type() const {
+  return type_.Get();
+}
+inline void TagSet::_internal_set_type(const std::string& value) {
   
-  typeid__ = value;
+  type_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
 }
-inline void TagSet::set_typeid_(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _internal_set_typeid_(value);
-  // @@protoc_insertion_point(field_set:OC.TagSet.typeId)
+inline void TagSet::set_type(std::string&& value) {
+  
+  type_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:OC.TagSet.type)
+}
+inline void TagSet::set_type(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  type_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:OC.TagSet.type)
+}
+inline void TagSet::set_type(const char* value,
+    size_t size) {
+  
+  type_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:OC.TagSet.type)
+}
+inline std::string* TagSet::_internal_mutable_type() {
+  
+  return type_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* TagSet::release_type() {
+  // @@protoc_insertion_point(field_release:OC.TagSet.type)
+  return type_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void TagSet::set_allocated_type(std::string* type) {
+  if (type != nullptr) {
+    
+  } else {
+    
+  }
+  type_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), type,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:OC.TagSet.type)
 }
 
 // int64 accessId = 5;
@@ -4571,68 +4602,6 @@ inline void PutTagSetRequest::set_allocated_description(std::string* description
   description_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), description,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:OC.PutTagSetRequest.description)
-}
-
-// string typeId = 3;
-inline void PutTagSetRequest::clear_typeid_() {
-  typeid__.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline const std::string& PutTagSetRequest::typeid_() const {
-  // @@protoc_insertion_point(field_get:OC.PutTagSetRequest.typeId)
-  return _internal_typeid_();
-}
-inline void PutTagSetRequest::set_typeid_(const std::string& value) {
-  _internal_set_typeid_(value);
-  // @@protoc_insertion_point(field_set:OC.PutTagSetRequest.typeId)
-}
-inline std::string* PutTagSetRequest::mutable_typeid_() {
-  // @@protoc_insertion_point(field_mutable:OC.PutTagSetRequest.typeId)
-  return _internal_mutable_typeid_();
-}
-inline const std::string& PutTagSetRequest::_internal_typeid_() const {
-  return typeid__.Get();
-}
-inline void PutTagSetRequest::_internal_set_typeid_(const std::string& value) {
-  
-  typeid__.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
-}
-inline void PutTagSetRequest::set_typeid_(std::string&& value) {
-  
-  typeid__.Set(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:OC.PutTagSetRequest.typeId)
-}
-inline void PutTagSetRequest::set_typeid_(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  typeid__.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
-              GetArena());
-  // @@protoc_insertion_point(field_set_char:OC.PutTagSetRequest.typeId)
-}
-inline void PutTagSetRequest::set_typeid_(const char* value,
-    size_t size) {
-  
-  typeid__.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:OC.PutTagSetRequest.typeId)
-}
-inline std::string* PutTagSetRequest::_internal_mutable_typeid_() {
-  
-  return typeid__.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline std::string* PutTagSetRequest::release_typeid_() {
-  // @@protoc_insertion_point(field_release:OC.PutTagSetRequest.typeId)
-  return typeid__.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void PutTagSetRequest::set_allocated_typeid_(std::string* typeid_) {
-  if (typeid_ != nullptr) {
-    
-  } else {
-    
-  }
-  typeid__.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), typeid_,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:OC.PutTagSetRequest.typeId)
 }
 
 // -------------------------------------------------------------------

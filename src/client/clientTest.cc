@@ -35,7 +35,11 @@ public:
           std::cout << "GetTagSets rpc succeeded." << std::endl;
           for (int i = 0; i < reply->tagsets_size(); i++) {
             const OC::TagSet& tagset = reply->tagsets(i);
-            std::cout << "Id: " << tagset.id() << " Name: " << tagset.name() << std::endl;
+            std::cout << "Id: " << tagset.id()
+                      << " Name: " << tagset.name()
+                      << " Description: " << tagset.description()
+                      << " Type: " << tagset.type() 
+                      << " AccessId: " << tagset.accessid() << std::endl;
           }
         } else {
           std::cout << "GetTagSets rpc failed." << std::endl;
@@ -52,9 +56,45 @@ public:
           status = stub_->getTagSet(&context, request, reply);
 
           if (status.ok())
-            std::cout << "Received: "
-                      << reply->tagset().id() << ", " << reply->tagset().name()
-                      << std::endl;
+            if (status.ok())
+              std::cout << "Received TagSet: "
+                        << reply->tagset().id() << ", "
+                        << reply->tagset().name() << ", "
+                        << reply->tagset().description() << ", "
+                        << reply->tagset().type() << ", "
+                        << reply->tagset().accessid() <<  std::endl;
+      } else if (input == "newtagset") {
+        std::string name;
+        std::cin >> name;
+
+        std::string type;
+        std::cin >> type;
+
+        OC::PutTagSetRequest request;
+        request.set_name(name);
+        request.set_description("description");
+
+        OC::PutTagSetResponse *reply = new OC::PutTagSetResponse();
+        ClientContext context;
+
+        if (type == "Date")
+          status = stub_->putDateTagSet(&context, request, reply);
+        else if (type == "Time")
+          status = stub_->putTimeTagSet(&context, request, reply);
+        else if (type == "Numerical")
+          status = stub_->putNumericalTagSet(&context, request, reply);
+        else if (type == "RGB")
+          status = stub_->putRGBTagSet(&context, request, reply);
+        else // including Alphanumerical
+          status = stub_->putAlphanumericalTagSet(&context, request, reply);
+
+        if (status.ok())
+          std::cout << "Received TagSet: "
+                    << reply->tagset().id() << ", "
+                    << reply->tagset().name() << ", "
+                    << reply->tagset().description() << ", "
+                    << reply->tagset().type() 
+                    << reply->tagset().accessid() <<  std::endl;
       } else if (input == "tags") {
         OC::GetTagsRequest request; 
 

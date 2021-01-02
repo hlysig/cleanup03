@@ -75,12 +75,40 @@ class OCService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::GetTagSetResponse>> PrepareAsyncgetTagSet(::grpc::ClientContext* context, const ::OC::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::GetTagSetResponse>>(PrepareAsyncgetTagSetRaw(context, request, cq));
     }
-    virtual ::grpc::Status putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>> AsyncputTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>>(AsyncputTagSetRaw(context, request, cq));
+    virtual ::grpc::Status putAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>> AsyncputAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>>(AsyncputAlphanumericalTagSetRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>> PrepareAsyncputTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>>(PrepareAsyncputTagSetRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>> PrepareAsyncputAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>>(PrepareAsyncputAlphanumericalTagSetRaw(context, request, cq));
+    }
+    virtual ::grpc::Status putNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>> AsyncputNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>>(AsyncputNumericalTagSetRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>> PrepareAsyncputNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>>(PrepareAsyncputNumericalTagSetRaw(context, request, cq));
+    }
+    virtual ::grpc::Status putDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>> AsyncputDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>>(AsyncputDateTagSetRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>> PrepareAsyncputDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>>(PrepareAsyncputDateTagSetRaw(context, request, cq));
+    }
+    virtual ::grpc::Status putTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>> AsyncputTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>>(AsyncputTimeTagSetRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>> PrepareAsyncputTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>>(PrepareAsyncputTimeTagSetRaw(context, request, cq));
+    }
+    virtual ::grpc::Status putRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>> AsyncputRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>>(AsyncputRGBTagSetRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>> PrepareAsyncputRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>>(PrepareAsyncputRGBTagSetRaw(context, request, cq));
     }
     // Tag
     virtual ::grpc::Status getTags(::grpc::ClientContext* context, const ::OC::GetTagsRequest& request, ::OC::GetTagsResponse* response) = 0;
@@ -154,11 +182,35 @@ class OCService final {
       #else
       virtual void getTagSet(::grpc::ClientContext* context, const ::OC::GetTagSetRequest* request, ::OC::GetTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
-      virtual void putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void putAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void putAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void putAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void putNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void putNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void putNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void putDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void putDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void putDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void putTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void putTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void putTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void putRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void putRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void putRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // Tag
       virtual void getTags(::grpc::ClientContext* context, const ::OC::GetTagsRequest* request, ::OC::GetTagsResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -211,8 +263,16 @@ class OCService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::GetTagSetsResponse>* PrepareAsyncgetTagSetsRaw(::grpc::ClientContext* context, const ::OC::GetTagSetsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::GetTagSetResponse>* AsyncgetTagSetRaw(::grpc::ClientContext* context, const ::OC::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::GetTagSetResponse>* PrepareAsyncgetTagSetRaw(::grpc::ClientContext* context, const ::OC::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>* AsyncputTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>* PrepareAsyncputTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>* AsyncputAlphanumericalTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>* PrepareAsyncputAlphanumericalTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>* AsyncputNumericalTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>* PrepareAsyncputNumericalTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>* AsyncputDateTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>* PrepareAsyncputDateTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>* AsyncputTimeTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>* PrepareAsyncputTimeTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>* AsyncputRGBTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::PutTagSetResponse>* PrepareAsyncputRGBTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::GetTagsResponse>* AsyncgetTagsRaw(::grpc::ClientContext* context, const ::OC::GetTagsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::GetTagsResponse>* PrepareAsyncgetTagsRaw(::grpc::ClientContext* context, const ::OC::GetTagsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::OC::GetTagResponse>* AsyncgetTagRaw(::grpc::ClientContext* context, const ::OC::GetTagRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -262,12 +322,40 @@ class OCService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::GetTagSetResponse>> PrepareAsyncgetTagSet(::grpc::ClientContext* context, const ::OC::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::GetTagSetResponse>>(PrepareAsyncgetTagSetRaw(context, request, cq));
     }
-    ::grpc::Status putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>> AsyncputTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>>(AsyncputTagSetRaw(context, request, cq));
+    ::grpc::Status putAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>> AsyncputAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>>(AsyncputAlphanumericalTagSetRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>> PrepareAsyncputTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>>(PrepareAsyncputTagSetRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>> PrepareAsyncputAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>>(PrepareAsyncputAlphanumericalTagSetRaw(context, request, cq));
+    }
+    ::grpc::Status putNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>> AsyncputNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>>(AsyncputNumericalTagSetRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>> PrepareAsyncputNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>>(PrepareAsyncputNumericalTagSetRaw(context, request, cq));
+    }
+    ::grpc::Status putDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>> AsyncputDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>>(AsyncputDateTagSetRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>> PrepareAsyncputDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>>(PrepareAsyncputDateTagSetRaw(context, request, cq));
+    }
+    ::grpc::Status putTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>> AsyncputTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>>(AsyncputTimeTagSetRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>> PrepareAsyncputTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>>(PrepareAsyncputTimeTagSetRaw(context, request, cq));
+    }
+    ::grpc::Status putRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>> AsyncputRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>>(AsyncputRGBTagSetRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>> PrepareAsyncputRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>>(PrepareAsyncputRGBTagSetRaw(context, request, cq));
     }
     ::grpc::Status getTags(::grpc::ClientContext* context, const ::OC::GetTagsRequest& request, ::OC::GetTagsResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::OC::GetTagsResponse>> AsyncgetTags(::grpc::ClientContext* context, const ::OC::GetTagsRequest& request, ::grpc::CompletionQueue* cq) {
@@ -337,11 +425,35 @@ class OCService final {
       #else
       void getTagSet(::grpc::ClientContext* context, const ::OC::GetTagSetRequest* request, ::OC::GetTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)>) override;
+      void putAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void putAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void putAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void putNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void putNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void putNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void putDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void putDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void putDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void putTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void putTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void putTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void putRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void putRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void putRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       void getTags(::grpc::ClientContext* context, const ::OC::GetTagsRequest* request, ::OC::GetTagsResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -394,8 +506,16 @@ class OCService final {
     ::grpc::ClientAsyncResponseReader< ::OC::GetTagSetsResponse>* PrepareAsyncgetTagSetsRaw(::grpc::ClientContext* context, const ::OC::GetTagSetsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::OC::GetTagSetResponse>* AsyncgetTagSetRaw(::grpc::ClientContext* context, const ::OC::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::OC::GetTagSetResponse>* PrepareAsyncgetTagSetRaw(::grpc::ClientContext* context, const ::OC::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* AsyncputTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* PrepareAsyncputTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* AsyncputAlphanumericalTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* PrepareAsyncputAlphanumericalTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* AsyncputNumericalTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* PrepareAsyncputNumericalTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* AsyncputDateTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* PrepareAsyncputDateTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* AsyncputTimeTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* PrepareAsyncputTimeTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* AsyncputRGBTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* PrepareAsyncputRGBTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::OC::GetTagsResponse>* AsyncgetTagsRaw(::grpc::ClientContext* context, const ::OC::GetTagsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::OC::GetTagsResponse>* PrepareAsyncgetTagsRaw(::grpc::ClientContext* context, const ::OC::GetTagsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::OC::GetTagResponse>* AsyncgetTagRaw(::grpc::ClientContext* context, const ::OC::GetTagRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -411,7 +531,11 @@ class OCService final {
     const ::grpc::internal::RpcMethod rpcmethod_putObject_;
     const ::grpc::internal::RpcMethod rpcmethod_getTagSets_;
     const ::grpc::internal::RpcMethod rpcmethod_getTagSet_;
-    const ::grpc::internal::RpcMethod rpcmethod_putTagSet_;
+    const ::grpc::internal::RpcMethod rpcmethod_putAlphanumericalTagSet_;
+    const ::grpc::internal::RpcMethod rpcmethod_putNumericalTagSet_;
+    const ::grpc::internal::RpcMethod rpcmethod_putDateTagSet_;
+    const ::grpc::internal::RpcMethod rpcmethod_putTimeTagSet_;
+    const ::grpc::internal::RpcMethod rpcmethod_putRGBTagSet_;
     const ::grpc::internal::RpcMethod rpcmethod_getTags_;
     const ::grpc::internal::RpcMethod rpcmethod_getTag_;
     const ::grpc::internal::RpcMethod rpcmethod_putTag_;
@@ -431,7 +555,11 @@ class OCService final {
     // TagSet
     virtual ::grpc::Status getTagSets(::grpc::ServerContext* context, const ::OC::GetTagSetsRequest* request, ::OC::GetTagSetsResponse* response);
     virtual ::grpc::Status getTagSet(::grpc::ServerContext* context, const ::OC::GetTagSetRequest* request, ::OC::GetTagSetResponse* response);
-    virtual ::grpc::Status putTagSet(::grpc::ServerContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response);
+    virtual ::grpc::Status putAlphanumericalTagSet(::grpc::ServerContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response);
+    virtual ::grpc::Status putNumericalTagSet(::grpc::ServerContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response);
+    virtual ::grpc::Status putDateTagSet(::grpc::ServerContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response);
+    virtual ::grpc::Status putTimeTagSet(::grpc::ServerContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response);
+    virtual ::grpc::Status putRGBTagSet(::grpc::ServerContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response);
     // Tag
     virtual ::grpc::Status getTags(::grpc::ServerContext* context, const ::OC::GetTagsRequest* request, ::OC::GetTagsResponse* response);
     virtual ::grpc::Status getTag(::grpc::ServerContext* context, const ::OC::GetTagRequest* request, ::OC::GetTagResponse* response);
@@ -541,23 +669,103 @@ class OCService final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_putTagSet : public BaseClass {
+  class WithAsyncMethod_putAlphanumericalTagSet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_putTagSet() {
+    WithAsyncMethod_putAlphanumericalTagSet() {
       ::grpc::Service::MarkMethodAsync(5);
     }
-    ~WithAsyncMethod_putTagSet() override {
+    ~WithAsyncMethod_putAlphanumericalTagSet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status putTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+    ::grpc::Status putAlphanumericalTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestputTagSet(::grpc::ServerContext* context, ::OC::PutTagSetRequest* request, ::grpc::ServerAsyncResponseWriter< ::OC::PutTagSetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestputAlphanumericalTagSet(::grpc::ServerContext* context, ::OC::PutTagSetRequest* request, ::grpc::ServerAsyncResponseWriter< ::OC::PutTagSetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_putNumericalTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_putNumericalTagSet() {
+      ::grpc::Service::MarkMethodAsync(6);
+    }
+    ~WithAsyncMethod_putNumericalTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putNumericalTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestputNumericalTagSet(::grpc::ServerContext* context, ::OC::PutTagSetRequest* request, ::grpc::ServerAsyncResponseWriter< ::OC::PutTagSetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_putDateTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_putDateTagSet() {
+      ::grpc::Service::MarkMethodAsync(7);
+    }
+    ~WithAsyncMethod_putDateTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putDateTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestputDateTagSet(::grpc::ServerContext* context, ::OC::PutTagSetRequest* request, ::grpc::ServerAsyncResponseWriter< ::OC::PutTagSetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_putTimeTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_putTimeTagSet() {
+      ::grpc::Service::MarkMethodAsync(8);
+    }
+    ~WithAsyncMethod_putTimeTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putTimeTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestputTimeTagSet(::grpc::ServerContext* context, ::OC::PutTagSetRequest* request, ::grpc::ServerAsyncResponseWriter< ::OC::PutTagSetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_putRGBTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_putRGBTagSet() {
+      ::grpc::Service::MarkMethodAsync(9);
+    }
+    ~WithAsyncMethod_putRGBTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putRGBTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestputRGBTagSet(::grpc::ServerContext* context, ::OC::PutTagSetRequest* request, ::grpc::ServerAsyncResponseWriter< ::OC::PutTagSetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -566,7 +774,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_getTags() {
-      ::grpc::Service::MarkMethodAsync(6);
+      ::grpc::Service::MarkMethodAsync(10);
     }
     ~WithAsyncMethod_getTags() override {
       BaseClassMustBeDerivedFromService(this);
@@ -577,7 +785,7 @@ class OCService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestgetTags(::grpc::ServerContext* context, ::OC::GetTagsRequest* request, ::grpc::ServerAsyncResponseWriter< ::OC::GetTagsResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -586,7 +794,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_getTag() {
-      ::grpc::Service::MarkMethodAsync(7);
+      ::grpc::Service::MarkMethodAsync(11);
     }
     ~WithAsyncMethod_getTag() override {
       BaseClassMustBeDerivedFromService(this);
@@ -597,7 +805,7 @@ class OCService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestgetTag(::grpc::ServerContext* context, ::OC::GetTagRequest* request, ::grpc::ServerAsyncResponseWriter< ::OC::GetTagResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -606,7 +814,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_putTag() {
-      ::grpc::Service::MarkMethodAsync(8);
+      ::grpc::Service::MarkMethodAsync(12);
     }
     ~WithAsyncMethod_putTag() override {
       BaseClassMustBeDerivedFromService(this);
@@ -617,7 +825,7 @@ class OCService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestputTag(::grpc::ServerContext* context, ::OC::PutTagRequest* request, ::grpc::ServerAsyncResponseWriter< ::OC::PutTagResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -626,7 +834,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_reConnectDB() {
-      ::grpc::Service::MarkMethodAsync(9);
+      ::grpc::Service::MarkMethodAsync(13);
     }
     ~WithAsyncMethod_reConnectDB() override {
       BaseClassMustBeDerivedFromService(this);
@@ -637,7 +845,7 @@ class OCService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestreConnectDB(::grpc::ServerContext* context, ::OC::Empty* request, ::grpc::ServerAsyncResponseWriter< ::OC::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -646,7 +854,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_stopService() {
-      ::grpc::Service::MarkMethodAsync(10);
+      ::grpc::Service::MarkMethodAsync(14);
     }
     ~WithAsyncMethod_stopService() override {
       BaseClassMustBeDerivedFromService(this);
@@ -657,10 +865,10 @@ class OCService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequeststopService(::grpc::ServerContext* context, ::OC::Empty* request, ::grpc::ServerAsyncResponseWriter< ::OC::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_getObjects<WithAsyncMethod_getObject<WithAsyncMethod_putObject<WithAsyncMethod_getTagSets<WithAsyncMethod_getTagSet<WithAsyncMethod_putTagSet<WithAsyncMethod_getTags<WithAsyncMethod_getTag<WithAsyncMethod_putTag<WithAsyncMethod_reConnectDB<WithAsyncMethod_stopService<Service > > > > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_getObjects<WithAsyncMethod_getObject<WithAsyncMethod_putObject<WithAsyncMethod_getTagSets<WithAsyncMethod_getTagSet<WithAsyncMethod_putAlphanumericalTagSet<WithAsyncMethod_putNumericalTagSet<WithAsyncMethod_putDateTagSet<WithAsyncMethod_putTimeTagSet<WithAsyncMethod_putRGBTagSet<WithAsyncMethod_getTags<WithAsyncMethod_getTag<WithAsyncMethod_putTag<WithAsyncMethod_reConnectDB<WithAsyncMethod_stopService<Service > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_getObjects : public BaseClass {
    private:
@@ -897,11 +1105,11 @@ class OCService final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_putTagSet : public BaseClass {
+  class ExperimentalWithCallbackMethod_putAlphanumericalTagSet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_putTagSet() {
+    ExperimentalWithCallbackMethod_putAlphanumericalTagSet() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
@@ -915,8 +1123,8 @@ class OCService final {
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response) { return this->putTagSet(context, request, response); }));}
-    void SetMessageAllocatorFor_putTagSet(
+                     context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response) { return this->putAlphanumericalTagSet(context, request, response); }));}
+    void SetMessageAllocatorFor_putAlphanumericalTagSet(
         ::grpc::experimental::MessageAllocator< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
@@ -926,19 +1134,207 @@ class OCService final {
       static_cast<::grpc::internal::CallbackUnaryHandler< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_putTagSet() override {
+    ~ExperimentalWithCallbackMethod_putAlphanumericalTagSet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status putTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+    ::grpc::Status putAlphanumericalTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* putTagSet(
+    virtual ::grpc::ServerUnaryReactor* putAlphanumericalTagSet(
       ::grpc::CallbackServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* putTagSet(
+    virtual ::grpc::experimental::ServerUnaryReactor* putAlphanumericalTagSet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_putNumericalTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_putNumericalTagSet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(6,
+          new ::grpc::internal::CallbackUnaryHandler< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response) { return this->putNumericalTagSet(context, request, response); }));}
+    void SetMessageAllocatorFor_putNumericalTagSet(
+        ::grpc::experimental::MessageAllocator< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_putNumericalTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putNumericalTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* putNumericalTagSet(
+      ::grpc::CallbackServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* putNumericalTagSet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_putDateTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_putDateTagSet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(7,
+          new ::grpc::internal::CallbackUnaryHandler< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response) { return this->putDateTagSet(context, request, response); }));}
+    void SetMessageAllocatorFor_putDateTagSet(
+        ::grpc::experimental::MessageAllocator< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(7);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_putDateTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putDateTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* putDateTagSet(
+      ::grpc::CallbackServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* putDateTagSet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_putTimeTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_putTimeTagSet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(8,
+          new ::grpc::internal::CallbackUnaryHandler< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response) { return this->putTimeTagSet(context, request, response); }));}
+    void SetMessageAllocatorFor_putTimeTagSet(
+        ::grpc::experimental::MessageAllocator< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(8);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_putTimeTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putTimeTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* putTimeTagSet(
+      ::grpc::CallbackServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* putTimeTagSet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_putRGBTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_putRGBTagSet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(9,
+          new ::grpc::internal::CallbackUnaryHandler< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response) { return this->putRGBTagSet(context, request, response); }));}
+    void SetMessageAllocatorFor_putRGBTagSet(
+        ::grpc::experimental::MessageAllocator< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(9);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_putRGBTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putRGBTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* putRGBTagSet(
+      ::grpc::CallbackServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* putRGBTagSet(
       ::grpc::experimental::CallbackServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/)
     #endif
       { return nullptr; }
@@ -954,7 +1350,7 @@ class OCService final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(6,
+        MarkMethodCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::OC::GetTagsRequest, ::OC::GetTagsResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -966,9 +1362,9 @@ class OCService final {
     void SetMessageAllocatorFor_getTags(
         ::grpc::experimental::MessageAllocator< ::OC::GetTagsRequest, ::OC::GetTagsResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::OC::GetTagsRequest, ::OC::GetTagsResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1001,7 +1397,7 @@ class OCService final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(7,
+        MarkMethodCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::OC::GetTagRequest, ::OC::GetTagResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1013,9 +1409,9 @@ class OCService final {
     void SetMessageAllocatorFor_getTag(
         ::grpc::experimental::MessageAllocator< ::OC::GetTagRequest, ::OC::GetTagResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(7);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(11);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::OC::GetTagRequest, ::OC::GetTagResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1048,7 +1444,7 @@ class OCService final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(8,
+        MarkMethodCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::OC::PutTagRequest, ::OC::PutTagResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1060,9 +1456,9 @@ class OCService final {
     void SetMessageAllocatorFor_putTag(
         ::grpc::experimental::MessageAllocator< ::OC::PutTagRequest, ::OC::PutTagResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(8);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(12);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::OC::PutTagRequest, ::OC::PutTagResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1095,7 +1491,7 @@ class OCService final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(9,
+        MarkMethodCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::OC::Empty, ::OC::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1107,9 +1503,9 @@ class OCService final {
     void SetMessageAllocatorFor_reConnectDB(
         ::grpc::experimental::MessageAllocator< ::OC::Empty, ::OC::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(9);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(13);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::OC::Empty, ::OC::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1142,7 +1538,7 @@ class OCService final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(10,
+        MarkMethodCallback(14,
           new ::grpc::internal::CallbackUnaryHandler< ::OC::Empty, ::OC::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1154,9 +1550,9 @@ class OCService final {
     void SetMessageAllocatorFor_stopService(
         ::grpc::experimental::MessageAllocator< ::OC::Empty, ::OC::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(14);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::OC::Empty, ::OC::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1179,10 +1575,10 @@ class OCService final {
       { return nullptr; }
   };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_getObjects<ExperimentalWithCallbackMethod_getObject<ExperimentalWithCallbackMethod_putObject<ExperimentalWithCallbackMethod_getTagSets<ExperimentalWithCallbackMethod_getTagSet<ExperimentalWithCallbackMethod_putTagSet<ExperimentalWithCallbackMethod_getTags<ExperimentalWithCallbackMethod_getTag<ExperimentalWithCallbackMethod_putTag<ExperimentalWithCallbackMethod_reConnectDB<ExperimentalWithCallbackMethod_stopService<Service > > > > > > > > > > > CallbackService;
+  typedef ExperimentalWithCallbackMethod_getObjects<ExperimentalWithCallbackMethod_getObject<ExperimentalWithCallbackMethod_putObject<ExperimentalWithCallbackMethod_getTagSets<ExperimentalWithCallbackMethod_getTagSet<ExperimentalWithCallbackMethod_putAlphanumericalTagSet<ExperimentalWithCallbackMethod_putNumericalTagSet<ExperimentalWithCallbackMethod_putDateTagSet<ExperimentalWithCallbackMethod_putTimeTagSet<ExperimentalWithCallbackMethod_putRGBTagSet<ExperimentalWithCallbackMethod_getTags<ExperimentalWithCallbackMethod_getTag<ExperimentalWithCallbackMethod_putTag<ExperimentalWithCallbackMethod_reConnectDB<ExperimentalWithCallbackMethod_stopService<Service > > > > > > > > > > > > > > > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_getObjects<ExperimentalWithCallbackMethod_getObject<ExperimentalWithCallbackMethod_putObject<ExperimentalWithCallbackMethod_getTagSets<ExperimentalWithCallbackMethod_getTagSet<ExperimentalWithCallbackMethod_putTagSet<ExperimentalWithCallbackMethod_getTags<ExperimentalWithCallbackMethod_getTag<ExperimentalWithCallbackMethod_putTag<ExperimentalWithCallbackMethod_reConnectDB<ExperimentalWithCallbackMethod_stopService<Service > > > > > > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_getObjects<ExperimentalWithCallbackMethod_getObject<ExperimentalWithCallbackMethod_putObject<ExperimentalWithCallbackMethod_getTagSets<ExperimentalWithCallbackMethod_getTagSet<ExperimentalWithCallbackMethod_putAlphanumericalTagSet<ExperimentalWithCallbackMethod_putNumericalTagSet<ExperimentalWithCallbackMethod_putDateTagSet<ExperimentalWithCallbackMethod_putTimeTagSet<ExperimentalWithCallbackMethod_putRGBTagSet<ExperimentalWithCallbackMethod_getTags<ExperimentalWithCallbackMethod_getTag<ExperimentalWithCallbackMethod_putTag<ExperimentalWithCallbackMethod_reConnectDB<ExperimentalWithCallbackMethod_stopService<Service > > > > > > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_getObjects : public BaseClass {
    private:
@@ -1269,18 +1665,86 @@ class OCService final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_putTagSet : public BaseClass {
+  class WithGenericMethod_putAlphanumericalTagSet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_putTagSet() {
+    WithGenericMethod_putAlphanumericalTagSet() {
       ::grpc::Service::MarkMethodGeneric(5);
     }
-    ~WithGenericMethod_putTagSet() override {
+    ~WithGenericMethod_putAlphanumericalTagSet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status putTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+    ::grpc::Status putAlphanumericalTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_putNumericalTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_putNumericalTagSet() {
+      ::grpc::Service::MarkMethodGeneric(6);
+    }
+    ~WithGenericMethod_putNumericalTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putNumericalTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_putDateTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_putDateTagSet() {
+      ::grpc::Service::MarkMethodGeneric(7);
+    }
+    ~WithGenericMethod_putDateTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putDateTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_putTimeTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_putTimeTagSet() {
+      ::grpc::Service::MarkMethodGeneric(8);
+    }
+    ~WithGenericMethod_putTimeTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putTimeTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_putRGBTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_putRGBTagSet() {
+      ::grpc::Service::MarkMethodGeneric(9);
+    }
+    ~WithGenericMethod_putRGBTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putRGBTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1291,7 +1755,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_getTags() {
-      ::grpc::Service::MarkMethodGeneric(6);
+      ::grpc::Service::MarkMethodGeneric(10);
     }
     ~WithGenericMethod_getTags() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1308,7 +1772,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_getTag() {
-      ::grpc::Service::MarkMethodGeneric(7);
+      ::grpc::Service::MarkMethodGeneric(11);
     }
     ~WithGenericMethod_getTag() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1325,7 +1789,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_putTag() {
-      ::grpc::Service::MarkMethodGeneric(8);
+      ::grpc::Service::MarkMethodGeneric(12);
     }
     ~WithGenericMethod_putTag() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1342,7 +1806,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_reConnectDB() {
-      ::grpc::Service::MarkMethodGeneric(9);
+      ::grpc::Service::MarkMethodGeneric(13);
     }
     ~WithGenericMethod_reConnectDB() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1359,7 +1823,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_stopService() {
-      ::grpc::Service::MarkMethodGeneric(10);
+      ::grpc::Service::MarkMethodGeneric(14);
     }
     ~WithGenericMethod_stopService() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1471,23 +1935,103 @@ class OCService final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_putTagSet : public BaseClass {
+  class WithRawMethod_putAlphanumericalTagSet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_putTagSet() {
+    WithRawMethod_putAlphanumericalTagSet() {
       ::grpc::Service::MarkMethodRaw(5);
     }
-    ~WithRawMethod_putTagSet() override {
+    ~WithRawMethod_putAlphanumericalTagSet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status putTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+    ::grpc::Status putAlphanumericalTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestputTagSet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestputAlphanumericalTagSet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_putNumericalTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_putNumericalTagSet() {
+      ::grpc::Service::MarkMethodRaw(6);
+    }
+    ~WithRawMethod_putNumericalTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putNumericalTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestputNumericalTagSet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_putDateTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_putDateTagSet() {
+      ::grpc::Service::MarkMethodRaw(7);
+    }
+    ~WithRawMethod_putDateTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putDateTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestputDateTagSet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_putTimeTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_putTimeTagSet() {
+      ::grpc::Service::MarkMethodRaw(8);
+    }
+    ~WithRawMethod_putTimeTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putTimeTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestputTimeTagSet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_putRGBTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_putRGBTagSet() {
+      ::grpc::Service::MarkMethodRaw(9);
+    }
+    ~WithRawMethod_putRGBTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putRGBTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestputRGBTagSet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1496,7 +2040,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_getTags() {
-      ::grpc::Service::MarkMethodRaw(6);
+      ::grpc::Service::MarkMethodRaw(10);
     }
     ~WithRawMethod_getTags() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1507,7 +2051,7 @@ class OCService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestgetTags(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1516,7 +2060,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_getTag() {
-      ::grpc::Service::MarkMethodRaw(7);
+      ::grpc::Service::MarkMethodRaw(11);
     }
     ~WithRawMethod_getTag() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1527,7 +2071,7 @@ class OCService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestgetTag(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1536,7 +2080,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_putTag() {
-      ::grpc::Service::MarkMethodRaw(8);
+      ::grpc::Service::MarkMethodRaw(12);
     }
     ~WithRawMethod_putTag() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1547,7 +2091,7 @@ class OCService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestputTag(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1556,7 +2100,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_reConnectDB() {
-      ::grpc::Service::MarkMethodRaw(9);
+      ::grpc::Service::MarkMethodRaw(13);
     }
     ~WithRawMethod_reConnectDB() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1567,7 +2111,7 @@ class OCService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestreConnectDB(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1576,7 +2120,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_stopService() {
-      ::grpc::Service::MarkMethodRaw(10);
+      ::grpc::Service::MarkMethodRaw(14);
     }
     ~WithRawMethod_stopService() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1587,7 +2131,7 @@ class OCService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequeststopService(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1781,11 +2325,11 @@ class OCService final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_putTagSet : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_putAlphanumericalTagSet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_putTagSet() {
+    ExperimentalWithRawCallbackMethod_putAlphanumericalTagSet() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
@@ -1799,21 +2343,173 @@ class OCService final {
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->putTagSet(context, request, response); }));
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->putAlphanumericalTagSet(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_putTagSet() override {
+    ~ExperimentalWithRawCallbackMethod_putAlphanumericalTagSet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status putTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+    ::grpc::Status putAlphanumericalTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* putTagSet(
+    virtual ::grpc::ServerUnaryReactor* putAlphanumericalTagSet(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* putTagSet(
+    virtual ::grpc::experimental::ServerUnaryReactor* putAlphanumericalTagSet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_putNumericalTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_putNumericalTagSet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(6,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->putNumericalTagSet(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_putNumericalTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putNumericalTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* putNumericalTagSet(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* putNumericalTagSet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_putDateTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_putDateTagSet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(7,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->putDateTagSet(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_putDateTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putDateTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* putDateTagSet(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* putDateTagSet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_putTimeTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_putTimeTagSet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(8,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->putTimeTagSet(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_putTimeTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putTimeTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* putTimeTagSet(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* putTimeTagSet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_putRGBTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_putRGBTagSet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(9,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->putRGBTagSet(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_putRGBTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status putRGBTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* putRGBTagSet(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* putRGBTagSet(
       ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #endif
       { return nullptr; }
@@ -1829,7 +2525,7 @@ class OCService final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(6,
+        MarkMethodRawCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1867,7 +2563,7 @@ class OCService final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(7,
+        MarkMethodRawCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1905,7 +2601,7 @@ class OCService final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(8,
+        MarkMethodRawCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1943,7 +2639,7 @@ class OCService final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(9,
+        MarkMethodRawCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1981,7 +2677,7 @@ class OCService final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(10,
+        MarkMethodRawCallback(14,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2144,31 +2840,139 @@ class OCService final {
     virtual ::grpc::Status StreamedgetTagSet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::OC::GetTagSetRequest,::OC::GetTagSetResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_putTagSet : public BaseClass {
+  class WithStreamedUnaryMethod_putAlphanumericalTagSet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_putTagSet() {
+    WithStreamedUnaryMethod_putAlphanumericalTagSet() {
       ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler<
           ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
                      ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>* streamer) {
-                       return this->StreamedputTagSet(context,
+                       return this->StreamedputAlphanumericalTagSet(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_putTagSet() override {
+    ~WithStreamedUnaryMethod_putAlphanumericalTagSet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status putTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+    ::grpc::Status putAlphanumericalTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedputTagSet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::OC::PutTagSetRequest,::OC::PutTagSetResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedputAlphanumericalTagSet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::OC::PutTagSetRequest,::OC::PutTagSetResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_putNumericalTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_putNumericalTagSet() {
+      ::grpc::Service::MarkMethodStreamed(6,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>* streamer) {
+                       return this->StreamedputNumericalTagSet(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_putNumericalTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status putNumericalTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedputNumericalTagSet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::OC::PutTagSetRequest,::OC::PutTagSetResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_putDateTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_putDateTagSet() {
+      ::grpc::Service::MarkMethodStreamed(7,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>* streamer) {
+                       return this->StreamedputDateTagSet(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_putDateTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status putDateTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedputDateTagSet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::OC::PutTagSetRequest,::OC::PutTagSetResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_putTimeTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_putTimeTagSet() {
+      ::grpc::Service::MarkMethodStreamed(8,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>* streamer) {
+                       return this->StreamedputTimeTagSet(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_putTimeTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status putTimeTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedputTimeTagSet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::OC::PutTagSetRequest,::OC::PutTagSetResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_putRGBTagSet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_putRGBTagSet() {
+      ::grpc::Service::MarkMethodStreamed(9,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>* streamer) {
+                       return this->StreamedputRGBTagSet(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_putRGBTagSet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status putRGBTagSet(::grpc::ServerContext* /*context*/, const ::OC::PutTagSetRequest* /*request*/, ::OC::PutTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedputRGBTagSet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::OC::PutTagSetRequest,::OC::PutTagSetResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_getTags : public BaseClass {
@@ -2176,7 +2980,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_getTags() {
-      ::grpc::Service::MarkMethodStreamed(6,
+      ::grpc::Service::MarkMethodStreamed(10,
         new ::grpc::internal::StreamedUnaryHandler<
           ::OC::GetTagsRequest, ::OC::GetTagsResponse>(
             [this](::grpc::ServerContext* context,
@@ -2203,7 +3007,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_getTag() {
-      ::grpc::Service::MarkMethodStreamed(7,
+      ::grpc::Service::MarkMethodStreamed(11,
         new ::grpc::internal::StreamedUnaryHandler<
           ::OC::GetTagRequest, ::OC::GetTagResponse>(
             [this](::grpc::ServerContext* context,
@@ -2230,7 +3034,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_putTag() {
-      ::grpc::Service::MarkMethodStreamed(8,
+      ::grpc::Service::MarkMethodStreamed(12,
         new ::grpc::internal::StreamedUnaryHandler<
           ::OC::PutTagRequest, ::OC::PutTagResponse>(
             [this](::grpc::ServerContext* context,
@@ -2257,7 +3061,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_reConnectDB() {
-      ::grpc::Service::MarkMethodStreamed(9,
+      ::grpc::Service::MarkMethodStreamed(13,
         new ::grpc::internal::StreamedUnaryHandler<
           ::OC::Empty, ::OC::Empty>(
             [this](::grpc::ServerContext* context,
@@ -2284,7 +3088,7 @@ class OCService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_stopService() {
-      ::grpc::Service::MarkMethodStreamed(10,
+      ::grpc::Service::MarkMethodStreamed(14,
         new ::grpc::internal::StreamedUnaryHandler<
           ::OC::Empty, ::OC::Empty>(
             [this](::grpc::ServerContext* context,
@@ -2305,9 +3109,9 @@ class OCService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedstopService(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::OC::Empty,::OC::Empty>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_getObjects<WithStreamedUnaryMethod_getObject<WithStreamedUnaryMethod_putObject<WithStreamedUnaryMethod_getTagSets<WithStreamedUnaryMethod_getTagSet<WithStreamedUnaryMethod_putTagSet<WithStreamedUnaryMethod_getTags<WithStreamedUnaryMethod_getTag<WithStreamedUnaryMethod_putTag<WithStreamedUnaryMethod_reConnectDB<WithStreamedUnaryMethod_stopService<Service > > > > > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_getObjects<WithStreamedUnaryMethod_getObject<WithStreamedUnaryMethod_putObject<WithStreamedUnaryMethod_getTagSets<WithStreamedUnaryMethod_getTagSet<WithStreamedUnaryMethod_putAlphanumericalTagSet<WithStreamedUnaryMethod_putNumericalTagSet<WithStreamedUnaryMethod_putDateTagSet<WithStreamedUnaryMethod_putTimeTagSet<WithStreamedUnaryMethod_putRGBTagSet<WithStreamedUnaryMethod_getTags<WithStreamedUnaryMethod_getTag<WithStreamedUnaryMethod_putTag<WithStreamedUnaryMethod_reConnectDB<WithStreamedUnaryMethod_stopService<Service > > > > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_getObjects<WithStreamedUnaryMethod_getObject<WithStreamedUnaryMethod_putObject<WithStreamedUnaryMethod_getTagSets<WithStreamedUnaryMethod_getTagSet<WithStreamedUnaryMethod_putTagSet<WithStreamedUnaryMethod_getTags<WithStreamedUnaryMethod_getTag<WithStreamedUnaryMethod_putTag<WithStreamedUnaryMethod_reConnectDB<WithStreamedUnaryMethod_stopService<Service > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_getObjects<WithStreamedUnaryMethod_getObject<WithStreamedUnaryMethod_putObject<WithStreamedUnaryMethod_getTagSets<WithStreamedUnaryMethod_getTagSet<WithStreamedUnaryMethod_putAlphanumericalTagSet<WithStreamedUnaryMethod_putNumericalTagSet<WithStreamedUnaryMethod_putDateTagSet<WithStreamedUnaryMethod_putTimeTagSet<WithStreamedUnaryMethod_putRGBTagSet<WithStreamedUnaryMethod_getTags<WithStreamedUnaryMethod_getTag<WithStreamedUnaryMethod_putTag<WithStreamedUnaryMethod_reConnectDB<WithStreamedUnaryMethod_stopService<Service > > > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace OC

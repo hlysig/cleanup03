@@ -9,6 +9,12 @@
 #include "../core/Hub.h"
 #include "../core/LayerShared/Parameters.h"
 #include "../core/LayerShared/DebugInfo.h"
+#include "../core/TagSet/TagSet.h"
+#include "../core/TagSet/AlphanumericalTagSet.h"
+#include "../core/TagSet/NumericalTagSet.h"
+#include "../core/TagSet/DateTagSet.h"
+#include "../core/TagSet/TimeTagSet.h"
+#include "../core/TagSet/RGBTagSet.h"
 
 using namespace OC;
 using namespace ObjectCube;
@@ -72,6 +78,46 @@ public:
                    GetTagSetResponse* reply) override {
     const ObjectCube::TagSet *tagset = hub->getTagSet(request->id());
     reply->set_allocated_tagset(converter->TagSetToProto(tagset));
+    return Status::OK;
+  }
+
+  Status putAlphanumericalTagSet(ServerContext* context,
+                                 const PutTagSetRequest* request,
+                                 PutTagSetResponse* reply) override {
+    ObjectCube::TagSet *tagset = new ObjectCube::AlphanumericalTagSet(request->name(), request->description());
+    reply->set_allocated_tagset(converter->TagSetToProto(tagset->create()));
+    return Status::OK;
+  }
+
+  Status putNumericalTagSet(ServerContext* context,
+                            const PutTagSetRequest* request,
+                            PutTagSetResponse* reply) override {
+    ObjectCube::TagSet *tagset = new ObjectCube::NumericalTagSet(request->name(), request->description());
+    reply->set_allocated_tagset(converter->TagSetToProto(tagset->create()));
+    return Status::OK;
+  }
+
+  Status putDateTagSet(ServerContext* context,
+                       const PutTagSetRequest* request,
+                       PutTagSetResponse* reply) override {
+    ObjectCube::TagSet *tagset = new ObjectCube::DateTagSet(request->name(), request->description());
+    reply->set_allocated_tagset(converter->TagSetToProto(tagset->create()));
+    return Status::OK;
+  }
+
+  Status putTimeTagSet(ServerContext* context,
+                       const PutTagSetRequest* request,
+                       PutTagSetResponse* reply) override {
+    ObjectCube::TagSet *tagset = new ObjectCube::TimeTagSet(request->name(), request->description());
+    reply->set_allocated_tagset(converter->TagSetToProto(tagset->create()));
+    return Status::OK;
+  }
+
+  Status putRGBTagSet(ServerContext* context,
+                      const PutTagSetRequest* request,
+                      PutTagSetResponse* reply) override {
+    ObjectCube::TagSet *tagset = new ObjectCube::RGBTagSet(request->name(), request->description());
+    reply->set_allocated_tagset(converter->TagSetToProto(tagset->create()));
     return Status::OK;
   }
 

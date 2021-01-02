@@ -27,7 +27,11 @@ static const char* OCService_method_names[] = {
   "/OC.OCService/putObject",
   "/OC.OCService/getTagSets",
   "/OC.OCService/getTagSet",
-  "/OC.OCService/putTagSet",
+  "/OC.OCService/putAlphanumericalTagSet",
+  "/OC.OCService/putNumericalTagSet",
+  "/OC.OCService/putDateTagSet",
+  "/OC.OCService/putTimeTagSet",
+  "/OC.OCService/putRGBTagSet",
   "/OC.OCService/getTags",
   "/OC.OCService/getTag",
   "/OC.OCService/putTag",
@@ -47,12 +51,16 @@ OCService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   , rpcmethod_putObject_(OCService_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_getTagSets_(OCService_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_getTagSet_(OCService_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_putTagSet_(OCService_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_getTags_(OCService_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_getTag_(OCService_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_putTag_(OCService_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_reConnectDB_(OCService_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_stopService_(OCService_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_putAlphanumericalTagSet_(OCService_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_putNumericalTagSet_(OCService_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_putDateTagSet_(OCService_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_putTimeTagSet_(OCService_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_putRGBTagSet_(OCService_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTags_(OCService_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTag_(OCService_method_names[11], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_putTag_(OCService_method_names[12], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_reConnectDB_(OCService_method_names[13], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_stopService_(OCService_method_names[14], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status OCService::Stub::getObjects(::grpc::ClientContext* context, const ::OC::GetObjectsRequest& request, ::OC::GetObjectsResponse* response) {
@@ -170,25 +178,117 @@ void OCService::Stub::experimental_async::getTagSet(::grpc::ClientContext* conte
   return result;
 }
 
-::grpc::Status OCService::Stub::putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_putTagSet_, context, request, response);
+::grpc::Status OCService::Stub::putAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_putAlphanumericalTagSet_, context, request, response);
 }
 
-void OCService::Stub::experimental_async::putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_putTagSet_, context, request, response, std::move(f));
+void OCService::Stub::experimental_async::putAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_putAlphanumericalTagSet_, context, request, response, std::move(f));
 }
 
-void OCService::Stub::experimental_async::putTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_putTagSet_, context, request, response, reactor);
+void OCService::Stub::experimental_async::putAlphanumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_putAlphanumericalTagSet_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::PrepareAsyncputTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::OC::PutTagSetResponse>::Create(channel_.get(), cq, rpcmethod_putTagSet_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::PrepareAsyncputAlphanumericalTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::OC::PutTagSetResponse>::Create(channel_.get(), cq, rpcmethod_putAlphanumericalTagSet_, context, request, false);
 }
 
-::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::AsyncputTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::AsyncputAlphanumericalTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncputTagSetRaw(context, request, cq);
+    this->PrepareAsyncputAlphanumericalTagSetRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status OCService::Stub::putNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_putNumericalTagSet_, context, request, response);
+}
+
+void OCService::Stub::experimental_async::putNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_putNumericalTagSet_, context, request, response, std::move(f));
+}
+
+void OCService::Stub::experimental_async::putNumericalTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_putNumericalTagSet_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::PrepareAsyncputNumericalTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::OC::PutTagSetResponse>::Create(channel_.get(), cq, rpcmethod_putNumericalTagSet_, context, request, false);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::AsyncputNumericalTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncputNumericalTagSetRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status OCService::Stub::putDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_putDateTagSet_, context, request, response);
+}
+
+void OCService::Stub::experimental_async::putDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_putDateTagSet_, context, request, response, std::move(f));
+}
+
+void OCService::Stub::experimental_async::putDateTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_putDateTagSet_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::PrepareAsyncputDateTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::OC::PutTagSetResponse>::Create(channel_.get(), cq, rpcmethod_putDateTagSet_, context, request, false);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::AsyncputDateTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncputDateTagSetRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status OCService::Stub::putTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_putTimeTagSet_, context, request, response);
+}
+
+void OCService::Stub::experimental_async::putTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_putTimeTagSet_, context, request, response, std::move(f));
+}
+
+void OCService::Stub::experimental_async::putTimeTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_putTimeTagSet_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::PrepareAsyncputTimeTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::OC::PutTagSetResponse>::Create(channel_.get(), cq, rpcmethod_putTimeTagSet_, context, request, false);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::AsyncputTimeTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncputTimeTagSetRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status OCService::Stub::putRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::OC::PutTagSetResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_putRGBTagSet_, context, request, response);
+}
+
+void OCService::Stub::experimental_async::putRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_putRGBTagSet_, context, request, response, std::move(f));
+}
+
+void OCService::Stub::experimental_async::putRGBTagSet(::grpc::ClientContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_putRGBTagSet_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::PrepareAsyncputRGBTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::OC::PutTagSetResponse>::Create(channel_.get(), cq, rpcmethod_putRGBTagSet_, context, request, false);
+}
+
+::grpc::ClientAsyncResponseReader< ::OC::PutTagSetResponse>* OCService::Stub::AsyncputRGBTagSetRaw(::grpc::ClientContext* context, const ::OC::PutTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncputRGBTagSetRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -367,10 +467,50 @@ OCService::Service::Service() {
              ::grpc::ServerContext* ctx,
              const ::OC::PutTagSetRequest* req,
              ::OC::PutTagSetResponse* resp) {
-               return service->putTagSet(ctx, req, resp);
+               return service->putAlphanumericalTagSet(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       OCService_method_names[6],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
+          [](OCService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::OC::PutTagSetRequest* req,
+             ::OC::PutTagSetResponse* resp) {
+               return service->putNumericalTagSet(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      OCService_method_names[7],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
+          [](OCService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::OC::PutTagSetRequest* req,
+             ::OC::PutTagSetResponse* resp) {
+               return service->putDateTagSet(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      OCService_method_names[8],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
+          [](OCService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::OC::PutTagSetRequest* req,
+             ::OC::PutTagSetResponse* resp) {
+               return service->putTimeTagSet(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      OCService_method_names[9],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::PutTagSetRequest, ::OC::PutTagSetResponse>(
+          [](OCService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::OC::PutTagSetRequest* req,
+             ::OC::PutTagSetResponse* resp) {
+               return service->putRGBTagSet(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      OCService_method_names[10],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::GetTagsRequest, ::OC::GetTagsResponse>(
           [](OCService::Service* service,
@@ -380,7 +520,7 @@ OCService::Service::Service() {
                return service->getTags(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      OCService_method_names[7],
+      OCService_method_names[11],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::GetTagRequest, ::OC::GetTagResponse>(
           [](OCService::Service* service,
@@ -390,7 +530,7 @@ OCService::Service::Service() {
                return service->getTag(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      OCService_method_names[8],
+      OCService_method_names[12],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::PutTagRequest, ::OC::PutTagResponse>(
           [](OCService::Service* service,
@@ -400,7 +540,7 @@ OCService::Service::Service() {
                return service->putTag(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      OCService_method_names[9],
+      OCService_method_names[13],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::Empty, ::OC::Empty>(
           [](OCService::Service* service,
@@ -410,7 +550,7 @@ OCService::Service::Service() {
                return service->reConnectDB(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      OCService_method_names[10],
+      OCService_method_names[14],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< OCService::Service, ::OC::Empty, ::OC::Empty>(
           [](OCService::Service* service,
@@ -459,7 +599,35 @@ OCService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status OCService::Service::putTagSet(::grpc::ServerContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response) {
+::grpc::Status OCService::Service::putAlphanumericalTagSet(::grpc::ServerContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status OCService::Service::putNumericalTagSet(::grpc::ServerContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status OCService::Service::putDateTagSet(::grpc::ServerContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status OCService::Service::putTimeTagSet(::grpc::ServerContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status OCService::Service::putRGBTagSet(::grpc::ServerContext* context, const ::OC::PutTagSetRequest* request, ::OC::PutTagSetResponse* response) {
   (void) context;
   (void) request;
   (void) response;

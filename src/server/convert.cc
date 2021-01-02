@@ -31,7 +31,7 @@ OC::TagSet* MADS_gRPC_converter::TagSetToProto(const ObjectCube::TagSet* in, OC:
   reply->set_id(in->getId());
   reply->set_name(in->getName());
   reply->set_description(in->getDescription());
-  reply->set_typeid_(in->getTypeId());
+  reply->set_type(in->typeAsString());
   reply->set_accessid(in->getAccessId());
   return reply;
 }
