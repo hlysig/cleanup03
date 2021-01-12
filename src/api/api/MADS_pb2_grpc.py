@@ -2,10 +2,10 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import OC_pb2 as OC__pb2
+import MADS_pb2 as MADS__pb2
 
 
-class OCServiceStub(object):
+class MADS_ServiceStub(object):
     """Service
 
     """
@@ -16,82 +16,71 @@ class OCServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.getObjects = channel.unary_unary(
-                '/OC.OCService/getObjects',
-                request_serializer=OC__pb2.GetObjectsRequest.SerializeToString,
-                response_deserializer=OC__pb2.GetObjectsResponse.FromString,
-                )
         self.getObject = channel.unary_unary(
-                '/OC.OCService/getObject',
-                request_serializer=OC__pb2.GetObjectRequest.SerializeToString,
-                response_deserializer=OC__pb2.GetObjectResponse.FromString,
+                '/MADS.MADS_Service/getObject',
+                request_serializer=MADS__pb2.GetObjectRequest.SerializeToString,
+                response_deserializer=MADS__pb2.GetObjectResponse.FromString,
                 )
-        self.putObject = channel.unary_unary(
-                '/OC.OCService/putObject',
-                request_serializer=OC__pb2.PutObjectRequest.SerializeToString,
-                response_deserializer=OC__pb2.PutObjectResponse.FromString,
+        self.createObject = channel.unary_unary(
+                '/MADS.MADS_Service/createObject',
+                request_serializer=MADS__pb2.CreateObjectRequest.SerializeToString,
+                response_deserializer=MADS__pb2.CreateObjectResponse.FromString,
                 )
         self.getTagSets = channel.unary_unary(
-                '/OC.OCService/getTagSets',
-                request_serializer=OC__pb2.GetTagSetsRequest.SerializeToString,
-                response_deserializer=OC__pb2.GetTagSetsResponse.FromString,
+                '/MADS.MADS_Service/getTagSets',
+                request_serializer=MADS__pb2.GetTagSetsRequest.SerializeToString,
+                response_deserializer=MADS__pb2.GetTagSetsResponse.FromString,
                 )
         self.getTagSet = channel.unary_unary(
-                '/OC.OCService/getTagSet',
-                request_serializer=OC__pb2.GetTagSetRequest.SerializeToString,
-                response_deserializer=OC__pb2.GetTagSetResponse.FromString,
+                '/MADS.MADS_Service/getTagSet',
+                request_serializer=MADS__pb2.GetTagSetRequest.SerializeToString,
+                response_deserializer=MADS__pb2.GetTagSetResponse.FromString,
                 )
-        self.putTagSet = channel.unary_unary(
-                '/OC.OCService/putTagSet',
-                request_serializer=OC__pb2.PutTagSetRequest.SerializeToString,
-                response_deserializer=OC__pb2.PutTagSetResponse.FromString,
+        self.createTagSet = channel.unary_unary(
+                '/MADS.MADS_Service/createTagSet',
+                request_serializer=MADS__pb2.CreateTagSetRequest.SerializeToString,
+                response_deserializer=MADS__pb2.CreateTagSetResponse.FromString,
                 )
         self.getTags = channel.unary_unary(
-                '/OC.OCService/getTags',
-                request_serializer=OC__pb2.GetTagsRequest.SerializeToString,
-                response_deserializer=OC__pb2.GetTagsResponse.FromString,
+                '/MADS.MADS_Service/getTags',
+                request_serializer=MADS__pb2.GetTagsRequest.SerializeToString,
+                response_deserializer=MADS__pb2.GetTagsResponse.FromString,
                 )
         self.getTag = channel.unary_unary(
-                '/OC.OCService/getTag',
-                request_serializer=OC__pb2.GetTagRequest.SerializeToString,
-                response_deserializer=OC__pb2.GetTagResponse.FromString,
+                '/MADS.MADS_Service/getTag',
+                request_serializer=MADS__pb2.GetTagRequest.SerializeToString,
+                response_deserializer=MADS__pb2.GetTagResponse.FromString,
                 )
-        self.putTag = channel.unary_unary(
-                '/OC.OCService/putTag',
-                request_serializer=OC__pb2.PutTagRequest.SerializeToString,
-                response_deserializer=OC__pb2.PutTagResponse.FromString,
+        self.createOrGetTag = channel.unary_unary(
+                '/MADS.MADS_Service/createOrGetTag',
+                request_serializer=MADS__pb2.CreateTagRequest.SerializeToString,
+                response_deserializer=MADS__pb2.CreateTagResponse.FromString,
                 )
         self.reConnectDB = channel.unary_unary(
-                '/OC.OCService/reConnectDB',
-                request_serializer=OC__pb2.Empty.SerializeToString,
-                response_deserializer=OC__pb2.Empty.FromString,
+                '/MADS.MADS_Service/reConnectDB',
+                request_serializer=MADS__pb2.Empty.SerializeToString,
+                response_deserializer=MADS__pb2.Empty.FromString,
                 )
         self.stopService = channel.unary_unary(
-                '/OC.OCService/stopService',
-                request_serializer=OC__pb2.Empty.SerializeToString,
-                response_deserializer=OC__pb2.Empty.FromString,
+                '/MADS.MADS_Service/stopService',
+                request_serializer=MADS__pb2.Empty.SerializeToString,
+                response_deserializer=MADS__pb2.Empty.FromString,
                 )
 
 
-class OCServiceServicer(object):
+class MADS_ServiceServicer(object):
     """Service
 
     """
 
-    def getObjects(self, request, context):
+    def getObject(self, request, context):
         """Object
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def getObject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def putObject(self, request, context):
+    def createObject(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -110,7 +99,7 @@ class OCServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def putTagSet(self, request, context):
+    def createTagSet(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -129,7 +118,7 @@ class OCServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def putTag(self, request, context):
+    def createOrGetTag(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -149,91 +138,69 @@ class OCServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_OCServiceServicer_to_server(servicer, server):
+def add_MADS_ServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'getObjects': grpc.unary_unary_rpc_method_handler(
-                    servicer.getObjects,
-                    request_deserializer=OC__pb2.GetObjectsRequest.FromString,
-                    response_serializer=OC__pb2.GetObjectsResponse.SerializeToString,
-            ),
             'getObject': grpc.unary_unary_rpc_method_handler(
                     servicer.getObject,
-                    request_deserializer=OC__pb2.GetObjectRequest.FromString,
-                    response_serializer=OC__pb2.GetObjectResponse.SerializeToString,
+                    request_deserializer=MADS__pb2.GetObjectRequest.FromString,
+                    response_serializer=MADS__pb2.GetObjectResponse.SerializeToString,
             ),
-            'putObject': grpc.unary_unary_rpc_method_handler(
-                    servicer.putObject,
-                    request_deserializer=OC__pb2.PutObjectRequest.FromString,
-                    response_serializer=OC__pb2.PutObjectResponse.SerializeToString,
+            'createObject': grpc.unary_unary_rpc_method_handler(
+                    servicer.createObject,
+                    request_deserializer=MADS__pb2.CreateObjectRequest.FromString,
+                    response_serializer=MADS__pb2.CreateObjectResponse.SerializeToString,
             ),
             'getTagSets': grpc.unary_unary_rpc_method_handler(
                     servicer.getTagSets,
-                    request_deserializer=OC__pb2.GetTagSetsRequest.FromString,
-                    response_serializer=OC__pb2.GetTagSetsResponse.SerializeToString,
+                    request_deserializer=MADS__pb2.GetTagSetsRequest.FromString,
+                    response_serializer=MADS__pb2.GetTagSetsResponse.SerializeToString,
             ),
             'getTagSet': grpc.unary_unary_rpc_method_handler(
                     servicer.getTagSet,
-                    request_deserializer=OC__pb2.GetTagSetRequest.FromString,
-                    response_serializer=OC__pb2.GetTagSetResponse.SerializeToString,
+                    request_deserializer=MADS__pb2.GetTagSetRequest.FromString,
+                    response_serializer=MADS__pb2.GetTagSetResponse.SerializeToString,
             ),
-            'putTagSet': grpc.unary_unary_rpc_method_handler(
-                    servicer.putTagSet,
-                    request_deserializer=OC__pb2.PutTagSetRequest.FromString,
-                    response_serializer=OC__pb2.PutTagSetResponse.SerializeToString,
+            'createTagSet': grpc.unary_unary_rpc_method_handler(
+                    servicer.createTagSet,
+                    request_deserializer=MADS__pb2.CreateTagSetRequest.FromString,
+                    response_serializer=MADS__pb2.CreateTagSetResponse.SerializeToString,
             ),
             'getTags': grpc.unary_unary_rpc_method_handler(
                     servicer.getTags,
-                    request_deserializer=OC__pb2.GetTagsRequest.FromString,
-                    response_serializer=OC__pb2.GetTagsResponse.SerializeToString,
+                    request_deserializer=MADS__pb2.GetTagsRequest.FromString,
+                    response_serializer=MADS__pb2.GetTagsResponse.SerializeToString,
             ),
             'getTag': grpc.unary_unary_rpc_method_handler(
                     servicer.getTag,
-                    request_deserializer=OC__pb2.GetTagRequest.FromString,
-                    response_serializer=OC__pb2.GetTagResponse.SerializeToString,
+                    request_deserializer=MADS__pb2.GetTagRequest.FromString,
+                    response_serializer=MADS__pb2.GetTagResponse.SerializeToString,
             ),
-            'putTag': grpc.unary_unary_rpc_method_handler(
-                    servicer.putTag,
-                    request_deserializer=OC__pb2.PutTagRequest.FromString,
-                    response_serializer=OC__pb2.PutTagResponse.SerializeToString,
+            'createOrGetTag': grpc.unary_unary_rpc_method_handler(
+                    servicer.createOrGetTag,
+                    request_deserializer=MADS__pb2.CreateTagRequest.FromString,
+                    response_serializer=MADS__pb2.CreateTagResponse.SerializeToString,
             ),
             'reConnectDB': grpc.unary_unary_rpc_method_handler(
                     servicer.reConnectDB,
-                    request_deserializer=OC__pb2.Empty.FromString,
-                    response_serializer=OC__pb2.Empty.SerializeToString,
+                    request_deserializer=MADS__pb2.Empty.FromString,
+                    response_serializer=MADS__pb2.Empty.SerializeToString,
             ),
             'stopService': grpc.unary_unary_rpc_method_handler(
                     servicer.stopService,
-                    request_deserializer=OC__pb2.Empty.FromString,
-                    response_serializer=OC__pb2.Empty.SerializeToString,
+                    request_deserializer=MADS__pb2.Empty.FromString,
+                    response_serializer=MADS__pb2.Empty.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'OC.OCService', rpc_method_handlers)
+            'MADS.MADS_Service', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class OCService(object):
+class MADS_Service(object):
     """Service
 
     """
-
-    @staticmethod
-    def getObjects(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/OC.OCService/getObjects',
-            OC__pb2.GetObjectsRequest.SerializeToString,
-            OC__pb2.GetObjectsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def getObject(request,
@@ -246,14 +213,14 @@ class OCService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/OC.OCService/getObject',
-            OC__pb2.GetObjectRequest.SerializeToString,
-            OC__pb2.GetObjectResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/getObject',
+            MADS__pb2.GetObjectRequest.SerializeToString,
+            MADS__pb2.GetObjectResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def putObject(request,
+    def createObject(request,
             target,
             options=(),
             channel_credentials=None,
@@ -263,9 +230,9 @@ class OCService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/OC.OCService/putObject',
-            OC__pb2.PutObjectRequest.SerializeToString,
-            OC__pb2.PutObjectResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/createObject',
+            MADS__pb2.CreateObjectRequest.SerializeToString,
+            MADS__pb2.CreateObjectResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -280,9 +247,9 @@ class OCService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/OC.OCService/getTagSets',
-            OC__pb2.GetTagSetsRequest.SerializeToString,
-            OC__pb2.GetTagSetsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/getTagSets',
+            MADS__pb2.GetTagSetsRequest.SerializeToString,
+            MADS__pb2.GetTagSetsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -297,14 +264,14 @@ class OCService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/OC.OCService/getTagSet',
-            OC__pb2.GetTagSetRequest.SerializeToString,
-            OC__pb2.GetTagSetResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/getTagSet',
+            MADS__pb2.GetTagSetRequest.SerializeToString,
+            MADS__pb2.GetTagSetResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def putTagSet(request,
+    def createTagSet(request,
             target,
             options=(),
             channel_credentials=None,
@@ -314,9 +281,9 @@ class OCService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/OC.OCService/putTagSet',
-            OC__pb2.PutTagSetRequest.SerializeToString,
-            OC__pb2.PutTagSetResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/createTagSet',
+            MADS__pb2.CreateTagSetRequest.SerializeToString,
+            MADS__pb2.CreateTagSetResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -331,9 +298,9 @@ class OCService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/OC.OCService/getTags',
-            OC__pb2.GetTagsRequest.SerializeToString,
-            OC__pb2.GetTagsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/getTags',
+            MADS__pb2.GetTagsRequest.SerializeToString,
+            MADS__pb2.GetTagsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -348,14 +315,14 @@ class OCService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/OC.OCService/getTag',
-            OC__pb2.GetTagRequest.SerializeToString,
-            OC__pb2.GetTagResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/getTag',
+            MADS__pb2.GetTagRequest.SerializeToString,
+            MADS__pb2.GetTagResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def putTag(request,
+    def createOrGetTag(request,
             target,
             options=(),
             channel_credentials=None,
@@ -365,9 +332,9 @@ class OCService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/OC.OCService/putTag',
-            OC__pb2.PutTagRequest.SerializeToString,
-            OC__pb2.PutTagResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/createOrGetTag',
+            MADS__pb2.CreateTagRequest.SerializeToString,
+            MADS__pb2.CreateTagResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -382,9 +349,9 @@ class OCService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/OC.OCService/reConnectDB',
-            OC__pb2.Empty.SerializeToString,
-            OC__pb2.Empty.FromString,
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/reConnectDB',
+            MADS__pb2.Empty.SerializeToString,
+            MADS__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -399,8 +366,8 @@ class OCService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/OC.OCService/stopService',
-            OC__pb2.Empty.SerializeToString,
-            OC__pb2.Empty.FromString,
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/stopService',
+            MADS__pb2.Empty.SerializeToString,
+            MADS__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

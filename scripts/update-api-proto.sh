@@ -16,7 +16,7 @@ API_PROJECT_DIR="$SCRIPT_DIR/../src/api"
 
 function update_python_proto {
   pushd "$API_PROJECT_DIR"
-  .venv/bin/python -m grpc_tools.protoc -I../proto --python_out=api --grpc_python_out=api ../proto/OC.proto
+  .venv/bin/python -m grpc_tools.protoc -I../proto --python_out=api --grpc_python_out=api ../proto/MADS.proto
   popd
 }
 

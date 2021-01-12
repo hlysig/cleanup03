@@ -17,8 +17,8 @@ cd "$SCRIPT_DIR"
 
 function main {
   cd $PROTO_DIR
-  protoc -I . --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` OC.proto
-  protoc -I . --cpp_out=. OC.proto
+  protoc -I . --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` MADS.proto
+  protoc -I . --cpp_out=. MADS.proto
 }
 
 main $@;

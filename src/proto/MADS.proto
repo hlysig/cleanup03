@@ -1,22 +1,14 @@
-
 syntax = "proto3";
 
-package OC;
+package MADS;
 
 // Object
 
 message Object {
   int64 id = 1;
-  string name = 2;
+  string URI = 2;
   string thumbnail = 3;
   string fileType = 4;
-}
-
-message GetObjectsRequest {
-};
-
-message GetObjectsResponse {
-  repeated Object objects = 1;
 }
 
 message GetObjectRequest {
@@ -27,23 +19,31 @@ message GetObjectResponse {
   Object object = 1;
 }
 
-message PutObjectRequest {
-  string name = 1;
-  string thumbnail = 2;
+message CreateObjectRequest {
+  string URI = 1;
   string fileType = 3;
 }
 
-message PutObjectResponse {
+message CreateObjectResponse {
   Object object = 1;
 }
 
 // TagSet
 
+enum TagSetType {
+  TYPE_UNKNOWN = 0;
+  ALPHANUMERICAL = 1;
+  NUMERICAL = 2;
+  DATE = 3;
+  TIME = 4;
+  RGB = 5;
+}
+
 message TagSet {
   int64 id = 1;
   string name = 2;
   string description = 3;
-  string type = 4;
+  TagSetType type = 4;
   int64 accessId = 5;
 }
 
@@ -62,22 +62,51 @@ message GetTagSetResponse {
   TagSet tagset = 1;
 }
 
-message PutTagSetRequest {
+message CreateTagSetRequest {
   string name = 1;
   string description = 2;
+  TagSetType type = 3;
 }
 
-message PutTagSetResponse {
+message CreateTagSetResponse {
   TagSet tagset = 1;
 }
 
 // Tag
 
+message AlphanumericalValue {
+  string value = 1;
+}
+
+message NumericalValue {
+  string value = 1;
+}
+
+message DateValue {
+  string value = 1;
+}
+
+message TimeValue {
+  string value = 1;
+}
+
+message RGBValue {
+  int64 red = 1;
+  int64 green = 2;
+  int64 blue = 3;
+}
+
 message Tag {
 	int64 id = 1;
 	int64 tagSetId = 2;
 	int64 typeId = 3;
-  string name = 4;
+  oneof value {
+    AlphanumericalValue alphanumerical = 4;
+    NumericalValue numerical = 5;
+    DateValue date = 6;
+    TimeValue time = 7;
+    RGBValue rgb = 8;
+  }
 }
 
 message GetTagsRequest {
@@ -95,12 +124,18 @@ message GetTagResponse {
 	Tag tag = 1;
 }
 
-message PutTagRequest {
+message CreateTagRequest {
   int64 tagSetId = 1;
-  string name = 2;
+  oneof value {
+    AlphanumericalValue alphanumerical = 4;
+    NumericalValue numerical = 5;
+    DateValue date = 6;
+    TimeValue time = 7;
+    RGBValue rgb = 8;
+  }
 }
 
-message PutTagResponse {
+message CreateTagResponse {
   Tag tag = 1;
 }
 
@@ -111,26 +146,21 @@ message Empty {
 
 // Service
 
-service OCService {
+service MADS_Service {
 
   // Object
-  rpc getObjects(GetObjectsRequest) returns (GetObjectsResponse) {};
 	rpc getObject(GetObjectRequest) returns (GetObjectResponse) {};
-	rpc putObject(PutObjectRequest) returns (PutObjectResponse) {};
+	rpc createObject(CreateObjectRequest) returns (CreateObjectResponse) {};
 
   // TagSet
   rpc getTagSets(GetTagSetsRequest) returns (GetTagSetsResponse) {};
 	rpc getTagSet(GetTagSetRequest) returns (GetTagSetResponse) {};
-	rpc putAlphanumericalTagSet(PutTagSetRequest) returns (PutTagSetResponse) {};
-	rpc putNumericalTagSet(PutTagSetRequest) returns (PutTagSetResponse) {};
-	rpc putDateTagSet(PutTagSetRequest) returns (PutTagSetResponse) {};
-	rpc putTimeTagSet(PutTagSetRequest) returns (PutTagSetResponse) {};
-	rpc putRGBTagSet(PutTagSetRequest) returns (PutTagSetResponse) {};
+	rpc createTagSet(CreateTagSetRequest) returns (CreateTagSetResponse) {};
 
   // Tag
   rpc getTags(GetTagsRequest) returns (GetTagsResponse) {};
 	rpc getTag(GetTagRequest) returns (GetTagResponse) {};
-	rpc putTag(PutTagRequest) returns (PutTagResponse) {};
+	rpc createOrGetTag(CreateTagRequest) returns (CreateTagResponse) {};
 
 	// Control RPC calls
 	rpc reConnectDB(Empty) returns (Empty) {};

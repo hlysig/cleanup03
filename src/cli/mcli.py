@@ -26,58 +26,61 @@ def read():
 @pass_config
 def object(config, id):
     """This command returns an object"""
-    resp = client.get_tagset(id)
+    resp = client.get_object(id)
     if not config.script_mode:
-        click.echo(jsonify(resp))
+        click.echo(resp)
 
 @read.command()
 @pass_config
 def tags(config):
     """This command returns all tags"""
-    click.echo('Tags!')
+    resp = client.get_tags()
     if not config.script_mode:
-        click.echo('Writing JSON')
+        click.echo(resp)
 
 @read.command()
 @click.argument('id', type=int, required=True)
 @pass_config
 def tag(config, id):
     """This command returns a tag"""
-    click.echo('Tag %i!' % id)
+    resp = client.get_tag(id)
     if not config.script_mode:
-        click.echo('Writing JSON')
+        click.echo(resp)
 
 @read.command()
 @pass_config
 def tagsets(config):
     """This command returns all tagsets"""
-    click.echo('Tagsets!')
+    resp = client.get_tagsets()
     if not config.script_mode:
-        click.echo('Writing JSON')
+        click.echo(resp)
 
 @read.command()
 @click.argument('id', type=int, required=True)
 @pass_config
 def tagset(config, id):
     """This command returns a tagset"""
-    click.echo('TagSet %i!' % id)
+    resp = client.get_tagset(id)
     if not config.script_mode:
-        click.echo('Writing JSON')
+        click.echo(resp)
 
 @cli.group()
 def insert():
     pass
 
 @insert.command()
-@click.argument('URL', type=str, required=True)
+@click.argument('URI', type=str, required=True)
+@click.argument('filetype', type=str, required=True)
 @pass_config
-def object(config, url):
+def object(config, uri, filetype):
     """Creates an object located at URL"""
+    resp = client.create_object(uri, filetype)
     if not config.script_mode:
-        click.echo('insert object: %s' % url)
-        click.echo('Writing JSON')
+        click.echo(resp)
+    elif ('id' in resp):
+        click.echo(resp['id'])
     else:
-        click.echo(random.randrange(100)+1)
+        click.echo(resp)
 
 @insert.command()
 @click.argument('value', type=str, required=True)
@@ -93,12 +96,20 @@ def tag(config, value, tagsetid):
 
 @insert.command()
 @click.argument('name', type=str, required=True)
-@click.argument('tagsettype', type=str, default='AlphaNumerical', required=False)
+@click.argument('description', type=str, required=True)
+@click.argument('type', type=int, default=1, required=False)
 @pass_config
-def tagset(config, name, tagsettype):
-    """Create a tagset with name NAME of type TAGSETTYPE (default = AlphaNumerical)"""
+def tagset(config, name, description, type):
+    """Create a tagset NAME/DESCRIPTION of type TAGSETTYPE (default = 1 ()AlphaNumerical))
+    Supported types are 1 (Alphanumerical), 2 (Numerical), 3 (Date), 4 (Time).
+    """
+    resp = client.create_tagset(name, description, type)
     if not config.script_mode:
-        click.echo('insert tagset: %s, %s' % (name, tagsettype))
-        click.echo('Writing JSON')
+        click.echo(resp)
+    elif ('id' in resp):
+        click.echo(resp['id'])
     else:
-        click.echo(random.randrange(100)+1)
+        click.echo(resp)
+
+if __name__ == "__main__":
+    cli()

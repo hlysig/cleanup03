@@ -34,12 +34,12 @@ function setup_venv {
   fi
   fmt_info "Installing dependencies from requirements.txt for MADS api"
   .venv/bin/pip install -r requirements.txt
-  fmt_info "MADS api is ready"
+  fmt_info "MADS cli is ready"
   popd
 }
 
 function main {
-  fmt_info "Bootstrapping MADS api"
+  fmt_info "Bootstrapping MADS cli"
   setup_venv
 }
 

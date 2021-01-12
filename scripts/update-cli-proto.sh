@@ -16,7 +16,7 @@ CLI_PROJECT_DIR="$SCRIPT_DIR/../src/cli"
 
 function update_python_proto {
   pushd "$CLI_PROJECT_DIR"
-  .venv/bin/python -m grpc_tools.protoc -I../proto --python_out=. --grpc_python_out=. ../proto/OC.proto
+  .venv/bin/python -m grpc_tools.protoc -I../proto --python_out=. --grpc_python_out=. ../proto/MADS.proto
   popd
 }
 

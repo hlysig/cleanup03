@@ -2,8 +2,8 @@
 #include <grpcpp/health_check_service_interface.h>
 #include <grpcpp/ext/proto_server_reflection_plugin.h>
 
-#include "OC.pb.h"
-#include "OC.grpc.pb.h"
+#include "MADS.pb.h"
+#include "MADS.grpc.pb.h"
 #include "convert.h"
 
 #include "../core/Hub.h"
@@ -16,21 +16,23 @@
 #include "../core/TagSet/TimeTagSet.h"
 #include "../core/TagSet/RGBTagSet.h"
 
-using namespace OC;
+using namespace MADS;
 using namespace ObjectCube;
 using namespace grpc;
 
-class OCServiceImpl final : public OCService::Service
+class MADS_ServiceImpl final : public MADS_Service::Service
 {
 private:
   ObjectCube::Hub *hub;
   Converter *converter;
 
 public:
-  OCServiceImpl(ObjectCube::Hub *_hub, Converter *_converter) {
+  MADS_ServiceImpl(ObjectCube::Hub *_hub, Converter *_converter) {
     hub = _hub;
     converter = _converter;
   }
+
+  // == Objects
 
   Status getObject(ServerContext* context,
                    const GetObjectRequest* request,
@@ -40,84 +42,109 @@ public:
       reply->set_allocated_object(converter->ObjectToProto(&object));
       return Status::OK;
     }
+
     catch (...) {
-      DebugInfo::getDebugInfo()->output( "OCServiceImpl", "getObject",
-                                         "Error retrieving object id = " + std::to_string(request->id()));
+      DebugInfo::getDebugInfo()->output( "MADS_ServiceImpl", "getObject",
+                                         "Error retrieving Object: id = " + std::to_string(request->id()));
       std::string msg("Invalid Object identifier");
-      return Status(StatusCode::INVALID_ARGUMENT, msg);
-    }
+      return Status(StatusCode::INVALID_ARGUMENT, msg);}
   }
 
-  Status putObject(ServerContext* context,
-                   const PutObjectRequest* request,
-                   PutObjectResponse* reply) override {
-    ObjectCube::Object object;
-    object.setName(request->name());
-    object.setThumbnail(request->thumbnail());
-    object.setFileType(request->filetype());
-    hub->addObject(object);
+  Status createObject(ServerContext* context,
+                      const CreateObjectRequest* request,
+                      CreateObjectResponse* reply) override {
+    try {
+      // Set the input parameters
+      ObjectCube::Object object;
+      object.setName(request->uri());
+      object.setFileType(request->filetype());
 
-    DebugInfo::getDebugInfo()->output( "OCServiceImpl", "putObject",  std::to_string(object.getId()) );
-    reply->set_allocated_object(converter->ObjectToProto(&object));
-    return Status::OK;
+      // Create and return
+      reply->set_allocated_object(converter->ObjectToProto(&(object.create())));
+      return Status::OK;
+    }
+
+    catch (...) {
+      DebugInfo::getDebugInfo()->output( "MADS_ServiceImpl", "createObject",
+                                         "Error creating object: URI  = " + request->uri() + " " +
+                                         "Type = " + request->filetype());
+      std::string msg("Invalid Object inputs");
+      return Status(StatusCode::INVALID_ARGUMENT, msg);
+    }
   }
 
   Status getTagSets(ServerContext* context,
                     const GetTagSetsRequest* request,
                     GetTagSetsResponse* reply) override {
-    const vector<ObjectCube::TagSet *>tagsets = hub->getTagSets();
-    for (auto tagset = tagsets.begin(); tagset != tagsets.end(); ++tagset) {
-      OC::TagSet* protoTagSet = reply->add_tagsets();
-      converter->TagSetToProto(*tagset, protoTagSet);
+    try {
+      const vector<ObjectCube::TagSet *>tagsets = hub->getTagSets();
+      for (auto tagset = tagsets.begin(); tagset != tagsets.end(); ++tagset) {
+        converter->TagSetToProto(*tagset, reply->add_tagsets());
+      }
+      return Status::OK;
     }
-    return Status::OK;
+
+    catch (...) {
+      DebugInfo::getDebugInfo()->output( "MADS_ServiceImpl", "getTagSets",
+                                         "Unknown error ");
+      std::string msg("Error getting tagset");
+      return Status(StatusCode::NOT_FOUND, msg);
+    }
   }
 
   Status getTagSet(ServerContext* context,
                    const GetTagSetRequest* request,
                    GetTagSetResponse* reply) override {
-    const ObjectCube::TagSet *tagset = hub->getTagSet(request->id());
-    reply->set_allocated_tagset(converter->TagSetToProto(tagset));
-    return Status::OK;
+    try {
+      const ObjectCube::TagSet *tagset = hub->getTagSet(request->id());
+      reply->set_allocated_tagset(converter->TagSetToProto(tagset));
+      return Status::OK;
+    }
+
+    catch (...) {
+      DebugInfo::getDebugInfo()->output( "MADS_ServiceImpl", "getTagSet",
+                                         "Error retrieving TagSet: id = " + std::to_string(request->id()));
+      std::string msg("Invalid TagSet identifier");
+      return Status(StatusCode::INVALID_ARGUMENT, msg);
+    }
   }
 
-  Status putAlphanumericalTagSet(ServerContext* context,
-                                 const PutTagSetRequest* request,
-                                 PutTagSetResponse* reply) override {
-    ObjectCube::TagSet *tagset = new ObjectCube::AlphanumericalTagSet(request->name(), request->description());
-    reply->set_allocated_tagset(converter->TagSetToProto(tagset->create()));
-    return Status::OK;
-  }
+  Status createTagSet(ServerContext* context,
+                      const CreateTagSetRequest* request,
+                      CreateTagSetResponse* reply) override {
+    ObjectCube::TagSet *tagset;
+    DebugInfo::getDebugInfo()->output( "MADS_ServiceImpl", "createTagSet",
+                                       "name = " + request->name() +
+                                       " desc = " + request->description() +
+                                       " type = " + std::to_string(request->type()));
 
-  Status putNumericalTagSet(ServerContext* context,
-                            const PutTagSetRequest* request,
-                            PutTagSetResponse* reply) override {
-    ObjectCube::TagSet *tagset = new ObjectCube::NumericalTagSet(request->name(), request->description());
+    switch (request->type()) {
+    case MADS::TagSetType::ALPHANUMERICAL:
+      DebugInfo::getDebugInfo()->output( "MADS_ServiceImpl", "createTagSet", "Alpha");
+      tagset = new ObjectCube::AlphanumericalTagSet(request->name(), request->description());
+      break;
+    case MADS::TagSetType::NUMERICAL:
+      DebugInfo::getDebugInfo()->output( "MADS_ServiceImpl", "createTagSet", "Numer");
+      tagset = new ObjectCube::NumericalTagSet(request->name(), request->description());
+      break;
+    case MADS::TagSetType::DATE:
+      DebugInfo::getDebugInfo()->output( "MADS_ServiceImpl", "createTagSet", "Date");
+      tagset = new ObjectCube::DateTagSet(request->name(), request->description());
+      break;
+    case MADS::TagSetType::TIME:
+      DebugInfo::getDebugInfo()->output( "MADS_ServiceImpl", "createTagSet", "Time");
+      tagset = new ObjectCube::TimeTagSet(request->name(), request->description());
+      break;
+    case MADS::TagSetType::RGB:
+      DebugInfo::getDebugInfo()->output( "MADS_ServiceImpl", "createTagSet", "RGB");
+      tagset = new ObjectCube::RGBTagSet(request->name(), request->description());
+      break;
+    default:
+      std::string msg("No value given for tag");
+      return Status(StatusCode::INVALID_ARGUMENT, msg);
+    }
     reply->set_allocated_tagset(converter->TagSetToProto(tagset->create()));
-    return Status::OK;
-  }
 
-  Status putDateTagSet(ServerContext* context,
-                       const PutTagSetRequest* request,
-                       PutTagSetResponse* reply) override {
-    ObjectCube::TagSet *tagset = new ObjectCube::DateTagSet(request->name(), request->description());
-    reply->set_allocated_tagset(converter->TagSetToProto(tagset->create()));
-    return Status::OK;
-  }
-
-  Status putTimeTagSet(ServerContext* context,
-                       const PutTagSetRequest* request,
-                       PutTagSetResponse* reply) override {
-    ObjectCube::TagSet *tagset = new ObjectCube::TimeTagSet(request->name(), request->description());
-    reply->set_allocated_tagset(converter->TagSetToProto(tagset->create()));
-    return Status::OK;
-  }
-
-  Status putRGBTagSet(ServerContext* context,
-                      const PutTagSetRequest* request,
-                      PutTagSetResponse* reply) override {
-    ObjectCube::TagSet *tagset = new ObjectCube::RGBTagSet(request->name(), request->description());
-    reply->set_allocated_tagset(converter->TagSetToProto(tagset->create()));
     return Status::OK;
   }
 
@@ -126,7 +153,7 @@ public:
                  GetTagsResponse* reply) override {
     const vector<ObjectCube::Tag *>tags = hub->getAllTags();
     for (auto tag = tags.begin(); tag != tags.end(); ++tag) {
-      OC::Tag* protoTag = reply->add_tags();
+      MADS::Tag* protoTag = reply->add_tags();
       converter->TagToProto(*tag, protoTag);
     }
     return Status::OK;
@@ -140,11 +167,26 @@ public:
     return Status::OK;
   }
 
-  Status putTag(ServerContext* context,
-                const PutTagRequest* request,
-                PutTagResponse* reply) override {
+  Status createOrGetTag(ServerContext* context,
+                        const CreateTagRequest* request,
+                        CreateTagResponse* reply) override {
     ObjectCube::TagSet *tagSet = hub->getTagSet(request->tagsetid());
-    const ObjectCube::Tag *tag = tagSet->fetchOrAddTag(request->name());
+    const ObjectCube::Tag *tag;
+    if (request->has_alphanumerical()) {
+      tag = tagSet->fetchOrAddTag(request->alphanumerical().value());
+    } else if (request->has_numerical()) {
+      tag = tagSet->fetchOrAddTag(request->numerical().value());
+    } else if (request->has_date()) {
+      tag = tagSet->fetchOrAddTag(request->date().value());
+    } else if (request->has_time()) {
+      tag = tagSet->fetchOrAddTag(request->time().value());
+    } else if (request->has_rgb()) {
+      std::string msg("Creating RGB tags not implemented");
+      return Status(StatusCode::INVALID_ARGUMENT, msg);
+    } else {
+      std::string msg("No value given for tag");
+      return Status(StatusCode::INVALID_ARGUMENT, msg);
+    }
     reply->set_allocated_tag(converter->TagToProto(tag));
     return Status::OK;
   }
@@ -168,7 +210,7 @@ void RunServer() {
   std::string server_address("0.0.0.0:26026");
   ObjectCube::Hub *hub = ObjectCube::Hub::getHub();
   MADS_gRPC_converter *converter = new MADS_gRPC_converter();
-  OCServiceImpl service(hub, converter);
+  MADS_ServiceImpl service(hub, converter);
 
   ObjectCube::Parameters::getParameters() -> add("outputDebugInfo", "1");
 
