@@ -179,5 +179,56 @@ def tagging(config, tagid, objectid):
     else:
         click.echo(resp)
 
+@cli.command()
+@click.argument('csv_file', type=str, required=True)
+@click.option('--prefix', type=str, default='')
+@click.option('--separator', type=str, default=':')
+@pass_config
+def load(config, csv_file, prefix, separator):
+    """Loads a file in a specific format, where each row contains:
+    <file name>:<file type>:
+    followed by 0 or more instances of:
+    <tagset>:<tag>:
+    Note: Each line must end with :, all information must be in pairs; all tagsets/tags must be alphanumerical
+    """
+    f = open(csv_file, 'r')
+    for l in f.readlines():
+        a = l.split(separator)
+        resp = client.create_object(prefix+a[0], a[1])
+        if ('id' in resp):
+            image_id = int(resp['id'])
+
+            i = 2;
+            while (i < len(a)-1):
+                resp = client.get_tagset_by_name(a[i])
+                if ('id' in resp):
+                    tagset_id = int(resp['id'])
+                else:
+                    resp = client.create_tagset(a[i], a[i], 1)
+                    if ('id' in resp):
+                        tagset_id = int(resp['id'])
+                    else:
+                        click.echo(resp)
+                        exit(0)
+
+                resp = client.create_alphanumerical_tag(a[i+1], tagset_id)
+                if ('id' in resp):
+                    tag_id = int(resp['id'])
+                else:
+                    click.echo(resp)
+                    exit(0)
+
+                resp = client.create_tagging(tag_id, image_id)
+                if ('tagId' not in resp):
+                    click.echo(resp)
+                    exit(0)
+
+                i += 2
+        else:
+            click.echo(resp)
+            exit(0)
+
+        f.close()
+
 if __name__ == "__main__":
     cli()

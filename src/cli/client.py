@@ -105,7 +105,6 @@ class MADSClient:
 
     def create_tagging(self, tag_id, object_id):
         try:
-            import pdb; pdb.set_trace()
             create_tagging_request = MADS_pb2.CreateTaggingRequest(tagId=tag_id, objectId=object_id)
             response = self.grpc_stub.createTagging(create_tagging_request)
             return json.loads(MessageToJson(response.tagging))
