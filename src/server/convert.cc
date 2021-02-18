@@ -120,3 +120,16 @@ MADS::Tag* MADS_gRPC_converter::TagToProto(const ObjectCube::Tag* in, MADS::Tag*
   return reply;
 }
 
+MADS::Tagging* MADS_gRPC_converter::ObjectTagToProto(const ObjectCube::ObjectTag* in, MADS::Tagging* out)
+{
+  MADS::Tagging* reply;
+  if (out == NULL)
+    reply = new MADS::Tagging();
+  else
+    reply = out;
+
+  reply->set_tagid(in->getTag()->getId());
+  reply->set_objectid(in->getObjectId());
+  return reply;
+}
+

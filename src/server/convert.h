@@ -20,6 +20,7 @@ public:
   virtual MADS::Object* ObjectToProto(const ObjectCube::Object* in, MADS::Object* out = NULL) = 0;
   virtual MADS::TagSet* TagSetToProto(const ObjectCube::TagSet* in, MADS::TagSet* out = NULL) = 0;
   virtual MADS::Tag* TagToProto(const ObjectCube::Tag* in, MADS::Tag* out = NULL) = 0;
+  virtual MADS::Tagging *ObjectTagToProto(const ObjectCube::ObjectTag *in, MADS::Tagging *out = NULL) = 0;
 };
 
 
@@ -31,6 +32,7 @@ public:
   MADS::Object* ObjectToProto(const ObjectCube::Object* in, MADS::Object* out = NULL);
   MADS::TagSet *TagSetToProto(const ObjectCube::TagSet *in, MADS::TagSet *out = NULL);
   MADS::Tag *TagToProto(const ObjectCube::Tag *in, MADS::Tag *out = NULL);
+  MADS::Tagging *ObjectTagToProto(const ObjectCube::ObjectTag *in, MADS::Tagging *out = NULL);
 };
 
 #endif

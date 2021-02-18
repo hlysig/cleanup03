@@ -56,6 +56,21 @@ class MADS_ServiceStub(object):
                 request_serializer=MADS__pb2.CreateTagRequest.SerializeToString,
                 response_deserializer=MADS__pb2.CreateTagResponse.FromString,
                 )
+        self.getTaggings = channel.unary_unary(
+                '/MADS.MADS_Service/getTaggings',
+                request_serializer=MADS__pb2.GetTaggingsRequest.SerializeToString,
+                response_deserializer=MADS__pb2.GetTaggingsResponse.FromString,
+                )
+        self.getTagging = channel.unary_unary(
+                '/MADS.MADS_Service/getTagging',
+                request_serializer=MADS__pb2.GetTaggingRequest.SerializeToString,
+                response_deserializer=MADS__pb2.GetTaggingResponse.FromString,
+                )
+        self.createTagging = channel.unary_unary(
+                '/MADS.MADS_Service/createTagging',
+                request_serializer=MADS__pb2.CreateTaggingRequest.SerializeToString,
+                response_deserializer=MADS__pb2.CreateTaggingResponse.FromString,
+                )
         self.reConnectDB = channel.unary_unary(
                 '/MADS.MADS_Service/reConnectDB',
                 request_serializer=MADS__pb2.Empty.SerializeToString,
@@ -124,6 +139,25 @@ class MADS_ServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def getTaggings(self, request, context):
+        """Tagging
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def getTagging(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def createTagging(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def reConnectDB(self, request, context):
         """Control RPC calls
         """
@@ -179,6 +213,21 @@ def add_MADS_ServiceServicer_to_server(servicer, server):
                     servicer.createOrGetTag,
                     request_deserializer=MADS__pb2.CreateTagRequest.FromString,
                     response_serializer=MADS__pb2.CreateTagResponse.SerializeToString,
+            ),
+            'getTaggings': grpc.unary_unary_rpc_method_handler(
+                    servicer.getTaggings,
+                    request_deserializer=MADS__pb2.GetTaggingsRequest.FromString,
+                    response_serializer=MADS__pb2.GetTaggingsResponse.SerializeToString,
+            ),
+            'getTagging': grpc.unary_unary_rpc_method_handler(
+                    servicer.getTagging,
+                    request_deserializer=MADS__pb2.GetTaggingRequest.FromString,
+                    response_serializer=MADS__pb2.GetTaggingResponse.SerializeToString,
+            ),
+            'createTagging': grpc.unary_unary_rpc_method_handler(
+                    servicer.createTagging,
+                    request_deserializer=MADS__pb2.CreateTaggingRequest.FromString,
+                    response_serializer=MADS__pb2.CreateTaggingResponse.SerializeToString,
             ),
             'reConnectDB': grpc.unary_unary_rpc_method_handler(
                     servicer.reConnectDB,
@@ -335,6 +384,57 @@ class MADS_Service(object):
         return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/createOrGetTag',
             MADS__pb2.CreateTagRequest.SerializeToString,
             MADS__pb2.CreateTagResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def getTaggings(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/getTaggings',
+            MADS__pb2.GetTaggingsRequest.SerializeToString,
+            MADS__pb2.GetTaggingsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def getTagging(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/getTagging',
+            MADS__pb2.GetTaggingRequest.SerializeToString,
+            MADS__pb2.GetTaggingResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def createTagging(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/createTagging',
+            MADS__pb2.CreateTaggingRequest.SerializeToString,
+            MADS__pb2.CreateTaggingResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

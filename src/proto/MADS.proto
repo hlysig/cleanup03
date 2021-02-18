@@ -139,6 +139,39 @@ message CreateTagResponse {
   Tag tag = 1;
 }
 
+// Tagging
+
+message Tagging {
+  int64 tagId = 1;
+  int64 objectId = 2;
+}
+
+message GetTaggingsRequest {
+  int64 tagId = 1;
+}
+
+message GetTaggingsResponse {
+  repeated Tagging taggings = 1;
+}
+
+message GetTaggingRequest {
+  int64 tagId = 1;
+  int64 objectId = 2;  
+}
+
+message GetTaggingResponse {
+  Tagging tagging = 1;
+}
+
+message CreateTaggingRequest {
+  int64 tagId = 1;
+  int64 objectId = 2;
+}
+
+message CreateTaggingResponse {
+  Tagging tagging = 1;
+}
+
 // Empty (for control RPC calls)
 
 message Empty {
@@ -161,6 +194,11 @@ service MADS_Service {
   rpc getTags(GetTagsRequest) returns (GetTagsResponse) {};
 	rpc getTag(GetTagRequest) returns (GetTagResponse) {};
 	rpc createOrGetTag(CreateTagRequest) returns (CreateTagResponse) {};
+
+  // Tagging
+  rpc getTaggings(GetTaggingsRequest) returns (GetTaggingsResponse) {};
+  rpc getTagging(GetTaggingRequest) returns (GetTaggingResponse) {};
+  rpc createTagging(CreateTaggingRequest) returns (CreateTaggingResponse) {};
 
 	// Control RPC calls
 	rpc reConnectDB(Empty) returns (Empty) {};

@@ -68,3 +68,39 @@ class MADSClient:
         except:
             return json.loads('{"Error": "Error creating tagset"}')
 
+    def create_alphanumerical_tag(self, tag_name, tagset_id):
+        try:
+            alphanumerical_value = MADS_pb2.AlphanumericalValue(value=tag_name)
+            create_tag_request = MADS_pb2.CreateTagRequest(tagSetId=tagset_id, alphanumerical=alphanumerical_value)
+            response = self.grpc_stub.createOrGetTag(create_tag_request)
+            return json.loads(MessageToJson(response.tag))
+        except:
+            return json.loads('{"Error": "Error creating alphanumerical tag"}')
+
+    def create_numerical_tag(self, tag_value, tagset_id):
+        try:
+            numerical_value = MADS_pb2.NumericalValue(value=str(tag_value))
+            create_tag_request = MADS_pb2.CreateTagRequest(tagSetId=tagset_id, numerical=numerical_value)
+            response = self.grpc_stub.createOrGetTag(create_tag_request)
+            return json.loads(MessageToJson(response.tag))
+        except:
+            return json.loads('{"Error": "Error creating numerical tag"}')
+
+    def create_date_tag(self, year, month, day, tagset_id):
+        try:
+            date_value = MADS_pb2.DateValue(value=str(year)+'-'+str(month)+'-'+str(day))
+            create_tag_request = MADS_pb2.CreateTagRequest(tagSetId=tagset_id, date=date_value)
+            response = self.grpc_stub.createOrGetTag(create_tag_request)
+            return json.loads(MessageToJson(response.tag))
+        except:
+            return json.loads('{"Error": "Error creating date tag"}')
+
+    def create_tagging(self, tag_id, object_id):
+        try:
+            import pdb; pdb.set_trace()
+            create_tagging_request = MADS_pb2.CreateTaggingRequest(tagId=tag_id, objectId=object_id)
+            response = self.grpc_stub.createTagging(create_tagging_request)
+            return json.loads(MessageToJson(response.tagging))
+        except:
+            return json.loads('{"Error": "Error creating tagging"}')
+

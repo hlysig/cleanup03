@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\nMADS.proto\x12\x04MADS\"F\n\x06Object\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0b\n\x03URI\x18\x02 \x01(\t\x12\x11\n\tthumbnail\x18\x03 \x01(\t\x12\x10\n\x08\x66ileType\x18\x04 \x01(\t\"\x1e\n\x10GetObjectRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"1\n\x11GetObjectResponse\x12\x1c\n\x06object\x18\x01 \x01(\x0b\x32\x0c.MADS.Object\"4\n\x13\x43reateObjectRequest\x12\x0b\n\x03URI\x18\x01 \x01(\t\x12\x10\n\x08\x66ileType\x18\x03 \x01(\t\"4\n\x14\x43reateObjectResponse\x12\x1c\n\x06object\x18\x01 \x01(\x0b\x32\x0c.MADS.Object\"i\n\x06TagSet\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x1e\n\x04type\x18\x04 \x01(\x0e\x32\x10.MADS.TagSetType\x12\x10\n\x08\x61\x63\x63\x65ssId\x18\x05 \x01(\x03\"\x13\n\x11GetTagSetsRequest\"3\n\x12GetTagSetsResponse\x12\x1d\n\x07tagsets\x18\x01 \x03(\x0b\x32\x0c.MADS.TagSet\"\x1e\n\x10GetTagSetRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"1\n\x11GetTagSetResponse\x12\x1c\n\x06tagset\x18\x01 \x01(\x0b\x32\x0c.MADS.TagSet\"X\n\x13\x43reateTagSetRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1e\n\x04type\x18\x03 \x01(\x0e\x32\x10.MADS.TagSetType\"4\n\x14\x43reateTagSetResponse\x12\x1c\n\x06tagset\x18\x01 \x01(\x0b\x32\x0c.MADS.TagSet\"$\n\x13\x41lphanumericalValue\x12\r\n\x05value\x18\x01 \x01(\t\"\x1f\n\x0eNumericalValue\x12\r\n\x05value\x18\x01 \x01(\t\"\x1a\n\tDateValue\x12\r\n\x05value\x18\x01 \x01(\t\"\x1a\n\tTimeValue\x12\r\n\x05value\x18\x01 \x01(\t\"4\n\x08RGBValue\x12\x0b\n\x03red\x18\x01 \x01(\x03\x12\r\n\x05green\x18\x02 \x01(\x03\x12\x0c\n\x04\x62lue\x18\x03 \x01(\x03\"\xfd\x01\n\x03Tag\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x10\n\x08tagSetId\x18\x02 \x01(\x03\x12\x0e\n\x06typeId\x18\x03 \x01(\x03\x12\x33\n\x0e\x61lphanumerical\x18\x04 \x01(\x0b\x32\x19.MADS.AlphanumericalValueH\x00\x12)\n\tnumerical\x18\x05 \x01(\x0b\x32\x14.MADS.NumericalValueH\x00\x12\x1f\n\x04\x64\x61te\x18\x06 \x01(\x0b\x32\x0f.MADS.DateValueH\x00\x12\x1f\n\x04time\x18\x07 \x01(\x0b\x32\x0f.MADS.TimeValueH\x00\x12\x1d\n\x03rgb\x18\x08 \x01(\x0b\x32\x0e.MADS.RGBValueH\x00\x42\x07\n\x05value\"\x10\n\x0eGetTagsRequest\"*\n\x0fGetTagsResponse\x12\x17\n\x04tags\x18\x01 \x03(\x0b\x32\t.MADS.Tag\"\x1b\n\rGetTagRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"(\n\x0eGetTagResponse\x12\x16\n\x03tag\x18\x01 \x01(\x0b\x32\t.MADS.Tag\"\xee\x01\n\x10\x43reateTagRequest\x12\x10\n\x08tagSetId\x18\x01 \x01(\x03\x12\x33\n\x0e\x61lphanumerical\x18\x04 \x01(\x0b\x32\x19.MADS.AlphanumericalValueH\x00\x12)\n\tnumerical\x18\x05 \x01(\x0b\x32\x14.MADS.NumericalValueH\x00\x12\x1f\n\x04\x64\x61te\x18\x06 \x01(\x0b\x32\x0f.MADS.DateValueH\x00\x12\x1f\n\x04time\x18\x07 \x01(\x0b\x32\x0f.MADS.TimeValueH\x00\x12\x1d\n\x03rgb\x18\x08 \x01(\x0b\x32\x0e.MADS.RGBValueH\x00\x42\x07\n\x05value\"+\n\x11\x43reateTagResponse\x12\x16\n\x03tag\x18\x01 \x01(\x0b\x32\t.MADS.Tag\"\x07\n\x05\x45mpty*^\n\nTagSetType\x12\x10\n\x0cTYPE_UNKNOWN\x10\x00\x12\x12\n\x0e\x41LPHANUMERICAL\x10\x01\x12\r\n\tNUMERICAL\x10\x02\x12\x08\n\x04\x44\x41TE\x10\x03\x12\x08\n\x04TIME\x10\x04\x12\x07\n\x03RGB\x10\x05\x32\xef\x04\n\x0cMADS_Service\x12>\n\tgetObject\x12\x16.MADS.GetObjectRequest\x1a\x17.MADS.GetObjectResponse\"\x00\x12G\n\x0c\x63reateObject\x12\x19.MADS.CreateObjectRequest\x1a\x1a.MADS.CreateObjectResponse\"\x00\x12\x41\n\ngetTagSets\x12\x17.MADS.GetTagSetsRequest\x1a\x18.MADS.GetTagSetsResponse\"\x00\x12>\n\tgetTagSet\x12\x16.MADS.GetTagSetRequest\x1a\x17.MADS.GetTagSetResponse\"\x00\x12G\n\x0c\x63reateTagSet\x12\x19.MADS.CreateTagSetRequest\x1a\x1a.MADS.CreateTagSetResponse\"\x00\x12\x38\n\x07getTags\x12\x14.MADS.GetTagsRequest\x1a\x15.MADS.GetTagsResponse\"\x00\x12\x35\n\x06getTag\x12\x13.MADS.GetTagRequest\x1a\x14.MADS.GetTagResponse\"\x00\x12\x43\n\x0e\x63reateOrGetTag\x12\x16.MADS.CreateTagRequest\x1a\x17.MADS.CreateTagResponse\"\x00\x12)\n\x0breConnectDB\x12\x0b.MADS.Empty\x1a\x0b.MADS.Empty\"\x00\x12)\n\x0bstopService\x12\x0b.MADS.Empty\x1a\x0b.MADS.Empty\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\nMADS.proto\x12\x04MADS\"F\n\x06Object\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0b\n\x03URI\x18\x02 \x01(\t\x12\x11\n\tthumbnail\x18\x03 \x01(\t\x12\x10\n\x08\x66ileType\x18\x04 \x01(\t\"\x1e\n\x10GetObjectRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"1\n\x11GetObjectResponse\x12\x1c\n\x06object\x18\x01 \x01(\x0b\x32\x0c.MADS.Object\"4\n\x13\x43reateObjectRequest\x12\x0b\n\x03URI\x18\x01 \x01(\t\x12\x10\n\x08\x66ileType\x18\x03 \x01(\t\"4\n\x14\x43reateObjectResponse\x12\x1c\n\x06object\x18\x01 \x01(\x0b\x32\x0c.MADS.Object\"i\n\x06TagSet\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x1e\n\x04type\x18\x04 \x01(\x0e\x32\x10.MADS.TagSetType\x12\x10\n\x08\x61\x63\x63\x65ssId\x18\x05 \x01(\x03\"\x13\n\x11GetTagSetsRequest\"3\n\x12GetTagSetsResponse\x12\x1d\n\x07tagsets\x18\x01 \x03(\x0b\x32\x0c.MADS.TagSet\"\x1e\n\x10GetTagSetRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"1\n\x11GetTagSetResponse\x12\x1c\n\x06tagset\x18\x01 \x01(\x0b\x32\x0c.MADS.TagSet\"X\n\x13\x43reateTagSetRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1e\n\x04type\x18\x03 \x01(\x0e\x32\x10.MADS.TagSetType\"4\n\x14\x43reateTagSetResponse\x12\x1c\n\x06tagset\x18\x01 \x01(\x0b\x32\x0c.MADS.TagSet\"$\n\x13\x41lphanumericalValue\x12\r\n\x05value\x18\x01 \x01(\t\"\x1f\n\x0eNumericalValue\x12\r\n\x05value\x18\x01 \x01(\t\"\x1a\n\tDateValue\x12\r\n\x05value\x18\x01 \x01(\t\"\x1a\n\tTimeValue\x12\r\n\x05value\x18\x01 \x01(\t\"4\n\x08RGBValue\x12\x0b\n\x03red\x18\x01 \x01(\x03\x12\r\n\x05green\x18\x02 \x01(\x03\x12\x0c\n\x04\x62lue\x18\x03 \x01(\x03\"\xfd\x01\n\x03Tag\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x10\n\x08tagSetId\x18\x02 \x01(\x03\x12\x0e\n\x06typeId\x18\x03 \x01(\x03\x12\x33\n\x0e\x61lphanumerical\x18\x04 \x01(\x0b\x32\x19.MADS.AlphanumericalValueH\x00\x12)\n\tnumerical\x18\x05 \x01(\x0b\x32\x14.MADS.NumericalValueH\x00\x12\x1f\n\x04\x64\x61te\x18\x06 \x01(\x0b\x32\x0f.MADS.DateValueH\x00\x12\x1f\n\x04time\x18\x07 \x01(\x0b\x32\x0f.MADS.TimeValueH\x00\x12\x1d\n\x03rgb\x18\x08 \x01(\x0b\x32\x0e.MADS.RGBValueH\x00\x42\x07\n\x05value\"\x10\n\x0eGetTagsRequest\"*\n\x0fGetTagsResponse\x12\x17\n\x04tags\x18\x01 \x03(\x0b\x32\t.MADS.Tag\"\x1b\n\rGetTagRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"(\n\x0eGetTagResponse\x12\x16\n\x03tag\x18\x01 \x01(\x0b\x32\t.MADS.Tag\"\xee\x01\n\x10\x43reateTagRequest\x12\x10\n\x08tagSetId\x18\x01 \x01(\x03\x12\x33\n\x0e\x61lphanumerical\x18\x04 \x01(\x0b\x32\x19.MADS.AlphanumericalValueH\x00\x12)\n\tnumerical\x18\x05 \x01(\x0b\x32\x14.MADS.NumericalValueH\x00\x12\x1f\n\x04\x64\x61te\x18\x06 \x01(\x0b\x32\x0f.MADS.DateValueH\x00\x12\x1f\n\x04time\x18\x07 \x01(\x0b\x32\x0f.MADS.TimeValueH\x00\x12\x1d\n\x03rgb\x18\x08 \x01(\x0b\x32\x0e.MADS.RGBValueH\x00\x42\x07\n\x05value\"+\n\x11\x43reateTagResponse\x12\x16\n\x03tag\x18\x01 \x01(\x0b\x32\t.MADS.Tag\"*\n\x07Tagging\x12\r\n\x05tagId\x18\x01 \x01(\x03\x12\x10\n\x08objectId\x18\x02 \x01(\x03\"#\n\x12GetTaggingsRequest\x12\r\n\x05tagId\x18\x01 \x01(\x03\"6\n\x13GetTaggingsResponse\x12\x1f\n\x08taggings\x18\x01 \x03(\x0b\x32\r.MADS.Tagging\"4\n\x11GetTaggingRequest\x12\r\n\x05tagId\x18\x01 \x01(\x03\x12\x10\n\x08objectId\x18\x02 \x01(\x03\"4\n\x12GetTaggingResponse\x12\x1e\n\x07tagging\x18\x01 \x01(\x0b\x32\r.MADS.Tagging\"7\n\x14\x43reateTaggingRequest\x12\r\n\x05tagId\x18\x01 \x01(\x03\x12\x10\n\x08objectId\x18\x02 \x01(\x03\"7\n\x15\x43reateTaggingResponse\x12\x1e\n\x07tagging\x18\x01 \x01(\x0b\x32\r.MADS.Tagging\"\x07\n\x05\x45mpty*^\n\nTagSetType\x12\x10\n\x0cTYPE_UNKNOWN\x10\x00\x12\x12\n\x0e\x41LPHANUMERICAL\x10\x01\x12\r\n\tNUMERICAL\x10\x02\x12\x08\n\x04\x44\x41TE\x10\x03\x12\x08\n\x04TIME\x10\x04\x12\x07\n\x03RGB\x10\x05\x32\xc4\x06\n\x0cMADS_Service\x12>\n\tgetObject\x12\x16.MADS.GetObjectRequest\x1a\x17.MADS.GetObjectResponse\"\x00\x12G\n\x0c\x63reateObject\x12\x19.MADS.CreateObjectRequest\x1a\x1a.MADS.CreateObjectResponse\"\x00\x12\x41\n\ngetTagSets\x12\x17.MADS.GetTagSetsRequest\x1a\x18.MADS.GetTagSetsResponse\"\x00\x12>\n\tgetTagSet\x12\x16.MADS.GetTagSetRequest\x1a\x17.MADS.GetTagSetResponse\"\x00\x12G\n\x0c\x63reateTagSet\x12\x19.MADS.CreateTagSetRequest\x1a\x1a.MADS.CreateTagSetResponse\"\x00\x12\x38\n\x07getTags\x12\x14.MADS.GetTagsRequest\x1a\x15.MADS.GetTagsResponse\"\x00\x12\x35\n\x06getTag\x12\x13.MADS.GetTagRequest\x1a\x14.MADS.GetTagResponse\"\x00\x12\x43\n\x0e\x63reateOrGetTag\x12\x16.MADS.CreateTagRequest\x1a\x17.MADS.CreateTagResponse\"\x00\x12\x44\n\x0bgetTaggings\x12\x18.MADS.GetTaggingsRequest\x1a\x19.MADS.GetTaggingsResponse\"\x00\x12\x41\n\ngetTagging\x12\x17.MADS.GetTaggingRequest\x1a\x18.MADS.GetTaggingResponse\"\x00\x12J\n\rcreateTagging\x12\x1a.MADS.CreateTaggingRequest\x1a\x1b.MADS.CreateTaggingResponse\"\x00\x12)\n\x0breConnectDB\x12\x0b.MADS.Empty\x1a\x0b.MADS.Empty\"\x00\x12)\n\x0bstopService\x12\x0b.MADS.Empty\x1a\x0b.MADS.Empty\"\x00\x62\x06proto3'
 )
 
 _TAGSETTYPE = _descriptor.EnumDescriptor(
@@ -63,8 +63,8 @@ _TAGSETTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1556,
-  serialized_end=1650,
+  serialized_start=1915,
+  serialized_end=2009,
 )
 _sym_db.RegisterEnumDescriptor(_TAGSETTYPE)
 
@@ -1010,6 +1010,251 @@ _CREATETAGRESPONSE = _descriptor.Descriptor(
 )
 
 
+_TAGGING = _descriptor.Descriptor(
+  name='Tagging',
+  full_name='MADS.Tagging',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tagId', full_name='MADS.Tagging.tagId', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='objectId', full_name='MADS.Tagging.objectId', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1547,
+  serialized_end=1589,
+)
+
+
+_GETTAGGINGSREQUEST = _descriptor.Descriptor(
+  name='GetTaggingsRequest',
+  full_name='MADS.GetTaggingsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tagId', full_name='MADS.GetTaggingsRequest.tagId', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1591,
+  serialized_end=1626,
+)
+
+
+_GETTAGGINGSRESPONSE = _descriptor.Descriptor(
+  name='GetTaggingsResponse',
+  full_name='MADS.GetTaggingsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='taggings', full_name='MADS.GetTaggingsResponse.taggings', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1628,
+  serialized_end=1682,
+)
+
+
+_GETTAGGINGREQUEST = _descriptor.Descriptor(
+  name='GetTaggingRequest',
+  full_name='MADS.GetTaggingRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tagId', full_name='MADS.GetTaggingRequest.tagId', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='objectId', full_name='MADS.GetTaggingRequest.objectId', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1684,
+  serialized_end=1736,
+)
+
+
+_GETTAGGINGRESPONSE = _descriptor.Descriptor(
+  name='GetTaggingResponse',
+  full_name='MADS.GetTaggingResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tagging', full_name='MADS.GetTaggingResponse.tagging', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1738,
+  serialized_end=1790,
+)
+
+
+_CREATETAGGINGREQUEST = _descriptor.Descriptor(
+  name='CreateTaggingRequest',
+  full_name='MADS.CreateTaggingRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tagId', full_name='MADS.CreateTaggingRequest.tagId', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='objectId', full_name='MADS.CreateTaggingRequest.objectId', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1792,
+  serialized_end=1847,
+)
+
+
+_CREATETAGGINGRESPONSE = _descriptor.Descriptor(
+  name='CreateTaggingResponse',
+  full_name='MADS.CreateTaggingResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tagging', full_name='MADS.CreateTaggingResponse.tagging', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1849,
+  serialized_end=1904,
+)
+
+
 _EMPTY = _descriptor.Descriptor(
   name='Empty',
   full_name='MADS.Empty',
@@ -1030,8 +1275,8 @@ _EMPTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1547,
-  serialized_end=1554,
+  serialized_start=1906,
+  serialized_end=1913,
 )
 
 _GETOBJECTRESPONSE.fields_by_name['object'].message_type = _OBJECT
@@ -1084,6 +1329,9 @@ _CREATETAGREQUEST.oneofs_by_name['value'].fields.append(
   _CREATETAGREQUEST.fields_by_name['rgb'])
 _CREATETAGREQUEST.fields_by_name['rgb'].containing_oneof = _CREATETAGREQUEST.oneofs_by_name['value']
 _CREATETAGRESPONSE.fields_by_name['tag'].message_type = _TAG
+_GETTAGGINGSRESPONSE.fields_by_name['taggings'].message_type = _TAGGING
+_GETTAGGINGRESPONSE.fields_by_name['tagging'].message_type = _TAGGING
+_CREATETAGGINGRESPONSE.fields_by_name['tagging'].message_type = _TAGGING
 DESCRIPTOR.message_types_by_name['Object'] = _OBJECT
 DESCRIPTOR.message_types_by_name['GetObjectRequest'] = _GETOBJECTREQUEST
 DESCRIPTOR.message_types_by_name['GetObjectResponse'] = _GETOBJECTRESPONSE
@@ -1108,6 +1356,13 @@ DESCRIPTOR.message_types_by_name['GetTagRequest'] = _GETTAGREQUEST
 DESCRIPTOR.message_types_by_name['GetTagResponse'] = _GETTAGRESPONSE
 DESCRIPTOR.message_types_by_name['CreateTagRequest'] = _CREATETAGREQUEST
 DESCRIPTOR.message_types_by_name['CreateTagResponse'] = _CREATETAGRESPONSE
+DESCRIPTOR.message_types_by_name['Tagging'] = _TAGGING
+DESCRIPTOR.message_types_by_name['GetTaggingsRequest'] = _GETTAGGINGSREQUEST
+DESCRIPTOR.message_types_by_name['GetTaggingsResponse'] = _GETTAGGINGSRESPONSE
+DESCRIPTOR.message_types_by_name['GetTaggingRequest'] = _GETTAGGINGREQUEST
+DESCRIPTOR.message_types_by_name['GetTaggingResponse'] = _GETTAGGINGRESPONSE
+DESCRIPTOR.message_types_by_name['CreateTaggingRequest'] = _CREATETAGGINGREQUEST
+DESCRIPTOR.message_types_by_name['CreateTaggingResponse'] = _CREATETAGGINGRESPONSE
 DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
 DESCRIPTOR.enum_types_by_name['TagSetType'] = _TAGSETTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -1280,6 +1535,55 @@ CreateTagResponse = _reflection.GeneratedProtocolMessageType('CreateTagResponse'
   })
 _sym_db.RegisterMessage(CreateTagResponse)
 
+Tagging = _reflection.GeneratedProtocolMessageType('Tagging', (_message.Message,), {
+  'DESCRIPTOR' : _TAGGING,
+  '__module__' : 'MADS_pb2'
+  # @@protoc_insertion_point(class_scope:MADS.Tagging)
+  })
+_sym_db.RegisterMessage(Tagging)
+
+GetTaggingsRequest = _reflection.GeneratedProtocolMessageType('GetTaggingsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGGINGSREQUEST,
+  '__module__' : 'MADS_pb2'
+  # @@protoc_insertion_point(class_scope:MADS.GetTaggingsRequest)
+  })
+_sym_db.RegisterMessage(GetTaggingsRequest)
+
+GetTaggingsResponse = _reflection.GeneratedProtocolMessageType('GetTaggingsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGGINGSRESPONSE,
+  '__module__' : 'MADS_pb2'
+  # @@protoc_insertion_point(class_scope:MADS.GetTaggingsResponse)
+  })
+_sym_db.RegisterMessage(GetTaggingsResponse)
+
+GetTaggingRequest = _reflection.GeneratedProtocolMessageType('GetTaggingRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGGINGREQUEST,
+  '__module__' : 'MADS_pb2'
+  # @@protoc_insertion_point(class_scope:MADS.GetTaggingRequest)
+  })
+_sym_db.RegisterMessage(GetTaggingRequest)
+
+GetTaggingResponse = _reflection.GeneratedProtocolMessageType('GetTaggingResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETTAGGINGRESPONSE,
+  '__module__' : 'MADS_pb2'
+  # @@protoc_insertion_point(class_scope:MADS.GetTaggingResponse)
+  })
+_sym_db.RegisterMessage(GetTaggingResponse)
+
+CreateTaggingRequest = _reflection.GeneratedProtocolMessageType('CreateTaggingRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATETAGGINGREQUEST,
+  '__module__' : 'MADS_pb2'
+  # @@protoc_insertion_point(class_scope:MADS.CreateTaggingRequest)
+  })
+_sym_db.RegisterMessage(CreateTaggingRequest)
+
+CreateTaggingResponse = _reflection.GeneratedProtocolMessageType('CreateTaggingResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CREATETAGGINGRESPONSE,
+  '__module__' : 'MADS_pb2'
+  # @@protoc_insertion_point(class_scope:MADS.CreateTaggingResponse)
+  })
+_sym_db.RegisterMessage(CreateTaggingResponse)
+
 Empty = _reflection.GeneratedProtocolMessageType('Empty', (_message.Message,), {
   'DESCRIPTOR' : _EMPTY,
   '__module__' : 'MADS_pb2'
@@ -1296,8 +1600,8 @@ _MADS_SERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1653,
-  serialized_end=2276,
+  serialized_start=2012,
+  serialized_end=2848,
   methods=[
   _descriptor.MethodDescriptor(
     name='getObject',
@@ -1380,9 +1684,39 @@ _MADS_SERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='getTaggings',
+    full_name='MADS.MADS_Service.getTaggings',
+    index=8,
+    containing_service=None,
+    input_type=_GETTAGGINGSREQUEST,
+    output_type=_GETTAGGINGSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getTagging',
+    full_name='MADS.MADS_Service.getTagging',
+    index=9,
+    containing_service=None,
+    input_type=_GETTAGGINGREQUEST,
+    output_type=_GETTAGGINGRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='createTagging',
+    full_name='MADS.MADS_Service.createTagging',
+    index=10,
+    containing_service=None,
+    input_type=_CREATETAGGINGREQUEST,
+    output_type=_CREATETAGGINGRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='reConnectDB',
     full_name='MADS.MADS_Service.reConnectDB',
-    index=8,
+    index=11,
     containing_service=None,
     input_type=_EMPTY,
     output_type=_EMPTY,
@@ -1392,7 +1726,7 @@ _MADS_SERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='stopService',
     full_name='MADS.MADS_Service.stopService',
-    index=9,
+    index=12,
     containing_service=None,
     input_type=_EMPTY,
     output_type=_EMPTY,

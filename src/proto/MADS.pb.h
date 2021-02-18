@@ -48,7 +48,7 @@ struct TableStruct_MADS_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[25]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[32]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -77,6 +77,12 @@ extern CreateTagSetRequestDefaultTypeInternal _CreateTagSetRequest_default_insta
 class CreateTagSetResponse;
 class CreateTagSetResponseDefaultTypeInternal;
 extern CreateTagSetResponseDefaultTypeInternal _CreateTagSetResponse_default_instance_;
+class CreateTaggingRequest;
+class CreateTaggingRequestDefaultTypeInternal;
+extern CreateTaggingRequestDefaultTypeInternal _CreateTaggingRequest_default_instance_;
+class CreateTaggingResponse;
+class CreateTaggingResponseDefaultTypeInternal;
+extern CreateTaggingResponseDefaultTypeInternal _CreateTaggingResponse_default_instance_;
 class DateValue;
 class DateValueDefaultTypeInternal;
 extern DateValueDefaultTypeInternal _DateValue_default_instance_;
@@ -107,6 +113,18 @@ extern GetTagSetsRequestDefaultTypeInternal _GetTagSetsRequest_default_instance_
 class GetTagSetsResponse;
 class GetTagSetsResponseDefaultTypeInternal;
 extern GetTagSetsResponseDefaultTypeInternal _GetTagSetsResponse_default_instance_;
+class GetTaggingRequest;
+class GetTaggingRequestDefaultTypeInternal;
+extern GetTaggingRequestDefaultTypeInternal _GetTaggingRequest_default_instance_;
+class GetTaggingResponse;
+class GetTaggingResponseDefaultTypeInternal;
+extern GetTaggingResponseDefaultTypeInternal _GetTaggingResponse_default_instance_;
+class GetTaggingsRequest;
+class GetTaggingsRequestDefaultTypeInternal;
+extern GetTaggingsRequestDefaultTypeInternal _GetTaggingsRequest_default_instance_;
+class GetTaggingsResponse;
+class GetTaggingsResponseDefaultTypeInternal;
+extern GetTaggingsResponseDefaultTypeInternal _GetTaggingsResponse_default_instance_;
 class GetTagsRequest;
 class GetTagsRequestDefaultTypeInternal;
 extern GetTagsRequestDefaultTypeInternal _GetTagsRequest_default_instance_;
@@ -128,6 +146,9 @@ extern TagDefaultTypeInternal _Tag_default_instance_;
 class TagSet;
 class TagSetDefaultTypeInternal;
 extern TagSetDefaultTypeInternal _TagSet_default_instance_;
+class Tagging;
+class TaggingDefaultTypeInternal;
+extern TaggingDefaultTypeInternal _Tagging_default_instance_;
 class TimeValue;
 class TimeValueDefaultTypeInternal;
 extern TimeValueDefaultTypeInternal _TimeValue_default_instance_;
@@ -140,6 +161,8 @@ template<> ::MADS::CreateTagRequest* Arena::CreateMaybeMessage<::MADS::CreateTag
 template<> ::MADS::CreateTagResponse* Arena::CreateMaybeMessage<::MADS::CreateTagResponse>(Arena*);
 template<> ::MADS::CreateTagSetRequest* Arena::CreateMaybeMessage<::MADS::CreateTagSetRequest>(Arena*);
 template<> ::MADS::CreateTagSetResponse* Arena::CreateMaybeMessage<::MADS::CreateTagSetResponse>(Arena*);
+template<> ::MADS::CreateTaggingRequest* Arena::CreateMaybeMessage<::MADS::CreateTaggingRequest>(Arena*);
+template<> ::MADS::CreateTaggingResponse* Arena::CreateMaybeMessage<::MADS::CreateTaggingResponse>(Arena*);
 template<> ::MADS::DateValue* Arena::CreateMaybeMessage<::MADS::DateValue>(Arena*);
 template<> ::MADS::Empty* Arena::CreateMaybeMessage<::MADS::Empty>(Arena*);
 template<> ::MADS::GetObjectRequest* Arena::CreateMaybeMessage<::MADS::GetObjectRequest>(Arena*);
@@ -150,6 +173,10 @@ template<> ::MADS::GetTagSetRequest* Arena::CreateMaybeMessage<::MADS::GetTagSet
 template<> ::MADS::GetTagSetResponse* Arena::CreateMaybeMessage<::MADS::GetTagSetResponse>(Arena*);
 template<> ::MADS::GetTagSetsRequest* Arena::CreateMaybeMessage<::MADS::GetTagSetsRequest>(Arena*);
 template<> ::MADS::GetTagSetsResponse* Arena::CreateMaybeMessage<::MADS::GetTagSetsResponse>(Arena*);
+template<> ::MADS::GetTaggingRequest* Arena::CreateMaybeMessage<::MADS::GetTaggingRequest>(Arena*);
+template<> ::MADS::GetTaggingResponse* Arena::CreateMaybeMessage<::MADS::GetTaggingResponse>(Arena*);
+template<> ::MADS::GetTaggingsRequest* Arena::CreateMaybeMessage<::MADS::GetTaggingsRequest>(Arena*);
+template<> ::MADS::GetTaggingsResponse* Arena::CreateMaybeMessage<::MADS::GetTaggingsResponse>(Arena*);
 template<> ::MADS::GetTagsRequest* Arena::CreateMaybeMessage<::MADS::GetTagsRequest>(Arena*);
 template<> ::MADS::GetTagsResponse* Arena::CreateMaybeMessage<::MADS::GetTagsResponse>(Arena*);
 template<> ::MADS::NumericalValue* Arena::CreateMaybeMessage<::MADS::NumericalValue>(Arena*);
@@ -157,6 +184,7 @@ template<> ::MADS::Object* Arena::CreateMaybeMessage<::MADS::Object>(Arena*);
 template<> ::MADS::RGBValue* Arena::CreateMaybeMessage<::MADS::RGBValue>(Arena*);
 template<> ::MADS::Tag* Arena::CreateMaybeMessage<::MADS::Tag>(Arena*);
 template<> ::MADS::TagSet* Arena::CreateMaybeMessage<::MADS::TagSet>(Arena*);
+template<> ::MADS::Tagging* Arena::CreateMaybeMessage<::MADS::Tagging>(Arena*);
 template<> ::MADS::TimeValue* Arena::CreateMaybeMessage<::MADS::TimeValue>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace MADS {
@@ -4019,6 +4047,1025 @@ class CreateTagResponse PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class Tagging PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:MADS.Tagging) */ {
+ public:
+  inline Tagging() : Tagging(nullptr) {}
+  virtual ~Tagging();
+
+  Tagging(const Tagging& from);
+  Tagging(Tagging&& from) noexcept
+    : Tagging() {
+    *this = ::std::move(from);
+  }
+
+  inline Tagging& operator=(const Tagging& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Tagging& operator=(Tagging&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Tagging& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Tagging* internal_default_instance() {
+    return reinterpret_cast<const Tagging*>(
+               &_Tagging_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    24;
+
+  friend void swap(Tagging& a, Tagging& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Tagging* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Tagging* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Tagging* New() const final {
+    return CreateMaybeMessage<Tagging>(nullptr);
+  }
+
+  Tagging* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Tagging>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Tagging& from);
+  void MergeFrom(const Tagging& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Tagging* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "MADS.Tagging";
+  }
+  protected:
+  explicit Tagging(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_MADS_2eproto);
+    return ::descriptor_table_MADS_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTagIdFieldNumber = 1,
+    kObjectIdFieldNumber = 2,
+  };
+  // int64 tagId = 1;
+  void clear_tagid();
+  ::PROTOBUF_NAMESPACE_ID::int64 tagid() const;
+  void set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_tagid() const;
+  void _internal_set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int64 objectId = 2;
+  void clear_objectid();
+  ::PROTOBUF_NAMESPACE_ID::int64 objectid() const;
+  void set_objectid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_objectid() const;
+  void _internal_set_objectid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:MADS.Tagging)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int64 tagid_;
+  ::PROTOBUF_NAMESPACE_ID::int64 objectid_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_MADS_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetTaggingsRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:MADS.GetTaggingsRequest) */ {
+ public:
+  inline GetTaggingsRequest() : GetTaggingsRequest(nullptr) {}
+  virtual ~GetTaggingsRequest();
+
+  GetTaggingsRequest(const GetTaggingsRequest& from);
+  GetTaggingsRequest(GetTaggingsRequest&& from) noexcept
+    : GetTaggingsRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GetTaggingsRequest& operator=(const GetTaggingsRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetTaggingsRequest& operator=(GetTaggingsRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GetTaggingsRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetTaggingsRequest* internal_default_instance() {
+    return reinterpret_cast<const GetTaggingsRequest*>(
+               &_GetTaggingsRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    25;
+
+  friend void swap(GetTaggingsRequest& a, GetTaggingsRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetTaggingsRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetTaggingsRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetTaggingsRequest* New() const final {
+    return CreateMaybeMessage<GetTaggingsRequest>(nullptr);
+  }
+
+  GetTaggingsRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GetTaggingsRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GetTaggingsRequest& from);
+  void MergeFrom(const GetTaggingsRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetTaggingsRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "MADS.GetTaggingsRequest";
+  }
+  protected:
+  explicit GetTaggingsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_MADS_2eproto);
+    return ::descriptor_table_MADS_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTagIdFieldNumber = 1,
+  };
+  // int64 tagId = 1;
+  void clear_tagid();
+  ::PROTOBUF_NAMESPACE_ID::int64 tagid() const;
+  void set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_tagid() const;
+  void _internal_set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:MADS.GetTaggingsRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int64 tagid_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_MADS_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetTaggingsResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:MADS.GetTaggingsResponse) */ {
+ public:
+  inline GetTaggingsResponse() : GetTaggingsResponse(nullptr) {}
+  virtual ~GetTaggingsResponse();
+
+  GetTaggingsResponse(const GetTaggingsResponse& from);
+  GetTaggingsResponse(GetTaggingsResponse&& from) noexcept
+    : GetTaggingsResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline GetTaggingsResponse& operator=(const GetTaggingsResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetTaggingsResponse& operator=(GetTaggingsResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GetTaggingsResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetTaggingsResponse* internal_default_instance() {
+    return reinterpret_cast<const GetTaggingsResponse*>(
+               &_GetTaggingsResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    26;
+
+  friend void swap(GetTaggingsResponse& a, GetTaggingsResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetTaggingsResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetTaggingsResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetTaggingsResponse* New() const final {
+    return CreateMaybeMessage<GetTaggingsResponse>(nullptr);
+  }
+
+  GetTaggingsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GetTaggingsResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GetTaggingsResponse& from);
+  void MergeFrom(const GetTaggingsResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetTaggingsResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "MADS.GetTaggingsResponse";
+  }
+  protected:
+  explicit GetTaggingsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_MADS_2eproto);
+    return ::descriptor_table_MADS_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTaggingsFieldNumber = 1,
+  };
+  // repeated .MADS.Tagging taggings = 1;
+  int taggings_size() const;
+  private:
+  int _internal_taggings_size() const;
+  public:
+  void clear_taggings();
+  ::MADS::Tagging* mutable_taggings(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::MADS::Tagging >*
+      mutable_taggings();
+  private:
+  const ::MADS::Tagging& _internal_taggings(int index) const;
+  ::MADS::Tagging* _internal_add_taggings();
+  public:
+  const ::MADS::Tagging& taggings(int index) const;
+  ::MADS::Tagging* add_taggings();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::MADS::Tagging >&
+      taggings() const;
+
+  // @@protoc_insertion_point(class_scope:MADS.GetTaggingsResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::MADS::Tagging > taggings_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_MADS_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetTaggingRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:MADS.GetTaggingRequest) */ {
+ public:
+  inline GetTaggingRequest() : GetTaggingRequest(nullptr) {}
+  virtual ~GetTaggingRequest();
+
+  GetTaggingRequest(const GetTaggingRequest& from);
+  GetTaggingRequest(GetTaggingRequest&& from) noexcept
+    : GetTaggingRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GetTaggingRequest& operator=(const GetTaggingRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetTaggingRequest& operator=(GetTaggingRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GetTaggingRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetTaggingRequest* internal_default_instance() {
+    return reinterpret_cast<const GetTaggingRequest*>(
+               &_GetTaggingRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    27;
+
+  friend void swap(GetTaggingRequest& a, GetTaggingRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetTaggingRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetTaggingRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetTaggingRequest* New() const final {
+    return CreateMaybeMessage<GetTaggingRequest>(nullptr);
+  }
+
+  GetTaggingRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GetTaggingRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GetTaggingRequest& from);
+  void MergeFrom(const GetTaggingRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetTaggingRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "MADS.GetTaggingRequest";
+  }
+  protected:
+  explicit GetTaggingRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_MADS_2eproto);
+    return ::descriptor_table_MADS_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTagIdFieldNumber = 1,
+    kObjectIdFieldNumber = 2,
+  };
+  // int64 tagId = 1;
+  void clear_tagid();
+  ::PROTOBUF_NAMESPACE_ID::int64 tagid() const;
+  void set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_tagid() const;
+  void _internal_set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int64 objectId = 2;
+  void clear_objectid();
+  ::PROTOBUF_NAMESPACE_ID::int64 objectid() const;
+  void set_objectid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_objectid() const;
+  void _internal_set_objectid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:MADS.GetTaggingRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int64 tagid_;
+  ::PROTOBUF_NAMESPACE_ID::int64 objectid_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_MADS_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetTaggingResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:MADS.GetTaggingResponse) */ {
+ public:
+  inline GetTaggingResponse() : GetTaggingResponse(nullptr) {}
+  virtual ~GetTaggingResponse();
+
+  GetTaggingResponse(const GetTaggingResponse& from);
+  GetTaggingResponse(GetTaggingResponse&& from) noexcept
+    : GetTaggingResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline GetTaggingResponse& operator=(const GetTaggingResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetTaggingResponse& operator=(GetTaggingResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GetTaggingResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetTaggingResponse* internal_default_instance() {
+    return reinterpret_cast<const GetTaggingResponse*>(
+               &_GetTaggingResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    28;
+
+  friend void swap(GetTaggingResponse& a, GetTaggingResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetTaggingResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetTaggingResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetTaggingResponse* New() const final {
+    return CreateMaybeMessage<GetTaggingResponse>(nullptr);
+  }
+
+  GetTaggingResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GetTaggingResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GetTaggingResponse& from);
+  void MergeFrom(const GetTaggingResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetTaggingResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "MADS.GetTaggingResponse";
+  }
+  protected:
+  explicit GetTaggingResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_MADS_2eproto);
+    return ::descriptor_table_MADS_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTaggingFieldNumber = 1,
+  };
+  // .MADS.Tagging tagging = 1;
+  bool has_tagging() const;
+  private:
+  bool _internal_has_tagging() const;
+  public:
+  void clear_tagging();
+  const ::MADS::Tagging& tagging() const;
+  ::MADS::Tagging* release_tagging();
+  ::MADS::Tagging* mutable_tagging();
+  void set_allocated_tagging(::MADS::Tagging* tagging);
+  private:
+  const ::MADS::Tagging& _internal_tagging() const;
+  ::MADS::Tagging* _internal_mutable_tagging();
+  public:
+  void unsafe_arena_set_allocated_tagging(
+      ::MADS::Tagging* tagging);
+  ::MADS::Tagging* unsafe_arena_release_tagging();
+
+  // @@protoc_insertion_point(class_scope:MADS.GetTaggingResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::MADS::Tagging* tagging_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_MADS_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CreateTaggingRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:MADS.CreateTaggingRequest) */ {
+ public:
+  inline CreateTaggingRequest() : CreateTaggingRequest(nullptr) {}
+  virtual ~CreateTaggingRequest();
+
+  CreateTaggingRequest(const CreateTaggingRequest& from);
+  CreateTaggingRequest(CreateTaggingRequest&& from) noexcept
+    : CreateTaggingRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline CreateTaggingRequest& operator=(const CreateTaggingRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CreateTaggingRequest& operator=(CreateTaggingRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CreateTaggingRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const CreateTaggingRequest* internal_default_instance() {
+    return reinterpret_cast<const CreateTaggingRequest*>(
+               &_CreateTaggingRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    29;
+
+  friend void swap(CreateTaggingRequest& a, CreateTaggingRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CreateTaggingRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CreateTaggingRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CreateTaggingRequest* New() const final {
+    return CreateMaybeMessage<CreateTaggingRequest>(nullptr);
+  }
+
+  CreateTaggingRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CreateTaggingRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CreateTaggingRequest& from);
+  void MergeFrom(const CreateTaggingRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CreateTaggingRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "MADS.CreateTaggingRequest";
+  }
+  protected:
+  explicit CreateTaggingRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_MADS_2eproto);
+    return ::descriptor_table_MADS_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTagIdFieldNumber = 1,
+    kObjectIdFieldNumber = 2,
+  };
+  // int64 tagId = 1;
+  void clear_tagid();
+  ::PROTOBUF_NAMESPACE_ID::int64 tagid() const;
+  void set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_tagid() const;
+  void _internal_set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int64 objectId = 2;
+  void clear_objectid();
+  ::PROTOBUF_NAMESPACE_ID::int64 objectid() const;
+  void set_objectid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_objectid() const;
+  void _internal_set_objectid(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:MADS.CreateTaggingRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int64 tagid_;
+  ::PROTOBUF_NAMESPACE_ID::int64 objectid_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_MADS_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CreateTaggingResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:MADS.CreateTaggingResponse) */ {
+ public:
+  inline CreateTaggingResponse() : CreateTaggingResponse(nullptr) {}
+  virtual ~CreateTaggingResponse();
+
+  CreateTaggingResponse(const CreateTaggingResponse& from);
+  CreateTaggingResponse(CreateTaggingResponse&& from) noexcept
+    : CreateTaggingResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CreateTaggingResponse& operator=(const CreateTaggingResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CreateTaggingResponse& operator=(CreateTaggingResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CreateTaggingResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const CreateTaggingResponse* internal_default_instance() {
+    return reinterpret_cast<const CreateTaggingResponse*>(
+               &_CreateTaggingResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    30;
+
+  friend void swap(CreateTaggingResponse& a, CreateTaggingResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CreateTaggingResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CreateTaggingResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CreateTaggingResponse* New() const final {
+    return CreateMaybeMessage<CreateTaggingResponse>(nullptr);
+  }
+
+  CreateTaggingResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CreateTaggingResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CreateTaggingResponse& from);
+  void MergeFrom(const CreateTaggingResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CreateTaggingResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "MADS.CreateTaggingResponse";
+  }
+  protected:
+  explicit CreateTaggingResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_MADS_2eproto);
+    return ::descriptor_table_MADS_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTaggingFieldNumber = 1,
+  };
+  // .MADS.Tagging tagging = 1;
+  bool has_tagging() const;
+  private:
+  bool _internal_has_tagging() const;
+  public:
+  void clear_tagging();
+  const ::MADS::Tagging& tagging() const;
+  ::MADS::Tagging* release_tagging();
+  ::MADS::Tagging* mutable_tagging();
+  void set_allocated_tagging(::MADS::Tagging* tagging);
+  private:
+  const ::MADS::Tagging& _internal_tagging() const;
+  ::MADS::Tagging* _internal_mutable_tagging();
+  public:
+  void unsafe_arena_set_allocated_tagging(
+      ::MADS::Tagging* tagging);
+  ::MADS::Tagging* unsafe_arena_release_tagging();
+
+  // @@protoc_insertion_point(class_scope:MADS.CreateTaggingResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::MADS::Tagging* tagging_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_MADS_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Empty PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:MADS.Empty) */ {
  public:
@@ -4061,7 +5108,7 @@ class Empty PROTOBUF_FINAL :
                &_Empty_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    31;
 
   friend void swap(Empty& a, Empty& b) {
     a.Swap(&b);
@@ -6676,11 +7723,398 @@ inline void CreateTagResponse::set_allocated_tag(::MADS::Tag* tag) {
 
 // -------------------------------------------------------------------
 
+// Tagging
+
+// int64 tagId = 1;
+inline void Tagging::clear_tagid() {
+  tagid_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 Tagging::_internal_tagid() const {
+  return tagid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 Tagging::tagid() const {
+  // @@protoc_insertion_point(field_get:MADS.Tagging.tagId)
+  return _internal_tagid();
+}
+inline void Tagging::_internal_set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  tagid_ = value;
+}
+inline void Tagging::set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_tagid(value);
+  // @@protoc_insertion_point(field_set:MADS.Tagging.tagId)
+}
+
+// int64 objectId = 2;
+inline void Tagging::clear_objectid() {
+  objectid_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 Tagging::_internal_objectid() const {
+  return objectid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 Tagging::objectid() const {
+  // @@protoc_insertion_point(field_get:MADS.Tagging.objectId)
+  return _internal_objectid();
+}
+inline void Tagging::_internal_set_objectid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  objectid_ = value;
+}
+inline void Tagging::set_objectid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_objectid(value);
+  // @@protoc_insertion_point(field_set:MADS.Tagging.objectId)
+}
+
+// -------------------------------------------------------------------
+
+// GetTaggingsRequest
+
+// int64 tagId = 1;
+inline void GetTaggingsRequest::clear_tagid() {
+  tagid_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 GetTaggingsRequest::_internal_tagid() const {
+  return tagid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 GetTaggingsRequest::tagid() const {
+  // @@protoc_insertion_point(field_get:MADS.GetTaggingsRequest.tagId)
+  return _internal_tagid();
+}
+inline void GetTaggingsRequest::_internal_set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  tagid_ = value;
+}
+inline void GetTaggingsRequest::set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_tagid(value);
+  // @@protoc_insertion_point(field_set:MADS.GetTaggingsRequest.tagId)
+}
+
+// -------------------------------------------------------------------
+
+// GetTaggingsResponse
+
+// repeated .MADS.Tagging taggings = 1;
+inline int GetTaggingsResponse::_internal_taggings_size() const {
+  return taggings_.size();
+}
+inline int GetTaggingsResponse::taggings_size() const {
+  return _internal_taggings_size();
+}
+inline void GetTaggingsResponse::clear_taggings() {
+  taggings_.Clear();
+}
+inline ::MADS::Tagging* GetTaggingsResponse::mutable_taggings(int index) {
+  // @@protoc_insertion_point(field_mutable:MADS.GetTaggingsResponse.taggings)
+  return taggings_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::MADS::Tagging >*
+GetTaggingsResponse::mutable_taggings() {
+  // @@protoc_insertion_point(field_mutable_list:MADS.GetTaggingsResponse.taggings)
+  return &taggings_;
+}
+inline const ::MADS::Tagging& GetTaggingsResponse::_internal_taggings(int index) const {
+  return taggings_.Get(index);
+}
+inline const ::MADS::Tagging& GetTaggingsResponse::taggings(int index) const {
+  // @@protoc_insertion_point(field_get:MADS.GetTaggingsResponse.taggings)
+  return _internal_taggings(index);
+}
+inline ::MADS::Tagging* GetTaggingsResponse::_internal_add_taggings() {
+  return taggings_.Add();
+}
+inline ::MADS::Tagging* GetTaggingsResponse::add_taggings() {
+  // @@protoc_insertion_point(field_add:MADS.GetTaggingsResponse.taggings)
+  return _internal_add_taggings();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::MADS::Tagging >&
+GetTaggingsResponse::taggings() const {
+  // @@protoc_insertion_point(field_list:MADS.GetTaggingsResponse.taggings)
+  return taggings_;
+}
+
+// -------------------------------------------------------------------
+
+// GetTaggingRequest
+
+// int64 tagId = 1;
+inline void GetTaggingRequest::clear_tagid() {
+  tagid_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 GetTaggingRequest::_internal_tagid() const {
+  return tagid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 GetTaggingRequest::tagid() const {
+  // @@protoc_insertion_point(field_get:MADS.GetTaggingRequest.tagId)
+  return _internal_tagid();
+}
+inline void GetTaggingRequest::_internal_set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  tagid_ = value;
+}
+inline void GetTaggingRequest::set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_tagid(value);
+  // @@protoc_insertion_point(field_set:MADS.GetTaggingRequest.tagId)
+}
+
+// int64 objectId = 2;
+inline void GetTaggingRequest::clear_objectid() {
+  objectid_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 GetTaggingRequest::_internal_objectid() const {
+  return objectid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 GetTaggingRequest::objectid() const {
+  // @@protoc_insertion_point(field_get:MADS.GetTaggingRequest.objectId)
+  return _internal_objectid();
+}
+inline void GetTaggingRequest::_internal_set_objectid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  objectid_ = value;
+}
+inline void GetTaggingRequest::set_objectid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_objectid(value);
+  // @@protoc_insertion_point(field_set:MADS.GetTaggingRequest.objectId)
+}
+
+// -------------------------------------------------------------------
+
+// GetTaggingResponse
+
+// .MADS.Tagging tagging = 1;
+inline bool GetTaggingResponse::_internal_has_tagging() const {
+  return this != internal_default_instance() && tagging_ != nullptr;
+}
+inline bool GetTaggingResponse::has_tagging() const {
+  return _internal_has_tagging();
+}
+inline void GetTaggingResponse::clear_tagging() {
+  if (GetArena() == nullptr && tagging_ != nullptr) {
+    delete tagging_;
+  }
+  tagging_ = nullptr;
+}
+inline const ::MADS::Tagging& GetTaggingResponse::_internal_tagging() const {
+  const ::MADS::Tagging* p = tagging_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::MADS::Tagging*>(
+      &::MADS::_Tagging_default_instance_);
+}
+inline const ::MADS::Tagging& GetTaggingResponse::tagging() const {
+  // @@protoc_insertion_point(field_get:MADS.GetTaggingResponse.tagging)
+  return _internal_tagging();
+}
+inline void GetTaggingResponse::unsafe_arena_set_allocated_tagging(
+    ::MADS::Tagging* tagging) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(tagging_);
+  }
+  tagging_ = tagging;
+  if (tagging) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:MADS.GetTaggingResponse.tagging)
+}
+inline ::MADS::Tagging* GetTaggingResponse::release_tagging() {
+  
+  ::MADS::Tagging* temp = tagging_;
+  tagging_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::MADS::Tagging* GetTaggingResponse::unsafe_arena_release_tagging() {
+  // @@protoc_insertion_point(field_release:MADS.GetTaggingResponse.tagging)
+  
+  ::MADS::Tagging* temp = tagging_;
+  tagging_ = nullptr;
+  return temp;
+}
+inline ::MADS::Tagging* GetTaggingResponse::_internal_mutable_tagging() {
+  
+  if (tagging_ == nullptr) {
+    auto* p = CreateMaybeMessage<::MADS::Tagging>(GetArena());
+    tagging_ = p;
+  }
+  return tagging_;
+}
+inline ::MADS::Tagging* GetTaggingResponse::mutable_tagging() {
+  // @@protoc_insertion_point(field_mutable:MADS.GetTaggingResponse.tagging)
+  return _internal_mutable_tagging();
+}
+inline void GetTaggingResponse::set_allocated_tagging(::MADS::Tagging* tagging) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete tagging_;
+  }
+  if (tagging) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(tagging);
+    if (message_arena != submessage_arena) {
+      tagging = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, tagging, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  tagging_ = tagging;
+  // @@protoc_insertion_point(field_set_allocated:MADS.GetTaggingResponse.tagging)
+}
+
+// -------------------------------------------------------------------
+
+// CreateTaggingRequest
+
+// int64 tagId = 1;
+inline void CreateTaggingRequest::clear_tagid() {
+  tagid_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 CreateTaggingRequest::_internal_tagid() const {
+  return tagid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 CreateTaggingRequest::tagid() const {
+  // @@protoc_insertion_point(field_get:MADS.CreateTaggingRequest.tagId)
+  return _internal_tagid();
+}
+inline void CreateTaggingRequest::_internal_set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  tagid_ = value;
+}
+inline void CreateTaggingRequest::set_tagid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_tagid(value);
+  // @@protoc_insertion_point(field_set:MADS.CreateTaggingRequest.tagId)
+}
+
+// int64 objectId = 2;
+inline void CreateTaggingRequest::clear_objectid() {
+  objectid_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 CreateTaggingRequest::_internal_objectid() const {
+  return objectid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 CreateTaggingRequest::objectid() const {
+  // @@protoc_insertion_point(field_get:MADS.CreateTaggingRequest.objectId)
+  return _internal_objectid();
+}
+inline void CreateTaggingRequest::_internal_set_objectid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  objectid_ = value;
+}
+inline void CreateTaggingRequest::set_objectid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_objectid(value);
+  // @@protoc_insertion_point(field_set:MADS.CreateTaggingRequest.objectId)
+}
+
+// -------------------------------------------------------------------
+
+// CreateTaggingResponse
+
+// .MADS.Tagging tagging = 1;
+inline bool CreateTaggingResponse::_internal_has_tagging() const {
+  return this != internal_default_instance() && tagging_ != nullptr;
+}
+inline bool CreateTaggingResponse::has_tagging() const {
+  return _internal_has_tagging();
+}
+inline void CreateTaggingResponse::clear_tagging() {
+  if (GetArena() == nullptr && tagging_ != nullptr) {
+    delete tagging_;
+  }
+  tagging_ = nullptr;
+}
+inline const ::MADS::Tagging& CreateTaggingResponse::_internal_tagging() const {
+  const ::MADS::Tagging* p = tagging_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::MADS::Tagging*>(
+      &::MADS::_Tagging_default_instance_);
+}
+inline const ::MADS::Tagging& CreateTaggingResponse::tagging() const {
+  // @@protoc_insertion_point(field_get:MADS.CreateTaggingResponse.tagging)
+  return _internal_tagging();
+}
+inline void CreateTaggingResponse::unsafe_arena_set_allocated_tagging(
+    ::MADS::Tagging* tagging) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(tagging_);
+  }
+  tagging_ = tagging;
+  if (tagging) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:MADS.CreateTaggingResponse.tagging)
+}
+inline ::MADS::Tagging* CreateTaggingResponse::release_tagging() {
+  
+  ::MADS::Tagging* temp = tagging_;
+  tagging_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::MADS::Tagging* CreateTaggingResponse::unsafe_arena_release_tagging() {
+  // @@protoc_insertion_point(field_release:MADS.CreateTaggingResponse.tagging)
+  
+  ::MADS::Tagging* temp = tagging_;
+  tagging_ = nullptr;
+  return temp;
+}
+inline ::MADS::Tagging* CreateTaggingResponse::_internal_mutable_tagging() {
+  
+  if (tagging_ == nullptr) {
+    auto* p = CreateMaybeMessage<::MADS::Tagging>(GetArena());
+    tagging_ = p;
+  }
+  return tagging_;
+}
+inline ::MADS::Tagging* CreateTaggingResponse::mutable_tagging() {
+  // @@protoc_insertion_point(field_mutable:MADS.CreateTaggingResponse.tagging)
+  return _internal_mutable_tagging();
+}
+inline void CreateTaggingResponse::set_allocated_tagging(::MADS::Tagging* tagging) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete tagging_;
+  }
+  if (tagging) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(tagging);
+    if (message_arena != submessage_arena) {
+      tagging = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, tagging, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  tagging_ = tagging;
+  // @@protoc_insertion_point(field_set_allocated:MADS.CreateTaggingResponse.tagging)
+}
+
+// -------------------------------------------------------------------
+
 // Empty
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

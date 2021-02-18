@@ -21,6 +21,7 @@ extern PROTOBUF_INTERNAL_EXPORT_MADS_2eproto ::PROTOBUF_NAMESPACE_ID::internal::
 extern PROTOBUF_INTERNAL_EXPORT_MADS_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RGBValue_MADS_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_MADS_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_Tag_MADS_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_MADS_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TagSet_MADS_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_MADS_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Tagging_MADS_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_MADS_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TimeValue_MADS_2eproto;
 namespace MADS {
 class ObjectDefaultTypeInternal {
@@ -129,6 +130,34 @@ class CreateTagResponseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CreateTagResponse> _instance;
 } _CreateTagResponse_default_instance_;
+class TaggingDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Tagging> _instance;
+} _Tagging_default_instance_;
+class GetTaggingsRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetTaggingsRequest> _instance;
+} _GetTaggingsRequest_default_instance_;
+class GetTaggingsResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetTaggingsResponse> _instance;
+} _GetTaggingsResponse_default_instance_;
+class GetTaggingRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetTaggingRequest> _instance;
+} _GetTaggingRequest_default_instance_;
+class GetTaggingResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetTaggingResponse> _instance;
+} _GetTaggingResponse_default_instance_;
+class CreateTaggingRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CreateTaggingRequest> _instance;
+} _CreateTaggingRequest_default_instance_;
+class CreateTaggingResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CreateTaggingResponse> _instance;
+} _CreateTaggingResponse_default_instance_;
 class EmptyDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Empty> _instance;
@@ -239,6 +268,35 @@ static void InitDefaultsscc_info_CreateTagSetResponse_MADS_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CreateTagSetResponse_MADS_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_CreateTagSetResponse_MADS_2eproto}, {
       &scc_info_TagSet_MADS_2eproto.base,}};
+
+static void InitDefaultsscc_info_CreateTaggingRequest_MADS_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::MADS::_CreateTaggingRequest_default_instance_;
+    new (ptr) ::MADS::CreateTaggingRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::MADS::CreateTaggingRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CreateTaggingRequest_MADS_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_CreateTaggingRequest_MADS_2eproto}, {}};
+
+static void InitDefaultsscc_info_CreateTaggingResponse_MADS_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::MADS::_CreateTaggingResponse_default_instance_;
+    new (ptr) ::MADS::CreateTaggingResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::MADS::CreateTaggingResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CreateTaggingResponse_MADS_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_CreateTaggingResponse_MADS_2eproto}, {
+      &scc_info_Tagging_MADS_2eproto.base,}};
 
 static void InitDefaultsscc_info_DateValue_MADS_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -384,6 +442,64 @@ static void InitDefaultsscc_info_GetTagSetsResponse_MADS_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_GetTagSetsResponse_MADS_2eproto}, {
       &scc_info_TagSet_MADS_2eproto.base,}};
 
+static void InitDefaultsscc_info_GetTaggingRequest_MADS_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::MADS::_GetTaggingRequest_default_instance_;
+    new (ptr) ::MADS::GetTaggingRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::MADS::GetTaggingRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetTaggingRequest_MADS_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GetTaggingRequest_MADS_2eproto}, {}};
+
+static void InitDefaultsscc_info_GetTaggingResponse_MADS_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::MADS::_GetTaggingResponse_default_instance_;
+    new (ptr) ::MADS::GetTaggingResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::MADS::GetTaggingResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetTaggingResponse_MADS_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_GetTaggingResponse_MADS_2eproto}, {
+      &scc_info_Tagging_MADS_2eproto.base,}};
+
+static void InitDefaultsscc_info_GetTaggingsRequest_MADS_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::MADS::_GetTaggingsRequest_default_instance_;
+    new (ptr) ::MADS::GetTaggingsRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::MADS::GetTaggingsRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetTaggingsRequest_MADS_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GetTaggingsRequest_MADS_2eproto}, {}};
+
+static void InitDefaultsscc_info_GetTaggingsResponse_MADS_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::MADS::_GetTaggingsResponse_default_instance_;
+    new (ptr) ::MADS::GetTaggingsResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::MADS::GetTaggingsResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetTaggingsResponse_MADS_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_GetTaggingsResponse_MADS_2eproto}, {
+      &scc_info_Tagging_MADS_2eproto.base,}};
+
 static void InitDefaultsscc_info_GetTagsRequest_MADS_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -488,6 +604,20 @@ static void InitDefaultsscc_info_TagSet_MADS_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TagSet_MADS_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_TagSet_MADS_2eproto}, {}};
 
+static void InitDefaultsscc_info_Tagging_MADS_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::MADS::_Tagging_default_instance_;
+    new (ptr) ::MADS::Tagging();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::MADS::Tagging::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Tagging_MADS_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Tagging_MADS_2eproto}, {}};
+
 static void InitDefaultsscc_info_TimeValue_MADS_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -502,7 +632,7 @@ static void InitDefaultsscc_info_TimeValue_MADS_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TimeValue_MADS_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_TimeValue_MADS_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_MADS_2eproto[25];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_MADS_2eproto[32];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_MADS_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_MADS_2eproto = nullptr;
 
@@ -676,6 +806,51 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_MADS_2eproto::offsets[] PROTOB
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::MADS::CreateTagResponse, tag_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::MADS::Tagging, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::MADS::Tagging, tagid_),
+  PROTOBUF_FIELD_OFFSET(::MADS::Tagging, objectid_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::MADS::GetTaggingsRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::MADS::GetTaggingsRequest, tagid_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::MADS::GetTaggingsResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::MADS::GetTaggingsResponse, taggings_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::MADS::GetTaggingRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::MADS::GetTaggingRequest, tagid_),
+  PROTOBUF_FIELD_OFFSET(::MADS::GetTaggingRequest, objectid_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::MADS::GetTaggingResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::MADS::GetTaggingResponse, tagging_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::MADS::CreateTaggingRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::MADS::CreateTaggingRequest, tagid_),
+  PROTOBUF_FIELD_OFFSET(::MADS::CreateTaggingRequest, objectid_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::MADS::CreateTaggingResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::MADS::CreateTaggingResponse, tagging_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::MADS::Empty, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -706,7 +881,14 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 144, -1, sizeof(::MADS::GetTagResponse)},
   { 150, -1, sizeof(::MADS::CreateTagRequest)},
   { 162, -1, sizeof(::MADS::CreateTagResponse)},
-  { 168, -1, sizeof(::MADS::Empty)},
+  { 168, -1, sizeof(::MADS::Tagging)},
+  { 175, -1, sizeof(::MADS::GetTaggingsRequest)},
+  { 181, -1, sizeof(::MADS::GetTaggingsResponse)},
+  { 187, -1, sizeof(::MADS::GetTaggingRequest)},
+  { 194, -1, sizeof(::MADS::GetTaggingResponse)},
+  { 200, -1, sizeof(::MADS::CreateTaggingRequest)},
+  { 207, -1, sizeof(::MADS::CreateTaggingResponse)},
+  { 213, -1, sizeof(::MADS::Empty)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -734,6 +916,13 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MADS::_GetTagResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MADS::_CreateTagRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MADS::_CreateTagResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MADS::_Tagging_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MADS::_GetTaggingsRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MADS::_GetTaggingsResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MADS::_GetTaggingRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MADS::_GetTaggingResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MADS::_CreateTaggingRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MADS::_CreateTaggingResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MADS::_Empty_default_instance_),
 };
 
@@ -776,30 +965,44 @@ const char descriptor_table_protodef_MADS_2eproto[] PROTOBUF_SECTION_VARIABLE(pr
   "te\030\006 \001(\0132\017.MADS.DateValueH\000\022\037\n\004time\030\007 \001("
   "\0132\017.MADS.TimeValueH\000\022\035\n\003rgb\030\010 \001(\0132\016.MADS"
   ".RGBValueH\000B\007\n\005value\"+\n\021CreateTagRespons"
-  "e\022\026\n\003tag\030\001 \001(\0132\t.MADS.Tag\"\007\n\005Empty*^\n\nTa"
-  "gSetType\022\020\n\014TYPE_UNKNOWN\020\000\022\022\n\016ALPHANUMER"
-  "ICAL\020\001\022\r\n\tNUMERICAL\020\002\022\010\n\004DATE\020\003\022\010\n\004TIME\020"
-  "\004\022\007\n\003RGB\020\0052\357\004\n\014MADS_Service\022>\n\tgetObject"
-  "\022\026.MADS.GetObjectRequest\032\027.MADS.GetObjec"
-  "tResponse\"\000\022G\n\014createObject\022\031.MADS.Creat"
-  "eObjectRequest\032\032.MADS.CreateObjectRespon"
-  "se\"\000\022A\n\ngetTagSets\022\027.MADS.GetTagSetsRequ"
-  "est\032\030.MADS.GetTagSetsResponse\"\000\022>\n\tgetTa"
-  "gSet\022\026.MADS.GetTagSetRequest\032\027.MADS.GetT"
-  "agSetResponse\"\000\022G\n\014createTagSet\022\031.MADS.C"
-  "reateTagSetRequest\032\032.MADS.CreateTagSetRe"
-  "sponse\"\000\0228\n\007getTags\022\024.MADS.GetTagsReques"
-  "t\032\025.MADS.GetTagsResponse\"\000\0225\n\006getTag\022\023.M"
-  "ADS.GetTagRequest\032\024.MADS.GetTagResponse\""
-  "\000\022C\n\016createOrGetTag\022\026.MADS.CreateTagRequ"
-  "est\032\027.MADS.CreateTagResponse\"\000\022)\n\013reConn"
-  "ectDB\022\013.MADS.Empty\032\013.MADS.Empty\"\000\022)\n\013sto"
-  "pService\022\013.MADS.Empty\032\013.MADS.Empty\"\000b\006pr"
-  "oto3"
+  "e\022\026\n\003tag\030\001 \001(\0132\t.MADS.Tag\"*\n\007Tagging\022\r\n\005"
+  "tagId\030\001 \001(\003\022\020\n\010objectId\030\002 \001(\003\"#\n\022GetTagg"
+  "ingsRequest\022\r\n\005tagId\030\001 \001(\003\"6\n\023GetTagging"
+  "sResponse\022\037\n\010taggings\030\001 \003(\0132\r.MADS.Taggi"
+  "ng\"4\n\021GetTaggingRequest\022\r\n\005tagId\030\001 \001(\003\022\020"
+  "\n\010objectId\030\002 \001(\003\"4\n\022GetTaggingResponse\022\036"
+  "\n\007tagging\030\001 \001(\0132\r.MADS.Tagging\"7\n\024Create"
+  "TaggingRequest\022\r\n\005tagId\030\001 \001(\003\022\020\n\010objectI"
+  "d\030\002 \001(\003\"7\n\025CreateTaggingResponse\022\036\n\007tagg"
+  "ing\030\001 \001(\0132\r.MADS.Tagging\"\007\n\005Empty*^\n\nTag"
+  "SetType\022\020\n\014TYPE_UNKNOWN\020\000\022\022\n\016ALPHANUMERI"
+  "CAL\020\001\022\r\n\tNUMERICAL\020\002\022\010\n\004DATE\020\003\022\010\n\004TIME\020\004"
+  "\022\007\n\003RGB\020\0052\304\006\n\014MADS_Service\022>\n\tgetObject\022"
+  "\026.MADS.GetObjectRequest\032\027.MADS.GetObject"
+  "Response\"\000\022G\n\014createObject\022\031.MADS.Create"
+  "ObjectRequest\032\032.MADS.CreateObjectRespons"
+  "e\"\000\022A\n\ngetTagSets\022\027.MADS.GetTagSetsReque"
+  "st\032\030.MADS.GetTagSetsResponse\"\000\022>\n\tgetTag"
+  "Set\022\026.MADS.GetTagSetRequest\032\027.MADS.GetTa"
+  "gSetResponse\"\000\022G\n\014createTagSet\022\031.MADS.Cr"
+  "eateTagSetRequest\032\032.MADS.CreateTagSetRes"
+  "ponse\"\000\0228\n\007getTags\022\024.MADS.GetTagsRequest"
+  "\032\025.MADS.GetTagsResponse\"\000\0225\n\006getTag\022\023.MA"
+  "DS.GetTagRequest\032\024.MADS.GetTagResponse\"\000"
+  "\022C\n\016createOrGetTag\022\026.MADS.CreateTagReque"
+  "st\032\027.MADS.CreateTagResponse\"\000\022D\n\013getTagg"
+  "ings\022\030.MADS.GetTaggingsRequest\032\031.MADS.Ge"
+  "tTaggingsResponse\"\000\022A\n\ngetTagging\022\027.MADS"
+  ".GetTaggingRequest\032\030.MADS.GetTaggingResp"
+  "onse\"\000\022J\n\rcreateTagging\022\032.MADS.CreateTag"
+  "gingRequest\032\033.MADS.CreateTaggingResponse"
+  "\"\000\022)\n\013reConnectDB\022\013.MADS.Empty\032\013.MADS.Em"
+  "pty\"\000\022)\n\013stopService\022\013.MADS.Empty\032\013.MADS"
+  ".Empty\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_MADS_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_MADS_2eproto_sccs[25] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_MADS_2eproto_sccs[32] = {
   &scc_info_AlphanumericalValue_MADS_2eproto.base,
   &scc_info_CreateObjectRequest_MADS_2eproto.base,
   &scc_info_CreateObjectResponse_MADS_2eproto.base,
@@ -807,6 +1010,8 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_MAD
   &scc_info_CreateTagResponse_MADS_2eproto.base,
   &scc_info_CreateTagSetRequest_MADS_2eproto.base,
   &scc_info_CreateTagSetResponse_MADS_2eproto.base,
+  &scc_info_CreateTaggingRequest_MADS_2eproto.base,
+  &scc_info_CreateTaggingResponse_MADS_2eproto.base,
   &scc_info_DateValue_MADS_2eproto.base,
   &scc_info_Empty_MADS_2eproto.base,
   &scc_info_GetObjectRequest_MADS_2eproto.base,
@@ -817,6 +1022,10 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_MAD
   &scc_info_GetTagSetResponse_MADS_2eproto.base,
   &scc_info_GetTagSetsRequest_MADS_2eproto.base,
   &scc_info_GetTagSetsResponse_MADS_2eproto.base,
+  &scc_info_GetTaggingRequest_MADS_2eproto.base,
+  &scc_info_GetTaggingResponse_MADS_2eproto.base,
+  &scc_info_GetTaggingsRequest_MADS_2eproto.base,
+  &scc_info_GetTaggingsResponse_MADS_2eproto.base,
   &scc_info_GetTagsRequest_MADS_2eproto.base,
   &scc_info_GetTagsResponse_MADS_2eproto.base,
   &scc_info_NumericalValue_MADS_2eproto.base,
@@ -824,14 +1033,15 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_MAD
   &scc_info_RGBValue_MADS_2eproto.base,
   &scc_info_Tag_MADS_2eproto.base,
   &scc_info_TagSet_MADS_2eproto.base,
+  &scc_info_Tagging_MADS_2eproto.base,
   &scc_info_TimeValue_MADS_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_MADS_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_MADS_2eproto = {
-  false, false, descriptor_table_protodef_MADS_2eproto, "MADS.proto", 2284,
-  &descriptor_table_MADS_2eproto_once, descriptor_table_MADS_2eproto_sccs, descriptor_table_MADS_2eproto_deps, 25, 0,
+  false, false, descriptor_table_protodef_MADS_2eproto, "MADS.proto", 2856,
+  &descriptor_table_MADS_2eproto_once, descriptor_table_MADS_2eproto_sccs, descriptor_table_MADS_2eproto_deps, 32, 0,
   schemas, file_default_instances, TableStruct_MADS_2eproto::offsets,
-  file_level_metadata_MADS_2eproto, 25, file_level_enum_descriptors_MADS_2eproto, file_level_service_descriptors_MADS_2eproto,
+  file_level_metadata_MADS_2eproto, 32, file_level_enum_descriptors_MADS_2eproto, file_level_service_descriptors_MADS_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -6832,6 +7042,1529 @@ void CreateTagResponse::InternalSwap(CreateTagResponse* other) {
 
 // ===================================================================
 
+void Tagging::InitAsDefaultInstance() {
+}
+class Tagging::_Internal {
+ public:
+};
+
+Tagging::Tagging(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:MADS.Tagging)
+}
+Tagging::Tagging(const Tagging& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&tagid_, &from.tagid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&objectid_) -
+    reinterpret_cast<char*>(&tagid_)) + sizeof(objectid_));
+  // @@protoc_insertion_point(copy_constructor:MADS.Tagging)
+}
+
+void Tagging::SharedCtor() {
+  ::memset(&tagid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&objectid_) -
+      reinterpret_cast<char*>(&tagid_)) + sizeof(objectid_));
+}
+
+Tagging::~Tagging() {
+  // @@protoc_insertion_point(destructor:MADS.Tagging)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Tagging::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void Tagging::ArenaDtor(void* object) {
+  Tagging* _this = reinterpret_cast< Tagging* >(object);
+  (void)_this;
+}
+void Tagging::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Tagging::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Tagging& Tagging::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Tagging_MADS_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Tagging::Clear() {
+// @@protoc_insertion_point(message_clear_start:MADS.Tagging)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&tagid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&objectid_) -
+      reinterpret_cast<char*>(&tagid_)) + sizeof(objectid_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Tagging::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // int64 tagId = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          tagid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 objectId = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          objectid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Tagging::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:MADS.Tagging)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 tagId = 1;
+  if (this->tagid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_tagid(), target);
+  }
+
+  // int64 objectId = 2;
+  if (this->objectid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_objectid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MADS.Tagging)
+  return target;
+}
+
+size_t Tagging::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MADS.Tagging)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int64 tagId = 1;
+  if (this->tagid() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_tagid());
+  }
+
+  // int64 objectId = 2;
+  if (this->objectid() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_objectid());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Tagging::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MADS.Tagging)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Tagging* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Tagging>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MADS.Tagging)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MADS.Tagging)
+    MergeFrom(*source);
+  }
+}
+
+void Tagging::MergeFrom(const Tagging& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MADS.Tagging)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.tagid() != 0) {
+    _internal_set_tagid(from._internal_tagid());
+  }
+  if (from.objectid() != 0) {
+    _internal_set_objectid(from._internal_objectid());
+  }
+}
+
+void Tagging::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MADS.Tagging)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Tagging::CopyFrom(const Tagging& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MADS.Tagging)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Tagging::IsInitialized() const {
+  return true;
+}
+
+void Tagging::InternalSwap(Tagging* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Tagging, objectid_)
+      + sizeof(Tagging::objectid_)
+      - PROTOBUF_FIELD_OFFSET(Tagging, tagid_)>(
+          reinterpret_cast<char*>(&tagid_),
+          reinterpret_cast<char*>(&other->tagid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Tagging::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void GetTaggingsRequest::InitAsDefaultInstance() {
+}
+class GetTaggingsRequest::_Internal {
+ public:
+};
+
+GetTaggingsRequest::GetTaggingsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:MADS.GetTaggingsRequest)
+}
+GetTaggingsRequest::GetTaggingsRequest(const GetTaggingsRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  tagid_ = from.tagid_;
+  // @@protoc_insertion_point(copy_constructor:MADS.GetTaggingsRequest)
+}
+
+void GetTaggingsRequest::SharedCtor() {
+  tagid_ = PROTOBUF_LONGLONG(0);
+}
+
+GetTaggingsRequest::~GetTaggingsRequest() {
+  // @@protoc_insertion_point(destructor:MADS.GetTaggingsRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void GetTaggingsRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void GetTaggingsRequest::ArenaDtor(void* object) {
+  GetTaggingsRequest* _this = reinterpret_cast< GetTaggingsRequest* >(object);
+  (void)_this;
+}
+void GetTaggingsRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void GetTaggingsRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const GetTaggingsRequest& GetTaggingsRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GetTaggingsRequest_MADS_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void GetTaggingsRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:MADS.GetTaggingsRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  tagid_ = PROTOBUF_LONGLONG(0);
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* GetTaggingsRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // int64 tagId = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          tagid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* GetTaggingsRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:MADS.GetTaggingsRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 tagId = 1;
+  if (this->tagid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_tagid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MADS.GetTaggingsRequest)
+  return target;
+}
+
+size_t GetTaggingsRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MADS.GetTaggingsRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int64 tagId = 1;
+  if (this->tagid() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_tagid());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void GetTaggingsRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MADS.GetTaggingsRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GetTaggingsRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GetTaggingsRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MADS.GetTaggingsRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MADS.GetTaggingsRequest)
+    MergeFrom(*source);
+  }
+}
+
+void GetTaggingsRequest::MergeFrom(const GetTaggingsRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MADS.GetTaggingsRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.tagid() != 0) {
+    _internal_set_tagid(from._internal_tagid());
+  }
+}
+
+void GetTaggingsRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MADS.GetTaggingsRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GetTaggingsRequest::CopyFrom(const GetTaggingsRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MADS.GetTaggingsRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GetTaggingsRequest::IsInitialized() const {
+  return true;
+}
+
+void GetTaggingsRequest::InternalSwap(GetTaggingsRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(tagid_, other->tagid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata GetTaggingsRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void GetTaggingsResponse::InitAsDefaultInstance() {
+}
+class GetTaggingsResponse::_Internal {
+ public:
+};
+
+GetTaggingsResponse::GetTaggingsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  taggings_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:MADS.GetTaggingsResponse)
+}
+GetTaggingsResponse::GetTaggingsResponse(const GetTaggingsResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      taggings_(from.taggings_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:MADS.GetTaggingsResponse)
+}
+
+void GetTaggingsResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_GetTaggingsResponse_MADS_2eproto.base);
+}
+
+GetTaggingsResponse::~GetTaggingsResponse() {
+  // @@protoc_insertion_point(destructor:MADS.GetTaggingsResponse)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void GetTaggingsResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void GetTaggingsResponse::ArenaDtor(void* object) {
+  GetTaggingsResponse* _this = reinterpret_cast< GetTaggingsResponse* >(object);
+  (void)_this;
+}
+void GetTaggingsResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void GetTaggingsResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const GetTaggingsResponse& GetTaggingsResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GetTaggingsResponse_MADS_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void GetTaggingsResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:MADS.GetTaggingsResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  taggings_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* GetTaggingsResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .MADS.Tagging taggings = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_taggings(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* GetTaggingsResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:MADS.GetTaggingsResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .MADS.Tagging taggings = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_taggings_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_taggings(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MADS.GetTaggingsResponse)
+  return target;
+}
+
+size_t GetTaggingsResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MADS.GetTaggingsResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .MADS.Tagging taggings = 1;
+  total_size += 1UL * this->_internal_taggings_size();
+  for (const auto& msg : this->taggings_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void GetTaggingsResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MADS.GetTaggingsResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GetTaggingsResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GetTaggingsResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MADS.GetTaggingsResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MADS.GetTaggingsResponse)
+    MergeFrom(*source);
+  }
+}
+
+void GetTaggingsResponse::MergeFrom(const GetTaggingsResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MADS.GetTaggingsResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  taggings_.MergeFrom(from.taggings_);
+}
+
+void GetTaggingsResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MADS.GetTaggingsResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GetTaggingsResponse::CopyFrom(const GetTaggingsResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MADS.GetTaggingsResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GetTaggingsResponse::IsInitialized() const {
+  return true;
+}
+
+void GetTaggingsResponse::InternalSwap(GetTaggingsResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  taggings_.InternalSwap(&other->taggings_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata GetTaggingsResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void GetTaggingRequest::InitAsDefaultInstance() {
+}
+class GetTaggingRequest::_Internal {
+ public:
+};
+
+GetTaggingRequest::GetTaggingRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:MADS.GetTaggingRequest)
+}
+GetTaggingRequest::GetTaggingRequest(const GetTaggingRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&tagid_, &from.tagid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&objectid_) -
+    reinterpret_cast<char*>(&tagid_)) + sizeof(objectid_));
+  // @@protoc_insertion_point(copy_constructor:MADS.GetTaggingRequest)
+}
+
+void GetTaggingRequest::SharedCtor() {
+  ::memset(&tagid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&objectid_) -
+      reinterpret_cast<char*>(&tagid_)) + sizeof(objectid_));
+}
+
+GetTaggingRequest::~GetTaggingRequest() {
+  // @@protoc_insertion_point(destructor:MADS.GetTaggingRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void GetTaggingRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void GetTaggingRequest::ArenaDtor(void* object) {
+  GetTaggingRequest* _this = reinterpret_cast< GetTaggingRequest* >(object);
+  (void)_this;
+}
+void GetTaggingRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void GetTaggingRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const GetTaggingRequest& GetTaggingRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GetTaggingRequest_MADS_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void GetTaggingRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:MADS.GetTaggingRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&tagid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&objectid_) -
+      reinterpret_cast<char*>(&tagid_)) + sizeof(objectid_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* GetTaggingRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // int64 tagId = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          tagid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 objectId = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          objectid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* GetTaggingRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:MADS.GetTaggingRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 tagId = 1;
+  if (this->tagid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_tagid(), target);
+  }
+
+  // int64 objectId = 2;
+  if (this->objectid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_objectid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MADS.GetTaggingRequest)
+  return target;
+}
+
+size_t GetTaggingRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MADS.GetTaggingRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int64 tagId = 1;
+  if (this->tagid() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_tagid());
+  }
+
+  // int64 objectId = 2;
+  if (this->objectid() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_objectid());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void GetTaggingRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MADS.GetTaggingRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GetTaggingRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GetTaggingRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MADS.GetTaggingRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MADS.GetTaggingRequest)
+    MergeFrom(*source);
+  }
+}
+
+void GetTaggingRequest::MergeFrom(const GetTaggingRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MADS.GetTaggingRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.tagid() != 0) {
+    _internal_set_tagid(from._internal_tagid());
+  }
+  if (from.objectid() != 0) {
+    _internal_set_objectid(from._internal_objectid());
+  }
+}
+
+void GetTaggingRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MADS.GetTaggingRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GetTaggingRequest::CopyFrom(const GetTaggingRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MADS.GetTaggingRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GetTaggingRequest::IsInitialized() const {
+  return true;
+}
+
+void GetTaggingRequest::InternalSwap(GetTaggingRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(GetTaggingRequest, objectid_)
+      + sizeof(GetTaggingRequest::objectid_)
+      - PROTOBUF_FIELD_OFFSET(GetTaggingRequest, tagid_)>(
+          reinterpret_cast<char*>(&tagid_),
+          reinterpret_cast<char*>(&other->tagid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata GetTaggingRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void GetTaggingResponse::InitAsDefaultInstance() {
+  ::MADS::_GetTaggingResponse_default_instance_._instance.get_mutable()->tagging_ = const_cast< ::MADS::Tagging*>(
+      ::MADS::Tagging::internal_default_instance());
+}
+class GetTaggingResponse::_Internal {
+ public:
+  static const ::MADS::Tagging& tagging(const GetTaggingResponse* msg);
+};
+
+const ::MADS::Tagging&
+GetTaggingResponse::_Internal::tagging(const GetTaggingResponse* msg) {
+  return *msg->tagging_;
+}
+GetTaggingResponse::GetTaggingResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:MADS.GetTaggingResponse)
+}
+GetTaggingResponse::GetTaggingResponse(const GetTaggingResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_tagging()) {
+    tagging_ = new ::MADS::Tagging(*from.tagging_);
+  } else {
+    tagging_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:MADS.GetTaggingResponse)
+}
+
+void GetTaggingResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_GetTaggingResponse_MADS_2eproto.base);
+  tagging_ = nullptr;
+}
+
+GetTaggingResponse::~GetTaggingResponse() {
+  // @@protoc_insertion_point(destructor:MADS.GetTaggingResponse)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void GetTaggingResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete tagging_;
+}
+
+void GetTaggingResponse::ArenaDtor(void* object) {
+  GetTaggingResponse* _this = reinterpret_cast< GetTaggingResponse* >(object);
+  (void)_this;
+}
+void GetTaggingResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void GetTaggingResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const GetTaggingResponse& GetTaggingResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GetTaggingResponse_MADS_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void GetTaggingResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:MADS.GetTaggingResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArena() == nullptr && tagging_ != nullptr) {
+    delete tagging_;
+  }
+  tagging_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* GetTaggingResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .MADS.Tagging tagging = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_tagging(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* GetTaggingResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:MADS.GetTaggingResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .MADS.Tagging tagging = 1;
+  if (this->has_tagging()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::tagging(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MADS.GetTaggingResponse)
+  return target;
+}
+
+size_t GetTaggingResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MADS.GetTaggingResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .MADS.Tagging tagging = 1;
+  if (this->has_tagging()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *tagging_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void GetTaggingResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MADS.GetTaggingResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GetTaggingResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GetTaggingResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MADS.GetTaggingResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MADS.GetTaggingResponse)
+    MergeFrom(*source);
+  }
+}
+
+void GetTaggingResponse::MergeFrom(const GetTaggingResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MADS.GetTaggingResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_tagging()) {
+    _internal_mutable_tagging()->::MADS::Tagging::MergeFrom(from._internal_tagging());
+  }
+}
+
+void GetTaggingResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MADS.GetTaggingResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GetTaggingResponse::CopyFrom(const GetTaggingResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MADS.GetTaggingResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GetTaggingResponse::IsInitialized() const {
+  return true;
+}
+
+void GetTaggingResponse::InternalSwap(GetTaggingResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(tagging_, other->tagging_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata GetTaggingResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void CreateTaggingRequest::InitAsDefaultInstance() {
+}
+class CreateTaggingRequest::_Internal {
+ public:
+};
+
+CreateTaggingRequest::CreateTaggingRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:MADS.CreateTaggingRequest)
+}
+CreateTaggingRequest::CreateTaggingRequest(const CreateTaggingRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&tagid_, &from.tagid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&objectid_) -
+    reinterpret_cast<char*>(&tagid_)) + sizeof(objectid_));
+  // @@protoc_insertion_point(copy_constructor:MADS.CreateTaggingRequest)
+}
+
+void CreateTaggingRequest::SharedCtor() {
+  ::memset(&tagid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&objectid_) -
+      reinterpret_cast<char*>(&tagid_)) + sizeof(objectid_));
+}
+
+CreateTaggingRequest::~CreateTaggingRequest() {
+  // @@protoc_insertion_point(destructor:MADS.CreateTaggingRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CreateTaggingRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CreateTaggingRequest::ArenaDtor(void* object) {
+  CreateTaggingRequest* _this = reinterpret_cast< CreateTaggingRequest* >(object);
+  (void)_this;
+}
+void CreateTaggingRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CreateTaggingRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const CreateTaggingRequest& CreateTaggingRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CreateTaggingRequest_MADS_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void CreateTaggingRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:MADS.CreateTaggingRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&tagid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&objectid_) -
+      reinterpret_cast<char*>(&tagid_)) + sizeof(objectid_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CreateTaggingRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // int64 tagId = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          tagid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 objectId = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          objectid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CreateTaggingRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:MADS.CreateTaggingRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 tagId = 1;
+  if (this->tagid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_tagid(), target);
+  }
+
+  // int64 objectId = 2;
+  if (this->objectid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_objectid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MADS.CreateTaggingRequest)
+  return target;
+}
+
+size_t CreateTaggingRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MADS.CreateTaggingRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int64 tagId = 1;
+  if (this->tagid() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_tagid());
+  }
+
+  // int64 objectId = 2;
+  if (this->objectid() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_objectid());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CreateTaggingRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MADS.CreateTaggingRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CreateTaggingRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CreateTaggingRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MADS.CreateTaggingRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MADS.CreateTaggingRequest)
+    MergeFrom(*source);
+  }
+}
+
+void CreateTaggingRequest::MergeFrom(const CreateTaggingRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MADS.CreateTaggingRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.tagid() != 0) {
+    _internal_set_tagid(from._internal_tagid());
+  }
+  if (from.objectid() != 0) {
+    _internal_set_objectid(from._internal_objectid());
+  }
+}
+
+void CreateTaggingRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MADS.CreateTaggingRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CreateTaggingRequest::CopyFrom(const CreateTaggingRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MADS.CreateTaggingRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CreateTaggingRequest::IsInitialized() const {
+  return true;
+}
+
+void CreateTaggingRequest::InternalSwap(CreateTaggingRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CreateTaggingRequest, objectid_)
+      + sizeof(CreateTaggingRequest::objectid_)
+      - PROTOBUF_FIELD_OFFSET(CreateTaggingRequest, tagid_)>(
+          reinterpret_cast<char*>(&tagid_),
+          reinterpret_cast<char*>(&other->tagid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CreateTaggingRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void CreateTaggingResponse::InitAsDefaultInstance() {
+  ::MADS::_CreateTaggingResponse_default_instance_._instance.get_mutable()->tagging_ = const_cast< ::MADS::Tagging*>(
+      ::MADS::Tagging::internal_default_instance());
+}
+class CreateTaggingResponse::_Internal {
+ public:
+  static const ::MADS::Tagging& tagging(const CreateTaggingResponse* msg);
+};
+
+const ::MADS::Tagging&
+CreateTaggingResponse::_Internal::tagging(const CreateTaggingResponse* msg) {
+  return *msg->tagging_;
+}
+CreateTaggingResponse::CreateTaggingResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:MADS.CreateTaggingResponse)
+}
+CreateTaggingResponse::CreateTaggingResponse(const CreateTaggingResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_tagging()) {
+    tagging_ = new ::MADS::Tagging(*from.tagging_);
+  } else {
+    tagging_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:MADS.CreateTaggingResponse)
+}
+
+void CreateTaggingResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_CreateTaggingResponse_MADS_2eproto.base);
+  tagging_ = nullptr;
+}
+
+CreateTaggingResponse::~CreateTaggingResponse() {
+  // @@protoc_insertion_point(destructor:MADS.CreateTaggingResponse)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CreateTaggingResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete tagging_;
+}
+
+void CreateTaggingResponse::ArenaDtor(void* object) {
+  CreateTaggingResponse* _this = reinterpret_cast< CreateTaggingResponse* >(object);
+  (void)_this;
+}
+void CreateTaggingResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CreateTaggingResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const CreateTaggingResponse& CreateTaggingResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CreateTaggingResponse_MADS_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void CreateTaggingResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:MADS.CreateTaggingResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArena() == nullptr && tagging_ != nullptr) {
+    delete tagging_;
+  }
+  tagging_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CreateTaggingResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .MADS.Tagging tagging = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_tagging(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CreateTaggingResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:MADS.CreateTaggingResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .MADS.Tagging tagging = 1;
+  if (this->has_tagging()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::tagging(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MADS.CreateTaggingResponse)
+  return target;
+}
+
+size_t CreateTaggingResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MADS.CreateTaggingResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .MADS.Tagging tagging = 1;
+  if (this->has_tagging()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *tagging_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CreateTaggingResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MADS.CreateTaggingResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CreateTaggingResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CreateTaggingResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MADS.CreateTaggingResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MADS.CreateTaggingResponse)
+    MergeFrom(*source);
+  }
+}
+
+void CreateTaggingResponse::MergeFrom(const CreateTaggingResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MADS.CreateTaggingResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_tagging()) {
+    _internal_mutable_tagging()->::MADS::Tagging::MergeFrom(from._internal_tagging());
+  }
+}
+
+void CreateTaggingResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MADS.CreateTaggingResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CreateTaggingResponse::CopyFrom(const CreateTaggingResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MADS.CreateTaggingResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CreateTaggingResponse::IsInitialized() const {
+  return true;
+}
+
+void CreateTaggingResponse::InternalSwap(CreateTaggingResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(tagging_, other->tagging_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CreateTaggingResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 void Empty::InitAsDefaultInstance() {
 }
 class Empty::_Internal {
@@ -7069,6 +8802,27 @@ template<> PROTOBUF_NOINLINE ::MADS::CreateTagRequest* Arena::CreateMaybeMessage
 }
 template<> PROTOBUF_NOINLINE ::MADS::CreateTagResponse* Arena::CreateMaybeMessage< ::MADS::CreateTagResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::MADS::CreateTagResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::MADS::Tagging* Arena::CreateMaybeMessage< ::MADS::Tagging >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::MADS::Tagging >(arena);
+}
+template<> PROTOBUF_NOINLINE ::MADS::GetTaggingsRequest* Arena::CreateMaybeMessage< ::MADS::GetTaggingsRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::MADS::GetTaggingsRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::MADS::GetTaggingsResponse* Arena::CreateMaybeMessage< ::MADS::GetTaggingsResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::MADS::GetTaggingsResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::MADS::GetTaggingRequest* Arena::CreateMaybeMessage< ::MADS::GetTaggingRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::MADS::GetTaggingRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::MADS::GetTaggingResponse* Arena::CreateMaybeMessage< ::MADS::GetTaggingResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::MADS::GetTaggingResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::MADS::CreateTaggingRequest* Arena::CreateMaybeMessage< ::MADS::CreateTaggingRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::MADS::CreateTaggingRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::MADS::CreateTaggingResponse* Arena::CreateMaybeMessage< ::MADS::CreateTaggingResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::MADS::CreateTaggingResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::MADS::Empty* Arena::CreateMaybeMessage< ::MADS::Empty >(Arena* arena) {
   return Arena::CreateMessageInternal< ::MADS::Empty >(arena);

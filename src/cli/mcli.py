@@ -29,14 +29,17 @@ def object(config, id):
     resp = client.get_object(id)
     if not config.script_mode:
         click.echo(resp)
+    elif ('id' in resp):
+        click.echo(resp['id'])
+    else:
+        click.echo(resp)
 
 @read.command()
 @pass_config
 def tags(config):
     """This command returns all tags"""
     resp = client.get_tags()
-    if not config.script_mode:
-        click.echo(resp)
+    click.echo(resp)
 
 @read.command()
 @click.argument('id', type=int, required=True)
@@ -46,14 +49,17 @@ def tag(config, id):
     resp = client.get_tag(id)
     if not config.script_mode:
         click.echo(resp)
+    elif ('id' in resp):
+        click.echo(resp['id'])
+    else:
+        click.echo(resp)
 
 @read.command()
 @pass_config
 def tagsets(config):
     """This command returns all tagsets"""
     resp = client.get_tagsets()
-    if not config.script_mode:
-        click.echo(resp)
+    click.echo(resp)
 
 @read.command()
 @click.argument('id', type=int, required=True)
@@ -62,6 +68,10 @@ def tagset(config, id):
     """This command returns a tagset"""
     resp = client.get_tagset(id)
     if not config.script_mode:
+        click.echo(resp)
+    elif ('id' in resp):
+        click.echo(resp['id'])
+    else:
         click.echo(resp)
 
 @cli.group()
@@ -83,31 +93,80 @@ def object(config, uri, filetype):
         click.echo(resp)
 
 @insert.command()
-@click.argument('value', type=str, required=True)
-@click.argument('tagsetid', type=int, required=True)
-@pass_config
-def tag(config, value, tagsetid):
-    """Creates a tag with VALUE in tagset ID"""
-    if not config.script_mode:
-        click.echo('insert tag: %s, %i!' % (value, tagsetid))
-        click.echo('Writing JSON')
-    else:
-        click.echo(random.randrange(100)+1)
-
-@insert.command()
 @click.argument('name', type=str, required=True)
 @click.argument('description', type=str, required=True)
 @click.argument('type', type=int, default=1, required=False)
 @pass_config
 def tagset(config, name, description, type):
     """Create a tagset NAME/DESCRIPTION of type TAGSETTYPE (default = 1 ()AlphaNumerical))
-    Supported types are 1 (Alphanumerical), 2 (Numerical), 3 (Date), 4 (Time).
-    """
+    Supported types are 1 (Alphanumerical), 2 (Numerical), 3 (Date), 4 (Time)."""
     resp = client.create_tagset(name, description, type)
     if not config.script_mode:
         click.echo(resp)
     elif ('id' in resp):
         click.echo(resp['id'])
+    else:
+        click.echo(resp)
+
+@insert.group()
+def tag():
+    pass
+
+@tag.command()
+@click.argument('tagsetid', type=int, required=True)
+@click.argument('name', type=str, required=True)
+@pass_config
+def alphanumerical(config, tagsetid, name):
+    """Creates an alphanumerical tag with NAME in tagset ID"""
+    resp = client.create_alphanumerical_tag(name, tagsetid)
+    if not config.script_mode:
+        click.echo(resp)
+    elif ('id'in resp):
+        click.echo(resp['id'])
+    else:
+        click.echo(resp)
+
+@tag.command()
+@click.argument('tagsetid', type=int, required=True)
+@click.argument('value', type=int, required=True)
+@pass_config
+def numerical(config, tagsetid, value):
+    """Creates a numerical tag with VALUE in tagset ID"""
+    resp = client.create_numerical_tag(value, tagsetid)
+    if not config.script_mode:
+        click.echo(resp)
+    elif ('id'in resp):
+        click.echo(resp['id'])
+    else:
+        click.echo(resp)
+
+@tag.command()
+@click.argument('tagsetid', type=int, required=True)
+@click.argument('year', type=int, required=True)
+@click.argument('month', type=int, required=True)
+@click.argument('day', type=int, required=True)
+@pass_config
+def date(config, tagsetid, year, month, day):
+    """Creates a date tag with DATE in tagset ID"""
+    resp = client.create_date_tag(year, month, day, tagsetid)
+    if not config.script_mode:
+        click.echo(resp)
+    elif ('id'in resp):
+        click.echo(resp['id'])
+    else:
+        click.echo(resp)
+
+@insert.command()
+@click.argument('tagid', type=int, required=True)
+@click.argument('objectid', type=int, required=True)
+@pass_config
+def tagging(config, tagid, objectid):
+    """Creates a tagging between Object ID and Tag ID"""
+    resp = client.create_tagging(tagid, objectid)
+    if not config.script_mode:
+        click.echo(resp)
+    elif ('tagid' in resp):
+        pass
     else:
         click.echo(resp)
 

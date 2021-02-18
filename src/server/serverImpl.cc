@@ -191,6 +191,18 @@ public:
     return Status::OK;
   }
 
+  Status createTagging(ServerContext* context,
+                       const CreateTaggingRequest* request,
+                       CreateTaggingResponse* reply) override {
+    ObjectCube::Object object = ObjectCube::Object::fetch(request->objectid());
+    const ObjectCube::Tag *tag = hub->getTag(request->tagid());
+    ObjectCube::ObjectTag objecttag(tag);
+    object.addTag(objecttag);
+
+    reply->set_allocated_tagging(converter->ObjectTagToProto(&objecttag));
+    return Status::OK;
+  }
+
   Status reConnectDB(ServerContext *context,
 		     const Empty* request,
 		     Empty *reply) override {

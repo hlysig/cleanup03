@@ -30,6 +30,9 @@ static const char* MADS_Service_method_names[] = {
   "/MADS.MADS_Service/getTags",
   "/MADS.MADS_Service/getTag",
   "/MADS.MADS_Service/createOrGetTag",
+  "/MADS.MADS_Service/getTaggings",
+  "/MADS.MADS_Service/getTagging",
+  "/MADS.MADS_Service/createTagging",
   "/MADS.MADS_Service/reConnectDB",
   "/MADS.MADS_Service/stopService",
 };
@@ -49,8 +52,11 @@ MADS_Service::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chann
   , rpcmethod_getTags_(MADS_Service_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_getTag_(MADS_Service_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_createOrGetTag_(MADS_Service_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_reConnectDB_(MADS_Service_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_stopService_(MADS_Service_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTaggings_(MADS_Service_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTagging_(MADS_Service_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_createTagging_(MADS_Service_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_reConnectDB_(MADS_Service_method_names[11], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_stopService_(MADS_Service_method_names[12], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status MADS_Service::Stub::getObject(::grpc::ClientContext* context, const ::MADS::GetObjectRequest& request, ::MADS::GetObjectResponse* response) {
@@ -237,6 +243,75 @@ void MADS_Service::Stub::experimental_async::createOrGetTag(::grpc::ClientContex
   return result;
 }
 
+::grpc::Status MADS_Service::Stub::getTaggings(::grpc::ClientContext* context, const ::MADS::GetTaggingsRequest& request, ::MADS::GetTaggingsResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTaggings_, context, request, response);
+}
+
+void MADS_Service::Stub::experimental_async::getTaggings(::grpc::ClientContext* context, const ::MADS::GetTaggingsRequest* request, ::MADS::GetTaggingsResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getTaggings_, context, request, response, std::move(f));
+}
+
+void MADS_Service::Stub::experimental_async::getTaggings(::grpc::ClientContext* context, const ::MADS::GetTaggingsRequest* request, ::MADS::GetTaggingsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getTaggings_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::MADS::GetTaggingsResponse>* MADS_Service::Stub::PrepareAsyncgetTaggingsRaw(::grpc::ClientContext* context, const ::MADS::GetTaggingsRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::GetTaggingsResponse>::Create(channel_.get(), cq, rpcmethod_getTaggings_, context, request, false);
+}
+
+::grpc::ClientAsyncResponseReader< ::MADS::GetTaggingsResponse>* MADS_Service::Stub::AsyncgetTaggingsRaw(::grpc::ClientContext* context, const ::MADS::GetTaggingsRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncgetTaggingsRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status MADS_Service::Stub::getTagging(::grpc::ClientContext* context, const ::MADS::GetTaggingRequest& request, ::MADS::GetTaggingResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTagging_, context, request, response);
+}
+
+void MADS_Service::Stub::experimental_async::getTagging(::grpc::ClientContext* context, const ::MADS::GetTaggingRequest* request, ::MADS::GetTaggingResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getTagging_, context, request, response, std::move(f));
+}
+
+void MADS_Service::Stub::experimental_async::getTagging(::grpc::ClientContext* context, const ::MADS::GetTaggingRequest* request, ::MADS::GetTaggingResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getTagging_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::MADS::GetTaggingResponse>* MADS_Service::Stub::PrepareAsyncgetTaggingRaw(::grpc::ClientContext* context, const ::MADS::GetTaggingRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::GetTaggingResponse>::Create(channel_.get(), cq, rpcmethod_getTagging_, context, request, false);
+}
+
+::grpc::ClientAsyncResponseReader< ::MADS::GetTaggingResponse>* MADS_Service::Stub::AsyncgetTaggingRaw(::grpc::ClientContext* context, const ::MADS::GetTaggingRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncgetTaggingRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status MADS_Service::Stub::createTagging(::grpc::ClientContext* context, const ::MADS::CreateTaggingRequest& request, ::MADS::CreateTaggingResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_createTagging_, context, request, response);
+}
+
+void MADS_Service::Stub::experimental_async::createTagging(::grpc::ClientContext* context, const ::MADS::CreateTaggingRequest* request, ::MADS::CreateTaggingResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_createTagging_, context, request, response, std::move(f));
+}
+
+void MADS_Service::Stub::experimental_async::createTagging(::grpc::ClientContext* context, const ::MADS::CreateTaggingRequest* request, ::MADS::CreateTaggingResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_createTagging_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::MADS::CreateTaggingResponse>* MADS_Service::Stub::PrepareAsynccreateTaggingRaw(::grpc::ClientContext* context, const ::MADS::CreateTaggingRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::CreateTaggingResponse>::Create(channel_.get(), cq, rpcmethod_createTagging_, context, request, false);
+}
+
+::grpc::ClientAsyncResponseReader< ::MADS::CreateTaggingResponse>* MADS_Service::Stub::AsynccreateTaggingRaw(::grpc::ClientContext* context, const ::MADS::CreateTaggingRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsynccreateTaggingRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 ::grpc::Status MADS_Service::Stub::reConnectDB(::grpc::ClientContext* context, const ::MADS::Empty& request, ::MADS::Empty* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_reConnectDB_, context, request, response);
 }
@@ -367,6 +442,36 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[8],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTaggingsRequest, ::MADS::GetTaggingsResponse>(
+          [](MADS_Service::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::MADS::GetTaggingsRequest* req,
+             ::MADS::GetTaggingsResponse* resp) {
+               return service->getTaggings(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      MADS_Service_method_names[9],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTaggingRequest, ::MADS::GetTaggingResponse>(
+          [](MADS_Service::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::MADS::GetTaggingRequest* req,
+             ::MADS::GetTaggingResponse* resp) {
+               return service->getTagging(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      MADS_Service_method_names[10],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::CreateTaggingRequest, ::MADS::CreateTaggingResponse>(
+          [](MADS_Service::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::MADS::CreateTaggingRequest* req,
+             ::MADS::CreateTaggingResponse* resp) {
+               return service->createTagging(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      MADS_Service_method_names[11],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::Empty, ::MADS::Empty>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
@@ -375,7 +480,7 @@ MADS_Service::Service::Service() {
                return service->reConnectDB(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      MADS_Service_method_names[9],
+      MADS_Service_method_names[12],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::Empty, ::MADS::Empty>(
           [](MADS_Service::Service* service,
@@ -439,6 +544,27 @@ MADS_Service::Service::~Service() {
 }
 
 ::grpc::Status MADS_Service::Service::createOrGetTag(::grpc::ServerContext* context, const ::MADS::CreateTagRequest* request, ::MADS::CreateTagResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status MADS_Service::Service::getTaggings(::grpc::ServerContext* context, const ::MADS::GetTaggingsRequest* request, ::MADS::GetTaggingsResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status MADS_Service::Service::getTagging(::grpc::ServerContext* context, const ::MADS::GetTaggingRequest* request, ::MADS::GetTaggingResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status MADS_Service::Service::createTagging(::grpc::ServerContext* context, const ::MADS::CreateTaggingRequest* request, ::MADS::CreateTaggingResponse* response) {
   (void) context;
   (void) request;
   (void) response;
