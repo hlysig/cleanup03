@@ -54,8 +54,12 @@ message GetTagSetsResponse {
   repeated TagSet tagsets = 1;
 }
 
-message GetTagSetRequest {
+message GetTagSetRequestById {
   int64 id = 1;
+}
+
+message GetTagSetRequestByName {
+  string name = 1;
 }
 
 message GetTagSetResponse {
@@ -187,7 +191,8 @@ service MADS_Service {
 
   // TagSet
   rpc getTagSets(GetTagSetsRequest) returns (GetTagSetsResponse) {};
-	rpc getTagSet(GetTagSetRequest) returns (GetTagSetResponse) {};
+	rpc getTagSetById(GetTagSetRequestById) returns (GetTagSetResponse) {};
+	rpc getTagSetByName(GetTagSetRequestByName) returns (GetTagSetResponse) {};
 	rpc createTagSet(CreateTagSetRequest) returns (CreateTagSetResponse) {};
 
   // Tag

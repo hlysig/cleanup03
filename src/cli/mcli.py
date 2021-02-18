@@ -22,7 +22,7 @@ def read():
     pass
 
 @read.command()
-@click.argument('id', type=int, required=True)
+@click.option('--id', type=int, required=True)
 @pass_config
 def object(config, id):
     """This command returns an object"""
@@ -42,7 +42,7 @@ def tags(config):
     click.echo(resp)
 
 @read.command()
-@click.argument('id', type=int, required=True)
+@click.option('--id', type=int, required=True)
 @pass_config
 def tag(config, id):
     """This command returns a tag"""
@@ -62,11 +62,20 @@ def tagsets(config):
     click.echo(resp)
 
 @read.command()
-@click.argument('id', type=int, required=True)
+@click.option('--id', type=int, required=False, default=-1)
+@click.option('--name', type=str, required=False, default='')
 @pass_config
-def tagset(config, id):
+@click.pass_context
+def tagset(ctx, config, id, name):
     """This command returns a tagset"""
-    resp = client.get_tagset(id)
+    if (id != -1):
+        resp = client.get_tagset_by_id(id)
+    elif (name != ''):
+        resp = client.get_tagset_by_name(name)
+    else:
+        click.echo(ctx.get_help())
+        return
+
     if not config.script_mode:
         click.echo(resp)
     elif ('id' in resp):

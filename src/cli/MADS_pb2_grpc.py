@@ -31,9 +31,14 @@ class MADS_ServiceStub(object):
                 request_serializer=MADS__pb2.GetTagSetsRequest.SerializeToString,
                 response_deserializer=MADS__pb2.GetTagSetsResponse.FromString,
                 )
-        self.getTagSet = channel.unary_unary(
-                '/MADS.MADS_Service/getTagSet',
-                request_serializer=MADS__pb2.GetTagSetRequest.SerializeToString,
+        self.getTagSetById = channel.unary_unary(
+                '/MADS.MADS_Service/getTagSetById',
+                request_serializer=MADS__pb2.GetTagSetRequestById.SerializeToString,
+                response_deserializer=MADS__pb2.GetTagSetResponse.FromString,
+                )
+        self.getTagSetByName = channel.unary_unary(
+                '/MADS.MADS_Service/getTagSetByName',
+                request_serializer=MADS__pb2.GetTagSetRequestByName.SerializeToString,
                 response_deserializer=MADS__pb2.GetTagSetResponse.FromString,
                 )
         self.createTagSet = channel.unary_unary(
@@ -108,7 +113,13 @@ class MADS_ServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def getTagSet(self, request, context):
+    def getTagSetById(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def getTagSetByName(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -189,9 +200,14 @@ def add_MADS_ServiceServicer_to_server(servicer, server):
                     request_deserializer=MADS__pb2.GetTagSetsRequest.FromString,
                     response_serializer=MADS__pb2.GetTagSetsResponse.SerializeToString,
             ),
-            'getTagSet': grpc.unary_unary_rpc_method_handler(
-                    servicer.getTagSet,
-                    request_deserializer=MADS__pb2.GetTagSetRequest.FromString,
+            'getTagSetById': grpc.unary_unary_rpc_method_handler(
+                    servicer.getTagSetById,
+                    request_deserializer=MADS__pb2.GetTagSetRequestById.FromString,
+                    response_serializer=MADS__pb2.GetTagSetResponse.SerializeToString,
+            ),
+            'getTagSetByName': grpc.unary_unary_rpc_method_handler(
+                    servicer.getTagSetByName,
+                    request_deserializer=MADS__pb2.GetTagSetRequestByName.FromString,
                     response_serializer=MADS__pb2.GetTagSetResponse.SerializeToString,
             ),
             'createTagSet': grpc.unary_unary_rpc_method_handler(
@@ -303,7 +319,7 @@ class MADS_Service(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def getTagSet(request,
+    def getTagSetById(request,
             target,
             options=(),
             channel_credentials=None,
@@ -313,8 +329,25 @@ class MADS_Service(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/getTagSet',
-            MADS__pb2.GetTagSetRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/getTagSetById',
+            MADS__pb2.GetTagSetRequestById.SerializeToString,
+            MADS__pb2.GetTagSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def getTagSetByName(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/MADS.MADS_Service/getTagSetByName',
+            MADS__pb2.GetTagSetRequestByName.SerializeToString,
             MADS__pb2.GetTagSetResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

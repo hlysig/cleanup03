@@ -92,9 +92,9 @@ public:
     }
   }
 
-  Status getTagSet(ServerContext* context,
-                   const GetTagSetRequest* request,
-                   GetTagSetResponse* reply) override {
+  Status getTagSetById(ServerContext* context,
+                       const GetTagSetRequestById* request,
+                       GetTagSetResponse* reply) override {
     try {
       const ObjectCube::TagSet *tagset = hub->getTagSet(request->id());
       reply->set_allocated_tagset(converter->TagSetToProto(tagset));
@@ -105,6 +105,23 @@ public:
       DebugInfo::getDebugInfo()->output( "MADS_ServiceImpl", "getTagSet",
                                          "Error retrieving TagSet: id = " + std::to_string(request->id()));
       std::string msg("Invalid TagSet identifier");
+      return Status(StatusCode::INVALID_ARGUMENT, msg);
+    }
+  }
+
+  Status getTagSetByName(ServerContext* context,
+                         const GetTagSetRequestByName* request,
+                         GetTagSetResponse* reply) override {
+    try {
+      const ObjectCube::TagSet *tagset = hub->getTagSet(request->name());
+      reply->set_allocated_tagset(converter->TagSetToProto(tagset));
+      return Status::OK;
+    }
+
+    catch (...) {
+      DebugInfo::getDebugInfo()->output( "MADS_ServiceImpl", "getTagSet",
+                                         "Error retrieving TagSet: name = " + request->name());
+      std::string msg("Invalid TagSet name");
       return Status(StatusCode::INVALID_ARGUMENT, msg);
     }
   }

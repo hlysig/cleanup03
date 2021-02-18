@@ -49,11 +49,11 @@ public:
           std::cin >> id;
           MADS::GetTagSetResponse *reply = new MADS::GetTagSetResponse();
 
-          MADS::GetTagSetRequest request;
+          MADS::GetTagSetRequestById request;
           request.set_id(id);
 
           ClientContext context;
-          status = stub_->getTagSet(&context, request, reply);
+          status = stub_->getTagSetById(&context, request, reply);
 
           if (status.ok())
             if (status.ok())

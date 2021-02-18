@@ -25,7 +25,8 @@ static const char* MADS_Service_method_names[] = {
   "/MADS.MADS_Service/getObject",
   "/MADS.MADS_Service/createObject",
   "/MADS.MADS_Service/getTagSets",
-  "/MADS.MADS_Service/getTagSet",
+  "/MADS.MADS_Service/getTagSetById",
+  "/MADS.MADS_Service/getTagSetByName",
   "/MADS.MADS_Service/createTagSet",
   "/MADS.MADS_Service/getTags",
   "/MADS.MADS_Service/getTag",
@@ -47,16 +48,17 @@ MADS_Service::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chann
   : channel_(channel), rpcmethod_getObject_(MADS_Service_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_createObject_(MADS_Service_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_getTagSets_(MADS_Service_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_getTagSet_(MADS_Service_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_createTagSet_(MADS_Service_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_getTags_(MADS_Service_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_getTag_(MADS_Service_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_createOrGetTag_(MADS_Service_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_getTaggings_(MADS_Service_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_getTagging_(MADS_Service_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_createTagging_(MADS_Service_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_reConnectDB_(MADS_Service_method_names[11], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_stopService_(MADS_Service_method_names[12], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTagSetById_(MADS_Service_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTagSetByName_(MADS_Service_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_createTagSet_(MADS_Service_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTags_(MADS_Service_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTag_(MADS_Service_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_createOrGetTag_(MADS_Service_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTaggings_(MADS_Service_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getTagging_(MADS_Service_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_createTagging_(MADS_Service_method_names[11], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_reConnectDB_(MADS_Service_method_names[12], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_stopService_(MADS_Service_method_names[13], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status MADS_Service::Stub::getObject(::grpc::ClientContext* context, const ::MADS::GetObjectRequest& request, ::MADS::GetObjectResponse* response) {
@@ -128,25 +130,48 @@ void MADS_Service::Stub::experimental_async::getTagSets(::grpc::ClientContext* c
   return result;
 }
 
-::grpc::Status MADS_Service::Stub::getTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest& request, ::MADS::GetTagSetResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTagSet_, context, request, response);
+::grpc::Status MADS_Service::Stub::getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::MADS::GetTagSetResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTagSetById_, context, request, response);
 }
 
-void MADS_Service::Stub::experimental_async::getTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest* request, ::MADS::GetTagSetResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getTagSet_, context, request, response, std::move(f));
+void MADS_Service::Stub::experimental_async::getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById* request, ::MADS::GetTagSetResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getTagSetById_, context, request, response, std::move(f));
 }
 
-void MADS_Service::Stub::experimental_async::getTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest* request, ::MADS::GetTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getTagSet_, context, request, response, reactor);
+void MADS_Service::Stub::experimental_async::getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById* request, ::MADS::GetTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getTagSetById_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* MADS_Service::Stub::PrepareAsyncgetTagSetRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::GetTagSetResponse>::Create(channel_.get(), cq, rpcmethod_getTagSet_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* MADS_Service::Stub::PrepareAsyncgetTagSetByIdRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::GetTagSetResponse>::Create(channel_.get(), cq, rpcmethod_getTagSetById_, context, request, false);
 }
 
-::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* MADS_Service::Stub::AsyncgetTagSetRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* MADS_Service::Stub::AsyncgetTagSetByIdRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncgetTagSetRaw(context, request, cq);
+    this->PrepareAsyncgetTagSetByIdRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status MADS_Service::Stub::getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::MADS::GetTagSetResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTagSetByName_, context, request, response);
+}
+
+void MADS_Service::Stub::experimental_async::getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName* request, ::MADS::GetTagSetResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getTagSetByName_, context, request, response, std::move(f));
+}
+
+void MADS_Service::Stub::experimental_async::getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName* request, ::MADS::GetTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getTagSetByName_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* MADS_Service::Stub::PrepareAsyncgetTagSetByNameRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::GetTagSetResponse>::Create(channel_.get(), cq, rpcmethod_getTagSetByName_, context, request, false);
+}
+
+::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* MADS_Service::Stub::AsyncgetTagSetByNameRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncgetTagSetByNameRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -392,15 +417,25 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagSetRequest, ::MADS::GetTagSetResponse>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagSetRequestById, ::MADS::GetTagSetResponse>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::MADS::GetTagSetRequest* req,
+             const ::MADS::GetTagSetRequestById* req,
              ::MADS::GetTagSetResponse* resp) {
-               return service->getTagSet(ctx, req, resp);
+               return service->getTagSetById(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[4],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagSetRequestByName, ::MADS::GetTagSetResponse>(
+          [](MADS_Service::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::MADS::GetTagSetRequestByName* req,
+             ::MADS::GetTagSetResponse* resp) {
+               return service->getTagSetByName(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      MADS_Service_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::CreateTagSetRequest, ::MADS::CreateTagSetResponse>(
           [](MADS_Service::Service* service,
@@ -410,7 +445,7 @@ MADS_Service::Service::Service() {
                return service->createTagSet(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      MADS_Service_method_names[5],
+      MADS_Service_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagsRequest, ::MADS::GetTagsResponse>(
           [](MADS_Service::Service* service,
@@ -420,7 +455,7 @@ MADS_Service::Service::Service() {
                return service->getTags(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      MADS_Service_method_names[6],
+      MADS_Service_method_names[7],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagRequest, ::MADS::GetTagResponse>(
           [](MADS_Service::Service* service,
@@ -430,7 +465,7 @@ MADS_Service::Service::Service() {
                return service->getTag(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      MADS_Service_method_names[7],
+      MADS_Service_method_names[8],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::CreateTagRequest, ::MADS::CreateTagResponse>(
           [](MADS_Service::Service* service,
@@ -440,7 +475,7 @@ MADS_Service::Service::Service() {
                return service->createOrGetTag(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      MADS_Service_method_names[8],
+      MADS_Service_method_names[9],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTaggingsRequest, ::MADS::GetTaggingsResponse>(
           [](MADS_Service::Service* service,
@@ -450,7 +485,7 @@ MADS_Service::Service::Service() {
                return service->getTaggings(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      MADS_Service_method_names[9],
+      MADS_Service_method_names[10],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTaggingRequest, ::MADS::GetTaggingResponse>(
           [](MADS_Service::Service* service,
@@ -460,7 +495,7 @@ MADS_Service::Service::Service() {
                return service->getTagging(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      MADS_Service_method_names[10],
+      MADS_Service_method_names[11],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::CreateTaggingRequest, ::MADS::CreateTaggingResponse>(
           [](MADS_Service::Service* service,
@@ -470,7 +505,7 @@ MADS_Service::Service::Service() {
                return service->createTagging(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      MADS_Service_method_names[11],
+      MADS_Service_method_names[12],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::Empty, ::MADS::Empty>(
           [](MADS_Service::Service* service,
@@ -480,7 +515,7 @@ MADS_Service::Service::Service() {
                return service->reConnectDB(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      MADS_Service_method_names[12],
+      MADS_Service_method_names[13],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::Empty, ::MADS::Empty>(
           [](MADS_Service::Service* service,
@@ -515,7 +550,14 @@ MADS_Service::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status MADS_Service::Service::getTagSet(::grpc::ServerContext* context, const ::MADS::GetTagSetRequest* request, ::MADS::GetTagSetResponse* response) {
+::grpc::Status MADS_Service::Service::getTagSetById(::grpc::ServerContext* context, const ::MADS::GetTagSetRequestById* request, ::MADS::GetTagSetResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status MADS_Service::Service::getTagSetByName(::grpc::ServerContext* context, const ::MADS::GetTagSetRequestByName* request, ::MADS::GetTagSetResponse* response) {
   (void) context;
   (void) request;
   (void) response;

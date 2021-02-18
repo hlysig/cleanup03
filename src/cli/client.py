@@ -28,10 +28,18 @@ class MADSClient:
         except:
             return json.loads('{"Error": "Error loading all tagsets"}')
 
-    def get_tagset(self, tagset_id):
+    def get_tagset_by_id(self, tagset_id):
         try:
-            get_tagset_request = MADS_pb2.GetTagSetRequest(id=tagset_id)
-            response = self.grpc_stub.getTagSet(get_tagset_request)
+            get_tagset_request = MADS_pb2.GetTagSetRequestById(id=tagset_id)
+            response = self.grpc_stub.getTagSetById(get_tagset_request)
+            return json.loads(MessageToJson(response.tagset))
+        except:
+            return json.loads('{"Error": "Error loading tagset"}')
+
+    def get_tagset_by_name(self, tagset_name):
+        try:
+            get_tagset_request = MADS_pb2.GetTagSetRequestByName(name=tagset_name)
+            response = self.grpc_stub.getTagSetByName(get_tagset_request)
             return json.loads(MessageToJson(response.tagset))
         except:
             return json.loads('{"Error": "Error loading tagset"}')

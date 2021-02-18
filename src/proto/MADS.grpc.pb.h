@@ -61,12 +61,19 @@ class MADS_Service final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetsResponse>> PrepareAsyncgetTagSets(::grpc::ClientContext* context, const ::MADS::GetTagSetsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetsResponse>>(PrepareAsyncgetTagSetsRaw(context, request, cq));
     }
-    virtual ::grpc::Status getTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest& request, ::MADS::GetTagSetResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>> AsyncgetTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>>(AsyncgetTagSetRaw(context, request, cq));
+    virtual ::grpc::Status getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::MADS::GetTagSetResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>> AsyncgetTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>>(AsyncgetTagSetByIdRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>> PrepareAsyncgetTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>>(PrepareAsyncgetTagSetRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>> PrepareAsyncgetTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>>(PrepareAsyncgetTagSetByIdRaw(context, request, cq));
+    }
+    virtual ::grpc::Status getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::MADS::GetTagSetResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>> AsyncgetTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>>(AsyncgetTagSetByNameRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>> PrepareAsyncgetTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>>(PrepareAsyncgetTagSetByNameRaw(context, request, cq));
     }
     virtual ::grpc::Status createTagSet(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest& request, ::MADS::CreateTagSetResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MADS::CreateTagSetResponse>> AsynccreateTagSet(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest& request, ::grpc::CompletionQueue* cq) {
@@ -157,11 +164,17 @@ class MADS_Service final {
       #else
       virtual void getTagSets(::grpc::ClientContext* context, const ::MADS::GetTagSetsRequest* request, ::MADS::GetTagSetsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
-      virtual void getTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest* request, ::MADS::GetTagSetResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById* request, ::MADS::GetTagSetResponse* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void getTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest* request, ::MADS::GetTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById* request, ::MADS::GetTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void getTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest* request, ::MADS::GetTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById* request, ::MADS::GetTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName* request, ::MADS::GetTagSetResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName* request, ::MADS::GetTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName* request, ::MADS::GetTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       virtual void createTagSet(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest* request, ::MADS::CreateTagSetResponse* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -235,8 +248,10 @@ class MADS_Service final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::MADS::CreateObjectResponse>* PrepareAsynccreateObjectRaw(::grpc::ClientContext* context, const ::MADS::CreateObjectRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetsResponse>* AsyncgetTagSetsRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetsResponse>* PrepareAsyncgetTagSetsRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetsRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>* AsyncgetTagSetRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>* PrepareAsyncgetTagSetRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>* AsyncgetTagSetByIdRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>* PrepareAsyncgetTagSetByIdRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>* AsyncgetTagSetByNameRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagSetResponse>* PrepareAsyncgetTagSetByNameRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::MADS::CreateTagSetResponse>* AsynccreateTagSetRaw(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::MADS::CreateTagSetResponse>* PrepareAsynccreateTagSetRaw(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::MADS::GetTagsResponse>* AsyncgetTagsRaw(::grpc::ClientContext* context, const ::MADS::GetTagsRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -280,12 +295,19 @@ class MADS_Service final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetsResponse>> PrepareAsyncgetTagSets(::grpc::ClientContext* context, const ::MADS::GetTagSetsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetsResponse>>(PrepareAsyncgetTagSetsRaw(context, request, cq));
     }
-    ::grpc::Status getTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest& request, ::MADS::GetTagSetResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>> AsyncgetTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>>(AsyncgetTagSetRaw(context, request, cq));
+    ::grpc::Status getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::MADS::GetTagSetResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>> AsyncgetTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>>(AsyncgetTagSetByIdRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>> PrepareAsyncgetTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>>(PrepareAsyncgetTagSetRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>> PrepareAsyncgetTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>>(PrepareAsyncgetTagSetByIdRaw(context, request, cq));
+    }
+    ::grpc::Status getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::MADS::GetTagSetResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>> AsyncgetTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>>(AsyncgetTagSetByNameRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>> PrepareAsyncgetTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>>(PrepareAsyncgetTagSetByNameRaw(context, request, cq));
     }
     ::grpc::Status createTagSet(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest& request, ::MADS::CreateTagSetResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MADS::CreateTagSetResponse>> AsynccreateTagSet(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest& request, ::grpc::CompletionQueue* cq) {
@@ -371,11 +393,17 @@ class MADS_Service final {
       #else
       void getTagSets(::grpc::ClientContext* context, const ::MADS::GetTagSetsRequest* request, ::MADS::GetTagSetsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void getTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest* request, ::MADS::GetTagSetResponse* response, std::function<void(::grpc::Status)>) override;
+      void getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById* request, ::MADS::GetTagSetResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void getTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest* request, ::MADS::GetTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById* request, ::MADS::GetTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void getTagSet(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest* request, ::MADS::GetTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById* request, ::MADS::GetTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName* request, ::MADS::GetTagSetResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName* request, ::MADS::GetTagSetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName* request, ::MADS::GetTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       void createTagSet(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest* request, ::MADS::CreateTagSetResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -448,8 +476,10 @@ class MADS_Service final {
     ::grpc::ClientAsyncResponseReader< ::MADS::CreateObjectResponse>* PrepareAsynccreateObjectRaw(::grpc::ClientContext* context, const ::MADS::CreateObjectRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetsResponse>* AsyncgetTagSetsRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetsResponse>* PrepareAsyncgetTagSetsRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetsRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* AsyncgetTagSetRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* PrepareAsyncgetTagSetRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* AsyncgetTagSetByIdRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* PrepareAsyncgetTagSetByIdRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* AsyncgetTagSetByNameRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* PrepareAsyncgetTagSetByNameRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::MADS::CreateTagSetResponse>* AsynccreateTagSetRaw(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::MADS::CreateTagSetResponse>* PrepareAsynccreateTagSetRaw(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::MADS::GetTagsResponse>* AsyncgetTagsRaw(::grpc::ClientContext* context, const ::MADS::GetTagsRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -471,7 +501,8 @@ class MADS_Service final {
     const ::grpc::internal::RpcMethod rpcmethod_getObject_;
     const ::grpc::internal::RpcMethod rpcmethod_createObject_;
     const ::grpc::internal::RpcMethod rpcmethod_getTagSets_;
-    const ::grpc::internal::RpcMethod rpcmethod_getTagSet_;
+    const ::grpc::internal::RpcMethod rpcmethod_getTagSetById_;
+    const ::grpc::internal::RpcMethod rpcmethod_getTagSetByName_;
     const ::grpc::internal::RpcMethod rpcmethod_createTagSet_;
     const ::grpc::internal::RpcMethod rpcmethod_getTags_;
     const ::grpc::internal::RpcMethod rpcmethod_getTag_;
@@ -493,7 +524,8 @@ class MADS_Service final {
     virtual ::grpc::Status createObject(::grpc::ServerContext* context, const ::MADS::CreateObjectRequest* request, ::MADS::CreateObjectResponse* response);
     // TagSet
     virtual ::grpc::Status getTagSets(::grpc::ServerContext* context, const ::MADS::GetTagSetsRequest* request, ::MADS::GetTagSetsResponse* response);
-    virtual ::grpc::Status getTagSet(::grpc::ServerContext* context, const ::MADS::GetTagSetRequest* request, ::MADS::GetTagSetResponse* response);
+    virtual ::grpc::Status getTagSetById(::grpc::ServerContext* context, const ::MADS::GetTagSetRequestById* request, ::MADS::GetTagSetResponse* response);
+    virtual ::grpc::Status getTagSetByName(::grpc::ServerContext* context, const ::MADS::GetTagSetRequestByName* request, ::MADS::GetTagSetResponse* response);
     virtual ::grpc::Status createTagSet(::grpc::ServerContext* context, const ::MADS::CreateTagSetRequest* request, ::MADS::CreateTagSetResponse* response);
     // Tag
     virtual ::grpc::Status getTags(::grpc::ServerContext* context, const ::MADS::GetTagsRequest* request, ::MADS::GetTagsResponse* response);
@@ -568,23 +600,43 @@ class MADS_Service final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_getTagSet : public BaseClass {
+  class WithAsyncMethod_getTagSetById : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_getTagSet() {
+    WithAsyncMethod_getTagSetById() {
       ::grpc::Service::MarkMethodAsync(3);
     }
-    ~WithAsyncMethod_getTagSet() override {
+    ~WithAsyncMethod_getTagSetById() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status getTagSet(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequest* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
+    ::grpc::Status getTagSetById(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequestById* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestgetTagSet(::grpc::ServerContext* context, ::MADS::GetTagSetRequest* request, ::grpc::ServerAsyncResponseWriter< ::MADS::GetTagSetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestgetTagSetById(::grpc::ServerContext* context, ::MADS::GetTagSetRequestById* request, ::grpc::ServerAsyncResponseWriter< ::MADS::GetTagSetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_getTagSetByName : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_getTagSetByName() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_getTagSetByName() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status getTagSetByName(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequestByName* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestgetTagSetByName(::grpc::ServerContext* context, ::MADS::GetTagSetRequestByName* request, ::grpc::ServerAsyncResponseWriter< ::MADS::GetTagSetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -593,7 +645,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_createTagSet() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(5);
     }
     ~WithAsyncMethod_createTagSet() override {
       BaseClassMustBeDerivedFromService(this);
@@ -604,7 +656,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestcreateTagSet(::grpc::ServerContext* context, ::MADS::CreateTagSetRequest* request, ::grpc::ServerAsyncResponseWriter< ::MADS::CreateTagSetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -613,7 +665,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_getTags() {
-      ::grpc::Service::MarkMethodAsync(5);
+      ::grpc::Service::MarkMethodAsync(6);
     }
     ~WithAsyncMethod_getTags() override {
       BaseClassMustBeDerivedFromService(this);
@@ -624,7 +676,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestgetTags(::grpc::ServerContext* context, ::MADS::GetTagsRequest* request, ::grpc::ServerAsyncResponseWriter< ::MADS::GetTagsResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -633,7 +685,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_getTag() {
-      ::grpc::Service::MarkMethodAsync(6);
+      ::grpc::Service::MarkMethodAsync(7);
     }
     ~WithAsyncMethod_getTag() override {
       BaseClassMustBeDerivedFromService(this);
@@ -644,7 +696,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestgetTag(::grpc::ServerContext* context, ::MADS::GetTagRequest* request, ::grpc::ServerAsyncResponseWriter< ::MADS::GetTagResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -653,7 +705,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_createOrGetTag() {
-      ::grpc::Service::MarkMethodAsync(7);
+      ::grpc::Service::MarkMethodAsync(8);
     }
     ~WithAsyncMethod_createOrGetTag() override {
       BaseClassMustBeDerivedFromService(this);
@@ -664,7 +716,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestcreateOrGetTag(::grpc::ServerContext* context, ::MADS::CreateTagRequest* request, ::grpc::ServerAsyncResponseWriter< ::MADS::CreateTagResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -673,7 +725,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_getTaggings() {
-      ::grpc::Service::MarkMethodAsync(8);
+      ::grpc::Service::MarkMethodAsync(9);
     }
     ~WithAsyncMethod_getTaggings() override {
       BaseClassMustBeDerivedFromService(this);
@@ -684,7 +736,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestgetTaggings(::grpc::ServerContext* context, ::MADS::GetTaggingsRequest* request, ::grpc::ServerAsyncResponseWriter< ::MADS::GetTaggingsResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -693,7 +745,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_getTagging() {
-      ::grpc::Service::MarkMethodAsync(9);
+      ::grpc::Service::MarkMethodAsync(10);
     }
     ~WithAsyncMethod_getTagging() override {
       BaseClassMustBeDerivedFromService(this);
@@ -704,7 +756,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestgetTagging(::grpc::ServerContext* context, ::MADS::GetTaggingRequest* request, ::grpc::ServerAsyncResponseWriter< ::MADS::GetTaggingResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -713,7 +765,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_createTagging() {
-      ::grpc::Service::MarkMethodAsync(10);
+      ::grpc::Service::MarkMethodAsync(11);
     }
     ~WithAsyncMethod_createTagging() override {
       BaseClassMustBeDerivedFromService(this);
@@ -724,7 +776,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestcreateTagging(::grpc::ServerContext* context, ::MADS::CreateTaggingRequest* request, ::grpc::ServerAsyncResponseWriter< ::MADS::CreateTaggingResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -733,7 +785,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_reConnectDB() {
-      ::grpc::Service::MarkMethodAsync(11);
+      ::grpc::Service::MarkMethodAsync(12);
     }
     ~WithAsyncMethod_reConnectDB() override {
       BaseClassMustBeDerivedFromService(this);
@@ -744,7 +796,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestreConnectDB(::grpc::ServerContext* context, ::MADS::Empty* request, ::grpc::ServerAsyncResponseWriter< ::MADS::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -753,7 +805,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_stopService() {
-      ::grpc::Service::MarkMethodAsync(12);
+      ::grpc::Service::MarkMethodAsync(13);
     }
     ~WithAsyncMethod_stopService() override {
       BaseClassMustBeDerivedFromService(this);
@@ -764,10 +816,10 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequeststopService(::grpc::ServerContext* context, ::MADS::Empty* request, ::grpc::ServerAsyncResponseWriter< ::MADS::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_getObject<WithAsyncMethod_createObject<WithAsyncMethod_getTagSets<WithAsyncMethod_getTagSet<WithAsyncMethod_createTagSet<WithAsyncMethod_getTags<WithAsyncMethod_getTag<WithAsyncMethod_createOrGetTag<WithAsyncMethod_getTaggings<WithAsyncMethod_getTagging<WithAsyncMethod_createTagging<WithAsyncMethod_reConnectDB<WithAsyncMethod_stopService<Service > > > > > > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_getObject<WithAsyncMethod_createObject<WithAsyncMethod_getTagSets<WithAsyncMethod_getTagSetById<WithAsyncMethod_getTagSetByName<WithAsyncMethod_createTagSet<WithAsyncMethod_getTags<WithAsyncMethod_getTag<WithAsyncMethod_createOrGetTag<WithAsyncMethod_getTaggings<WithAsyncMethod_getTagging<WithAsyncMethod_createTagging<WithAsyncMethod_reConnectDB<WithAsyncMethod_stopService<Service > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_getObject : public BaseClass {
    private:
@@ -910,49 +962,96 @@ class MADS_Service final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_getTagSet : public BaseClass {
+  class ExperimentalWithCallbackMethod_getTagSetById : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_getTagSet() {
+    ExperimentalWithCallbackMethod_getTagSetById() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(3,
-          new ::grpc::internal::CallbackUnaryHandler< ::MADS::GetTagSetRequest, ::MADS::GetTagSetResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::MADS::GetTagSetRequestById, ::MADS::GetTagSetResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::MADS::GetTagSetRequest* request, ::MADS::GetTagSetResponse* response) { return this->getTagSet(context, request, response); }));}
-    void SetMessageAllocatorFor_getTagSet(
-        ::grpc::experimental::MessageAllocator< ::MADS::GetTagSetRequest, ::MADS::GetTagSetResponse>* allocator) {
+                     context, const ::MADS::GetTagSetRequestById* request, ::MADS::GetTagSetResponse* response) { return this->getTagSetById(context, request, response); }));}
+    void SetMessageAllocatorFor_getTagSetById(
+        ::grpc::experimental::MessageAllocator< ::MADS::GetTagSetRequestById, ::MADS::GetTagSetResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::MADS::GetTagSetRequest, ::MADS::GetTagSetResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::MADS::GetTagSetRequestById, ::MADS::GetTagSetResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_getTagSet() override {
+    ~ExperimentalWithCallbackMethod_getTagSetById() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status getTagSet(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequest* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
+    ::grpc::Status getTagSetById(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequestById* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* getTagSet(
-      ::grpc::CallbackServerContext* /*context*/, const ::MADS::GetTagSetRequest* /*request*/, ::MADS::GetTagSetResponse* /*response*/)
+    virtual ::grpc::ServerUnaryReactor* getTagSetById(
+      ::grpc::CallbackServerContext* /*context*/, const ::MADS::GetTagSetRequestById* /*request*/, ::MADS::GetTagSetResponse* /*response*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* getTagSet(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::MADS::GetTagSetRequest* /*request*/, ::MADS::GetTagSetResponse* /*response*/)
+    virtual ::grpc::experimental::ServerUnaryReactor* getTagSetById(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::MADS::GetTagSetRequestById* /*request*/, ::MADS::GetTagSetResponse* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_getTagSetByName : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_getTagSetByName() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::MADS::GetTagSetRequestByName, ::MADS::GetTagSetResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::MADS::GetTagSetRequestByName* request, ::MADS::GetTagSetResponse* response) { return this->getTagSetByName(context, request, response); }));}
+    void SetMessageAllocatorFor_getTagSetByName(
+        ::grpc::experimental::MessageAllocator< ::MADS::GetTagSetRequestByName, ::MADS::GetTagSetResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::MADS::GetTagSetRequestByName, ::MADS::GetTagSetResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_getTagSetByName() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status getTagSetByName(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequestByName* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* getTagSetByName(
+      ::grpc::CallbackServerContext* /*context*/, const ::MADS::GetTagSetRequestByName* /*request*/, ::MADS::GetTagSetResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* getTagSetByName(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::MADS::GetTagSetRequestByName* /*request*/, ::MADS::GetTagSetResponse* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -967,7 +1066,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(4,
+        MarkMethodCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::MADS::CreateTagSetRequest, ::MADS::CreateTagSetResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -979,9 +1078,9 @@ class MADS_Service final {
     void SetMessageAllocatorFor_createTagSet(
         ::grpc::experimental::MessageAllocator< ::MADS::CreateTagSetRequest, ::MADS::CreateTagSetResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::MADS::CreateTagSetRequest, ::MADS::CreateTagSetResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1014,7 +1113,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(5,
+        MarkMethodCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::MADS::GetTagsRequest, ::MADS::GetTagsResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1026,9 +1125,9 @@ class MADS_Service final {
     void SetMessageAllocatorFor_getTags(
         ::grpc::experimental::MessageAllocator< ::MADS::GetTagsRequest, ::MADS::GetTagsResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::MADS::GetTagsRequest, ::MADS::GetTagsResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1061,7 +1160,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(6,
+        MarkMethodCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::MADS::GetTagRequest, ::MADS::GetTagResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1073,9 +1172,9 @@ class MADS_Service final {
     void SetMessageAllocatorFor_getTag(
         ::grpc::experimental::MessageAllocator< ::MADS::GetTagRequest, ::MADS::GetTagResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(7);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::MADS::GetTagRequest, ::MADS::GetTagResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1108,7 +1207,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(7,
+        MarkMethodCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::MADS::CreateTagRequest, ::MADS::CreateTagResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1120,9 +1219,9 @@ class MADS_Service final {
     void SetMessageAllocatorFor_createOrGetTag(
         ::grpc::experimental::MessageAllocator< ::MADS::CreateTagRequest, ::MADS::CreateTagResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(7);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(8);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::MADS::CreateTagRequest, ::MADS::CreateTagResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1155,7 +1254,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(8,
+        MarkMethodCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::MADS::GetTaggingsRequest, ::MADS::GetTaggingsResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1167,9 +1266,9 @@ class MADS_Service final {
     void SetMessageAllocatorFor_getTaggings(
         ::grpc::experimental::MessageAllocator< ::MADS::GetTaggingsRequest, ::MADS::GetTaggingsResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(8);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(9);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::MADS::GetTaggingsRequest, ::MADS::GetTaggingsResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1202,7 +1301,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(9,
+        MarkMethodCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::MADS::GetTaggingRequest, ::MADS::GetTaggingResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1214,9 +1313,9 @@ class MADS_Service final {
     void SetMessageAllocatorFor_getTagging(
         ::grpc::experimental::MessageAllocator< ::MADS::GetTaggingRequest, ::MADS::GetTaggingResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(9);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::MADS::GetTaggingRequest, ::MADS::GetTaggingResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1249,7 +1348,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(10,
+        MarkMethodCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::MADS::CreateTaggingRequest, ::MADS::CreateTaggingResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1261,9 +1360,9 @@ class MADS_Service final {
     void SetMessageAllocatorFor_createTagging(
         ::grpc::experimental::MessageAllocator< ::MADS::CreateTaggingRequest, ::MADS::CreateTaggingResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(11);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::MADS::CreateTaggingRequest, ::MADS::CreateTaggingResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1296,7 +1395,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(11,
+        MarkMethodCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::MADS::Empty, ::MADS::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1308,9 +1407,9 @@ class MADS_Service final {
     void SetMessageAllocatorFor_reConnectDB(
         ::grpc::experimental::MessageAllocator< ::MADS::Empty, ::MADS::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(11);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(12);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::MADS::Empty, ::MADS::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1343,7 +1442,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(12,
+        MarkMethodCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::MADS::Empty, ::MADS::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1355,9 +1454,9 @@ class MADS_Service final {
     void SetMessageAllocatorFor_stopService(
         ::grpc::experimental::MessageAllocator< ::MADS::Empty, ::MADS::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(12);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(13);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::MADS::Empty, ::MADS::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1380,10 +1479,10 @@ class MADS_Service final {
       { return nullptr; }
   };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_getObject<ExperimentalWithCallbackMethod_createObject<ExperimentalWithCallbackMethod_getTagSets<ExperimentalWithCallbackMethod_getTagSet<ExperimentalWithCallbackMethod_createTagSet<ExperimentalWithCallbackMethod_getTags<ExperimentalWithCallbackMethod_getTag<ExperimentalWithCallbackMethod_createOrGetTag<ExperimentalWithCallbackMethod_getTaggings<ExperimentalWithCallbackMethod_getTagging<ExperimentalWithCallbackMethod_createTagging<ExperimentalWithCallbackMethod_reConnectDB<ExperimentalWithCallbackMethod_stopService<Service > > > > > > > > > > > > > CallbackService;
+  typedef ExperimentalWithCallbackMethod_getObject<ExperimentalWithCallbackMethod_createObject<ExperimentalWithCallbackMethod_getTagSets<ExperimentalWithCallbackMethod_getTagSetById<ExperimentalWithCallbackMethod_getTagSetByName<ExperimentalWithCallbackMethod_createTagSet<ExperimentalWithCallbackMethod_getTags<ExperimentalWithCallbackMethod_getTag<ExperimentalWithCallbackMethod_createOrGetTag<ExperimentalWithCallbackMethod_getTaggings<ExperimentalWithCallbackMethod_getTagging<ExperimentalWithCallbackMethod_createTagging<ExperimentalWithCallbackMethod_reConnectDB<ExperimentalWithCallbackMethod_stopService<Service > > > > > > > > > > > > > > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_getObject<ExperimentalWithCallbackMethod_createObject<ExperimentalWithCallbackMethod_getTagSets<ExperimentalWithCallbackMethod_getTagSet<ExperimentalWithCallbackMethod_createTagSet<ExperimentalWithCallbackMethod_getTags<ExperimentalWithCallbackMethod_getTag<ExperimentalWithCallbackMethod_createOrGetTag<ExperimentalWithCallbackMethod_getTaggings<ExperimentalWithCallbackMethod_getTagging<ExperimentalWithCallbackMethod_createTagging<ExperimentalWithCallbackMethod_reConnectDB<ExperimentalWithCallbackMethod_stopService<Service > > > > > > > > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_getObject<ExperimentalWithCallbackMethod_createObject<ExperimentalWithCallbackMethod_getTagSets<ExperimentalWithCallbackMethod_getTagSetById<ExperimentalWithCallbackMethod_getTagSetByName<ExperimentalWithCallbackMethod_createTagSet<ExperimentalWithCallbackMethod_getTags<ExperimentalWithCallbackMethod_getTag<ExperimentalWithCallbackMethod_createOrGetTag<ExperimentalWithCallbackMethod_getTaggings<ExperimentalWithCallbackMethod_getTagging<ExperimentalWithCallbackMethod_createTagging<ExperimentalWithCallbackMethod_reConnectDB<ExperimentalWithCallbackMethod_stopService<Service > > > > > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_getObject : public BaseClass {
    private:
@@ -1436,18 +1535,35 @@ class MADS_Service final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_getTagSet : public BaseClass {
+  class WithGenericMethod_getTagSetById : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_getTagSet() {
+    WithGenericMethod_getTagSetById() {
       ::grpc::Service::MarkMethodGeneric(3);
     }
-    ~WithGenericMethod_getTagSet() override {
+    ~WithGenericMethod_getTagSetById() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status getTagSet(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequest* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
+    ::grpc::Status getTagSetById(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequestById* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_getTagSetByName : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_getTagSetByName() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_getTagSetByName() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status getTagSetByName(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequestByName* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1458,7 +1574,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_createTagSet() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(5);
     }
     ~WithGenericMethod_createTagSet() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1475,7 +1591,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_getTags() {
-      ::grpc::Service::MarkMethodGeneric(5);
+      ::grpc::Service::MarkMethodGeneric(6);
     }
     ~WithGenericMethod_getTags() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1492,7 +1608,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_getTag() {
-      ::grpc::Service::MarkMethodGeneric(6);
+      ::grpc::Service::MarkMethodGeneric(7);
     }
     ~WithGenericMethod_getTag() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1509,7 +1625,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_createOrGetTag() {
-      ::grpc::Service::MarkMethodGeneric(7);
+      ::grpc::Service::MarkMethodGeneric(8);
     }
     ~WithGenericMethod_createOrGetTag() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1526,7 +1642,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_getTaggings() {
-      ::grpc::Service::MarkMethodGeneric(8);
+      ::grpc::Service::MarkMethodGeneric(9);
     }
     ~WithGenericMethod_getTaggings() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1543,7 +1659,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_getTagging() {
-      ::grpc::Service::MarkMethodGeneric(9);
+      ::grpc::Service::MarkMethodGeneric(10);
     }
     ~WithGenericMethod_getTagging() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1560,7 +1676,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_createTagging() {
-      ::grpc::Service::MarkMethodGeneric(10);
+      ::grpc::Service::MarkMethodGeneric(11);
     }
     ~WithGenericMethod_createTagging() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1577,7 +1693,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_reConnectDB() {
-      ::grpc::Service::MarkMethodGeneric(11);
+      ::grpc::Service::MarkMethodGeneric(12);
     }
     ~WithGenericMethod_reConnectDB() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1594,7 +1710,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_stopService() {
-      ::grpc::Service::MarkMethodGeneric(12);
+      ::grpc::Service::MarkMethodGeneric(13);
     }
     ~WithGenericMethod_stopService() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1666,23 +1782,43 @@ class MADS_Service final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_getTagSet : public BaseClass {
+  class WithRawMethod_getTagSetById : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_getTagSet() {
+    WithRawMethod_getTagSetById() {
       ::grpc::Service::MarkMethodRaw(3);
     }
-    ~WithRawMethod_getTagSet() override {
+    ~WithRawMethod_getTagSetById() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status getTagSet(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequest* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
+    ::grpc::Status getTagSetById(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequestById* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestgetTagSet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestgetTagSetById(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_getTagSetByName : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_getTagSetByName() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_getTagSetByName() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status getTagSetByName(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequestByName* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestgetTagSetByName(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1691,7 +1827,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_createTagSet() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(5);
     }
     ~WithRawMethod_createTagSet() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1702,7 +1838,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestcreateTagSet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1711,7 +1847,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_getTags() {
-      ::grpc::Service::MarkMethodRaw(5);
+      ::grpc::Service::MarkMethodRaw(6);
     }
     ~WithRawMethod_getTags() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1722,7 +1858,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestgetTags(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1731,7 +1867,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_getTag() {
-      ::grpc::Service::MarkMethodRaw(6);
+      ::grpc::Service::MarkMethodRaw(7);
     }
     ~WithRawMethod_getTag() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1742,7 +1878,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestgetTag(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1751,7 +1887,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_createOrGetTag() {
-      ::grpc::Service::MarkMethodRaw(7);
+      ::grpc::Service::MarkMethodRaw(8);
     }
     ~WithRawMethod_createOrGetTag() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1762,7 +1898,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestcreateOrGetTag(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1771,7 +1907,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_getTaggings() {
-      ::grpc::Service::MarkMethodRaw(8);
+      ::grpc::Service::MarkMethodRaw(9);
     }
     ~WithRawMethod_getTaggings() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1782,7 +1918,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestgetTaggings(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1791,7 +1927,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_getTagging() {
-      ::grpc::Service::MarkMethodRaw(9);
+      ::grpc::Service::MarkMethodRaw(10);
     }
     ~WithRawMethod_getTagging() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1802,7 +1938,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestgetTagging(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1811,7 +1947,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_createTagging() {
-      ::grpc::Service::MarkMethodRaw(10);
+      ::grpc::Service::MarkMethodRaw(11);
     }
     ~WithRawMethod_createTagging() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1822,7 +1958,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestcreateTagging(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1831,7 +1967,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_reConnectDB() {
-      ::grpc::Service::MarkMethodRaw(11);
+      ::grpc::Service::MarkMethodRaw(12);
     }
     ~WithRawMethod_reConnectDB() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1842,7 +1978,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestreConnectDB(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1851,7 +1987,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_stopService() {
-      ::grpc::Service::MarkMethodRaw(12);
+      ::grpc::Service::MarkMethodRaw(13);
     }
     ~WithRawMethod_stopService() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1862,7 +1998,7 @@ class MADS_Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequeststopService(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1980,11 +2116,11 @@ class MADS_Service final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_getTagSet : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_getTagSetById : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_getTagSet() {
+    ExperimentalWithRawCallbackMethod_getTagSetById() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
@@ -1998,21 +2134,59 @@ class MADS_Service final {
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->getTagSet(context, request, response); }));
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->getTagSetById(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_getTagSet() override {
+    ~ExperimentalWithRawCallbackMethod_getTagSetById() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status getTagSet(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequest* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
+    ::grpc::Status getTagSetById(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequestById* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* getTagSet(
+    virtual ::grpc::ServerUnaryReactor* getTagSetById(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* getTagSet(
+    virtual ::grpc::experimental::ServerUnaryReactor* getTagSetById(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_getTagSetByName : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_getTagSetByName() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->getTagSetByName(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_getTagSetByName() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status getTagSetByName(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequestByName* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* getTagSetByName(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* getTagSetByName(
       ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #endif
       { return nullptr; }
@@ -2028,7 +2202,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(4,
+        MarkMethodRawCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2066,7 +2240,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(5,
+        MarkMethodRawCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2104,7 +2278,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(6,
+        MarkMethodRawCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2142,7 +2316,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(7,
+        MarkMethodRawCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2180,7 +2354,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(8,
+        MarkMethodRawCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2218,7 +2392,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(9,
+        MarkMethodRawCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2256,7 +2430,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(10,
+        MarkMethodRawCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2294,7 +2468,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(11,
+        MarkMethodRawCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2332,7 +2506,7 @@ class MADS_Service final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(12,
+        MarkMethodRawCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2441,31 +2615,58 @@ class MADS_Service final {
     virtual ::grpc::Status StreamedgetTagSets(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::MADS::GetTagSetsRequest,::MADS::GetTagSetsResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_getTagSet : public BaseClass {
+  class WithStreamedUnaryMethod_getTagSetById : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_getTagSet() {
+    WithStreamedUnaryMethod_getTagSetById() {
       ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::MADS::GetTagSetRequest, ::MADS::GetTagSetResponse>(
+          ::MADS::GetTagSetRequestById, ::MADS::GetTagSetResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::MADS::GetTagSetRequest, ::MADS::GetTagSetResponse>* streamer) {
-                       return this->StreamedgetTagSet(context,
+                     ::MADS::GetTagSetRequestById, ::MADS::GetTagSetResponse>* streamer) {
+                       return this->StreamedgetTagSetById(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_getTagSet() override {
+    ~WithStreamedUnaryMethod_getTagSetById() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status getTagSet(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequest* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
+    ::grpc::Status getTagSetById(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequestById* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedgetTagSet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::MADS::GetTagSetRequest,::MADS::GetTagSetResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedgetTagSetById(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::MADS::GetTagSetRequestById,::MADS::GetTagSetResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_getTagSetByName : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_getTagSetByName() {
+      ::grpc::Service::MarkMethodStreamed(4,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::MADS::GetTagSetRequestByName, ::MADS::GetTagSetResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::MADS::GetTagSetRequestByName, ::MADS::GetTagSetResponse>* streamer) {
+                       return this->StreamedgetTagSetByName(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_getTagSetByName() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status getTagSetByName(::grpc::ServerContext* /*context*/, const ::MADS::GetTagSetRequestByName* /*request*/, ::MADS::GetTagSetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedgetTagSetByName(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::MADS::GetTagSetRequestByName,::MADS::GetTagSetResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_createTagSet : public BaseClass {
@@ -2473,7 +2674,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_createTagSet() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler<
           ::MADS::CreateTagSetRequest, ::MADS::CreateTagSetResponse>(
             [this](::grpc::ServerContext* context,
@@ -2500,7 +2701,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_getTags() {
-      ::grpc::Service::MarkMethodStreamed(5,
+      ::grpc::Service::MarkMethodStreamed(6,
         new ::grpc::internal::StreamedUnaryHandler<
           ::MADS::GetTagsRequest, ::MADS::GetTagsResponse>(
             [this](::grpc::ServerContext* context,
@@ -2527,7 +2728,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_getTag() {
-      ::grpc::Service::MarkMethodStreamed(6,
+      ::grpc::Service::MarkMethodStreamed(7,
         new ::grpc::internal::StreamedUnaryHandler<
           ::MADS::GetTagRequest, ::MADS::GetTagResponse>(
             [this](::grpc::ServerContext* context,
@@ -2554,7 +2755,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_createOrGetTag() {
-      ::grpc::Service::MarkMethodStreamed(7,
+      ::grpc::Service::MarkMethodStreamed(8,
         new ::grpc::internal::StreamedUnaryHandler<
           ::MADS::CreateTagRequest, ::MADS::CreateTagResponse>(
             [this](::grpc::ServerContext* context,
@@ -2581,7 +2782,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_getTaggings() {
-      ::grpc::Service::MarkMethodStreamed(8,
+      ::grpc::Service::MarkMethodStreamed(9,
         new ::grpc::internal::StreamedUnaryHandler<
           ::MADS::GetTaggingsRequest, ::MADS::GetTaggingsResponse>(
             [this](::grpc::ServerContext* context,
@@ -2608,7 +2809,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_getTagging() {
-      ::grpc::Service::MarkMethodStreamed(9,
+      ::grpc::Service::MarkMethodStreamed(10,
         new ::grpc::internal::StreamedUnaryHandler<
           ::MADS::GetTaggingRequest, ::MADS::GetTaggingResponse>(
             [this](::grpc::ServerContext* context,
@@ -2635,7 +2836,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_createTagging() {
-      ::grpc::Service::MarkMethodStreamed(10,
+      ::grpc::Service::MarkMethodStreamed(11,
         new ::grpc::internal::StreamedUnaryHandler<
           ::MADS::CreateTaggingRequest, ::MADS::CreateTaggingResponse>(
             [this](::grpc::ServerContext* context,
@@ -2662,7 +2863,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_reConnectDB() {
-      ::grpc::Service::MarkMethodStreamed(11,
+      ::grpc::Service::MarkMethodStreamed(12,
         new ::grpc::internal::StreamedUnaryHandler<
           ::MADS::Empty, ::MADS::Empty>(
             [this](::grpc::ServerContext* context,
@@ -2689,7 +2890,7 @@ class MADS_Service final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_stopService() {
-      ::grpc::Service::MarkMethodStreamed(12,
+      ::grpc::Service::MarkMethodStreamed(13,
         new ::grpc::internal::StreamedUnaryHandler<
           ::MADS::Empty, ::MADS::Empty>(
             [this](::grpc::ServerContext* context,
@@ -2710,9 +2911,9 @@ class MADS_Service final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedstopService(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::MADS::Empty,::MADS::Empty>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_getObject<WithStreamedUnaryMethod_createObject<WithStreamedUnaryMethod_getTagSets<WithStreamedUnaryMethod_getTagSet<WithStreamedUnaryMethod_createTagSet<WithStreamedUnaryMethod_getTags<WithStreamedUnaryMethod_getTag<WithStreamedUnaryMethod_createOrGetTag<WithStreamedUnaryMethod_getTaggings<WithStreamedUnaryMethod_getTagging<WithStreamedUnaryMethod_createTagging<WithStreamedUnaryMethod_reConnectDB<WithStreamedUnaryMethod_stopService<Service > > > > > > > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_getObject<WithStreamedUnaryMethod_createObject<WithStreamedUnaryMethod_getTagSets<WithStreamedUnaryMethod_getTagSetById<WithStreamedUnaryMethod_getTagSetByName<WithStreamedUnaryMethod_createTagSet<WithStreamedUnaryMethod_getTags<WithStreamedUnaryMethod_getTag<WithStreamedUnaryMethod_createOrGetTag<WithStreamedUnaryMethod_getTaggings<WithStreamedUnaryMethod_getTagging<WithStreamedUnaryMethod_createTagging<WithStreamedUnaryMethod_reConnectDB<WithStreamedUnaryMethod_stopService<Service > > > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_getObject<WithStreamedUnaryMethod_createObject<WithStreamedUnaryMethod_getTagSets<WithStreamedUnaryMethod_getTagSet<WithStreamedUnaryMethod_createTagSet<WithStreamedUnaryMethod_getTags<WithStreamedUnaryMethod_getTag<WithStreamedUnaryMethod_createOrGetTag<WithStreamedUnaryMethod_getTaggings<WithStreamedUnaryMethod_getTagging<WithStreamedUnaryMethod_createTagging<WithStreamedUnaryMethod_reConnectDB<WithStreamedUnaryMethod_stopService<Service > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_getObject<WithStreamedUnaryMethod_createObject<WithStreamedUnaryMethod_getTagSets<WithStreamedUnaryMethod_getTagSetById<WithStreamedUnaryMethod_getTagSetByName<WithStreamedUnaryMethod_createTagSet<WithStreamedUnaryMethod_getTags<WithStreamedUnaryMethod_getTag<WithStreamedUnaryMethod_createOrGetTag<WithStreamedUnaryMethod_getTaggings<WithStreamedUnaryMethod_getTagging<WithStreamedUnaryMethod_createTagging<WithStreamedUnaryMethod_reConnectDB<WithStreamedUnaryMethod_stopService<Service > > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace MADS
