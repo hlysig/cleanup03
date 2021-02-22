@@ -14,7 +14,7 @@ class MADSClient:
 
     def get_tagsets(self):
         try:
-            get_tagsets_request = OC_pb2.Empty()
+            get_tagsets_request = OC_pb2.GetTagSetsRequest()
             response = self.grpc_stub.getTagSets(get_tagsets_request)
             return [json.loads(MessageToJson(x)) for x in response.tagsets]
         except:
@@ -30,7 +30,7 @@ class MADSClient:
 
     def get_tags(self):
         try:
-            get_tags_request = OC_pb2.Empty()
+            get_tags_request = OC_pb2.GetTagsRequest()
             response = self.grpc_stub.getTags(get_tags_request)
             return [json.loads(MessageToJson(x)) for x in response.tags]
         except:

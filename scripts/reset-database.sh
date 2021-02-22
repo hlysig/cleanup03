@@ -5,7 +5,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-PGPASSWORD=${MADS_PASS} dropdb -h ${MADS_HOST} -p ${MADS_PORT} -U ${MADS_USER} ${MADS_DB}
-PGPASSWORD=${MADS_PASS} createdb -h ${MADS_HOST} -p ${MADS_PORT} -U ${MADS_USER} ${MADS_DB}
+#PGPASSWORD=${MADS_PASS} dropdb -h ${MADS_HOST} -p ${MADS_PORT} -U ${MADS_USER} ${MADS_DB}
+#PGPASSWORD=${MADS_PASS} createdb -h ${MADS_HOST} -p ${MADS_PORT} -U ${MADS_USER} ${MADS_DB}
 PGPASSWORD=${MADS_PASS} psql -q -h ${MADS_HOST} -p ${MADS_PORT} -U ${MADS_USER} ${MADS_DB} < ${SCRIPT_DIR}/../database/schema.sql
 

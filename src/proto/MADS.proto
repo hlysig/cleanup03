@@ -1,0 +1,211 @@
+syntax = "proto3";
+
+package MADS;
+
+// Object
+
+message Object {
+  int64 id = 1;
+  string URI = 2;
+  string thumbnail = 3;
+  string fileType = 4;
+}
+
+message GetObjectRequest {
+  int64 id = 1;
+}
+
+message GetObjectResponse {
+  Object object = 1;
+}
+
+message CreateObjectRequest {
+  string URI = 1;
+  string fileType = 3;
+}
+
+message CreateObjectResponse {
+  Object object = 1;
+}
+
+// TagSet
+
+enum TagSetType {
+  TYPE_UNKNOWN = 0;
+  ALPHANUMERICAL = 1;
+  NUMERICAL = 2;
+  DATE = 3;
+  TIME = 4;
+  RGB = 5;
+}
+
+message TagSet {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  TagSetType type = 4;
+  int64 accessId = 5;
+}
+
+message GetTagSetsRequest {
+}
+
+message GetTagSetsResponse {
+  repeated TagSet tagsets = 1;
+}
+
+message GetTagSetRequestById {
+  int64 id = 1;
+}
+
+message GetTagSetRequestByName {
+  string name = 1;
+}
+
+message GetTagSetResponse {
+  TagSet tagset = 1;
+}
+
+message CreateTagSetRequest {
+  string name = 1;
+  string description = 2;
+  TagSetType type = 3;
+}
+
+message CreateTagSetResponse {
+  TagSet tagset = 1;
+}
+
+// Tag
+
+message AlphanumericalValue {
+  string value = 1;
+}
+
+message NumericalValue {
+  string value = 1;
+}
+
+message DateValue {
+  string value = 1;
+}
+
+message TimeValue {
+  string value = 1;
+}
+
+message RGBValue {
+  int64 red = 1;
+  int64 green = 2;
+  int64 blue = 3;
+}
+
+message Tag {
+	int64 id = 1;
+	int64 tagSetId = 2;
+	int64 typeId = 3;
+  oneof value {
+    AlphanumericalValue alphanumerical = 4;
+    NumericalValue numerical = 5;
+    DateValue date = 6;
+    TimeValue time = 7;
+    RGBValue rgb = 8;
+  }
+}
+
+message GetTagsRequest {
+}
+
+message GetTagsResponse {
+	repeated Tag tags = 1;
+}
+
+message GetTagRequest {
+	int64 id = 1;
+}
+
+message GetTagResponse {
+	Tag tag = 1;
+}
+
+message CreateTagRequest {
+  int64 tagSetId = 1;
+  oneof value {
+    AlphanumericalValue alphanumerical = 4;
+    NumericalValue numerical = 5;
+    DateValue date = 6;
+    TimeValue time = 7;
+    RGBValue rgb = 8;
+  }
+}
+
+message CreateTagResponse {
+  Tag tag = 1;
+}
+
+// Tagging
+
+message Tagging {
+  int64 tagId = 1;
+  int64 objectId = 2;
+}
+
+message GetTaggingsRequest {
+  int64 tagId = 1;
+}
+
+message GetTaggingsResponse {
+  repeated Tagging taggings = 1;
+}
+
+message GetTaggingRequest {
+  int64 tagId = 1;
+  int64 objectId = 2;  
+}
+
+message GetTaggingResponse {
+  Tagging tagging = 1;
+}
+
+message CreateTaggingRequest {
+  int64 tagId = 1;
+  int64 objectId = 2;
+}
+
+message CreateTaggingResponse {
+  Tagging tagging = 1;
+}
+
+// Empty (for control RPC calls)
+
+message Empty {
+}
+
+// Service
+
+service MADS_Service {
+
+  // Object
+	rpc getObject(GetObjectRequest) returns (GetObjectResponse) {};
+	rpc createObject(CreateObjectRequest) returns (CreateObjectResponse) {};
+
+  // TagSet
+  rpc getTagSets(GetTagSetsRequest) returns (GetTagSetsResponse) {};
+	rpc getTagSetById(GetTagSetRequestById) returns (GetTagSetResponse) {};
+	rpc getTagSetByName(GetTagSetRequestByName) returns (GetTagSetResponse) {};
+	rpc createTagSet(CreateTagSetRequest) returns (CreateTagSetResponse) {};
+
+  // Tag
+  rpc getTags(GetTagsRequest) returns (GetTagsResponse) {};
+	rpc getTag(GetTagRequest) returns (GetTagResponse) {};
+	rpc createOrGetTag(CreateTagRequest) returns (CreateTagResponse) {};
+
+  // Tagging
+  rpc getTaggings(GetTaggingsRequest) returns (GetTaggingsResponse) {};
+  rpc getTagging(GetTaggingRequest) returns (GetTaggingResponse) {};
+  rpc createTagging(CreateTaggingRequest) returns (CreateTaggingResponse) {};
+
+	// Control RPC calls
+	rpc reConnectDB(Empty) returns (Empty) {};
+	rpc stopService(Empty) returns (Empty) {};
+}

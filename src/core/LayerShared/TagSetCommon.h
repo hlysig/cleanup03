@@ -12,14 +12,13 @@
 
 namespace ObjectCube
 {
-	
+
 	class TagSetCommon
 	{
 	public:
 		TagSetCommon() {;}
 		virtual ~TagSetCommon() {;}
-		
-		
+
 		enum TYPE
 		{
 			TYPE_UNKOWN = 0,
@@ -29,16 +28,16 @@ namespace ObjectCube
 			TIME = 4,
 			RGB = 5
 		};
-		
+
 		enum ACCESS_TYPE
 		{
 			ACCESS_TYPE_UNKNOWN = 0,
 			SYSTEM = 1,
 			USER = 2
 		};
-		
+
 	};
-	
+
 }
 
 #endif

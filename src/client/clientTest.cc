@@ -3,17 +3,17 @@
 #include <string>
 
 #include <grpcpp/grpcpp.h>
-#include "OC.grpc.pb.h"
+#include "MADS.grpc.pb.h"
 
 using grpc::Channel;
 using grpc::ClientContext;
 using grpc::Status;
-using OC::OCService;
+using MADS::MADS_Service;
 
-class OCTestClient {
+class MADSTestClient {
 public:
-  OCTestClient(std::shared_ptr<Channel> channel)
-    : stub_(OCService::NewStub(channel)) {}
+  MADSTestClient(std::shared_ptr<Channel> channel)
+    : stub_(MADS_Service::NewStub(channel)) {}
 
   void runCommands() {
     Status status;
@@ -24,9 +24,9 @@ public:
 
     while (std::cin >> input) {
       if (input == "tagsets") {
-        OC::GetTagSetsRequest request; 
+        MADS::GetTagSetsRequest request; 
 
-        OC::GetTagSetsResponse *reply = new OC::GetTagSetsResponse();
+        MADS::GetTagSetsResponse *reply = new MADS::GetTagSetsResponse();
 
         ClientContext context;
         status = stub_->getTagSets(&context, request, reply);
@@ -34,8 +34,12 @@ public:
         if (status.ok()) {
           std::cout << "GetTagSets rpc succeeded." << std::endl;
           for (int i = 0; i < reply->tagsets_size(); i++) {
-            const OC::TagSet& tagset = reply->tagsets(i);
-            std::cout << "Id: " << tagset.id() << " Name: " << tagset.name() << std::endl;
+            const MADS::TagSet& tagset = reply->tagsets(i);
+            std::cout << "Id: " << tagset.id()
+                      << " Name: " << tagset.name()
+                      << " Description: " << tagset.description()
+                      << " Type: " << tagset.type() 
+                      << " AccessId: " << tagset.accessid() << std::endl;
           }
         } else {
           std::cout << "GetTagSets rpc failed." << std::endl;
@@ -43,32 +47,68 @@ public:
       } else if (input == "tagset") {
           int id;
           std::cin >> id;
-          OC::GetTagSetResponse *reply = new OC::GetTagSetResponse();
+          MADS::GetTagSetResponse *reply = new MADS::GetTagSetResponse();
 
-          OC::GetTagSetRequest request;
+          MADS::GetTagSetRequestById request;
           request.set_id(id);
 
           ClientContext context;
-          status = stub_->getTagSet(&context, request, reply);
+          status = stub_->getTagSetById(&context, request, reply);
 
           if (status.ok())
-            std::cout << "Received: "
-                      << reply->tagset().id() << ", " << reply->tagset().name()
-                      << std::endl;
-      } else if (input == "tags") {
-        OC::GetTagsRequest request; 
+            if (status.ok())
+              std::cout << "Received TagSet: "
+                        << reply->tagset().id() << ", "
+                        << reply->tagset().name() << ", "
+                        << reply->tagset().description() << ", "
+                        << reply->tagset().type() << ", "
+                        << reply->tagset().accessid() <<  std::endl;
+      } else if (input == "newtagset") {
+        std::string name;
+        std::cin >> name;
 
-        OC::GetTagsResponse *reply = new OC::GetTagsResponse();
+        std::string type;
+        std::cin >> type;
+
+        MADS::CreateTagSetRequest request;
+        request.set_name(name);
+        request.set_description("description");
+
+        MADS::CreateTagSetResponse *reply = new MADS::CreateTagSetResponse();
+        ClientContext context;
+
+        if (type == "Date")
+          request.set_type(MADS::TagSetType::DATE);
+        else if (type == "Time")
+          request.set_type(MADS::TagSetType::TIME);
+        else if (type == "Numerical")
+          request.set_type(MADS::TagSetType::NUMERICAL);
+        else if (type == "RGB")
+          request.set_type(MADS::TagSetType::RGB);
+        else // including Alphanumerical
+          request.set_type(MADS::TagSetType::ALPHANUMERICAL);
+        status = stub_->createTagSet(&context, request, reply);
+
+        if (status.ok())
+          std::cout << "Received TagSet: "
+                    << reply->tagset().id() << ", "
+                    << reply->tagset().name() << ", "
+                    << reply->tagset().description() << ", "
+                    << reply->tagset().type() 
+                    << reply->tagset().accessid() <<  std::endl;
+      } else if (input == "tags") {
+        MADS::GetTagsRequest request; 
+
+        MADS::GetTagsResponse *reply = new MADS::GetTagsResponse();
 
         ClientContext context;
         status = stub_->getTags(&context, request, reply);
 
-
         if (status.ok()) {
           std::cout << "GetTagSets rpc succeeded." << std::endl;
           for (int i = 0; i < reply->tags_size(); i++) {
-            const OC::Tag& tag = reply->tags(i);
-            std::cout << "Id: " << tag.id() << " Name: " << tag.name() << std::endl;
+            const MADS::Tag& tag = reply->tags(i);
+            std::cout << "Id: " << tag.id() << std::endl;
           }
         } else {
           std::cout << "GetTagSets rpc failed." << std::endl;
@@ -77,10 +117,10 @@ public:
         int id;
         std::cin >> id;
 
-        OC::GetTagRequest request;
+        MADS::GetTagRequest request;
         request.set_id(id);
 
-        OC::GetTagResponse *reply = new OC::GetTagResponse();
+        MADS::GetTagResponse *reply = new MADS::GetTagResponse();
         ClientContext context;
         status = stub_->getTag(&context, request, reply);
 
@@ -88,27 +128,46 @@ public:
           std::cout << "Received: "
                     << reply->tag().id() << ", " << reply->tag().tagsetid()
                     << std::endl;
-      } else if (input == "newtag") {
+      } else if (input == "object") {
+        int id;
+        std::cin >> id;
+
+        MADS::GetObjectRequest request;
+        request.set_id(id);
+
+        MADS::GetObjectResponse *reply = new MADS::GetObjectResponse();
+        ClientContext context;
+        status = stub_->getObject(&context, request, reply);
+
+        if (status.ok())
+          std::cout << "Received Object: "
+                    << reply->object().id() << ", "
+                    << reply->object().uri() << ", "
+                    << reply->object().thumbnail() << ", "
+                    << reply->object().filetype() <<  std::endl;
+      } else if (input == "newobject") {
         std::string name;
         std::cin >> name;
 
-        OC::PutTagRequest request;
-        request.set_tagsetid(1);
-        request.set_name(name);
+        MADS::CreateObjectRequest request;
+        request.set_uri(name);
+        request.set_filetype("filetype");
 
-        OC::PutTagResponse *reply = new OC::PutTagResponse();
+        MADS::CreateObjectResponse *reply = new MADS::CreateObjectResponse();
         ClientContext context;
-        status = stub_->putTag(&context, request, reply);
+        status = stub_->createObject(&context, request, reply);
 
         if (status.ok())
-          std::cout << "Received: "
-                    << reply->tag().id() << ", " << reply->tag().tagsetid()
-                    << std::endl;
+          std::cout << "Received Object: "
+                    << reply->object().id() << ", "
+                    << reply->object().uri() << ", "
+                    << reply->object().thumbnail() << ", "
+                    << reply->object().filetype() <<  std::endl;
       } else if (input == "reconnect") {
         std::cout << "Not yet implemented" << std::endl;
       } else if (input == "stop") {
-        OC::Empty request;
-        OC::Empty *reply = new OC::Empty();
+        MADS::Empty request;
+        MADS::Empty *reply = new MADS::Empty();
         ClientContext context;
         status = stub_->stopService(&context, request, reply);
         return;
@@ -128,12 +187,12 @@ public:
   }
 
 private:
-  std::unique_ptr<OCService::Stub> stub_;
+  std::unique_ptr<MADS_Service::Stub> stub_;
 };
 
 int main(int argc, char** argv) {
   std::string target_str = "localhost:26026";
-  OCTestClient tester(grpc::CreateChannel(target_str, grpc::InsecureChannelCredentials()));
+  MADSTestClient tester(grpc::CreateChannel(target_str, grpc::InsecureChannelCredentials()));
 
   tester.runCommands();
   return 0;

@@ -37,7 +37,7 @@ ObjectDataAccess* ObjectPostgreSQL::fetch( int id )
 	setThumbnail ( resultsHandle[0][2].as<string>() );
 	setFileType ( resultsHandle[0][3].as<string>() );
 	setTagInfo( fetchTagInfo_( getId() ) );
-	DebugInfo::getDebugInfo()->output( "ObjectMonetDB", "fetch(id)", "Done" );
+	DebugInfo::getDebugInfo()->output( "ObjectPostgreSQL", "fetch(id)", "Done" );
 
 	return this;
 }
@@ -62,7 +62,7 @@ ObjectDataAccess* ObjectPostgreSQL::fetch( const string& qualifiedName )
 		setTagInfo( fetchTagInfo_( getId() ) );
 	}
 	
-	DebugInfo::getDebugInfo()->output( "ObjectMonetDB", "fetch(name)", "Done" );
+	DebugInfo::getDebugInfo()->output( "ObjectPostgreSQL", "fetch(name)", "Done" );
 
 	return this;
 }
