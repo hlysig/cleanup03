@@ -17,7 +17,7 @@ update-proto-cli:
 
 core:
 	mkdir -p build
-	cd build; cmake ..; make
+	cd build; cmake -DCMAKE_PREFIX_PATH=${GRPC_INSTALL_DIR} ..; make
 
 update-proto-core:
 	./scripts/update-core-proto.sh
