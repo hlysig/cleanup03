@@ -13,14 +13,9 @@ set -euo pipefail
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 PROTO_DIR="$SCRIPT_DIR/../src/proto"
 
-cd "$SCRIPT_DIR"
+cd $PROTO_DIR
+"$HOME/.local/bin"/protoc -I . --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` MADS.proto
+"$HOME/.local/bin"/protoc -I . --cpp_out=. MADS.proto
 
-function main {
-  cd $PROTO_DIR
-  protoc -I . --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` MADS.proto
-  protoc -I . --cpp_out=. MADS.proto
-}
-
-main $@;
 
 

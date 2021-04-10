@@ -17,16 +17,16 @@ update-proto-cli:
 
 core:
 	mkdir -p build
-	cd build; cmake ..; make
+	cd build; cmake -DCMAKE_PREFIX_PATH=${GRPC_INSTALL_DIR} ..; make
 
 update-proto-core:
 	./scripts/update-core-proto.sh
 
-base-build-image:
-	docker build -t hlysig/mads-grpc-builder:version1.0 -f containers/Dockerfile_base .
+build-image:
+	docker build -t hlysig/mads-grpc-builder:2.0.0 -f containers/Dockerfile_base .
 
 push-build-image:
-	docker push hlysig/mads-grpc-builder:version1.0
+	docker push hlysig/mads-grpc-builder:2.0.0
 
 database-image:
 	docker build -t ocdb -f database/Dockerfile ./database
