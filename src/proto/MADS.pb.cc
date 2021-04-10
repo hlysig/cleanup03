@@ -99,11 +99,6 @@ class RGBValueDefaultTypeInternal {
 class TagDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Tag> _instance;
-  const ::MADS::AlphanumericalValue* alphanumerical_;
-  const ::MADS::NumericalValue* numerical_;
-  const ::MADS::DateValue* date_;
-  const ::MADS::TimeValue* time_;
-  const ::MADS::RGBValue* rgb_;
 } _Tag_default_instance_;
 class GetTagsRequestDefaultTypeInternal {
  public:
@@ -124,11 +119,6 @@ class GetTagResponseDefaultTypeInternal {
 class CreateTagRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CreateTagRequest> _instance;
-  const ::MADS::AlphanumericalValue* alphanumerical_;
-  const ::MADS::NumericalValue* numerical_;
-  const ::MADS::DateValue* date_;
-  const ::MADS::TimeValue* time_;
-  const ::MADS::RGBValue* rgb_;
 } _CreateTagRequest_default_instance_;
 class CreateTagResponseDefaultTypeInternal {
  public:
@@ -175,7 +165,6 @@ static void InitDefaultsscc_info_AlphanumericalValue_MADS_2eproto() {
     new (ptr) ::MADS::AlphanumericalValue();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::AlphanumericalValue::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AlphanumericalValue_MADS_2eproto =
@@ -189,7 +178,6 @@ static void InitDefaultsscc_info_CreateObjectRequest_MADS_2eproto() {
     new (ptr) ::MADS::CreateObjectRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::CreateObjectRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CreateObjectRequest_MADS_2eproto =
@@ -203,7 +191,6 @@ static void InitDefaultsscc_info_CreateObjectResponse_MADS_2eproto() {
     new (ptr) ::MADS::CreateObjectResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::CreateObjectResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CreateObjectResponse_MADS_2eproto =
@@ -218,7 +205,6 @@ static void InitDefaultsscc_info_CreateTagRequest_MADS_2eproto() {
     new (ptr) ::MADS::CreateTagRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::CreateTagRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_CreateTagRequest_MADS_2eproto =
@@ -237,7 +223,6 @@ static void InitDefaultsscc_info_CreateTagResponse_MADS_2eproto() {
     new (ptr) ::MADS::CreateTagResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::CreateTagResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CreateTagResponse_MADS_2eproto =
@@ -252,7 +237,6 @@ static void InitDefaultsscc_info_CreateTagSetRequest_MADS_2eproto() {
     new (ptr) ::MADS::CreateTagSetRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::CreateTagSetRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CreateTagSetRequest_MADS_2eproto =
@@ -266,7 +250,6 @@ static void InitDefaultsscc_info_CreateTagSetResponse_MADS_2eproto() {
     new (ptr) ::MADS::CreateTagSetResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::CreateTagSetResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CreateTagSetResponse_MADS_2eproto =
@@ -281,7 +264,6 @@ static void InitDefaultsscc_info_CreateTaggingRequest_MADS_2eproto() {
     new (ptr) ::MADS::CreateTaggingRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::CreateTaggingRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CreateTaggingRequest_MADS_2eproto =
@@ -295,7 +277,6 @@ static void InitDefaultsscc_info_CreateTaggingResponse_MADS_2eproto() {
     new (ptr) ::MADS::CreateTaggingResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::CreateTaggingResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CreateTaggingResponse_MADS_2eproto =
@@ -310,7 +291,6 @@ static void InitDefaultsscc_info_DateValue_MADS_2eproto() {
     new (ptr) ::MADS::DateValue();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::DateValue::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DateValue_MADS_2eproto =
@@ -324,7 +304,6 @@ static void InitDefaultsscc_info_Empty_MADS_2eproto() {
     new (ptr) ::MADS::Empty();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::Empty::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Empty_MADS_2eproto =
@@ -338,7 +317,6 @@ static void InitDefaultsscc_info_GetObjectRequest_MADS_2eproto() {
     new (ptr) ::MADS::GetObjectRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetObjectRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetObjectRequest_MADS_2eproto =
@@ -352,7 +330,6 @@ static void InitDefaultsscc_info_GetObjectResponse_MADS_2eproto() {
     new (ptr) ::MADS::GetObjectResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetObjectResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetObjectResponse_MADS_2eproto =
@@ -367,7 +344,6 @@ static void InitDefaultsscc_info_GetTagRequest_MADS_2eproto() {
     new (ptr) ::MADS::GetTagRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetTagRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetTagRequest_MADS_2eproto =
@@ -381,7 +357,6 @@ static void InitDefaultsscc_info_GetTagResponse_MADS_2eproto() {
     new (ptr) ::MADS::GetTagResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetTagResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetTagResponse_MADS_2eproto =
@@ -396,7 +371,6 @@ static void InitDefaultsscc_info_GetTagSetRequestById_MADS_2eproto() {
     new (ptr) ::MADS::GetTagSetRequestById();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetTagSetRequestById::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetTagSetRequestById_MADS_2eproto =
@@ -410,7 +384,6 @@ static void InitDefaultsscc_info_GetTagSetRequestByName_MADS_2eproto() {
     new (ptr) ::MADS::GetTagSetRequestByName();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetTagSetRequestByName::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetTagSetRequestByName_MADS_2eproto =
@@ -424,7 +397,6 @@ static void InitDefaultsscc_info_GetTagSetResponse_MADS_2eproto() {
     new (ptr) ::MADS::GetTagSetResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetTagSetResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetTagSetResponse_MADS_2eproto =
@@ -439,7 +411,6 @@ static void InitDefaultsscc_info_GetTagSetsRequest_MADS_2eproto() {
     new (ptr) ::MADS::GetTagSetsRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetTagSetsRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetTagSetsRequest_MADS_2eproto =
@@ -453,7 +424,6 @@ static void InitDefaultsscc_info_GetTagSetsResponse_MADS_2eproto() {
     new (ptr) ::MADS::GetTagSetsResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetTagSetsResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetTagSetsResponse_MADS_2eproto =
@@ -468,7 +438,6 @@ static void InitDefaultsscc_info_GetTaggingRequest_MADS_2eproto() {
     new (ptr) ::MADS::GetTaggingRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetTaggingRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetTaggingRequest_MADS_2eproto =
@@ -482,7 +451,6 @@ static void InitDefaultsscc_info_GetTaggingResponse_MADS_2eproto() {
     new (ptr) ::MADS::GetTaggingResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetTaggingResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetTaggingResponse_MADS_2eproto =
@@ -497,7 +465,6 @@ static void InitDefaultsscc_info_GetTaggingsRequest_MADS_2eproto() {
     new (ptr) ::MADS::GetTaggingsRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetTaggingsRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetTaggingsRequest_MADS_2eproto =
@@ -511,7 +478,6 @@ static void InitDefaultsscc_info_GetTaggingsResponse_MADS_2eproto() {
     new (ptr) ::MADS::GetTaggingsResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetTaggingsResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetTaggingsResponse_MADS_2eproto =
@@ -526,7 +492,6 @@ static void InitDefaultsscc_info_GetTagsRequest_MADS_2eproto() {
     new (ptr) ::MADS::GetTagsRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetTagsRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetTagsRequest_MADS_2eproto =
@@ -540,7 +505,6 @@ static void InitDefaultsscc_info_GetTagsResponse_MADS_2eproto() {
     new (ptr) ::MADS::GetTagsResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::GetTagsResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetTagsResponse_MADS_2eproto =
@@ -555,7 +519,6 @@ static void InitDefaultsscc_info_NumericalValue_MADS_2eproto() {
     new (ptr) ::MADS::NumericalValue();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::NumericalValue::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_NumericalValue_MADS_2eproto =
@@ -569,7 +532,6 @@ static void InitDefaultsscc_info_Object_MADS_2eproto() {
     new (ptr) ::MADS::Object();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::Object::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Object_MADS_2eproto =
@@ -583,7 +545,6 @@ static void InitDefaultsscc_info_RGBValue_MADS_2eproto() {
     new (ptr) ::MADS::RGBValue();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::RGBValue::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RGBValue_MADS_2eproto =
@@ -597,7 +558,6 @@ static void InitDefaultsscc_info_Tag_MADS_2eproto() {
     new (ptr) ::MADS::Tag();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::Tag::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_Tag_MADS_2eproto =
@@ -616,7 +576,6 @@ static void InitDefaultsscc_info_TagSet_MADS_2eproto() {
     new (ptr) ::MADS::TagSet();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::TagSet::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TagSet_MADS_2eproto =
@@ -630,7 +589,6 @@ static void InitDefaultsscc_info_Tagging_MADS_2eproto() {
     new (ptr) ::MADS::Tagging();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::Tagging::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Tagging_MADS_2eproto =
@@ -644,7 +602,6 @@ static void InitDefaultsscc_info_TimeValue_MADS_2eproto() {
     new (ptr) ::MADS::TimeValue();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MADS::TimeValue::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TimeValue_MADS_2eproto =
@@ -782,11 +739,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_MADS_2eproto::offsets[] PROTOB
   PROTOBUF_FIELD_OFFSET(::MADS::Tag, id_),
   PROTOBUF_FIELD_OFFSET(::MADS::Tag, tagsetid_),
   PROTOBUF_FIELD_OFFSET(::MADS::Tag, typeid__),
-  offsetof(::MADS::TagDefaultTypeInternal, alphanumerical_),
-  offsetof(::MADS::TagDefaultTypeInternal, numerical_),
-  offsetof(::MADS::TagDefaultTypeInternal, date_),
-  offsetof(::MADS::TagDefaultTypeInternal, time_),
-  offsetof(::MADS::TagDefaultTypeInternal, rgb_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::MADS::Tag, value_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::MADS::GetTagsRequest, _internal_metadata_),
@@ -817,11 +774,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_MADS_2eproto::offsets[] PROTOB
   PROTOBUF_FIELD_OFFSET(::MADS::CreateTagRequest, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::MADS::CreateTagRequest, tagsetid_),
-  offsetof(::MADS::CreateTagRequestDefaultTypeInternal, alphanumerical_),
-  offsetof(::MADS::CreateTagRequestDefaultTypeInternal, numerical_),
-  offsetof(::MADS::CreateTagRequestDefaultTypeInternal, date_),
-  offsetof(::MADS::CreateTagRequestDefaultTypeInternal, time_),
-  offsetof(::MADS::CreateTagRequestDefaultTypeInternal, rgb_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::MADS::CreateTagRequest, value_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::MADS::CreateTagResponse, _internal_metadata_),
@@ -1098,8 +1055,6 @@ bool TagSetType_IsValid(int value) {
 
 // ===================================================================
 
-void Object::InitAsDefaultInstance() {
-}
 class Object::_Internal {
  public:
 };
@@ -1115,17 +1070,17 @@ Object::Object(const Object& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   uri_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_uri().empty()) {
-    uri_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_uri(),
+    uri_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_uri(), 
       GetArena());
   }
   thumbnail_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_thumbnail().empty()) {
-    thumbnail_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_thumbnail(),
+    thumbnail_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_thumbnail(), 
       GetArena());
   }
   filetype_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_filetype().empty()) {
-    filetype_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_filetype(),
+    filetype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_filetype(), 
       GetArena());
   }
   id_ = from.id_;
@@ -1174,16 +1129,15 @@ void Object::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  uri_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  thumbnail_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  filetype_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  uri_.ClearToEmpty();
+  thumbnail_.ClearToEmpty();
+  filetype_.ClearToEmpty();
   id_ = PROTOBUF_LONGLONG(0);
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* Object::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1410,8 +1364,6 @@ void Object::InternalSwap(Object* other) {
 
 // ===================================================================
 
-void GetObjectRequest::InitAsDefaultInstance() {
-}
 class GetObjectRequest::_Internal {
  public:
 };
@@ -1470,7 +1422,6 @@ void GetObjectRequest::Clear() {
 
 const char* GetObjectRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1607,10 +1558,6 @@ void GetObjectRequest::InternalSwap(GetObjectRequest* other) {
 
 // ===================================================================
 
-void GetObjectResponse::InitAsDefaultInstance() {
-  ::MADS::_GetObjectResponse_default_instance_._instance.get_mutable()->object_ = const_cast< ::MADS::Object*>(
-      ::MADS::Object::internal_default_instance());
-}
 class GetObjectResponse::_Internal {
  public:
   static const ::MADS::Object& object(const GetObjectResponse* msg);
@@ -1683,7 +1630,6 @@ void GetObjectResponse::Clear() {
 
 const char* GetObjectResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1822,8 +1768,6 @@ void GetObjectResponse::InternalSwap(GetObjectResponse* other) {
 
 // ===================================================================
 
-void CreateObjectRequest::InitAsDefaultInstance() {
-}
 class CreateObjectRequest::_Internal {
  public:
 };
@@ -1839,12 +1783,12 @@ CreateObjectRequest::CreateObjectRequest(const CreateObjectRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   uri_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_uri().empty()) {
-    uri_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_uri(),
+    uri_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_uri(), 
       GetArena());
   }
   filetype_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_filetype().empty()) {
-    filetype_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_filetype(),
+    filetype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_filetype(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:MADS.CreateObjectRequest)
@@ -1889,14 +1833,13 @@ void CreateObjectRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  uri_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  filetype_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  uri_.ClearToEmpty();
+  filetype_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* CreateObjectRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2069,10 +2012,6 @@ void CreateObjectRequest::InternalSwap(CreateObjectRequest* other) {
 
 // ===================================================================
 
-void CreateObjectResponse::InitAsDefaultInstance() {
-  ::MADS::_CreateObjectResponse_default_instance_._instance.get_mutable()->object_ = const_cast< ::MADS::Object*>(
-      ::MADS::Object::internal_default_instance());
-}
 class CreateObjectResponse::_Internal {
  public:
   static const ::MADS::Object& object(const CreateObjectResponse* msg);
@@ -2145,7 +2084,6 @@ void CreateObjectResponse::Clear() {
 
 const char* CreateObjectResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2284,8 +2222,6 @@ void CreateObjectResponse::InternalSwap(CreateObjectResponse* other) {
 
 // ===================================================================
 
-void TagSet::InitAsDefaultInstance() {
-}
 class TagSet::_Internal {
  public:
 };
@@ -2301,12 +2237,12 @@ TagSet::TagSet(const TagSet& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_description().empty()) {
-    description_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_description(),
+    description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_description(), 
       GetArena());
   }
   ::memcpy(&id_, &from.id_,
@@ -2319,8 +2255,9 @@ void TagSet::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_TagSet_MADS_2eproto.base);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&type_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&type_) -
       reinterpret_cast<char*>(&id_)) + sizeof(type_));
 }
 
@@ -2357,8 +2294,8 @@ void TagSet::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  description_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  description_.ClearToEmpty();
   ::memset(&id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&type_) -
       reinterpret_cast<char*>(&id_)) + sizeof(type_));
@@ -2367,7 +2304,6 @@ void TagSet::Clear() {
 
 const char* TagSet::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2616,8 +2552,6 @@ void TagSet::InternalSwap(TagSet* other) {
 
 // ===================================================================
 
-void GetTagSetsRequest::InitAsDefaultInstance() {
-}
 class GetTagSetsRequest::_Internal {
  public:
 };
@@ -2673,7 +2607,6 @@ void GetTagSetsRequest::Clear() {
 
 const char* GetTagSetsRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2781,8 +2714,6 @@ void GetTagSetsRequest::InternalSwap(GetTagSetsRequest* other) {
 
 // ===================================================================
 
-void GetTagSetsResponse::InitAsDefaultInstance() {
-}
 class GetTagSetsResponse::_Internal {
  public:
 };
@@ -2842,7 +2773,6 @@ void GetTagSetsResponse::Clear() {
 
 const char* GetTagSetsResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2984,8 +2914,6 @@ void GetTagSetsResponse::InternalSwap(GetTagSetsResponse* other) {
 
 // ===================================================================
 
-void GetTagSetRequestById::InitAsDefaultInstance() {
-}
 class GetTagSetRequestById::_Internal {
  public:
 };
@@ -3044,7 +2972,6 @@ void GetTagSetRequestById::Clear() {
 
 const char* GetTagSetRequestById::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3181,8 +3108,6 @@ void GetTagSetRequestById::InternalSwap(GetTagSetRequestById* other) {
 
 // ===================================================================
 
-void GetTagSetRequestByName::InitAsDefaultInstance() {
-}
 class GetTagSetRequestByName::_Internal {
  public:
 };
@@ -3198,7 +3123,7 @@ GetTagSetRequestByName::GetTagSetRequestByName(const GetTagSetRequestByName& fro
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:MADS.GetTagSetRequestByName)
@@ -3241,13 +3166,12 @@ void GetTagSetRequestByName::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* GetTagSetRequestByName::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3390,10 +3314,6 @@ void GetTagSetRequestByName::InternalSwap(GetTagSetRequestByName* other) {
 
 // ===================================================================
 
-void GetTagSetResponse::InitAsDefaultInstance() {
-  ::MADS::_GetTagSetResponse_default_instance_._instance.get_mutable()->tagset_ = const_cast< ::MADS::TagSet*>(
-      ::MADS::TagSet::internal_default_instance());
-}
 class GetTagSetResponse::_Internal {
  public:
   static const ::MADS::TagSet& tagset(const GetTagSetResponse* msg);
@@ -3466,7 +3386,6 @@ void GetTagSetResponse::Clear() {
 
 const char* GetTagSetResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3605,8 +3524,6 @@ void GetTagSetResponse::InternalSwap(GetTagSetResponse* other) {
 
 // ===================================================================
 
-void CreateTagSetRequest::InitAsDefaultInstance() {
-}
 class CreateTagSetRequest::_Internal {
  public:
 };
@@ -3622,12 +3539,12 @@ CreateTagSetRequest::CreateTagSetRequest(const CreateTagSetRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_description().empty()) {
-    description_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_description(),
+    description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_description(), 
       GetArena());
   }
   type_ = from.type_;
@@ -3674,15 +3591,14 @@ void CreateTagSetRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  description_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  description_.ClearToEmpty();
   type_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* CreateTagSetRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3880,10 +3796,6 @@ void CreateTagSetRequest::InternalSwap(CreateTagSetRequest* other) {
 
 // ===================================================================
 
-void CreateTagSetResponse::InitAsDefaultInstance() {
-  ::MADS::_CreateTagSetResponse_default_instance_._instance.get_mutable()->tagset_ = const_cast< ::MADS::TagSet*>(
-      ::MADS::TagSet::internal_default_instance());
-}
 class CreateTagSetResponse::_Internal {
  public:
   static const ::MADS::TagSet& tagset(const CreateTagSetResponse* msg);
@@ -3956,7 +3868,6 @@ void CreateTagSetResponse::Clear() {
 
 const char* CreateTagSetResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4095,8 +4006,6 @@ void CreateTagSetResponse::InternalSwap(CreateTagSetResponse* other) {
 
 // ===================================================================
 
-void AlphanumericalValue::InitAsDefaultInstance() {
-}
 class AlphanumericalValue::_Internal {
  public:
 };
@@ -4112,7 +4021,7 @@ AlphanumericalValue::AlphanumericalValue(const AlphanumericalValue& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_value().empty()) {
-    value_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_value(),
+    value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_value(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:MADS.AlphanumericalValue)
@@ -4155,13 +4064,12 @@ void AlphanumericalValue::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  value_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  value_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* AlphanumericalValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4304,8 +4212,6 @@ void AlphanumericalValue::InternalSwap(AlphanumericalValue* other) {
 
 // ===================================================================
 
-void NumericalValue::InitAsDefaultInstance() {
-}
 class NumericalValue::_Internal {
  public:
 };
@@ -4321,7 +4227,7 @@ NumericalValue::NumericalValue(const NumericalValue& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_value().empty()) {
-    value_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_value(),
+    value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_value(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:MADS.NumericalValue)
@@ -4364,13 +4270,12 @@ void NumericalValue::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  value_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  value_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* NumericalValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4513,8 +4418,6 @@ void NumericalValue::InternalSwap(NumericalValue* other) {
 
 // ===================================================================
 
-void DateValue::InitAsDefaultInstance() {
-}
 class DateValue::_Internal {
  public:
 };
@@ -4530,7 +4433,7 @@ DateValue::DateValue(const DateValue& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_value().empty()) {
-    value_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_value(),
+    value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_value(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:MADS.DateValue)
@@ -4573,13 +4476,12 @@ void DateValue::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  value_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  value_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* DateValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4722,8 +4624,6 @@ void DateValue::InternalSwap(DateValue* other) {
 
 // ===================================================================
 
-void TimeValue::InitAsDefaultInstance() {
-}
 class TimeValue::_Internal {
  public:
 };
@@ -4739,7 +4639,7 @@ TimeValue::TimeValue(const TimeValue& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_value().empty()) {
-    value_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_value(),
+    value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_value(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:MADS.TimeValue)
@@ -4782,13 +4682,12 @@ void TimeValue::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  value_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  value_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* TimeValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4931,8 +4830,6 @@ void TimeValue::InternalSwap(TimeValue* other) {
 
 // ===================================================================
 
-void RGBValue::InitAsDefaultInstance() {
-}
 class RGBValue::_Internal {
  public:
 };
@@ -4953,8 +4850,9 @@ RGBValue::RGBValue(const RGBValue& from)
 }
 
 void RGBValue::SharedCtor() {
-  ::memset(&red_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&blue_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&red_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&blue_) -
       reinterpret_cast<char*>(&red_)) + sizeof(blue_));
 }
 
@@ -4997,7 +4895,6 @@ void RGBValue::Clear() {
 
 const char* RGBValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -5185,18 +5082,6 @@ void RGBValue::InternalSwap(RGBValue* other) {
 
 // ===================================================================
 
-void Tag::InitAsDefaultInstance() {
-  ::MADS::_Tag_default_instance_.alphanumerical_ = const_cast< ::MADS::AlphanumericalValue*>(
-      ::MADS::AlphanumericalValue::internal_default_instance());
-  ::MADS::_Tag_default_instance_.numerical_ = const_cast< ::MADS::NumericalValue*>(
-      ::MADS::NumericalValue::internal_default_instance());
-  ::MADS::_Tag_default_instance_.date_ = const_cast< ::MADS::DateValue*>(
-      ::MADS::DateValue::internal_default_instance());
-  ::MADS::_Tag_default_instance_.time_ = const_cast< ::MADS::TimeValue*>(
-      ::MADS::TimeValue::internal_default_instance());
-  ::MADS::_Tag_default_instance_.rgb_ = const_cast< ::MADS::RGBValue*>(
-      ::MADS::RGBValue::internal_default_instance());
-}
 class Tag::_Internal {
  public:
   static const ::MADS::AlphanumericalValue& alphanumerical(const Tag* msg);
@@ -5344,8 +5229,9 @@ Tag::Tag(const Tag& from)
 
 void Tag::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Tag_MADS_2eproto.base);
-  ::memset(&id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&typeid__) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&typeid__) -
       reinterpret_cast<char*>(&id_)) + sizeof(typeid__));
   clear_has_value();
 }
@@ -5434,7 +5320,6 @@ void Tag::Clear() {
 
 const char* Tag::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -5764,8 +5649,6 @@ void Tag::InternalSwap(Tag* other) {
 
 // ===================================================================
 
-void GetTagsRequest::InitAsDefaultInstance() {
-}
 class GetTagsRequest::_Internal {
  public:
 };
@@ -5821,7 +5704,6 @@ void GetTagsRequest::Clear() {
 
 const char* GetTagsRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -5929,8 +5811,6 @@ void GetTagsRequest::InternalSwap(GetTagsRequest* other) {
 
 // ===================================================================
 
-void GetTagsResponse::InitAsDefaultInstance() {
-}
 class GetTagsResponse::_Internal {
  public:
 };
@@ -5990,7 +5870,6 @@ void GetTagsResponse::Clear() {
 
 const char* GetTagsResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -6132,8 +6011,6 @@ void GetTagsResponse::InternalSwap(GetTagsResponse* other) {
 
 // ===================================================================
 
-void GetTagRequest::InitAsDefaultInstance() {
-}
 class GetTagRequest::_Internal {
  public:
 };
@@ -6192,7 +6069,6 @@ void GetTagRequest::Clear() {
 
 const char* GetTagRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -6329,10 +6205,6 @@ void GetTagRequest::InternalSwap(GetTagRequest* other) {
 
 // ===================================================================
 
-void GetTagResponse::InitAsDefaultInstance() {
-  ::MADS::_GetTagResponse_default_instance_._instance.get_mutable()->tag_ = const_cast< ::MADS::Tag*>(
-      ::MADS::Tag::internal_default_instance());
-}
 class GetTagResponse::_Internal {
  public:
   static const ::MADS::Tag& tag(const GetTagResponse* msg);
@@ -6405,7 +6277,6 @@ void GetTagResponse::Clear() {
 
 const char* GetTagResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -6544,18 +6415,6 @@ void GetTagResponse::InternalSwap(GetTagResponse* other) {
 
 // ===================================================================
 
-void CreateTagRequest::InitAsDefaultInstance() {
-  ::MADS::_CreateTagRequest_default_instance_.alphanumerical_ = const_cast< ::MADS::AlphanumericalValue*>(
-      ::MADS::AlphanumericalValue::internal_default_instance());
-  ::MADS::_CreateTagRequest_default_instance_.numerical_ = const_cast< ::MADS::NumericalValue*>(
-      ::MADS::NumericalValue::internal_default_instance());
-  ::MADS::_CreateTagRequest_default_instance_.date_ = const_cast< ::MADS::DateValue*>(
-      ::MADS::DateValue::internal_default_instance());
-  ::MADS::_CreateTagRequest_default_instance_.time_ = const_cast< ::MADS::TimeValue*>(
-      ::MADS::TimeValue::internal_default_instance());
-  ::MADS::_CreateTagRequest_default_instance_.rgb_ = const_cast< ::MADS::RGBValue*>(
-      ::MADS::RGBValue::internal_default_instance());
-}
 class CreateTagRequest::_Internal {
  public:
   static const ::MADS::AlphanumericalValue& alphanumerical(const CreateTagRequest* msg);
@@ -6787,7 +6646,6 @@ void CreateTagRequest::Clear() {
 
 const char* CreateTagRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -7066,10 +6924,6 @@ void CreateTagRequest::InternalSwap(CreateTagRequest* other) {
 
 // ===================================================================
 
-void CreateTagResponse::InitAsDefaultInstance() {
-  ::MADS::_CreateTagResponse_default_instance_._instance.get_mutable()->tag_ = const_cast< ::MADS::Tag*>(
-      ::MADS::Tag::internal_default_instance());
-}
 class CreateTagResponse::_Internal {
  public:
   static const ::MADS::Tag& tag(const CreateTagResponse* msg);
@@ -7142,7 +6996,6 @@ void CreateTagResponse::Clear() {
 
 const char* CreateTagResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -7281,8 +7134,6 @@ void CreateTagResponse::InternalSwap(CreateTagResponse* other) {
 
 // ===================================================================
 
-void Tagging::InitAsDefaultInstance() {
-}
 class Tagging::_Internal {
  public:
 };
@@ -7303,8 +7154,9 @@ Tagging::Tagging(const Tagging& from)
 }
 
 void Tagging::SharedCtor() {
-  ::memset(&tagid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&objectid_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&tagid_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&objectid_) -
       reinterpret_cast<char*>(&tagid_)) + sizeof(objectid_));
 }
 
@@ -7347,7 +7199,6 @@ void Tagging::Clear() {
 
 const char* Tagging::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -7512,8 +7363,6 @@ void Tagging::InternalSwap(Tagging* other) {
 
 // ===================================================================
 
-void GetTaggingsRequest::InitAsDefaultInstance() {
-}
 class GetTaggingsRequest::_Internal {
  public:
 };
@@ -7572,7 +7421,6 @@ void GetTaggingsRequest::Clear() {
 
 const char* GetTaggingsRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -7709,8 +7557,6 @@ void GetTaggingsRequest::InternalSwap(GetTaggingsRequest* other) {
 
 // ===================================================================
 
-void GetTaggingsResponse::InitAsDefaultInstance() {
-}
 class GetTaggingsResponse::_Internal {
  public:
 };
@@ -7770,7 +7616,6 @@ void GetTaggingsResponse::Clear() {
 
 const char* GetTaggingsResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -7912,8 +7757,6 @@ void GetTaggingsResponse::InternalSwap(GetTaggingsResponse* other) {
 
 // ===================================================================
 
-void GetTaggingRequest::InitAsDefaultInstance() {
-}
 class GetTaggingRequest::_Internal {
  public:
 };
@@ -7934,8 +7777,9 @@ GetTaggingRequest::GetTaggingRequest(const GetTaggingRequest& from)
 }
 
 void GetTaggingRequest::SharedCtor() {
-  ::memset(&tagid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&objectid_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&tagid_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&objectid_) -
       reinterpret_cast<char*>(&tagid_)) + sizeof(objectid_));
 }
 
@@ -7978,7 +7822,6 @@ void GetTaggingRequest::Clear() {
 
 const char* GetTaggingRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -8143,10 +7986,6 @@ void GetTaggingRequest::InternalSwap(GetTaggingRequest* other) {
 
 // ===================================================================
 
-void GetTaggingResponse::InitAsDefaultInstance() {
-  ::MADS::_GetTaggingResponse_default_instance_._instance.get_mutable()->tagging_ = const_cast< ::MADS::Tagging*>(
-      ::MADS::Tagging::internal_default_instance());
-}
 class GetTaggingResponse::_Internal {
  public:
   static const ::MADS::Tagging& tagging(const GetTaggingResponse* msg);
@@ -8219,7 +8058,6 @@ void GetTaggingResponse::Clear() {
 
 const char* GetTaggingResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -8358,8 +8196,6 @@ void GetTaggingResponse::InternalSwap(GetTaggingResponse* other) {
 
 // ===================================================================
 
-void CreateTaggingRequest::InitAsDefaultInstance() {
-}
 class CreateTaggingRequest::_Internal {
  public:
 };
@@ -8380,8 +8216,9 @@ CreateTaggingRequest::CreateTaggingRequest(const CreateTaggingRequest& from)
 }
 
 void CreateTaggingRequest::SharedCtor() {
-  ::memset(&tagid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&objectid_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&tagid_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&objectid_) -
       reinterpret_cast<char*>(&tagid_)) + sizeof(objectid_));
 }
 
@@ -8424,7 +8261,6 @@ void CreateTaggingRequest::Clear() {
 
 const char* CreateTaggingRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -8589,10 +8425,6 @@ void CreateTaggingRequest::InternalSwap(CreateTaggingRequest* other) {
 
 // ===================================================================
 
-void CreateTaggingResponse::InitAsDefaultInstance() {
-  ::MADS::_CreateTaggingResponse_default_instance_._instance.get_mutable()->tagging_ = const_cast< ::MADS::Tagging*>(
-      ::MADS::Tagging::internal_default_instance());
-}
 class CreateTaggingResponse::_Internal {
  public:
   static const ::MADS::Tagging& tagging(const CreateTaggingResponse* msg);
@@ -8665,7 +8497,6 @@ void CreateTaggingResponse::Clear() {
 
 const char* CreateTaggingResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -8804,8 +8635,6 @@ void CreateTaggingResponse::InternalSwap(CreateTaggingResponse* other) {
 
 // ===================================================================
 
-void Empty::InitAsDefaultInstance() {
-}
 class Empty::_Internal {
  public:
 };
@@ -8861,7 +8690,6 @@ void Empty::Clear() {
 
 const char* Empty::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);

@@ -62,19 +62,19 @@ MADS_Service::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chann
   {}
 
 ::grpc::Status MADS_Service::Stub::getObject(::grpc::ClientContext* context, const ::MADS::GetObjectRequest& request, ::MADS::GetObjectResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getObject_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::GetObjectRequest, ::MADS::GetObjectResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_getObject_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::getObject(::grpc::ClientContext* context, const ::MADS::GetObjectRequest* request, ::MADS::GetObjectResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getObject_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::GetObjectRequest, ::MADS::GetObjectResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getObject_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::getObject(::grpc::ClientContext* context, const ::MADS::GetObjectRequest* request, ::MADS::GetObjectResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getObject_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getObject_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetObjectResponse>* MADS_Service::Stub::PrepareAsyncgetObjectRaw(::grpc::ClientContext* context, const ::MADS::GetObjectRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::GetObjectResponse>::Create(channel_.get(), cq, rpcmethod_getObject_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::GetObjectResponse, ::MADS::GetObjectRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_getObject_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetObjectResponse>* MADS_Service::Stub::AsyncgetObjectRaw(::grpc::ClientContext* context, const ::MADS::GetObjectRequest& request, ::grpc::CompletionQueue* cq) {
@@ -85,19 +85,19 @@ void MADS_Service::Stub::experimental_async::getObject(::grpc::ClientContext* co
 }
 
 ::grpc::Status MADS_Service::Stub::createObject(::grpc::ClientContext* context, const ::MADS::CreateObjectRequest& request, ::MADS::CreateObjectResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_createObject_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::CreateObjectRequest, ::MADS::CreateObjectResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_createObject_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::createObject(::grpc::ClientContext* context, const ::MADS::CreateObjectRequest* request, ::MADS::CreateObjectResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_createObject_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::CreateObjectRequest, ::MADS::CreateObjectResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_createObject_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::createObject(::grpc::ClientContext* context, const ::MADS::CreateObjectRequest* request, ::MADS::CreateObjectResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_createObject_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_createObject_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::CreateObjectResponse>* MADS_Service::Stub::PrepareAsynccreateObjectRaw(::grpc::ClientContext* context, const ::MADS::CreateObjectRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::CreateObjectResponse>::Create(channel_.get(), cq, rpcmethod_createObject_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::CreateObjectResponse, ::MADS::CreateObjectRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_createObject_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::CreateObjectResponse>* MADS_Service::Stub::AsynccreateObjectRaw(::grpc::ClientContext* context, const ::MADS::CreateObjectRequest& request, ::grpc::CompletionQueue* cq) {
@@ -108,19 +108,19 @@ void MADS_Service::Stub::experimental_async::createObject(::grpc::ClientContext*
 }
 
 ::grpc::Status MADS_Service::Stub::getTagSets(::grpc::ClientContext* context, const ::MADS::GetTagSetsRequest& request, ::MADS::GetTagSetsResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTagSets_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::GetTagSetsRequest, ::MADS::GetTagSetsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_getTagSets_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::getTagSets(::grpc::ClientContext* context, const ::MADS::GetTagSetsRequest* request, ::MADS::GetTagSetsResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getTagSets_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::GetTagSetsRequest, ::MADS::GetTagSetsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTagSets_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::getTagSets(::grpc::ClientContext* context, const ::MADS::GetTagSetsRequest* request, ::MADS::GetTagSetsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getTagSets_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTagSets_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetsResponse>* MADS_Service::Stub::PrepareAsyncgetTagSetsRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetsRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::GetTagSetsResponse>::Create(channel_.get(), cq, rpcmethod_getTagSets_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::GetTagSetsResponse, ::MADS::GetTagSetsRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_getTagSets_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetsResponse>* MADS_Service::Stub::AsyncgetTagSetsRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetsRequest& request, ::grpc::CompletionQueue* cq) {
@@ -131,19 +131,19 @@ void MADS_Service::Stub::experimental_async::getTagSets(::grpc::ClientContext* c
 }
 
 ::grpc::Status MADS_Service::Stub::getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::MADS::GetTagSetResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTagSetById_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::GetTagSetRequestById, ::MADS::GetTagSetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_getTagSetById_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById* request, ::MADS::GetTagSetResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getTagSetById_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::GetTagSetRequestById, ::MADS::GetTagSetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTagSetById_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::getTagSetById(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById* request, ::MADS::GetTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getTagSetById_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTagSetById_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* MADS_Service::Stub::PrepareAsyncgetTagSetByIdRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::GetTagSetResponse>::Create(channel_.get(), cq, rpcmethod_getTagSetById_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::GetTagSetResponse, ::MADS::GetTagSetRequestById, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_getTagSetById_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* MADS_Service::Stub::AsyncgetTagSetByIdRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestById& request, ::grpc::CompletionQueue* cq) {
@@ -154,19 +154,19 @@ void MADS_Service::Stub::experimental_async::getTagSetById(::grpc::ClientContext
 }
 
 ::grpc::Status MADS_Service::Stub::getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::MADS::GetTagSetResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTagSetByName_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::GetTagSetRequestByName, ::MADS::GetTagSetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_getTagSetByName_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName* request, ::MADS::GetTagSetResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getTagSetByName_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::GetTagSetRequestByName, ::MADS::GetTagSetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTagSetByName_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::getTagSetByName(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName* request, ::MADS::GetTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getTagSetByName_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTagSetByName_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* MADS_Service::Stub::PrepareAsyncgetTagSetByNameRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::GetTagSetResponse>::Create(channel_.get(), cq, rpcmethod_getTagSetByName_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::GetTagSetResponse, ::MADS::GetTagSetRequestByName, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_getTagSetByName_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTagSetResponse>* MADS_Service::Stub::AsyncgetTagSetByNameRaw(::grpc::ClientContext* context, const ::MADS::GetTagSetRequestByName& request, ::grpc::CompletionQueue* cq) {
@@ -177,19 +177,19 @@ void MADS_Service::Stub::experimental_async::getTagSetByName(::grpc::ClientConte
 }
 
 ::grpc::Status MADS_Service::Stub::createTagSet(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest& request, ::MADS::CreateTagSetResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_createTagSet_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::CreateTagSetRequest, ::MADS::CreateTagSetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_createTagSet_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::createTagSet(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest* request, ::MADS::CreateTagSetResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_createTagSet_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::CreateTagSetRequest, ::MADS::CreateTagSetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_createTagSet_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::createTagSet(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest* request, ::MADS::CreateTagSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_createTagSet_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_createTagSet_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::CreateTagSetResponse>* MADS_Service::Stub::PrepareAsynccreateTagSetRaw(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::CreateTagSetResponse>::Create(channel_.get(), cq, rpcmethod_createTagSet_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::CreateTagSetResponse, ::MADS::CreateTagSetRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_createTagSet_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::CreateTagSetResponse>* MADS_Service::Stub::AsynccreateTagSetRaw(::grpc::ClientContext* context, const ::MADS::CreateTagSetRequest& request, ::grpc::CompletionQueue* cq) {
@@ -200,19 +200,19 @@ void MADS_Service::Stub::experimental_async::createTagSet(::grpc::ClientContext*
 }
 
 ::grpc::Status MADS_Service::Stub::getTags(::grpc::ClientContext* context, const ::MADS::GetTagsRequest& request, ::MADS::GetTagsResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTags_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::GetTagsRequest, ::MADS::GetTagsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_getTags_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::getTags(::grpc::ClientContext* context, const ::MADS::GetTagsRequest* request, ::MADS::GetTagsResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getTags_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::GetTagsRequest, ::MADS::GetTagsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTags_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::getTags(::grpc::ClientContext* context, const ::MADS::GetTagsRequest* request, ::MADS::GetTagsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getTags_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTags_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTagsResponse>* MADS_Service::Stub::PrepareAsyncgetTagsRaw(::grpc::ClientContext* context, const ::MADS::GetTagsRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::GetTagsResponse>::Create(channel_.get(), cq, rpcmethod_getTags_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::GetTagsResponse, ::MADS::GetTagsRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_getTags_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTagsResponse>* MADS_Service::Stub::AsyncgetTagsRaw(::grpc::ClientContext* context, const ::MADS::GetTagsRequest& request, ::grpc::CompletionQueue* cq) {
@@ -223,19 +223,19 @@ void MADS_Service::Stub::experimental_async::getTags(::grpc::ClientContext* cont
 }
 
 ::grpc::Status MADS_Service::Stub::getTag(::grpc::ClientContext* context, const ::MADS::GetTagRequest& request, ::MADS::GetTagResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTag_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::GetTagRequest, ::MADS::GetTagResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_getTag_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::getTag(::grpc::ClientContext* context, const ::MADS::GetTagRequest* request, ::MADS::GetTagResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getTag_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::GetTagRequest, ::MADS::GetTagResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTag_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::getTag(::grpc::ClientContext* context, const ::MADS::GetTagRequest* request, ::MADS::GetTagResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getTag_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTag_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTagResponse>* MADS_Service::Stub::PrepareAsyncgetTagRaw(::grpc::ClientContext* context, const ::MADS::GetTagRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::GetTagResponse>::Create(channel_.get(), cq, rpcmethod_getTag_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::GetTagResponse, ::MADS::GetTagRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_getTag_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTagResponse>* MADS_Service::Stub::AsyncgetTagRaw(::grpc::ClientContext* context, const ::MADS::GetTagRequest& request, ::grpc::CompletionQueue* cq) {
@@ -246,19 +246,19 @@ void MADS_Service::Stub::experimental_async::getTag(::grpc::ClientContext* conte
 }
 
 ::grpc::Status MADS_Service::Stub::createOrGetTag(::grpc::ClientContext* context, const ::MADS::CreateTagRequest& request, ::MADS::CreateTagResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_createOrGetTag_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::CreateTagRequest, ::MADS::CreateTagResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_createOrGetTag_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::createOrGetTag(::grpc::ClientContext* context, const ::MADS::CreateTagRequest* request, ::MADS::CreateTagResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_createOrGetTag_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::CreateTagRequest, ::MADS::CreateTagResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_createOrGetTag_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::createOrGetTag(::grpc::ClientContext* context, const ::MADS::CreateTagRequest* request, ::MADS::CreateTagResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_createOrGetTag_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_createOrGetTag_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::CreateTagResponse>* MADS_Service::Stub::PrepareAsynccreateOrGetTagRaw(::grpc::ClientContext* context, const ::MADS::CreateTagRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::CreateTagResponse>::Create(channel_.get(), cq, rpcmethod_createOrGetTag_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::CreateTagResponse, ::MADS::CreateTagRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_createOrGetTag_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::CreateTagResponse>* MADS_Service::Stub::AsynccreateOrGetTagRaw(::grpc::ClientContext* context, const ::MADS::CreateTagRequest& request, ::grpc::CompletionQueue* cq) {
@@ -269,19 +269,19 @@ void MADS_Service::Stub::experimental_async::createOrGetTag(::grpc::ClientContex
 }
 
 ::grpc::Status MADS_Service::Stub::getTaggings(::grpc::ClientContext* context, const ::MADS::GetTaggingsRequest& request, ::MADS::GetTaggingsResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTaggings_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::GetTaggingsRequest, ::MADS::GetTaggingsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_getTaggings_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::getTaggings(::grpc::ClientContext* context, const ::MADS::GetTaggingsRequest* request, ::MADS::GetTaggingsResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getTaggings_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::GetTaggingsRequest, ::MADS::GetTaggingsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTaggings_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::getTaggings(::grpc::ClientContext* context, const ::MADS::GetTaggingsRequest* request, ::MADS::GetTaggingsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getTaggings_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTaggings_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTaggingsResponse>* MADS_Service::Stub::PrepareAsyncgetTaggingsRaw(::grpc::ClientContext* context, const ::MADS::GetTaggingsRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::GetTaggingsResponse>::Create(channel_.get(), cq, rpcmethod_getTaggings_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::GetTaggingsResponse, ::MADS::GetTaggingsRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_getTaggings_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTaggingsResponse>* MADS_Service::Stub::AsyncgetTaggingsRaw(::grpc::ClientContext* context, const ::MADS::GetTaggingsRequest& request, ::grpc::CompletionQueue* cq) {
@@ -292,19 +292,19 @@ void MADS_Service::Stub::experimental_async::getTaggings(::grpc::ClientContext* 
 }
 
 ::grpc::Status MADS_Service::Stub::getTagging(::grpc::ClientContext* context, const ::MADS::GetTaggingRequest& request, ::MADS::GetTaggingResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_getTagging_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::GetTaggingRequest, ::MADS::GetTaggingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_getTagging_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::getTagging(::grpc::ClientContext* context, const ::MADS::GetTaggingRequest* request, ::MADS::GetTaggingResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_getTagging_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::GetTaggingRequest, ::MADS::GetTaggingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTagging_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::getTagging(::grpc::ClientContext* context, const ::MADS::GetTaggingRequest* request, ::MADS::GetTaggingResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_getTagging_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getTagging_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTaggingResponse>* MADS_Service::Stub::PrepareAsyncgetTaggingRaw(::grpc::ClientContext* context, const ::MADS::GetTaggingRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::GetTaggingResponse>::Create(channel_.get(), cq, rpcmethod_getTagging_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::GetTaggingResponse, ::MADS::GetTaggingRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_getTagging_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::GetTaggingResponse>* MADS_Service::Stub::AsyncgetTaggingRaw(::grpc::ClientContext* context, const ::MADS::GetTaggingRequest& request, ::grpc::CompletionQueue* cq) {
@@ -315,19 +315,19 @@ void MADS_Service::Stub::experimental_async::getTagging(::grpc::ClientContext* c
 }
 
 ::grpc::Status MADS_Service::Stub::createTagging(::grpc::ClientContext* context, const ::MADS::CreateTaggingRequest& request, ::MADS::CreateTaggingResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_createTagging_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::CreateTaggingRequest, ::MADS::CreateTaggingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_createTagging_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::createTagging(::grpc::ClientContext* context, const ::MADS::CreateTaggingRequest* request, ::MADS::CreateTaggingResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_createTagging_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::CreateTaggingRequest, ::MADS::CreateTaggingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_createTagging_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::createTagging(::grpc::ClientContext* context, const ::MADS::CreateTaggingRequest* request, ::MADS::CreateTaggingResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_createTagging_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_createTagging_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::CreateTaggingResponse>* MADS_Service::Stub::PrepareAsynccreateTaggingRaw(::grpc::ClientContext* context, const ::MADS::CreateTaggingRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::CreateTaggingResponse>::Create(channel_.get(), cq, rpcmethod_createTagging_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::CreateTaggingResponse, ::MADS::CreateTaggingRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_createTagging_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::CreateTaggingResponse>* MADS_Service::Stub::AsynccreateTaggingRaw(::grpc::ClientContext* context, const ::MADS::CreateTaggingRequest& request, ::grpc::CompletionQueue* cq) {
@@ -338,19 +338,19 @@ void MADS_Service::Stub::experimental_async::createTagging(::grpc::ClientContext
 }
 
 ::grpc::Status MADS_Service::Stub::reConnectDB(::grpc::ClientContext* context, const ::MADS::Empty& request, ::MADS::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_reConnectDB_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::Empty, ::MADS::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_reConnectDB_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::reConnectDB(::grpc::ClientContext* context, const ::MADS::Empty* request, ::MADS::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_reConnectDB_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::Empty, ::MADS::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_reConnectDB_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::reConnectDB(::grpc::ClientContext* context, const ::MADS::Empty* request, ::MADS::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_reConnectDB_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_reConnectDB_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::Empty>* MADS_Service::Stub::PrepareAsyncreConnectDBRaw(::grpc::ClientContext* context, const ::MADS::Empty& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::Empty>::Create(channel_.get(), cq, rpcmethod_reConnectDB_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::Empty, ::MADS::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_reConnectDB_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::Empty>* MADS_Service::Stub::AsyncreConnectDBRaw(::grpc::ClientContext* context, const ::MADS::Empty& request, ::grpc::CompletionQueue* cq) {
@@ -361,19 +361,19 @@ void MADS_Service::Stub::experimental_async::reConnectDB(::grpc::ClientContext* 
 }
 
 ::grpc::Status MADS_Service::Stub::stopService(::grpc::ClientContext* context, const ::MADS::Empty& request, ::MADS::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_stopService_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::MADS::Empty, ::MADS::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_stopService_, context, request, response);
 }
 
 void MADS_Service::Stub::experimental_async::stopService(::grpc::ClientContext* context, const ::MADS::Empty* request, ::MADS::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_stopService_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::MADS::Empty, ::MADS::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_stopService_, context, request, response, std::move(f));
 }
 
 void MADS_Service::Stub::experimental_async::stopService(::grpc::ClientContext* context, const ::MADS::Empty* request, ::MADS::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_stopService_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_stopService_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::Empty>* MADS_Service::Stub::PrepareAsyncstopServiceRaw(::grpc::ClientContext* context, const ::MADS::Empty& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::MADS::Empty>::Create(channel_.get(), cq, rpcmethod_stopService_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::MADS::Empty, ::MADS::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_stopService_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::MADS::Empty>* MADS_Service::Stub::AsyncstopServiceRaw(::grpc::ClientContext* context, const ::MADS::Empty& request, ::grpc::CompletionQueue* cq) {
@@ -387,7 +387,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetObjectRequest, ::MADS::GetObjectResponse>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetObjectRequest, ::MADS::GetObjectResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::GetObjectRequest* req,
@@ -397,7 +397,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::CreateObjectRequest, ::MADS::CreateObjectResponse>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::CreateObjectRequest, ::MADS::CreateObjectResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::CreateObjectRequest* req,
@@ -407,7 +407,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagSetsRequest, ::MADS::GetTagSetsResponse>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagSetsRequest, ::MADS::GetTagSetsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::GetTagSetsRequest* req,
@@ -417,7 +417,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagSetRequestById, ::MADS::GetTagSetResponse>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagSetRequestById, ::MADS::GetTagSetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::GetTagSetRequestById* req,
@@ -427,7 +427,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagSetRequestByName, ::MADS::GetTagSetResponse>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagSetRequestByName, ::MADS::GetTagSetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::GetTagSetRequestByName* req,
@@ -437,7 +437,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::CreateTagSetRequest, ::MADS::CreateTagSetResponse>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::CreateTagSetRequest, ::MADS::CreateTagSetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::CreateTagSetRequest* req,
@@ -447,7 +447,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagsRequest, ::MADS::GetTagsResponse>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagsRequest, ::MADS::GetTagsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::GetTagsRequest* req,
@@ -457,7 +457,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[7],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagRequest, ::MADS::GetTagResponse>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTagRequest, ::MADS::GetTagResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::GetTagRequest* req,
@@ -467,7 +467,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[8],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::CreateTagRequest, ::MADS::CreateTagResponse>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::CreateTagRequest, ::MADS::CreateTagResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::CreateTagRequest* req,
@@ -477,7 +477,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[9],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTaggingsRequest, ::MADS::GetTaggingsResponse>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTaggingsRequest, ::MADS::GetTaggingsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::GetTaggingsRequest* req,
@@ -487,7 +487,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[10],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTaggingRequest, ::MADS::GetTaggingResponse>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::GetTaggingRequest, ::MADS::GetTaggingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::GetTaggingRequest* req,
@@ -497,7 +497,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[11],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::CreateTaggingRequest, ::MADS::CreateTaggingResponse>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::CreateTaggingRequest, ::MADS::CreateTaggingResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::CreateTaggingRequest* req,
@@ -507,7 +507,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[12],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::Empty, ::MADS::Empty>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::Empty, ::MADS::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::Empty* req,
@@ -517,7 +517,7 @@ MADS_Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MADS_Service_method_names[13],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::Empty, ::MADS::Empty>(
+      new ::grpc::internal::RpcMethodHandler< MADS_Service::Service, ::MADS::Empty, ::MADS::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](MADS_Service::Service* service,
              ::grpc::ServerContext* ctx,
              const ::MADS::Empty* req,
