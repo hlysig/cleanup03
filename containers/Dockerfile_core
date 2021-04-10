@@ -1,4 +1,4 @@
-FROM hlysig/mads-grpc-builder:version1.0
+FROM hlysig/mads-grpc-builder:2.0.0
 
 WORKDIR /objectcube
 

@@ -1,6 +1,5 @@
 FROM ubuntu:20.04
 
-
 RUN apt-get update && apt-get upgrade -y
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
 
@@ -19,7 +18,7 @@ RUN apt-get install -y cmake \
 
 WORKDIR /tmp
 
-RUN git clone --recurse-submodules -b v1.34.0 https://github.com/grpc/grpc /var/local/git/grpc
+RUN git clone --recurse-submodules -b v1.35.0 https://github.com/grpc/grpc /var/local/git/grpc
 RUN mkdir -p /var/local/git/grpc/cmake/build
 RUN  cd /var/local/git/grpc/cmake/build && cmake -DgRPC_INSTALL=ON \
     -DgRPC_BUILD_TESTS=OFF \

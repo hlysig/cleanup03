@@ -22,11 +22,11 @@ core:
 update-proto-core:
 	./scripts/update-core-proto.sh
 
-base-build-image:
-	docker build -t hlysig/mads-grpc-builder:version1.0 -f containers/Dockerfile_base .
+build-image:
+	docker build -t hlysig/mads-grpc-builder:2.0.0 -f containers/Dockerfile_base .
 
 push-build-image:
-	docker push hlysig/mads-grpc-builder:version1.0
+	docker push hlysig/mads-grpc-builder:2.0.0
 
 database-image:
 	docker build -t ocdb -f database/Dockerfile ./database
